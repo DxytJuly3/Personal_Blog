@@ -280,7 +280,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > > 	A、B、C树的高度为 1, 在 C 树中插入新节点：
 > > >
 
-<div align=center> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203119573.png" width = 80%/> </div>
+<div align=center> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203119573.png" width = 67%/> </div>
 
 ![(虚线, 表示 也可以在此位置插入)](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203119573.png)
 
