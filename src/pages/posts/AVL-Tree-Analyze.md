@@ -33,7 +33,7 @@ AVL树 是最早被设计出来的平衡二叉搜索树
 >
 > 首先要明白 什么是节点的子树的高度差：
 >
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209052035064.png){:height="50%" width="50%"}
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209052035064.png#200x200)
 >
 > 以上面这棵二叉树为例：
 >
