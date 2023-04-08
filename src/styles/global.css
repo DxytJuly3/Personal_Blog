@@ -314,7 +314,7 @@ header{
   top: 0;
   left: 0;
   width: 100%;
-  min-width: 1024px;
+  min-width: 1280px;
   z-index: 9997;
   height: 3.05882rem;
   backdrop-filter: saturate(180%) blur(20px);
@@ -760,14 +760,14 @@ html.js .tile.large-loaded .image {
 .section-content {
   margin-left: auto;
   margin-right: auto;
-  width: 980px;
+  width: 1280px;
 }
 
 @media only screen and (min-width: 1441px) {
   .section-content {
     margin-left: auto;
     margin-right: auto;
-    width: 980px;
+    width: 1280px;
   }
 }
 
@@ -775,7 +775,7 @@ html.js .tile.large-loaded .image {
   .section-content {
     margin-left: auto;
     margin-right: auto;
-    width: 692px;
+    width: 1280px;
   }
 }
 
@@ -2460,7 +2460,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-2up-feature .tile__media {
-  width: 980px;
+  width: 1280px;
   height: 551px
 }
 
@@ -2478,7 +2478,7 @@ html.js .tile.large-loaded .image {
   }
 
   .tile.tile-2up-feature .tile__media {
-    width: 692px;
+    width: 1280px;
     height: 389px
   }
 }
@@ -3903,7 +3903,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 }
 
 .tile.tile-hero-highlight .tile__media {
-  width: 980px;
+  width: 1280px;
   height: 551px
 }
 
@@ -3921,7 +3921,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight .tile__media {
-    width: 692px;
+    width: 1280px;
     height: 389px
   }
 }
@@ -4047,7 +4047,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-secondary .tile__media {
-    width: 980px;
+    width: 1280px;
     height: 551px
   }
 }
@@ -4066,7 +4066,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-secondary .tile__media {
-    width: 692px;
+    width: 1280px;
     height: 389px
   }
 }
@@ -4348,7 +4348,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-secondary .tile__media {
-    width: 980px;
+    width: 1280px;
     height: 551px
   }
 }
@@ -4367,7 +4367,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-secondary .tile__media {
-    width: 692px;
+    width: 1280px;
     height: 389px
   }
 }
@@ -4627,7 +4627,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 }
 
 .tile.tile-hero-highlight-feature .tile__media {
-  width: 980px;
+  width: 1280px;
   height: 551px
 }
 
@@ -4645,7 +4645,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-feature .tile__media {
-    width: 692px;
+    width: 1280px;
     height: 389px
   }
 }
@@ -5362,7 +5362,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 .component {
   margin-left: auto;
   margin-right: auto;
-  width: 980px
+  width: 1280px
 }
 
 .component::before,
@@ -5379,7 +5379,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   .component {
     margin-left: auto;
     margin-right: auto;
-    width: 980px
+    width: 1280px
   }
 }
 
@@ -5387,7 +5387,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   .component {
     margin-left: auto;
     margin-right: auto;
-    width: 692px
+    width: 1280px
   }
 }
 
@@ -5657,12 +5657,12 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image-big .component-content {
-  width: 980px
+  width: 1280px
 }
 
 @media only screen and (max-width: 1280px) {
   .image-big .component-content {
-    width: 692px
+    width: 1280px
   }
 }
 
