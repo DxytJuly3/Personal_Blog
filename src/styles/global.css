@@ -137,7 +137,6 @@ body {
   font-size: 17px;
   line-height: 1.47059;
   font-weight: 400;
-  letter-spacing: -.022em;
   font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   background-color: #fff;
   color: #1d1d1f;
@@ -196,7 +195,7 @@ h2 .md-plain:after {
 h3 {
   font-size: 1.5rem;
   line-height: 1.43;
-  margin: 20px 0 7px;
+  margin: 10px 0 7px;
 }
 
 h4 {
