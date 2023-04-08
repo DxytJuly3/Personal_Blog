@@ -27,6 +27,7 @@ html {
 }
 
 body {
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   margin: 0;
   padding: 0
 }
@@ -65,7 +66,7 @@ caption,
 th,
 figcaption {
   font-size: .97em;
-  font-family: SF Mono, monaco, -apple-system, roboto mono, monospace;
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   font-weight: normal;
   font-style: normal
 }
@@ -7364,7 +7365,7 @@ ol>li {
 
 code {
   font-size: 1.05em;
-  font-style: oblique;
+  font-style: normal;
   font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   color: #434de0;
   background-color: #d8d0b8;
