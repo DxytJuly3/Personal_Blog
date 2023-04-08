@@ -997,7 +997,7 @@ html.js .tile.large-loaded .image {
   content: '';
   display: block;
   border-top: 1px solid #d2d2d7;
-  width: 653px;
+  width: 1280px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 44px
@@ -5641,7 +5641,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 .component-content {
   margin-left: auto;
   margin-right: auto;
-  width: 653px
+  width: 1280px
 }
 
 @media only screen and (max-width: 1280px) {
@@ -5673,7 +5673,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image-inline .component-content {
-  width: 653px
+  width: 1280px
 }
 
 @media only screen and (max-width: 1280px) {
@@ -5947,7 +5947,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image.body-copy-wide.image-fullbleed .image-description {
-  width: 653px;
+  width: 1280px;
   margin-left: auto;
   margin-right: auto
 }
