@@ -500,7 +500,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > >
 > > 左右双旋 处理的情况是这样的：
 > >
-> > ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204823511.png")
+> > ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204823511.png)
 > >
 > > 这种情况 是：
 > >

@@ -5657,7 +5657,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image-big .component-content {
-  width: 880px
+  width: 800px
 }
 
 @media only screen and (max-width: 1068px) {
@@ -5668,7 +5668,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 
 @media only screen and (max-width: 734px) {
   .image-big .component-content {
-    width: 100%
+    width: 80%
   }
 }
 
