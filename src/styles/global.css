@@ -83,6 +83,7 @@ th {
 }
 
 table {
+  left: 2;
   border-collapse: collapse;
   border-spacing: 0
 }
