@@ -55,6 +55,7 @@ legend,
 pre,
 abbr,
 button {
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   margin: 0;
   padding: 0
 }
@@ -126,7 +127,7 @@ button:disabled {
 }
 
 html {
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   font-size: 106.25%;
   quotes: "“" "”"
 }
@@ -136,7 +137,7 @@ body {
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -.022em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   background-color: #fff;
   color: #1d1d1f;
   font-style: normal
