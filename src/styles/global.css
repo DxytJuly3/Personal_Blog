@@ -145,7 +145,7 @@ body {
 
 .content-body {
   margin: 0 auto;
-  max-width: 980px;
+  max-width: 920px;
   padding: 0 22px;
 }
 
@@ -398,7 +398,7 @@ header {
 
 .nav-content-wrapper {
   margin: 0 auto;
-  max-width: 980px;
+  max-width: 920px;
   padding: 0 22px;
   position: relative;
   z-index: 2;
@@ -762,14 +762,14 @@ html.js .tile.large-loaded .image {
 .section-content {
   margin-left: auto;
   margin-right: auto;
-  width: 980px;
+  width: 920px;
 }
 
 @media only screen and (min-width: 1441px) {
   .section-content {
     margin-left: auto;
     margin-right: auto;
-    width: 980px;
+    width: 920px;
   }
 }
 
@@ -999,7 +999,7 @@ html.js .tile.large-loaded .image {
   content: '';
   display: block;
   border-top: 1px solid #d2d2d7;
-  width: 980px;
+  width: 920px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 44px
@@ -2462,7 +2462,7 @@ html.js .tile.large-loaded .image {
 }
 
 .tile.tile-2up-feature .tile__media {
-  width: 980px;
+  width: 920px;
   height: 551px
 }
 
@@ -3905,7 +3905,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 }
 
 .tile.tile-hero-highlight .tile__media {
-  width: 980px;
+  width: 920px;
   height: 551px
 }
 
@@ -4049,7 +4049,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-secondary .tile__media {
-    width: 980px;
+    width: 920px;
     height: 551px
   }
 }
@@ -4350,7 +4350,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 
   .tile.tile-hero-highlight-secondary .tile__media {
-    width: 980px;
+    width: 920px;
     height: 551px
   }
 }
@@ -4629,7 +4629,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
 }
 
 .tile.tile-hero-highlight-feature .tile__media {
-  width: 980px;
+  width: 920px;
   height: 551px
 }
 
@@ -5364,7 +5364,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 .component {
   margin-left: auto;
   margin-right: auto;
-  width: 980px
+  width: 920px
 }
 
 .component::before,
@@ -5381,7 +5381,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   .component {
     margin-left: auto;
     margin-right: auto;
-    width: 980px
+    width: 920px
   }
 }
 
@@ -5643,7 +5643,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 .component-content {
   margin-left: auto;
   margin-right: auto;
-  width: 980px
+  width: 920px
 }
 
 @media only screen and (max-width: 1068px) {
@@ -5949,7 +5949,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image.body-copy-wide.image-fullbleed .image-description {
-  width: 980px;
+  width: 920px;
   margin-left: auto;
   margin-right: auto
 }
