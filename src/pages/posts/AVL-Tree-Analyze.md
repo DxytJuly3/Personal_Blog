@@ -33,7 +33,7 @@ AVL树 是最早被设计出来的平衡二叉搜索树
 >
 > 首先要明白 什么是节点的子树的高度差：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209052035064.png" alt="image-20220905215307309 |inline" width="50%" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209052035064.png)
 >
 > 以上面这棵二叉树为例：
 >
@@ -74,7 +74,7 @@ AVL树的是一种三叉链结构，即 每个节点除左右孩子、数据之�
 
 所以 `AVL树 的节点结构` 可以设计为：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209052153361.png" alt="image-20220905215307309 |wide" width="67%"  />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209052153361.png)
 
 > 当然 在节点内存储平衡因子并不是必须的，也可以通过其他方法记录
 
@@ -151,18 +151,13 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > 2. 分析节点的子树高度差，并进行调整
 >
 > 插入之后, 存在不会失衡的情况
->
-> ![image-20230313201737882](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313201737882.png) `7 节点平衡因子, 从 1或-1 到 0`
->
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313201850541.png" alt="image-20230313201850541" style="zoom:80%;" />
-> `7 节点平衡因子 从 0 到 1或-1`
+![7 节点平衡因子, 从 1或-1 到 0](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313201737882.png)
+![7 节点平衡因子 从 0 到 1或-1](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313201850541.png)
 >
 > 当然也有 使树失去平衡的情况：
->
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202304687.png" alt="image-20230313202304687" style="zoom:80%;" /> `21节点 平衡因子从 1 到 2`
->
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202340833.png" alt="image-20230313202340833" style="zoom:80%;" /> `21节点 平衡因子从 -1 到 -2`
->
+![21节点 平衡因子从 1 到 2](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202304687.png)
+![21节点 平衡因子从 -1 到 -2](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202340833.png)
+> 
 > 其实 AVL树插入新节点之后, 一些节点的平衡因子一定会发生变化, 进而可能会对整棵树产生一定的影响
 >
 > 如果 因为插入新节点 导致某个节点的平衡因子的绝对值 >1, 那么就说明树不平衡了, 需要进行调整
@@ -176,7 +171,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 >
 > 对下面 这个稍微复杂的 刚插入一个新节点的 AVL树进行分析：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202436441.png" alt="image-20230313202436441" style="zoom:80%;" /> 黑色为未插入新节点的 AVL树, `绿、综、红表示在不同位置插入新节点`
+![黑色为未插入新节点的 AVL树, 绿、综、红表示在不同位置插入新节点](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202436441.png)
 >
 > 1. 如果在 绿色 位置插入, 则 `31节点平衡因子 由 0 变为 -1, 进而 22节点平衡因子由 -1 变为 0`, 不再向上影响, 停止更新
 > 2. 如果在 棕色 位置插入, 则 `46节点平衡因子 由 0 变为 -1, 进而 41节点平衡因子由 1 变为 2, 以 41节点为根的树失衡, 需要进行调节 保持平衡`
@@ -244,9 +239,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > ### `左单旋`
 > >
 > > 左单旋 处理的情况一般是这样的：
-> >
-> > ![image-20230313202638297](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202638297.png)
-> >
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202638297.png)
 > > **某 AVL树的根节点平衡因子为 1 (即此树右子树高度), 且又在此树的右子树中 插入新节点导致右子树高度再增加, 进而导致此树失衡**
 > >
 > > 此时, 需要 **`左单旋`** 操作 将此树调平
@@ -258,16 +251,15 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > > 1. `h = 0`
 > > >
 > > >   当 h = 0, 即说明 A、B、C树为空。此时 在 C 树中插入新节点 其实就是在 N节点的右孩子处 插入新节点
-> > >
-> > >   <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202758090.png" alt="image-20230313202758090" style="zoom:80%;" /> 
-> > >
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202758090.png)
 > > >   此时 树失衡, 需要 将树调平。根据 `右孩子大` 的特点, 假设 `M=10` `N=20` `X=30`
 > > >
 > > >   
 > > >
 > > >   要怎么调节才能将树变得平衡？
 > > >
-> > >   在此树中 很简单, 只需要将树的结构这样变化：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202857274.png" alt="image-20230313202857274" style="zoom:80%;" /> 三个节点都在, 且树平衡
+> > >   在此树中 很简单, 只需要将树的结构这样变化：
+![三个节点都在, 且树平衡](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202857274.png) 
 > > >
 > > >   好像只是 `将 N(20)节点 的 父亲节点(M(10)节点) 变成了, N节点 的 左孩子`
 > > >
@@ -275,13 +267,13 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > >
 > > > 	A、B、C树的高度为 1, 在 C 树中插入新节点：
 > > >
-> > > 	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203119573.png" alt="image-20230313203119573" style="zoom:80%;" /> `(虚线, 表示 也可以在此位置插入)` 
+![(虚线, 表示 也可以在此位置插入)](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203119573.png)
 > > >
 > > > 	树失衡, 需要调平。 此时又该怎么调整树的结构呢？
 > > >
 > > > 	其实也很简单, 将 60节点的左孩子 变成 40节点的右孩子, 再将 40节点 作为 60节点的左子树, 让 60节点变为树的根, 将树变为这样：
 > > >
-> > > 	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203159437.png" alt="image-20230313203159437" style="zoom:80%;" /> 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203159437.png)
 > > >
 > > > 	将 `60的左孩子变为其父亲节点的右孩子, 再将 60节点的父亲节点 变为 60节点的左孩子`
 > > >
@@ -291,8 +283,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > >
 > > >   `在分析 h = 1 时, 可以看到 新节点插入的位置 可以有两个, 那么 h = 2 时, 只会更多`
 > > >
-> > >   ![image-20230313203747704](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203747704.png)
-> > >   `(虚线, 表示 也可以在此位置插入)`
+![(虚线, 表示 也可以在此位置插入)](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203747704.png)
 > > >
 > > >   A、B 树各 3 种情况, C树只能是第3种高度为2的二叉树, 则新节点存在 4 个可插入位置, 所以 h = 2 时, 共有 `36` 种结构
 > > >
@@ -306,7 +297,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > >
 > > >   将 `40节点的左子树 变为 其父亲节点的右子树, 再将 40节点的父亲节点 变为 40节点的左子树`:
 > > >
-> > >   <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203600258.png" alt="image-20230313203600258" style="zoom:80%;" /> 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203600258.png)
 > > >
 > > >   树结构平衡
 > > >
@@ -321,18 +312,15 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > > 的这种情况, 其实可以用相同的方法解决
 > >
 > > 对比一下, h不同时 插入新节点 导致树失衡 再到 平衡的过程：
-> >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202857274.png" alt="image-20230313202857274" style="zoom:80%;" /> 
-> >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203159437.png" alt="image-20230313203159437" style="zoom:80%;" /> 
-> >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203600258.png" alt="image-20230313203600258" style="zoom:80%;" /> 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313202857274.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203159437.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203600258.png)
 > >
 > > 可以发现, 如果将 `平衡因子为2的节点 为 parent, 其右孩子节点 为 subR`, 则此类情况的调整平衡的具体操作 其实是：
 > >
 > > **`将subR的左孩子 变为 parent的右孩子, 再将 parent 变为 subR的左孩子`**
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204053412.png" alt="image-20230313204053412" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204053412.png)
 > >
 > > 执行此操作之后, 树的结构就平衡了, **`此操作也就是左单旋操作`**
 > >
@@ -425,7 +413,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > >
 > > `右单旋` 处理的情况一般是这样的:
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204538026.png" alt="image-20230313204538026" style="zoom:80%;" /> 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204538026.png)
 > >
 > > **`某 AVL树的根节点平衡因子为 -1 (即此树左子树高), 且又在此树的左子树中 插入新节点导致左子树高度再增加, 进而导致此树失衡`**
 > >
@@ -435,7 +423,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > >
 > > **`将subL的右孩子 变为 parent的左孩子, 再将 parent 变为 subL的右孩子`**
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204452542.png" alt="image-20230313204452542" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204452542.png)
 > >
 > > 此种方法 就是 `右单旋`, 对应的实现代码即为：
 > >
@@ -502,7 +490,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > >
 > > 左右双旋 处理的情况是这样的：
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204823511.png" alt="image-20230313204823511" style="zoom:80%;" /> 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204823511.png)
 > >
 > > 这种情况 是：
 > >
@@ -516,8 +504,8 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > > 	h = 0, 也就意味着 A、B、C、D 树 都为空, 并且 60节点 都应该为空。因为 B、C 树的高度是 h-1
 > > >
 > > > 	所以 h = 0 时的实例图 应该为：
-> > >
-> > > 	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204910566.png" alt="image-20230313204910566" style="zoom:80%;" /> 60节点 就是新插入的节点
+> > > 
+![60节点 就是新插入的节点](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204910566.png)
 > > >
 > > > 	此时应该怎么调整呢？
 > > >
@@ -531,13 +519,13 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > >
 > > > 	那么 就以 40节点为`parent`进行左单旋
 > > >
-> > > 	即 <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205051406.png" alt="image-20230313205051406" style="zoom:80%;" /> 
+![](ttps://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205051406.png)
 > > >
 > > > 	这样 就把树的结构调整为了 `左左` 的情况
 > > >
 > > > 	然后 以 80节点 为 `parent` 进行 `右单旋`：
 > > >
-> > > 	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205202716.png" alt="image-20230313205202716" style="zoom:80%;" /> 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205202716.png)
 > > >
 > > > 	树平衡
 > > >
@@ -545,7 +533,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > >
 > > > 	h = 1, A、D树 高度为 1, B、C树 高度为 0, 在 60节点左、右孩子插入新节点
 > > >
-> > > 	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205509787.png" alt="image-20230313205509787" style="zoom:80%;" /> `(虚线, 表示 也可以在此位置插入)`
+![(虚线, 表示 也可以在此位置插入)](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205509787.png)
 > > >
 > > > 	以80节点为根的树 失衡的情况是 `左右`
 > > >
@@ -559,13 +547,13 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > >
 > > > 	所以, 以 40节点为 `parent` 进行左单旋：
 > > >
-> > > 	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205650265.png" alt="image-20230313205650265" style="zoom:80%;" /> 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205650265.png)
 > > >
 > > > 	此时 以80节点为根的树 失衡的情况就变成了 `左左`
 > > >
 > > > 	就可以 以 80节点为 `parent` 进行`右单旋`
 > > >
-> > > 	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205713734.png" alt="image-20230313205713734" style="zoom:80%;" /> 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205713734.png) 
 > > >
 > > > 	树平衡
 > > >
@@ -573,7 +561,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > >
 > > > 	A、D树 高度为2, B、C树 高度为1，在B、C树插入新节点
 > > >
-> > > 	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205806979.png" alt="image-20230313205806979" style="zoom:80%;" /> `(虚线, 表示 也可以在此位置插入)`
+![(虚线, 表示 也可以在此位置插入)](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205806979.png)
 > > >
 > > > 	A、D树各 3 种情况, 新节点可能插入位置有 4 个, 所以此情况的结构一共有 `36` 种
 > > >
@@ -589,11 +577,11 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > >
 > > > 	进而 可以使 以 80节点为根的树的失衡情况变为 `“左左”`
 > > >
-> > > 	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205956389.png" alt="image-20230313205956389" style="zoom:80%;" /> 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205956389.png)
 > > >
 > > > 	然后就可以, 以 80节点为`parent` 执行`右单旋`操作
 > > >
-> > > 	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313210019865.png" alt="image-20230313210019865" style="zoom:80%;" /> 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313210019865.png)
 > > >
 > > > 	树平衡
 > > >
@@ -604,12 +592,9 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > > h 当然可以更大, 但是 方法都是相同的, 因为是同一种失衡情况：`“左右”`, `不平衡节点因为其 左孩子的右子树高 而不平衡`
 > >
 > > 对比 h 不同时, 此种失衡情况, 从失衡到平衡的调节 过程：
-> >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313210101534.png" alt="image-20230313210101534" style="zoom:80%;" /> 
-> >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313210115081.png" alt="image-20230313210115081" style="zoom:80%;" /> 
-> >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313210151607.png" alt="image-20230313210151607" style="zoom:80%;" /> 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313210101534.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313210115081.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313210151607.png)
 > >
 > > 可以看到, 插入新结点之后, 调节平衡的过程是：
 > >
@@ -676,7 +661,9 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > >
 > > `右左双旋` 处理的失衡情况 是这样的：
 > >
-> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313210221665.png" alt="image-20230313210221665" style="zoom:80%;" /> 
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313210221665.png)
+
 > >
 > > 对比 `左右双旋` 可以看出, `右左双旋` 解决的失衡情况是：
 > >
