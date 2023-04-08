@@ -74,7 +74,7 @@ AVL树的是一种三叉链结构，即 每个节点除左右孩子、数据之�
 
 所以 `AVL树 的节点结构` 可以设计为：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209052153361.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209052153361.png)
 
 > 当然 在节点内存储平衡因子并不是必须的，也可以通过其他方法记录
 
