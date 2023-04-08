@@ -802,7 +802,7 @@ html.js .tile.large-loaded .image {
   margin-bottom: 24px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .section-head {
     font-size: 28px;
     line-height: 1.14286;
@@ -819,7 +819,7 @@ html.js .tile.large-loaded .image {
   overflow: hidden
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .more-from-newsroom {
     padding-top: 14px;
     padding-bottom: 64px
@@ -837,7 +837,7 @@ html.js .tile.large-loaded .image {
   margin-bottom: 40px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .more-from-newsroom .section-head {
     margin-bottom: 28px
   }
@@ -863,7 +863,7 @@ html.js .tile.large-loaded .image {
   margin-top: 32px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .more-from-newsroom .section-tiles {
     margin-right: 0
   }
@@ -891,7 +891,7 @@ html.js .tile.large-loaded .image {
   flex-grow: 1
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .more-from-newsroom .tile-item {
     margin-right: 0;
     width: 100%;
@@ -908,7 +908,7 @@ html.js .tile.large-loaded .image {
   margin-top: 32px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .more-from-newsroom .tile-item::after {
     margin-top: 24px
   }
@@ -918,7 +918,7 @@ html.js .tile.large-loaded .image {
   width: calc(100% + (32px * 2))
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .more-from-newsroom .tile-item:nth-child(odd)::after {
     width: 100%
   }
@@ -946,7 +946,7 @@ html.js .tile.large-loaded .image {
   margin-top: 40px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .more-from-newsroom .view-archive-wrapper {
     margin-top: 28px
   }
@@ -1003,7 +1003,7 @@ html.js .tile.large-loaded .image {
   margin-top: 44px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .featured-header.with-keyline::after {
     width: 576px
   }
@@ -1015,7 +1015,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .featured-header.with-keyline::after {
     margin-top: 36px
   }
@@ -1060,7 +1060,7 @@ html.js .tile.large-loaded .image {
   width: 83.33333%
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .featured-header .pagetitle .component-content {
     width: 100%
   }
@@ -1126,7 +1126,7 @@ html.js .tile.large-loaded .image {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .featured-header .pagetitle .hero-headline {
     font-size: 48px;
     line-height: 1.08349;
@@ -1272,7 +1272,7 @@ html.js .tile.large-loaded .image {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .featured-header .featured-subhead {
     font-size: 21px;
     line-height: 1.19048;
@@ -1359,7 +1359,7 @@ html.js .tile.large-loaded .image {
   margin-top: 36px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
 
   .tile-item:first-child.item-1up~.tile-item,
   .tile-item:first-child.item-hero~.tile-item,
@@ -1375,7 +1375,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
 
   .tile-item:first-child.item-hero-secondary~ :nth-child(2),
   .tile-item:first-child.item-hero-highlight-secondary~ :nth-child(2),
@@ -1400,7 +1400,7 @@ html.js .tile.large-loaded .image {
   margin-top: 36px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
 
   .tile-item:first-child.item-2up~ :nth-child(2)~.tile-item,
   .tile-item:first-child.item-2up-feature~ :nth-child(2)~.tile-item {
@@ -1420,13 +1420,13 @@ html.js .tile.large-loaded .image {
   margin-top: 36px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile-item:first-child.item-3up~ :nth-child(3)~.tile-item {
     margin-top: 24px
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile-item:first-child.item-3up~ :nth-child(3) {
     margin-top: 24px
   }
@@ -1452,7 +1452,7 @@ html.js .tile.large-loaded .image {
   flex-basis: 100%
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .item-2up-tertiary {
     flex-basis: 100%
   }
@@ -1494,7 +1494,7 @@ html.js .tile.large-loaded .image {
   overflow: hidden
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .chiclet {
     width: 110px;
     height: 110px;
@@ -1575,7 +1575,7 @@ html.js .tile.large-loaded .image {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up .tile__headline {
     font-size: 19px;
     line-height: 1.21053;
@@ -1652,7 +1652,7 @@ html.js .tile.large-loaded .image {
   margin-top: 12px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up {
     flex-direction: column;
     width: 333px
@@ -1795,7 +1795,7 @@ html.js .tile.large-loaded .image {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-secondary .tile__headline {
     font-size: 19px;
     line-height: 1.21053;
@@ -1924,7 +1924,7 @@ html.js .tile.large-loaded .image {
   margin-top: 12px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-secondary {
     flex-direction: column;
     width: 333px
@@ -2065,7 +2065,7 @@ html.js .tile.large-loaded .image {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-tertiary .tile__headline {
     font-size: 21px;
     line-height: 1.19048;
@@ -2188,7 +2188,7 @@ html.js .tile.large-loaded .image {
   margin-top: 12px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-tertiary {
     flex-direction: row;
     width: 100%
@@ -2333,7 +2333,7 @@ html.js .tile.large-loaded .image {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-feature .tile__headline {
     font-size: 19px;
     line-height: 1.21053;
@@ -2420,7 +2420,7 @@ html.js .tile.large-loaded .image {
   padding-right: 16px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-feature .tile__description-has-controls .tile__description-content {
     flex: 1 calc(100% - 36px)
   }
@@ -2430,7 +2430,7 @@ html.js .tile.large-loaded .image {
   flex: 1 44px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-feature .tile__description-has-controls .autoplay-controls-container {
     flex: 1 36px
   }
@@ -2464,7 +2464,7 @@ html.js .tile.large-loaded .image {
   height: 551px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-feature .tile__category {
     margin-bottom: 8px
   }
@@ -2544,7 +2544,7 @@ html.js .tile.large-loaded .image {
   margin-top: 12px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-feature {
     flex-direction: column;
     width: 334px
@@ -2731,7 +2731,7 @@ html.js .tile.large-loaded .image {
   margin-top: 8px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-3up {
     flex-direction: column;
     width: 333px
@@ -2957,7 +2957,7 @@ html.js .tile.large-loaded .image {
   margin-top: 8px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-3up-secondary {
     flex-direction: column;
     width: 333px
@@ -3098,7 +3098,7 @@ html.js .tile.large-loaded .image {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero .tile__headline {
     font-size: 21px;
     line-height: 1.19048;
@@ -3221,7 +3221,7 @@ html.js .tile.large-loaded .image {
   margin-top: 12px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero {
     flex-direction: row;
     width: 100%
@@ -3384,7 +3384,7 @@ html.js .tile.large-loaded .image {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-reversed .tile__headline {
     font-size: 21px;
     line-height: 1.19048;
@@ -3507,7 +3507,7 @@ html.js .tile.large-loaded .image {
   margin-top: 12px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-reversed {
     flex-direction: row-reverse;
     width: 100%
@@ -3658,7 +3658,7 @@ html.js .tile.large-loaded .image {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
 
   .tile.tile-hero-highlight .tile__headline,
   .tile.tile-hero-highlight-secondary .tile__headline {
@@ -3787,7 +3787,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   transition: opacity 1s cubic-bezier(0.4, 0, 0.25, 1) 0ms
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
 
   html.js .tile.tile-hero-highlight.medium-load,
   html.js .tile.tile-hero-highlight-secondary.medium-load {
@@ -3863,7 +3863,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   padding-right: 16px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight .tile__description-has-controls .tile__description-content {
     flex: 1 calc(100% - 36px)
   }
@@ -3873,7 +3873,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   flex: 1 44px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight .tile__description-has-controls .autoplay-controls-container {
     flex: 1 36px
   }
@@ -3907,7 +3907,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   height: 551px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight .tile__category {
     margin-bottom: 8px
   }
@@ -4004,7 +4004,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (min-width: 1069px) and (max-width: 1068px) {
+@media only screen and (min-width: 1069px) and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .tile__description-has-controls .tile__description-content {
     flex: 1 calc(100% - 36px)
   }
@@ -4016,7 +4016,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (min-width: 1069px) and (max-width: 1068px) {
+@media only screen and (min-width: 1069px) and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .tile__description-has-controls .autoplay-controls-container {
     flex: 1 36px
   }
@@ -4052,7 +4052,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (min-width: 1069px) and (max-width: 1068px) {
+@media only screen and (min-width: 1069px) and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .tile__category {
     margin-bottom: 8px
   }
@@ -4101,7 +4101,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary {
     flex-direction: column;
     width: 333px
@@ -4187,7 +4187,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 1068px) and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .tile__headline {
     font-size: 19px;
     line-height: 1.21053;
@@ -4233,7 +4233,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .autoplay-controls-container {
     position: absolute;
     top: calc(187px - (36px + 16px))
@@ -4305,7 +4305,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 1280px) and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .tile__description-has-controls .tile__description-content {
     flex: 1 calc(100% - 36px)
   }
@@ -4317,7 +4317,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 1280px) and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .tile__description-has-controls .autoplay-controls-container {
     flex: 1 36px
   }
@@ -4353,7 +4353,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 1280px) and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .tile__category {
     margin-bottom: 8px
   }
@@ -4456,7 +4456,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight-feature .tile__headline {
     font-size: 28px;
     line-height: 1.14286;
@@ -4587,7 +4587,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   padding-right: 16px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight-feature .tile__description-has-controls .tile__description-content {
     flex: 1 calc(100% - 36px)
   }
@@ -4597,7 +4597,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   flex: 1 44px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight-feature .tile__description-has-controls .autoplay-controls-container {
     flex: 1 36px
   }
@@ -4631,7 +4631,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   height: 551px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight-feature .tile__category {
     margin-bottom: 8px
   }
@@ -4733,7 +4733,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-secondary .tile__headline {
     font-size: 19px;
     line-height: 1.21053;
@@ -4810,7 +4810,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   margin-top: 12px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-secondary {
     flex-direction: column;
     width: 333px
@@ -4952,7 +4952,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   text-align: center;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .view-archive-wrapper {
     margin-top: 28px
   }
@@ -5094,7 +5094,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   margin-top: 8px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-list {
     flex-direction: row;
     width: 631px
@@ -5260,7 +5260,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .pagetitle .hero-headline {
     font-size: 40px;
     line-height: 1.1;
@@ -5383,7 +5383,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .component {
     margin-left: auto;
     margin-right: auto;
@@ -5404,7 +5404,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   margin-bottom: 44px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .component {
     margin-top: 36px;
     margin-bottom: 36px
@@ -5473,7 +5473,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .pagebody {
     font-size: 17px;
     line-height: 1.47059;
@@ -5532,7 +5532,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   width: 291px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-media {
     width: 206px
   }
@@ -5550,7 +5550,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   margin-right: 36px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-media.left {
     margin-left: -10%;
     margin-right: 24px
@@ -5569,7 +5569,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   margin-left: 36px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-media.right {
     margin-right: -10%;
     margin-left: 24px
@@ -5644,7 +5644,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   width: 653px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .component-content {
     width: 576px
   }
@@ -5660,7 +5660,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   width: 980px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .image-big .component-content {
     width: 692px
   }
@@ -5676,7 +5676,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   width: 653px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .image-inline .component-content {
     width: 576px
   }
@@ -5804,7 +5804,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   font-family: "SF Pro TC", "SF Pro Text", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .image-description {
     margin-top: 12px
   }
@@ -5858,7 +5858,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .image-description .icon {
     font-size: 17px;
     line-height: 1.47059;
@@ -5952,7 +5952,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   margin-right: auto
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .image.body-copy-wide.image-fullbleed .image-description {
     width: 576px
   }
@@ -6053,7 +6053,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   margin-bottom: 44px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .image-grid-item {
     margin-bottom: 36px
   }
@@ -6181,7 +6181,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .datelocation-copy {
     font-size: 17px;
     line-height: 1.47059;
@@ -6494,7 +6494,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-header {
     font-size: 21px;
     line-height: 1.19048;
@@ -6540,7 +6540,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-header {
     margin-top: 48px
   }
@@ -6598,7 +6598,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-header--secondary {
     font-size: 32px;
     line-height: 1.125;
@@ -6688,7 +6688,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-header--secondary {
     margin-top: 48px;
     margin-bottom: 20px
@@ -6705,7 +6705,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   margin-top: 8px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-header:first-child {
     margin-top: 12px
   }
@@ -6779,7 +6779,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   display: block
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
 
   .category-eyebrow__category,
   .category-eyebrow__date {
@@ -6813,7 +6813,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   border-color: #86868b
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .landingtile-featured .category-eyebrow__category {
     font-size: 12px;
     line-height: 1.33337;
@@ -6974,7 +6974,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .article-subhead {
     font-size: 21px;
     line-height: 1.19048;
@@ -7020,7 +7020,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .article-subhead {
     margin-top: 16px
   }
@@ -7030,7 +7030,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   margin-top: 24px
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .article-subhead+.sharesheet {
     margin-top: 20px
   }
@@ -7041,7 +7041,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   margin-bottom: 3px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .article-subhead+.tagssheet {
     margin-top: 20px;
     margin-bottom: 3px;
@@ -7290,7 +7290,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .article-copyright .content {
     margin: 0 16px;
   }
@@ -7337,7 +7337,7 @@ span.tag-date {
   margin-right: 5px;
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .tag-header {
     font-size: 21px;
   }
