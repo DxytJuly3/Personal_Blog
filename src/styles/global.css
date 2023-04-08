@@ -7363,9 +7363,11 @@ ol>li {
 }
 
 code {
+  font-size: 1.05em;
+  font-style: oblique;
   font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   color: #434de0;
-  background-color: #fff2cc;
+  background-color: #d8d0b8;
   margin: 0px 0.25em;
 }
 
