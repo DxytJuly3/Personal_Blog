@@ -143,7 +143,7 @@ body {
 
 .content-body {
   margin: 0 auto;
-  max-width: 1280px;
+  max-width: 1680px;
   padding: 0 22px;
 }
 
@@ -357,7 +357,7 @@ header{
   color: #676b5f;
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .nav {
     height: 2.82353rem;
   }
@@ -372,13 +372,13 @@ header{
   }
 }
 
-@media only screen and (max-width: 1044px) {
+@media only screen and (max-width: 1280px) {
   .nav {
     min-width: 320px;
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1280px) {
   .nav {
     height: 48px;
   }
@@ -396,7 +396,7 @@ header{
 
 .nav-content-wrapper {
   margin: 0 auto;
-  max-width: 980px;
+  max-width: 1280px;
   padding: 0 22px;
   position: relative;
   z-index: 2;
@@ -475,7 +475,7 @@ a.nav-title:hover {
   direction: ltr
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile {
     border-radius: 12px
   }
@@ -675,7 +675,7 @@ html.js .tile.large-loaded .image {
   transition: transform 400ms cubic-bezier(0.4, 0, 0.25, 1) 0ms, opacity 1s cubic-bezier(0.4, 0, 0.25, 1) 0ms
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   html.js .tile.medium-load .image {
     opacity: 0;
     transition: none;
@@ -689,7 +689,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   html.js .tile.small-load .image {
     opacity: 0;
     transform: translateY(20px);
@@ -732,13 +732,13 @@ html.js .tile.large-loaded .image {
   margin-top: 0
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .everydayfeed {
     padding-bottom: 64px
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .everydayfeed {
     padding-bottom: 40px
   }
@@ -749,7 +749,7 @@ html.js .tile.large-loaded .image {
   padding-bottom: 24px
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .everydayfeed .desktop-notification {
     padding-top: 12px;
     padding-bottom: 12px
@@ -771,7 +771,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) {
   .section-content {
     margin-left: auto;
     margin-right: auto;
@@ -779,7 +779,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .section-content {
     margin-left: auto;
     margin-right: auto;
@@ -787,7 +787,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .section-content {
     max-width: 366px;
   }
@@ -826,7 +826,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .more-from-newsroom {
     padding-top: 10px;
     padding-bottom: 52px
@@ -843,7 +843,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .more-from-newsroom .section-head {
     margin-bottom: 24px
   }
@@ -952,7 +952,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .more-from-newsroom .view-archive-wrapper {
     margin-top: 24px
   }
@@ -1009,7 +1009,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .featured-header.with-keyline::after {
     width: 87.5%
   }
@@ -1021,7 +1021,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .featured-header.with-keyline::after {
     margin-top: 32px
   }
@@ -1033,7 +1033,7 @@ html.js .tile.large-loaded .image {
   margin-top: 16px
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .featured-header .category-eyebrow {
     margin-top: 20px
   }
@@ -1066,7 +1066,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .featured-header .pagetitle .component-content {
     margin-left: auto;
     margin-right: auto;
@@ -1179,7 +1179,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .featured-header .pagetitle .hero-headline {
     font-size: 32px;
     line-height: 1.125;
@@ -1318,7 +1318,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .featured-header .featured-subhead {
     margin-top: 16px
   }
@@ -1330,7 +1330,7 @@ html.js .tile.large-loaded .image {
   margin-bottom: 0
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .featured-header .sharesheet {
     margin-top: 20px
   }
@@ -1385,7 +1385,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
 
   .tile-item:first-child.item-hero-secondary~ :nth-child(2),
   .tile-item:first-child.item-hero-highlight-secondary~ :nth-child(2),
@@ -1408,7 +1408,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
 
   .tile-item:first-child.item-2up~ :nth-child(2),
   .tile-item:first-child.item-2up-feature~ :nth-child(2) {
@@ -1432,7 +1432,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile-item:first-child.item-3up~ :nth-child(2) {
     margin-top: 24px
   }
@@ -1466,7 +1466,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
 
   .item-1up,
   .item-1up-secondary,
@@ -1502,7 +1502,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .chiclet {
     width: 104px;
     height: 104px;
@@ -1690,7 +1690,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up {
     flex-direction: column;
     width: 100%
@@ -1841,7 +1841,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-secondary .tile__headline {
     font-size: 17px;
     line-height: 1.23536;
@@ -1962,7 +1962,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-secondary {
     border-radius: revert;
     overflow: revert;
@@ -2111,7 +2111,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-tertiary .tile__headline {
     font-size: 19px;
     line-height: 1.21053;
@@ -2226,7 +2226,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-tertiary {
     flex-direction: column;
     width: 100%
@@ -2483,7 +2483,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-feature .tile__category {
     margin-bottom: 4px
   }
@@ -2582,7 +2582,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-2up-feature {
     flex-direction: column;
     width: 100%
@@ -2769,7 +2769,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-3up {
     flex-direction: column;
     width: 100%
@@ -2874,7 +2874,7 @@ html.js .tile.large-loaded .image {
   font-family: "SF Pro TC", "SF Pro Display", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-3up-secondary .tile__headline {
     font-size: 17px;
     line-height: 1.23536;
@@ -2995,7 +2995,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-3up-secondary {
     border-radius: revert;
     overflow: revert;
@@ -3144,7 +3144,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero .tile__headline {
     font-size: 19px;
     line-height: 1.21053;
@@ -3259,7 +3259,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero {
     flex-direction: column;
     width: 100%
@@ -3318,7 +3318,7 @@ html.js .tile.large-loaded .image {
   overflow: hidden
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero .tile__headline:lang(ar) {
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
@@ -3430,7 +3430,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-reversed .tile__headline {
     font-size: 19px;
     line-height: 1.21053;
@@ -3545,7 +3545,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-reversed {
     flex-direction: column;
     width: 100%
@@ -3712,7 +3712,7 @@ html.js .tile.large-loaded .image {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
 
   .tile.tile-hero-highlight .tile__headline,
   .tile.tile-hero-highlight-secondary .tile__headline {
@@ -3802,7 +3802,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
 
   html.js .tile.tile-hero-highlight.small-load,
   html.js .tile.tile-hero-highlight-secondary.small-load {
@@ -3926,7 +3926,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight .tile__category {
     margin-bottom: 4px
   }
@@ -4071,7 +4071,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (min-width: 1069px) and (max-width: 734px) {
+@media only screen and (min-width: 1069px) and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .tile__category {
     margin-bottom: 4px
   }
@@ -4256,7 +4256,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary {
     display: block;
     position: relative;
@@ -4305,25 +4305,25 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 734px) and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) and (max-width: 1068px) {
   .tile.tile-hero-highlight-secondary .tile__description-has-controls .tile__description-content {
     flex: 1 calc(100% - 36px)
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .tile__description-has-controls .autoplay-controls-container {
     flex: 1 44px
   }
 }
 
-@media only screen and (max-width: 734px) and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) and (max-width: 1068px) {
   .tile.tile-hero-highlight-secondary .tile__description-has-controls .autoplay-controls-container {
     flex: 1 36px
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .tile__description-content {
     display: flex;
     flex-direction: column
@@ -4353,7 +4353,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 734px) and (max-width: 1068px) {
+@media only screen and (max-width: 1280px) and (max-width: 1068px) {
   .tile.tile-hero-highlight-secondary .tile__category {
     margin-bottom: 8px
   }
@@ -4372,7 +4372,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 734px) and (max-width: 734px) {
+@media only screen and (max-width: 1280px) and (max-width: 1280px) {
   .tile.tile-hero-highlight-secondary .tile__category {
     margin-bottom: 4px
   }
@@ -4500,7 +4500,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight-feature .tile__headline {
     font-size: 24px;
     line-height: 1.16667;
@@ -4650,7 +4650,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-highlight-feature .tile__category {
     margin-bottom: 4px
   }
@@ -4848,7 +4848,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-hero-secondary {
     flex-direction: column;
     width: 100%
@@ -4913,7 +4913,7 @@ html.js .tile.tile-hero-highlight-secondary.large-loaded {
   }
 }
 
-@media only screen and (hover: hover) and (max-width: 734px) {
+@media only screen and (hover: hover) and (max-width: 1280px) {
 
   html.no-touch .tile.tile-list:hover .image,
   html.no-touch .tile.tile-list:hover .media--video {
@@ -4926,7 +4926,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   transform: scale(1.05)
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
 
   html.no-touch .tile.tile-list[data-focus-method=key] .image,
   html.no-touch .tile.tile-list[data-focus-method=key] .media--video {
@@ -4958,7 +4958,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .view-archive-wrapper {
     margin-top: 24px
   }
@@ -5132,7 +5132,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tile.tile-list {
     flex-direction: row;
     width: 100%
@@ -5182,7 +5182,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (hover: hover) and (max-width: 734px) {
+@media only screen and (hover: hover) and (max-width: 1280px) {
 
   html.no-touch .tile.tile-list:hover .image,
   html.no-touch .tile.tile-list:hover .media--video {
@@ -5195,7 +5195,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   transform: scale(1.05)
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
 
   html.no-touch .tile.tile-list[data-focus-method=key] .image,
   html.no-touch .tile.tile-list[data-focus-method=key] .media--video {
@@ -5306,7 +5306,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .pagetitle .hero-headline {
     font-size: 32px;
     line-height: 1.125;
@@ -5391,7 +5391,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .component {
     margin-left: auto;
     margin-right: auto;
@@ -5411,14 +5411,14 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .component {
     margin-top: 32px;
     margin-bottom: 32px
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .component {
     max-width: 414px;
     width: 100%;
@@ -5538,7 +5538,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-media {
     width: 100%
   }
@@ -5557,7 +5557,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-media.left {
     margin-right: 0
   }
@@ -5576,7 +5576,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-media.right {
     margin-left: 0
   }
@@ -5593,7 +5593,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   margin-bottom: 0
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
 
   .pagebody-media.left,
   .pagebody-media.right {
@@ -5650,7 +5650,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .component-content {
     width: 87.5%
   }
@@ -5666,7 +5666,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .image-big .component-content {
     width: 100%
   }
@@ -5682,13 +5682,13 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .image-inline .component-content {
     width: 87.5%
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
 
   .gallery,
   .image,
@@ -5712,19 +5712,19 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   position: relative
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .image-sharesheet {
     display: block
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .image.image-fullbleed .image-sharesheet {
     border-radius: 0
   }
 }
 
-@media only screen and (min-width: 416px) and (max-width: 734px) {
+@media only screen and (min-width: 416px) and (max-width: 1280px) {
   .image.image-fullbleed .image-sharesheet {
     border-radius: 10px
   }
@@ -5958,13 +5958,13 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .image.body-copy-wide.image-fullbleed .image-description {
     width: 87.5%
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .image.body-copy-wide.image-inline .component-content {
     width: 100%
   }
@@ -5975,7 +5975,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   z-index: 1
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .image-inline .image-description {
     margin-left: auto;
     margin-right: auto;
@@ -6059,7 +6059,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .image-grid-item {
     flex: 0 0 100%;
     margin-bottom: 32px
@@ -6070,13 +6070,13 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   margin-right: 5px
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .image-grid-item:nth-child(odd) {
     margin-right: 0
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .image-grid .row:last-of-type .image-grid-item:not(:last-of-type) {
     margin-bottom: 32px
   }
@@ -6093,7 +6093,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   flex-direction: row
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .image-grid .row {
     display: block
   }
@@ -6103,19 +6103,19 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   width: component-content-width
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .touch .image-grid.body-copy-wide .component-content {
     width: 87.5%
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .no-touch .image-grid.body-copy-wide .component-content {
     width: component-content-width
   }
 }
 
-@media only screen and (max-width: 734px) and (max-width: 734px) {
+@media only screen and (max-width: 1280px) and (max-width: 1280px) {
   .no-touch .image-grid.body-copy-wide .component-content {
     width: 87.5%
   }
@@ -6546,7 +6546,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-header {
     margin-top: 44px
   }
@@ -6644,7 +6644,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-header--secondary {
     font-size: 28px;
     line-height: 1.14286;
@@ -6695,7 +6695,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-header--secondary {
     margin-top: 44px
   }
@@ -6711,7 +6711,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .pagebody-header:first-child {
     margin-top: 12px
   }
@@ -6787,7 +6787,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
 
   .category-eyebrow__category,
   .category-eyebrow__date {
@@ -7283,7 +7283,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   padding-top: 8px;
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .article-copyright .contentm {
     margin: 0 16px;
   }
@@ -7347,7 +7347,7 @@ span.tag-date {
   }
 }
 
-@media only screen and (max-width: 734px) {
+@media only screen and (max-width: 1280px) {
   .tag-header {
     font-size: 18px;
   }
