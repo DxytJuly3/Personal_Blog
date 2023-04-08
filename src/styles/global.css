@@ -159,6 +159,57 @@ h6 {
   color: #1d1d1f
 }
 
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+  visibility: hidden;
+}
+
+h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-top: 2rem;
+  border-bottom: 1px solid #f79f2a;
+}
+
+h2 {
+  font-size: 1.75rem;
+  display: inline-block;
+  border-bottom: 0.4px solid #f79f2a;
+
+  /* border: 2px dashed #f79f2a;
+    border-width: 0 0 2px 0; */
+}
+
+h2 .md-plain:after {
+  /* display: block; */
+  display: inline-block;
+  content: '';
+  height: 2px;
+  margin-top: 4px;
+  background-color: var(--h2-underline-bg);
+  border-radius: 2px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.43;
+  margin: 20px 0 7px;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.8rem;
+}
+
 h1 img,
 h2 img,
 h3 img,
