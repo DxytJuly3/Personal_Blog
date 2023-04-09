@@ -1021,7 +1021,7 @@ html.js .tile.large-loaded .image {
 
 .section-tiles::after {
   content: '';
-  flex: 0 0 303px
+  flex: 0 0 300px
 }
 
 
@@ -1036,7 +1036,7 @@ html.js .tile.large-loaded .image {
 
 .section-tiles::after {
   content: '';
-  flex: 0 0 303px
+  flex: 0 0 300px
 }
 
 @media only screen and (min-width: 1441px) {
@@ -2702,7 +2702,7 @@ html.js .tile.large-loaded .image {
 
 .tile.tile-3up {
   flex-direction: column;
-  width: 303px
+  width: 300px
 }
 
 .tile.tile-3up .tile__headline {
@@ -2876,7 +2876,7 @@ html.js .tile.large-loaded .image {
 
 .tile.tile-3up-secondary {
   flex-direction: column;
-  width: 303px
+  width: 300px
 }
 
 .tile.tile-3up-secondary .tile__headline {
@@ -5710,12 +5710,12 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image-big .component-content {
-  width: 880px
+  width: 1080px
 }
 
 @media only screen and (max-width: 1068px) {
   .image-big .component-content {
-    width: 880px
+    width: 1080px
   }
 }
 
