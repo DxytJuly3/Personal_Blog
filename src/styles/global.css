@@ -5994,13 +5994,13 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image.image-wide .image-asset {
-  width: 77%;
-  height: 77%
+  width: 100%;
+  height: 100%
 }
 
 .image.image-wide .image-sharesheet,
 .image.image-wide .pullquote-cover {
-  width: 77%;
+  width: 100%;
   border-radius: 0
 }
 
