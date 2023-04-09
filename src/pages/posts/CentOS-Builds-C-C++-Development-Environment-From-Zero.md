@@ -890,47 +890,10 @@ yarn install
 
 这一系列配置结束之后, 你就会得到一个最基本的、但挺好用的neovim的C/C++ 开发环境.
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/GIF%202023-3-19%200-24-06.gif" alt="showNeoVim" width="80%" />
+![Neovim](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/GIF%202023-3-19%200-24-06.gif)
 
 > 博主用的zsh, 所以可能命令行不太一样
 
 感谢阅读！
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%87%E5%88%86%E6%84%9F%E8%B0%A2.jpg" alt="万分感谢" width="30%" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%87%E5%88%86%E6%84%9F%E8%B0%A2.jpg#center" alt="万分感谢" width="30%" />
