@@ -8,7 +8,7 @@ cover:
     url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
     square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
     alt: 'cover'
-tags: ["C语言", "文件", "操作"]
+tags: ["C", "文件", "操作"]
 theme: 'dark'
 featured: false
 ---
