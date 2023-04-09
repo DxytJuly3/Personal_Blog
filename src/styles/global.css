@@ -5710,12 +5710,12 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image-big .component-content {
-  width: 1080px
+  width: 1000px
 }
 
 @media only screen and (max-width: 1068px) {
   .image-big .component-content {
-    width: 1080px
+    width: 1000px
   }
 }
 
