@@ -7365,6 +7365,11 @@ ol>li {
 
 code {
   tab-size: 4;
+  font-size: 0.97em;
+  font-style: normal;
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
+  color: #434de0;
+  background-color: #d8d0b8;
   margin: 0px 0.25em;
 }
 
