@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '【程序员的自我修养】[动态图文] 理解编译到链接的过程'
-pubDate: 2023-04-08
+pubDate: 2023-04-09
 description: '在学习C语言的过程中，每一个 .c 文件都会经过编译链接等预处理操作才能成为一个 .exe 的可执行文件的. 这些预处理过程到底是如何进行的，就是本篇文章的内容'
 author: '七月.cc'
 cover:
@@ -10,7 +10,7 @@ cover:
     alt: 'cover'
 tags: ["编译", "C", "程序员的自我修养"]
 theme: 'dark'
-featured: false
+featured: true
 ---
 
 #  程序的编译及链接
