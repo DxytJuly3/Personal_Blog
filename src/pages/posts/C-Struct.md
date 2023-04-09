@@ -8,7 +8,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409155622571.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409155622571.png'
     alt: 'cover'
-tags: ["C语言", "结构体", "语法"]
+tags: ["C", "结构体", "语法"]
 theme: 'dark'
 featured: false
 ---
