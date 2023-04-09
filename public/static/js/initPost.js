@@ -105,16 +105,16 @@ function renderStyle(sign, percent) {
 
 function syntaxHighlight() {
   var script = document.createElement("script");
-  script.src = "/home/July/PersonalBlogBuildCode/Personal_Blog/public/static/js/highlight.min.js";
+  script.src = "//cdn.staticfile.org/highlight.js/11.7.0/highlight.min.js";
   document.head.appendChild(script);
 
   var styleLight = document.createElement("link");
   styleLight.rel = "stylesheet";
-  styleLight.href = "/home/July/PersonalBlogBuildCode/Personal_Blog/public/static/js/styles/xcode.min.css";
+  styleLight.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/xcode.min.css";
 
   var styleDark = document.createElement("link");
   styleDark.rel = "stylesheet";
-  styleDark.href = "/home/July/PersonalBlogBuildCode/Personal_Blog/public/static/js/styles/xcode.min.css";
+  styleDark.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/xcode.min.css";
 
   if (document.querySelector("body").classList.contains("theme-dark")) {
     document.head.appendChild(styleDark);
