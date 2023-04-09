@@ -127,9 +127,7 @@ struct S1
 };
 ```
 
-我们用 `sizeof` 求出此结构体类型的大小是：`12` 字节
-
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160006153.png)
+我们用 `sizeof` 求出此结构体类型的大小是：`12` 字节 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160006153.png)
 
 但是 `int`类型大小是 `4` 字节，`char` 类型的大小是 `1` 字节。这个结构体大小不应该是 `6` 字节吗？ 为什么是 `12` 字节呢？
 
