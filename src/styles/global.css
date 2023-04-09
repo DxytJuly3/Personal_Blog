@@ -1577,7 +1577,7 @@ html.js .tile.large-loaded .image {
 
 .tile.tile-2up {
   flex-direction: column;
-  width: 472px
+  width: 455px
 }
 
 .tile.tile-2up .tile__headline {
@@ -1797,7 +1797,7 @@ html.js .tile.large-loaded .image {
 
 .tile.tile-2up-secondary {
   flex-direction: column;
-  width: 472px
+  width: 455px
 }
 
 .tile.tile-2up-secondary .tile__headline {
@@ -2067,7 +2067,7 @@ html.js .tile.large-loaded .image {
 
 .tile.tile-2up-tertiary {
   flex-direction: column;
-  width: 472px
+  width: 455px
 }
 
 .tile.tile-2up-tertiary .tile__headline {
@@ -2335,7 +2335,7 @@ html.js .tile.large-loaded .image {
   display: block;
   position: relative;
   flex-direction: column;
-  width: 472px
+  width: 455px
 }
 
 .tile.tile-2up-feature .tile__headline {
@@ -2583,7 +2583,7 @@ html.js .tile.large-loaded .image {
 .tile.tile-2up-feature .tile__media,
 .tile.tile-2up-feature .tile__image-container {
   width: 100%;
-  height: 472px;
+  height: 455px;
   min-height: auto;
   flex-basis: auto;
   flex-shrink: 1
