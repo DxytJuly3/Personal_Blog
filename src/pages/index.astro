@@ -13,7 +13,7 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
       <ul role="list" class="section-tiles">
         {
           // tile-hero
-          allPosts.slice(0, 1).map((post) => {
+          allPosts.slice(0, 2).map((post) => {
             return (
               <Tile title={post.frontmatter.title} href={post.url} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} cover={post.frontmatter.cover.url} level="1" />
             );
@@ -22,7 +22,7 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
 
         {
           // tile-2up
-          allPosts.slice(1, 5).map((post) => {
+          allPosts.slice(2, 6).map((post) => {
             return (
               <Tile title={post.frontmatter.title} href={post.url} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} cover={post.frontmatter.cover.url} level="2" />
             );
@@ -31,7 +31,7 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
 
         {
           // tile-3up
-          allPosts.slice(5, 11).map((post) => {
+          allPosts.slice(6, 12).map((post) => {
             return (
               <Tile title={post.frontmatter.title} href={post.url} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} cover={post.frontmatter.cover.url} level="3" />
             );
