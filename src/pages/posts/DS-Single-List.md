@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[数据结构] 掌握 单链表 只需要这篇文章~ 「超详细」'
-pubDate: 2023-04-08
+pubDate: 2022-04-20
 description: '为了解决顺序表存在的一些问题，又提出了一种新的数据结构：链表. 本篇文章将详细介绍 链表 中 单链表 的 结构 增 删 查 改 插入 等操作'
 author: '七月.cc'
 cover:
@@ -37,30 +37,44 @@ featured: false
 为了解决以上的问题，又提出了一种新的数据结构：**`链表`**
 本篇文章将详细介绍 **`链表`** 中 **`单链表`** 的 `结构`、 `增`、 `删`、 `查`、 `改`、 `插入` 等操作。
 
----
 # 链表🐙
-❤️‍🔥
 
 ## 链表的分类🪸
+
 ❤️‍🔥
 上面展示的链表结构是单链表，其实链表有许多不同的结构：
 
 > 1. 单链表
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SList_show1_4_19.png)
+>
+>   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SList_show1_4_19.png)
+>
 > 2. 双向链表
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/double_List_show_4_19.png)
+>
+>   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/double_List_show_4_19.png)
+>
 > 3. 带头结点的单链表
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/head_SList_show1_4_19.png)
+>
+>   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/head_SList_show1_4_19.png)
+>
 > 4. 带头结点的双向链表
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/head_double_List_show_4_19.png)
+>
+>   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/head_double_List_show_4_19.png)
+>
 > 5. 循环单链表
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/head_cycle_SList_show1_4_19.png)
+>
+>   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/head_cycle_SList_show1_4_19.png)
+>
 > 6. 循环双向链表
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/double_cycle_List_show_4_19.png)
+>
+>   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/double_cycle_List_show_4_19.png)
+>
 > 7. 带头结点的单向循环链表
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/head_cycle_SList_show_4_19.png)
+>
+>   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/head_cycle_SList_show_4_19.png)
+>
 > 8. 带头结点的双向循环链表
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/head_double_cycle_List_show_4_19.png)
+>
+>   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/head_double_cycle_List_show_4_19.png)
 
 
 链表的结构有这 `八` 种，但是大部分都是不常用的。
@@ -76,13 +90,15 @@ featured: false
 ❤️‍🔥
 > `单链表的结构` 非常的简单，在实际的使用中，单链表一般作为更高级数据结构的子结构来使用。
 
-
 引言的表中，简单表示了 `单链表的结构` ：
+
 <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/List_photo.jpg" style="zoom:50%;" />
+
 是有一个一个节点链接在一起形成的，不过这只是逻辑结构，逻辑顺序是通过 `链表中的指针链接次序` 实现的，而实际的链表是一种 物理存储结构上 `非连续、非顺序` 的存储结构，即 这些 `单个的节点在内存中不一定是连续存放的` 。
 
 详细的实际情况应该是这样的：
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SList_show_4_19.png)
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SList_show_4_19.png)
 即：单链表在 `逻辑上是连续的` ，一个连着一个，但是在 `物理结构上是不一定连续的` 。
 而且可以看出，单链表中 `单个节点的结构` 由一个 `数据单元(存放数据)` 和一个 `指针单元(存放下个节点的地址)` 构成。这样可以保证 链表可以向后链接。
 
@@ -174,7 +190,8 @@ void SListPushBack(SListNode* phead, SLTDataType x)
 }
 ```
 代码实现完毕，尾插来验证一下。
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPushBack_returnError.png)
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPushBack_returnError.png)
 
 但是发现，程序非正常结束了。为什么？
 `调试！`
@@ -242,6 +259,7 @@ void SListPushBack(SListNode** pphead, SLTDataType x)
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPushBack_Debug3.png)
 
 多尾插几个数据试验一下：
+
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPushBack_Debug4.png)
 
 这样就没问题了~
@@ -268,7 +286,8 @@ void SListPrint(SListNode* phead)
 ```
 
 打印刚才实现的单链表：
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPrint_Show.png)
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPrint_Show.png)
 
 ### 单链表尾删🐚
 ❤️‍🔥
@@ -329,7 +348,8 @@ void SListPopBack(SListNode** pphead)
 ```
 
 验证一下 `尾删` 有没有出错：
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPopBack.png)
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPopBack.png)
 
 即使过多次尾删也能成功
 
@@ -368,10 +388,12 @@ void SListPushFront(SListNode** pphead, SLTDataType x)
 ```
 
 头插几个数据测试一下：
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPushFront_2022420.png)
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPushFront_2022420.png)
 `没有错误！`
 
 动画过程：
+
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SingleListPushFront_20220420.gif)
 
 ### 单链表头删🐚
@@ -411,9 +433,11 @@ void SListPopFront(SListNode** pphead)
 ```
 
 头删检测：
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPopFront_2022420.png)
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListPopFront_2022420.png)
 
 动画过程：
+
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SingleListPushFront_20220421.gif)
 
 ---
@@ -447,7 +471,8 @@ SListNode* SListFind(SListNode* phead, SLTDataType x)
 ```
 
 验证一下：
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SLTFind_SHOW_2022420.png)
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SLTFind_SHOW_2022420.png)
 
 ### 单链表指定位置之后插入🐚
 ❤️‍🔥
@@ -472,12 +497,14 @@ void SListInsertAfter(SListNode *pos, SLTDateType x)
 ```
 
 验证一下：
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListInsertAfter_Show_2022420.png)
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListInsertAfter_Show_2022420.png)
 插入成功
 
 且，在 `pos位置之后` 插入的时间复杂度为 `O(1)`
 
 动画过程：
+
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SingleListErase_20220421.gif)
 
 ### 单链表指定位置之后删除🐚
@@ -509,9 +536,11 @@ void SListEraseAfter(SLTNode* pos)
 ```
 
 验证：
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListEraseAfter_Show_2022421.png)
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListEraseAfter_Show_2022421.png)
 
 动画过程：
+
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SingleListEraseAfter_20220421.gif)
 
 ### 单链表的销毁🐚
@@ -541,7 +570,8 @@ void SListDestroy(SListNode** pphead)
 }
 ```
 验证：
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListDestroy_2022420.png)
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SListDestroy_2022420.png)
 
 单链表成功被销毁。
 
@@ -581,6 +611,5 @@ void SListDestroy(SListNode** pphead)
 感谢阅读！！
 
 ---
-`求 关注！点赞！评论！收藏！`
-
+`求 关注！`
 

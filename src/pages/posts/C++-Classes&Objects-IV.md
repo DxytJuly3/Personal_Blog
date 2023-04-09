@@ -1,17 +1,20 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 类和对象(四)'
-pubDate: 2023-04-08
+pubDate: 2022-06-28
 description: '关于："对象的成员变量是在哪里定义的？" 的这个问题, 要提出一个名词：初始化列表'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409230426269.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409230426269.png'
     alt: 'cover'
 tags: ["C++", "类", "对象", "语法"]
 theme: 'dark'
 featured: false
+
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409230426269.png)
 
 # 一、构造函数补充
 
@@ -20,7 +23,9 @@ featured: false
 类的六大默认成员函数之一的 `默认构造函数` ，是对象定义(实例化)时，自动调用对 对象成员变量进行初始化的函数
 
 而对象的定义其实是`对对象整体的定义`，构造函数的内容是`对象成员变量的赋值`
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626214449795.png" alt="image-20220626214449795" style="zoom:50%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626214449795.png)
+
 这就出现了一个问题：`对象的成员变量是在哪里定义的？`
 
 这就要提出一个名词：`初始化列表`. 对象成员变量的定义就是在这里实现的
@@ -29,11 +34,13 @@ featured: false
 
 `初始化列表`，是位于构造函数 `()`之下,`{}`之上，定义对象成员变量的一个列表.
 具体的位置是在这里：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626215814360.png" alt="image-20220626215814360" style="zoom: 50%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626215814360.png)
 
 初始化列表 以一个`冒号:`开始，以`逗号,`分割成员变量，成员变量以此形式位列其中：`成员变量名(初始化内容)`
 当调用默认构造函数，但`不进入默认构造函数内容时，成员变量就已经定义好了`
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626221101976.png" alt="image-20220626221101976" style="zoom:80%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626221101976.png)
 
 根据调试时对象的监视，`成员变量在初始化列表中未显式定义时，编译器也是会自动经过初始化列表定义的，但是未作初始化`
 
@@ -53,11 +60,9 @@ featured: false
 答案肯定是有用
 因为`不是所有的变量都可以定义和赋值分离的`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 比如这样的变量， 还能不通过初始化列表，而是在构造函数内部赋初值吗？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626230214658.png" alt="image-20220626230214658" style="zoom:50%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626230214658.png)
 
 这三种类型的成员变量中
 `const修饰的`和`&引用类型的`很显然`定义与赋值是不能分离的`，定义时必须初始化
@@ -67,22 +72,23 @@ featured: false
 
 即：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626231708005.png" alt="image-20220626231708005" style="zoom: 80%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626231708005.png)
 
 而在成员变量声明中的这个东西：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627135448835.png" alt="image-20220627135448835" style="zoom:50%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627135448835.png)
 
 类的成员变量在声明处给了缺省值，而这个`缺省值就是给初始化列表使用的`：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627135908514.png" alt="image-20220627135908514" style="zoom:50%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627135908514.png)
 
 ### 1.1.3 初始化列表执行顺序
 
 判断一下以下代码的`输出结果`是什么？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627140435108.png" alt="image-20220627140435108" style="zoom:50%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627140435108.png)
 
-![image-20220627140634031](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627140634031.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627140634031.png#center" alt=" |wide" style="zoom:80%;" />
 
 是 `1` 和 `随机值`
 
@@ -94,14 +100,14 @@ featured: false
 
 ## 1.2 构造函数中的隐式类型转换 及 explicit
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 以只有一个成员变量的类为例
 在对象实例化时，不仅可以这样实例化：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627143207678.png" alt="image-20220627143207678" style="zoom: 67%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627143207678.png)
 
 还可以这样实例化：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627143345962.png" alt="image-20220627143345962" style="zoom:67%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627143345962.png)
 
 第一种方式是正常调用了构造函数
 
@@ -112,19 +118,19 @@ featured: false
 直接使用数值对象实例化是可以的，不过如果想要禁止这种方法 可以将构造函数用 `explicit` 修饰
 可以禁止隐式类型转换：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627145718768.png" alt="image-20220627145718768" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627145718768.png)
 
 ### 1.2.1 构造函数中隐式类型转换的意义
 
 既然 可以直接用数值进行对象的实例化，那么是否可以`直接 类引用数值呢`？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 答案也是可以的，不过需要用 `const` 关键词修饰：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627144408734.png" alt="image-20220627144408734" style="zoom:80%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627144408734.png)
 
 如果不加 `const` 修饰就会报错：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627144459207.png" alt="image-20220627144459207" style="zoom:67%;" />
+
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627144459207.png)
 
 因为 `直接使用数值进行对象实例化，数值会先构造成一个临时对象，临时对象其实是具有常性的`
 如果不用`const`修饰就加以引用，其实是一种权限放大的操作，是错误的 
@@ -136,7 +142,8 @@ featured: false
 > 直接使用数值(常量)是可以进行对象实例化的，也就同时意味着可以直接使用常量 传参，但是参数的声明需要用`const`修饰
 >
 > PS：直接使用常量传参在 `string` 中，非常有意义：
-> ![image-20220627150359000](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627150359000.png)
+>
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627150359000.png)
 
 # 二、static 修饰类成员
 
@@ -149,11 +156,9 @@ featured: false
 
 `static` 修饰 成员变量，与其修饰普通变量的用法不同
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 随便举个例子：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627164834652.png" alt="image-20220627164834652" style="zoom: 50%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627164834652.png)
 
 `static` 修饰成员变量时，需要在类外手动定义(不用加`static`)之后才能使用
 
@@ -170,14 +175,13 @@ featured: false
 > 经过定义的`静态成员变量` `属于整个类`
 > 即，`属于此类的所有对象都可以访问类的公用的静态成员变量`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 以此类为例：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627170703703.png" alt="image-20220627170703703" style="zoom: 50%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627170703703.png)
 
 此类，每调用一次 `默认构造函数` ，`静态成员变量_x`自增1
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627171625667.png" alt="image-20220627171625667" style="zoom: 67%;" />
+
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627171625667.png)
 
 实例化四个对象，`_x`自增四次，所以四个对象访问的`_x`都是 `4`
 
@@ -190,35 +194,34 @@ featured: false
 类中，为了限制直接对成员变量进行访问，所以`一般都会将成员变量设为私有，包括静态成员变量`
 
 而静态成员变量又不属于任何一个对象，所以`静态成员变量设置为私有的话，是无法通过某个对象或类来直接访问的`：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627172422033.png" alt="image-20220627172422033" style="zoom:67%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627172422033.png)
 
 所以，对于`静态成员变量`通常会通过函数来专门操作
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627172803331.png" alt="image-20220627172803331" style="zoom:50%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627172803331.png)
 
 但是，对于 `静态成员变量`，它`是可以在没有对象的情况下通过类来访问的`
 而一般的成员函数只能通过对象来调用
 为了可以 直接通过类调用成员函数，可以在成员函数前加上 `static` 进行修饰，被称为 `静态成员函数`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627173726050.png" alt="image-20220627173726050" style="zoom:50%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627173726050.png)
 
 ### 静态成员函数 可以通过类直接调用
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 非静态成员函数不能通过类直接调用
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627174018279.png" alt="image-20220627174018279" style="zoom: 67%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627174018279.png)
 
 静态成员变量可以通过类直接调用
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627174207871.png" alt="image-20220627174207871" style="zoom:67%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627174207871.png)
 
 ### 静态成员函数 只能操作静态成员变量
 
 `静态成员函数，只能访问静态成员变量，不能访问非静态成员变量`，因为静态成员函数没有 `this指针`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627175149215.png" alt="image-20220627175149215" style="zoom: 80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627175149215.png)
 
 # 三、友元
 
@@ -236,8 +239,6 @@ featured: false
 
 ### 3.1.1 日期类 >>、<< 重载
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 之前对实现日期类的时候，对几乎所有 有意义的运算符都实现了重载
 不过，却没有对 `流提取>>` 、`流插入<<` 这两个运算符重载，进而实现类似与内置类型一般 `cin 直接输入`和`cout 直接输出`的功能
 
@@ -248,18 +249,20 @@ featured: false
 
 既然是重载，那么 `cout` 和 `cin` 就属于操作数，`cout` 和 `cin` 是什么类型的操作数呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627234601546.png" alt="image-20220627234601546" style="zoom: 67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627234601546.png)
 
 在上图中可以看出，`cout` 属于 `ostream类`，`cin` 属于 `istream类`
 
 所以对于`流插入<<` 和 `流提取>>` 应该这样定义重载函数：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628000515269.png" alt="image-20220628000515269" style="zoom:67%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628000515269.png)
 
 `ostream&` 和 `istream&` 作为类型，分别取 `_cout`、`_cin` 作 `cout`、`cin`的别名
 
 定义完之后会发现，无法正常使用：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628003034692.png" alt="image-20220628003034692" style="zoom:80%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628003034692.png)
+
 原因很清楚：
 因为`运算符重载默认，第一个参数为左操作数，第二个参数为右操作数`
 所以 `对象d` 需作左操作数，`ostream 类型的 cout` 需作右操作数
@@ -272,18 +275,21 @@ featured: false
 
 所以，在类外应该这样定义：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628004249949.png" alt="image-20220628004249949" style="zoom:67%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628004249949.png)
 
 但是，在编译器中无法编译通过：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628003854057.png" alt="image-20220628003854057" style="zoom:67%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628003854057.png)
+
 函数定义在类外，无法访问类内私有成员
 
 如果想要正常使用，只需要将函数添加为`友元函数`就可以了！
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628003647141.png" alt="image-20220628003647141" style="zoom:67%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628003647141.png)
 
 这样就可以正常的使用了：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628004424890.png" alt="image-20220628004424890" style="zoom:80%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628004424890.png)
 
 ---
 
@@ -308,11 +314,9 @@ featured: false
 
 其实就是`类可以作为另一个类的友元类`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 还是以日期类为例，`将日期类作为时间类的友元类`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628010522764.png" alt="image-20220628010522764" style="zoom:67%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628010522764.png)
 
 友元类的所有成员函数，都可以作为另一个类的友元函数使用
 
@@ -324,27 +328,25 @@ featured: false
 
 `内部类`，顾名思义就是 `定义在类内部的类`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628012339023.png" alt="image-20220628012339023" style="zoom:50%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628012339023.png)
 
 > 内部类是一个独立的类，它`不属于外部类`，所以 `外部类的成员函数无法访问内部类的成员`
 >
 > 并且，`内部类就是外部类的友元类`，但 外部类不是内部类的友元类
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628012549678.png" alt="image-20220628012549678" style="zoom: 80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628012549678.png)
+
 类B的对象，可访问 类A对象的成员
 
 内部类还需要注意：
 
 > 1. 内部类可以定义在外部类的 `public`、`private`、`protected`，并且受这些访问限定符的限制
+>
 > 2. 内部类可以直接访问外部类的 static修饰成员、枚举成员等，`不需要 类名或对象`
+>
 > 3. 对右内部类的类使用 `sizeof()`，结果是`只有外部类的大小，不算内部类`。
 >     因为内部类是独立的，并不属于外部类
->     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628013446903.png" alt="image-20220628013446903" style="zoom:50%;" />
+>
+>     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628013446903.png" style="zoom: 60%;" />
+>
 >     `sizeof(A)` 不计算 类B的大小
-
-
-
-
-

@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C语言] 字符串函数的相关介绍与模拟实现'
-pubDate: 2023-04-08
+pubDate: 2022-02-09
 description: 'strlen、strcpy、strcat……'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409202145390.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409202145390.png'
     alt: 'cover'
 tags: ["C", "函数"]
 theme: 'dark'
 featured: false
 ---
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409202145390.png)
 
 # 字符串函数
 
@@ -110,8 +112,6 @@ char* my_strcpy(char* dest, const char* src)
     return ret;
 }
 ```
-
-
 
 ## 3. `strcat`
 
@@ -365,5 +365,3 @@ char * strerror ( int errnum );
 | :----------: | :----------------: |
 |  `tolower`   | 大写字母转小写字母 |
 |  `toupper`   | 小写字母转大写字母 |
-
-[[内存函数]]

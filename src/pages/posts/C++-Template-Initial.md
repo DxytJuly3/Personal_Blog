@@ -1,23 +1,25 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 初接触-泛型编程, C++模板分析'
-pubDate: 2023-04-08
+pubDate: 2022-06-30
 description: 'C++中的的模板，分为两部分：1. 函数模板 2. 类模板 本篇文章就从函数模板开始讲起'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410001425349.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410001425349.png'
     alt: 'cover'
 tags: ["C++", "语法", "泛型"]
 theme: 'dark'
 featured: false
 ---
 
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410001425349.png)
+
 # 泛型编程
 
 C++中引入了重载的概念，使得可以编写多个函数名相同但参数、返回值不同的函数，例如：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630125804097.png" alt="image-20220630125804097" style="zoom: 50%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630125804097.png)
 
 相同的函数名可以传入不同的参宿，进而调用不同的函数
 
@@ -49,7 +51,7 @@ C++中的的模板，分为两部分：
 
 函数模板跟普通的函数定义没有很大的差别，还以`swap函数`为例，它的模板应该是:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630134203858.png" alt="image-20220630134203858" style="zoom: 50%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630134203858.png)
 
 即，函数模板的格式应该是：
 
@@ -69,13 +71,11 @@ template<typename T1, typename T2, ......, typename Tn>
 
 函数模板是`为编译器提供的`，编译器会在编译阶段，`根据函数模板被使用时 实参的类型 来推断生成特定类型的函数`供其调用
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 还以`swap函数`为例
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630140832260.png" alt="image-20220630140832260" style="zoom:60%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630140832260.png)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630140920692.png" alt="image-20220630140920692" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630140920692.png)
 
 这个就是函数模板大致的使用过程 及 结果
 
@@ -91,25 +91,27 @@ template<typename T1, typename T2, ......, typename Tn>
 
 一般当编译器无法根据实参推演模板参数的实际类型时，就必须手动`显式实例化`：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 对于下面这种函数模板：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630143145311.png" alt="image-20220630143145311" style="zoom: 50%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630143145311.png)
 
 模板参数只用在了返回值类型上，而函数的参数的类型指定为 `int`
 这样编译器是无法根据实参类型，进行推断的：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630143937841.png" alt="image-20220630143937841" style="zoom:67%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630143937841.png)
 
 这时候，就必须使用显式实例化指定类型了：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630144116496.png" alt="image-20220630144116496" style="zoom:67%;" />
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630144116496.png)
 
 显式实例化使用函数模板的格式就是：
 
 在函数名和参数列表之间 + `<类型>`：`函数名<类型>(参数)`
 
 当然，`不只是无法隐式实例化才能使用显式实例化的，任何函数模板都可以显式实例化`
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630151022809.png" alt="image-20220630151022809" style="zoom: 80%;" />
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630151022809.png)
+
 即使编译器可以推断出 模板参数的类型，也同样可以使用 `显式实例化`
 
 
@@ -118,12 +120,14 @@ template<typename T1, typename T2, ......, typename Tn>
 
 >  如果对只有一个模板参数的函数模板，传入两个不同类型的参数会发生什么？
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630150013137.png" alt="image-20220630150013137" style="zoom: 60%;" />
+>  ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630150013137.png)
 >
-> 发生这种情况，解决方法有两种：`强制类型转换` 和 `显式实例化`，即：
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630150407051.png" alt="image-20220630150407051" style="zoom:80%;" />
-> 但是由于这两种方式都发生了类型的转换，所以 对应的函数模板的参数也需要改变为 `const` 修饰的：
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630150541615.png" alt="image-20220630150541615" style="zoom:80%;" />
+>  发生这种情况，解决方法有两种：`强制类型转换` 和 `显式实例化`，即：
+>
+>  ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630150407051.png)
+>
+>  但是由于这两种方式都发生了类型的转换，所以 对应的函数模板的参数也需要改变为 `const` 修饰的：
+>  ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630150541615.png)
 
 > PS：模板参数可以给缺省类型，模板函数的参数也可以给缺省类型
 
@@ -133,15 +137,19 @@ template<typename T1, typename T2, ......, typename Tn>
 
 1. 在使用该函数时，`如果实参类型与非模板函数匹配，则优先调用非模板函数`
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/no_template.gif" alt="no_template" style="zoom:80%;" />
+    ![no_template |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/no_template.gif)
+
     可以看到，当实参类型与非模板函数匹配时，优先调用非模板函数
 
     当然也可以使用 `显式实例化` 强制走函数模板：
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/no_template&template.gif" alt="no_template&template" style="zoom:80%;" />
+
+    ![no_template&template |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/no_template&template.gif)
 
 2. 对于非模板函数和同名函数模板，如果其他条件都相同，在调动时会优先调用非模板函数而不会从该模板产生出一个实例。上面已经证实了
     但是，如果模板可以产生一个具有更好匹配的函数， 那么将选择函数模板
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/better_template.gif" alt="better_template" style="zoom:80%;" />
+
+    ![better_template |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/better_template.gif)
+
     此例中，模板参数使用了两个，所以参数传入两个类型不报错，且调用模板参数实例化函数
 
 3. 模板函数不允许自动类型转换，但普通函数可以进行自动类型转换
@@ -160,9 +168,7 @@ class 类模板名
 
 而类模板中成员的定义 就与 函数模板的定义一样
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630162812338.png" alt="image-20220630162812338" style="zoom:80%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630162812338.png)
 
 类模板中，成员函数在类外定义时：
 
@@ -188,17 +194,19 @@ class 类模板名
 
 这个原因就要从编译链接的角度分析了
 
-> 关于编译链接，可阅读博主文章：
+> 关于编译链接，可阅读博主文章：[[程序员的自我修养\] 理解编译到链接的过程](http://localhost:3000/posts/Compile&Link)
 
 首先要知道，编译链接的过程大致分为：`预处理`、`编译`、`汇编`、`链接`
 
 而`前三个过程中，多个源文件之间是没有联系`的。
 
 即，假如 模板的定义和声明分离在了两个文件中，也就是这样：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/20220630164906.png" alt="20220630164906" style="zoom:80%;" />
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/20220630164906.png)
 
 那么源文件经过`预处理`之后就会大致变成这样，且文件名会变为`.i` 后缀：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630165723271.png" alt="image-20220630165723271" style="zoom:80%;" />
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630165723271.png)
 
 可以非常明显的发现，`main` 函数所在文件里是`没有关于类模板函数的定义`的
 
@@ -211,11 +219,11 @@ class 类模板名
 2. `mian.i` 文件中，有需要类模板实例化的操作`SeqList<int> slt;`，但是此文件的类模板中 `成员函数没有定义，只有声明`，所一直会生成相应的类的成员函数的符号，没有实质成员函数的地址
 
 进而会导致，最后的`链接`操作，两文件中都没有关于函数的地址，所以 `只有函数名没有函数地址，会导致链接错误`
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630172000157.png" alt="image-20220630172000157" style="zoom:80%;" />
 
-
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630172000157.png)
 
 所以，`模板的定义与声明 最好不要分离到两个文件中`，如果非要分离在两个文件中，那就需要：
 
 对需要实例化的模板，`在模板定义位置显式实例化`：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630172403326.png" alt="image-20220630172403326" style="zoom:80%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630172403326.png)

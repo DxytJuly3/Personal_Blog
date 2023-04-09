@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] namespace命名空间介绍'
-pubDate: 2023-04-08
+title: '[C++] 带你理解 using namespace std;'
+pubDate: 2022-05-19
 description: '本篇文章要涉及的内容，就是理解 C++ 中 using namespace std; 的含义'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409220244063.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409220244063.png'
     alt: 'cover'
-tags: ["C++", "语法", "哈希"]
+tags: ["C++", "语法"]
 theme: 'dark'
 featured: false
 ---
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409220244063.png)
 
 # 带你理解 using namespace std;
 
@@ -49,7 +51,7 @@ C语言因为这个规定，就会造成：如果存在命名相同，那就只�
 
 相信许多人在刚开始学习 `C++` 的时候，一定很纳闷这是个什么东西：
 
-![image-20220513141346741](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220513141346741.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220513141346741.png)
 
 这句话究竟是什么意思：`using` 是什么意思？`namespace` 是什么意思？`std` 又是什么意思？
 
@@ -111,7 +113,7 @@ int main()
 }
 ```
 
-![image-20220513152334133](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220513152334133.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220513152334133.png)
 
 编译也是没有错误的。这就说明，`命名空间内的变量` 是不会与 `命名空间外` 的 `其他同名变量` 冲突的。
 
@@ -180,7 +182,7 @@ int main()
 }
 ```
 
-![image-20220514175509313](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220514175509313.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220514175509313.png)
 
 `命名空间` + `::` + `变量名`，就是 使用命名空间内变量的最简单的用法。
 使用嵌套的命名空间中的变量，是这样的：`命名空间` + `::` + `(命名空间::) + 变量名`
@@ -215,7 +217,7 @@ int main()
 }
 ```
 
-![image-20220514180837528](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220514180837528.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220514180837528.png)
 
 `using namespace July;` 之后，使用 `July` 内的变量就不需要再变量前 加`July::`
 

@@ -1,19 +1,23 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C语言] 如何查看二进制文件？'
-pubDate: 2023-04-08
-description: '文件按照功能分类，可以分为 程序文件、数据文件 两类。此外，文件的分类还有其他的分类方法，比如 按照文件数据的组织形式 来分为 二进制文件 和 文本文件。'
+title: '[C语言] 什么是文本文件和二进制文件？'
+pubDate: 2022-03-27
+description: '文件按照功能分类，可以分为 程序文件、数据文件 两类。
+此外，文件的分类还有其他的分类方法，比如 按照文件数据的组织形式 来分为 二进制文件 和 文本文件。'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409203643904.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409203643904.png'
     alt: 'cover'
 tags: ["C", "文件"]
 theme: 'dark'
 featured: false
 ---
 
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409203643904.png)
+
 # 文本文件、二进制文件及其存储
+
 ---
 
 上一篇介绍过，文件按照功能分类，可以分为 `程序文件`、`数据文件` 两类。
@@ -36,15 +40,17 @@ featured: false
 
 除非用二进制的编辑器打开才会显示二进制的形式，不过一般人还是无法看懂的
 
->类似这样：![BINARY_READ1](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-BINARY_READ1.png)
+>类似这样：
+>
+>![BINARY_READ1 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-BINARY_READ1.png)
 >
 >这样：
 >
->![BINARY_READ2](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-BINARY_READ2.png)
+>![BINARY_READ2 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-BINARY_READ2.png)
 >
 >或者这样：
 >
->![BINARY_READ3](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-BINARY_READ3.png)
+>![BINARY_READ3 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-BINARY_READ3.png)
 >
 >类似于，这些文件，一般人（反正我是）真的看不懂。
 
@@ -107,19 +113,23 @@ featured: false
 > > >
 > > >    需要将`9` `9` `9` `9` `9` 分别转换为字符，然后存储其对应的 `ASCII码`的二进制
 > > >
-> > >    即：![DATA_STORAGE-ASCII](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-ASCII.png)
+> > >    即：
 > > >
-> > >    `VS2013`:![ASCII-READ.](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-ASCII-READ.png)
+> > >    ![DATA_STORAGE-ASCII |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-ASCII.png)
+> > >
+> > >    `VS2013`:<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-ASCII-READ.png" alt="ASCII-READ."/>
 > > >
 > > > 2. 直接以数值的二进制存储：
 > > >
-> > >    即：![DATA_STORAGE-BINARY](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY.png)
+> > >    即：
+> > >
+> > >    ![DATA_STORAGE-BINARY |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY.png)
 > > >
 > > >    `VS2013`：对文件中以二进制输出 `99999`
 > > >
-> > >    ![BINARY-READ1](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY-READ.png)
-> > >
-> > >    ![BINARY-READ2](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY-READ2.png)
+> > >    ![BINARY-READ1 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY-READ.png)
+> > >    
+> > >    ![BINARY-READ2 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY-READ2.png)
 > >
 > > 我们可以非常明确的看到，对于同一个数值型数据，以 `99999` 为例
 > >
@@ -131,7 +141,3 @@ featured: false
 
 看完这些，相信都可以理解究竟什么是二进制文件，什么是文本文件了吧！
 
----
-[[文件缓冲区]]
-[[文件操作]]
-[[文件读取结束的判定]]

@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 类和对象(三)'
-pubDate: 2023-04-08
+pubDate: 2022-06-26
 description: 'C++ 中，引入了 运算符重载，使同类对象之间可以使用运算符，进而提高代码可读性'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225318200.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225318200.png'
     alt: 'cover'
 tags: ["C++", "类", "对象", "语法"]
 theme: 'dark'
 featured: false
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225318200.png)
 
 # 一、运算符重载
 
@@ -33,11 +35,9 @@ C语言中，运算符(操作符) 是只能对 `内置类型数据或表达式` 
 3. `重载后的运算符不能改变原有含义`：不能将原来内置类型`+`的功能，重载之后改为 对象之间相减的功能
 4. `.*` 、`::` 、`sizeof` 、`? :` 、`.` 以上5个运算符不能重载`(笔试、面试会考)`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 以 `日期类判断大于` 为例：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/date-202206231736.png" alt="date-202206231736" style="zoom:40%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/date-202206231736.png)
 
 判断日期类大于，则函数定义就是这样的：
 
@@ -58,15 +58,17 @@ bool operator>(const Date& d1, const Date& d2)	//比较大小不需要改变数�
 
 在类内定义操作符重载：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623175907224.png" alt="image-20220623175907224" style="zoom: 67%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623175907224.png)
 
 ---
 
 操作符重载是一种函数，一般函数应该`传参使用`：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623180915807.png" alt="image-20220623180915807" style="zoom:67%;" />
+
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623180915807.png)
 
 但是，操作符这样用非常的反逻辑，所以其实`操作符正常逻辑`使用也是没有问题的
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623181138027.png" alt="image-20220623181138027" style="zoom:67%;" />
+
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623181138027.png)
 
 > 重载后的操作符，可以按照 正常的逻辑 使用
 > 但其实，编译器还是会把使用操作符的语句，自动转换成这样 `d1.operator>(d2)` 或 这样`operator>(d1,d2)`，不用手动操作
@@ -75,16 +77,16 @@ bool operator>(const Date& d1, const Date& d2)	//比较大小不需要改变数�
 
 赋值运算符重载函数 其实与 拷贝构造函数 类似
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 日期类的赋值运算符重载，内容也非常的简单，但是`有一些需要非常注意的问题`：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623182635689.png" alt="image-20220623182635689" style="zoom:67%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623182635689.png)
 
 赋值运算符重载，确实与拷贝构造函数相似，但是 `为什么赋值运算符重载函数，需要返回赋值后的结果`？
 
 当然是因为，`内置类型的赋值运算符(=)`结果也是需要当作返回值返回的，因为需要实现连等(连续赋值)操作：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623183051717.png" alt="image-20220623183051717" style="zoom: 67%;" />
+
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623183051717.png)
+
 所以，`赋值操作的结果要作为返回值返回，以便下一次赋值使用`，所以，将 `*this` 作为返回值返回
 
 > 返回值是 `Date&` 类型的，使用引用是因为可以节省资源
@@ -116,9 +118,7 @@ bool operator>(const Date& d1, const Date& d2)	//比较大小不需要改变数�
 
 这个语句调用的是 `拷贝构造函数`，因为这是`在对象实例化时，要进行的初始化`。编译器会分析出来并自动调用拷贝构造函数
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/operator=.gif" alt="operator=" style="zoom:80%;" />
+![operator= |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/operator=.gif)
 
 可以看到， `Date d2 = d1;` 这个语句被执行时调用的是 `拷贝构造函数`；
 而 `d2` 被实例化之后，再执行 `d2 = d1`，则调用 `赋值重载函数`.
@@ -135,13 +135,14 @@ bool operator>(const Date& d1, const Date& d2)	//比较大小不需要改变数�
 
 ### ==
 判断两对象是否相等非常的简单：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623224933470.png" alt="image-20220623224933470" style="zoom:50%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623224933470.png)
 
 其实，在实现了`>` 或 `<` 的重载 和 `==`的重载之后，其他的逻辑判断运算符，都可以直接复用 `>`和`==` 或 `<` 和 `==` 来实现
 
 ### >=、!=、<、<=：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon(3).png" alt="carbon(3)" style="zoom:44%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon(3).png)
 
 ### + (日期 + 天数)
 
@@ -165,11 +166,11 @@ bool operator>(const Date& d1, const Date& d2)	//比较大小不需要改变数�
 
 在实现 `+` 的重载之前，先实现一个通过年月来计算月份天数的函数：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623233756345.png" alt="image-20220623233756345" style="zoom: 67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623233756345.png)
 
 然后实现 `+` 重载：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623235106933.png" alt="image-20220623235106933" style="zoom: 80%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220623235106933.png)
 
 年月份的进位逻辑是：
 
@@ -186,7 +187,7 @@ bool operator>(const Date& d1, const Date& d2)	//比较大小不需要改变数�
 1. 不能直接操作 `this指针` 所指对象，否则会导致原对象数值改变
 2. 拷贝的临时对象出函数会被销毁，所以不能用 `&类型` 作为返回值
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220624000753434.png" alt="image-20220624000753434" style="zoom:67%;" />
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220624000753434.png)
 
 ### += (日期 += 天数)
 
@@ -195,9 +196,9 @@ bool operator>(const Date& d1, const Date& d2)	//比较大小不需要改变数�
 实现逻辑与 `+`  完全相同，不过 因为`+=需要改变原对象数值`，所以`可以直接操作 this指针 指向的对象`
 也就意味着，可以将 `*this` 作为返回值返回，并且可以使用 `&类型` 节省资源
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220624001254127.png" alt="image-20220624001254127" style="zoom:67%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220624001254127.png)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220624000926349.png" alt="image-20220624000926349" style="zoom: 80%;" />
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220624000926349.png)
 
 ### - (日期 - 天数)
 
@@ -208,7 +209,7 @@ bool operator>(const Date& d1, const Date& d2)	//比较大小不需要改变数�
 
 先实现，日期 - 天数的重载：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625153248999.png" alt="image-20220625153248999" style="zoom:67%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625153248999.png)
 
 年月日进位逻辑：
 
@@ -225,15 +226,15 @@ bool operator>(const Date& d1, const Date& d2)	//比较大小不需要改变数�
 1. 不能直接操作 `this指针` 所指对象，否则会导致原对象数值改变
 2. 拷贝的临时对象出函数会被销毁，所以不能用 `&类型` 作为返回值
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625154738623.png" alt="image-20220625154738623" style="zoom:67%;" />
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625154738623.png)
 
 ### -= (日期 -= 天数)
 
 重载 `-=` 的逻辑与 `-` 相同，也不过是直接操作`*this` 而已
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625155431958.png" alt="image-20220625155431958" style="zoom:67%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625155431958.png)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625155016856.png" alt="image-20220625155016856" style="zoom:67%;" />
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625155016856.png)
 
 ### +、+=、-、-= 之间的复用及完善
 
@@ -241,12 +242,12 @@ bool operator>(const Date& d1, const Date& d2)	//比较大小不需要改变数�
 
 先以 `+`和`+=` 为例对比：
 
-![image-20220625160359044](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625160359044.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625160359044.png)
 
 两重载函数之间的代码几乎一模一样，只不过是一个操作 `ret的成员变量`，另一个操作 `this指向的成员变量`
 所以，这`+` 和 `+=`其实是可以互相复用的:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625161703878.png" alt="image-20220625161703878" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625161703878.png)
 
 这两种复用，都可以达成效果
 
@@ -266,7 +267,7 @@ bool operator>(const Date& d1, const Date& d2)	//比较大小不需要改变数�
 
 不过，实现过 `+` `+=` `-` `-=` 的重载之后，添加对负数的运算也只不过是加一个条件的事：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon(14).png" alt="carbon(14)" style="zoom:50%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon(14).png)
 
 由于，复用了 `+=` 和 `-=`，所以只需要在 `+=` 和 `-=` 的重载函数中添加条件就可以了
 
@@ -278,7 +279,7 @@ C++ 语法规定，后置`--` 或 `++`，要在参数列表中添加一个 `int`
 
 所以`--`和`++` 的重载非常的简单：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625173605421.png" alt="image-20220625173605421" style="zoom:75%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625173605421.png)
 
 ### - (日期 - 日期)
 
@@ -286,7 +287,7 @@ C++ 语法规定，后置`--` 或 `++`，要在参数列表中添加一个 `int`
 
 不过，这个 `-` 的重载相对另一个，稍微简单一些：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625175623412.png" alt="image-20220625175623412" style="zoom:67%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625175623412.png)
 
 # 二、const 成员
 
@@ -298,11 +299,9 @@ C++ 语法规定，后置`--` 或 `++`，要在参数列表中添加一个 `int`
 由此，对于一个类来说，也会可能实例化一个`被const修饰`的对象，或者函数的参数使`被const修饰`的类
 当一个对象 被`const`修饰 时，表示对象的成员不能被修改，则其成员函数很可能就不能正常的使用了
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 比如这样：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625213349514.png" alt="image-20220625213349514" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625213349514.png)
 
 为什么呢？
 
@@ -320,10 +319,11 @@ C++ 语法规定，后置`--` 或 `++`，要在参数列表中添加一个 `int`
 
 而，`const`修饰成员函数时，所处的位置是在参数列表的后边，即：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625215703184.png" alt="image-20220625215703184" style="zoom:50%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625215703184.png)
 
 当成员函数被 `const` 修饰时，即使是 `const`对象也能够正常的使用成员函数了
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625220400995.png" alt="image-20220625220400995" style="zoom:50%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625220400995.png)
 
 这就也说明，`const`修饰对象的地址可以作为 `this指针` 的内容了，这又是为什么呢？
 
@@ -331,7 +331,8 @@ C++ 语法规定，后置`--` 或 `++`，要在参数列表中添加一个 `int`
 
 虽然无法直接改变 `this指针` 的类型，但是 `const` 修饰成员函数就是 `const `修饰了 `this指针`。
 编译器会将 `const` 转换为修饰 `this指针`
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625221026619.png" alt="image-20220625221026619" style="zoom: 40%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220625221026619.png)
 
 ### 思考1 *
 
@@ -400,9 +401,8 @@ Date operator+(int day);
 
 这两个重载函数的实现也非常的简单：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626140128158.png" alt="image-20220626140128158" style="zoom:50%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626140128158.png)
 
-这两个默认成员函数，都是在取对象地址时自动调用的.
+>  这两个默认成员函数，都是在取对象地址时自动调用的.
 
-
-
+---

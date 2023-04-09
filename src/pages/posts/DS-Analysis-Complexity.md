@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[数据结构] 数据结构与算法初探：复杂度详解分析'
-pubDate: 2023-04-08
+pubDate: 2022-04-14
 description: '本篇文章是 数据结构与算法 正式内容的第一篇文章。要介绍的也是数据结构与算法中最重要的概念之一：复杂度'
 author: '七月.cc'
 cover:
@@ -266,7 +266,7 @@ int Find_10(int *arr, int arrSize)
 > int BinarySearch(int* a, int n, int x)  
 > {  
 > 	assert(a);  
-> 	
+> 
 > 	int begin = 0;  
 > 	int end = n-1;  
 > 	while (begin < end)  
@@ -279,7 +279,7 @@ int Find_10(int *arr, int arrSize)
 > 		else  
 > 			return mid;  
 > 	}  
-> 	
+> 
 > 	return -1;  
 > }
 > ```
@@ -287,14 +287,16 @@ int Find_10(int *arr, int arrSize)
 > 同样需要分情况分析：
 > 最好的情况：`指定数据在数组中间位置，只需要执行一次`，即第一次查找就查找到指定数据
 > 最坏的情况：
->> 二分查找的原理：`因为使用二分查找的数据必须是有序的，所以可以通过缩小查找范围来进行查找`
->> 二分查找每次查找一次，`下一次查找的范围会缩小为当前范围的一半`
->> 只需要一张动图就可解释：
->> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/BinarySearch.gif)
->> 可以看出，每次查找之后，下一次需要查找的元素只剩下一半，所以最坏的情况其实是 需要查找：`log N`次
->> `复杂度中，log N即为 以2为底N的对数`
+> > 二分查找的原理：`因为使用二分查找的数据必须是有序的，所以可以通过缩小查找范围来进行查找`
+> > 二分查找每次查找一次，`下一次查找的范围会缩小为当前范围的一半`
+> > 只需要一张动图就可解释：
+> >
+> > ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/BinarySearch.gif)
+> >
+> > 可以看出，每次查找之后，下一次需要查找的元素只剩下一半，所以最坏的情况其实是 需要查找：`log N`次
+> > `复杂度中，log N即为 以2为底N的对数`
 >
->所以按照 大O 渐进表示法，取最坏的情况时间复杂度为 `O(log N)`
+> 所以按照 大O 渐进表示法，取最坏的情况时间复杂度为 `O(log N)`
 
 > ```c
 > // 计算阶乘递归Fac的时间复杂度？  
@@ -316,13 +318,15 @@ int Find_10(int *arr, int arrSize)
 > {  
 > 	if(N < 3)  
 > 		return 1;  
-> 		
+> 
 > 	return Fib(N-1) + Fib(N-2);  
 > }
 > ```
 > 此函数为 `递归求斐波那契数列`
 > 递归求斐波那契数列，一个简单的递归分析图：
-> ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Fib_5.jpg)
+>
+> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Fib_5.jpg)
+>
 > 发现正常调用函数，会再发生两次递归，所以应该是 `2^N`
 > 但是因为当 `N < 3` 会返回 `1`，不再递归，所以应该是 `2^N - x` `(不容易计算所以用 x 表示)`，但是无论怎样，相减的常数因该是对`2^N` 造不成多大影响的
 > 所以按照 大O 渐进表示法，时间复杂度为 `O(2^N)`
@@ -331,15 +335,21 @@ int Find_10(int *arr, int arrSize)
 练习结束，感觉如何？？
 
 # 空间复杂度
+
 **`空间复杂度`** 主要衡量一个算法运行所需要的额外空间
 这里提到一个词：**`额外空间`**
 
 为什么是 `额外空间` ？
 因为，`函数运行时所需要的栈空间(存储参数、局部变量、一些寄存器信息等)在编译期间已经确定好了，在函数运行前就已经确定了一部分空间，这些空间的占用不能由算法本身决定`
 所以，空间复杂度主要通过 `函数在运行时候申请的额外空间` 来确定。
+
 > 这里推荐一篇 详细又简单 的 函数栈帧 的好文章：
-> [【程序员的自我修养】[动态图文] 超详解函数栈帧](https://blog.csdn.net/dxyt2002/article/details/123962979)
-> <a href="https://blog.csdn.net/dxyt2002/article/details/123962979" target="-blank" title="【程序员的自我修养】[动态图文] 超详解函数栈帧"><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Laugh.jpg">
+
+> <a href="https://julysblog.cn/posts/Function-Stack-Frame" target="-blank"><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Laugh.jpg" style="zoom:10%">
+>
+> [【程序员的自我修养】[动态图文] 超详解函数栈帧](https://julysblog.cn/posts/Function-Stack-Frame)
+
+
 
 > 	在函数内使用动态开辟内存的函数，以及创建柔性数组等操作，就会增加函数的额外空间哦
 
@@ -423,6 +433,7 @@ int Find_10(int *arr, int arrSize)
 常见的复杂度都有什么呢？
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Com_com.jpg)
+
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Com_FUN.jpg)
 
 ---
@@ -435,5 +446,5 @@ int Find_10(int *arr, int arrSize)
 
 ---
 感谢阅读！
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/fangun_dog.gif)![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/fangun_dog.gif)![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/fangun_dog.gif)
-求三连！求三连！
+
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/fangun_dog.gif" style="zoom:80%;" /><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/fangun_dog.gif" style="zoom:80%;" /><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/fangun_dog.gif" style="zoom:80%;" />

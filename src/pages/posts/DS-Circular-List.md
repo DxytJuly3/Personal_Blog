@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[数据结构] 结合题目-手把手带你剖析 “带环链表”'
-pubDate: 2023-04-08
+pubDate: 2022-05-01
 description: '本篇内容是对单链表的一个 非常重要 的补充： 带环单链表 。它，是大厂面试时可能会提问的内容，非常的重要！'
 author: '七月.cc'
 cover:
@@ -13,7 +13,7 @@ theme: 'dark'
 featured: false
 ---
 
-![image-20220501153114604](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501153114604.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501153114604.png)
 
 ---
 
@@ -82,7 +82,7 @@ struct ListNode* middleNode(struct ListNode* head)
 }
 ```
 
-![image-20220430201513575](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430201513575.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430201513575.png)
 
 ## 题2：链表中倒数最后k个结点
 
@@ -90,7 +90,7 @@ struct ListNode* middleNode(struct ListNode* head)
 
 > 例如，输入 `{1,2,3,4,5}, 2` 时，对应的链表结构如下图所示：
 >
-> ![img](https://uploadfiles.nowcoder.com/images/20211105/423483716_1636084313645/5407F55227804F31F5C5D73558596F2C)
+> ![ |wide](https://uploadfiles.nowcoder.com/images/20211105/423483716_1636084313645/5407F55227804F31F5C5D73558596F2C)
 >
 > 其中蓝色部分为该链表的最后2个结点，所以 `返回倒数第2个结点（也即结点值为4的结点）` 即可，系统会打印后面所有的节点来比较。
 >
@@ -151,7 +151,7 @@ struct ListNode* FindKthToTail(struct ListNode* pHead, int k )
 }
 ```
 
-![image-20220430203858767](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430203858767.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430203858767.png)
 
 
 
@@ -176,26 +176,26 @@ struct ListNode* FindKthToTail(struct ListNode* pHead, int k )
 >
 > **`示例 1`**：
 >
-> > ![img](https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist.png)
-> >
+> > <img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/07/circularlinkedlist.png" style="zoom:80%;" />
+> 
 > > 输入：`head = [3,2,0,-4], pos = 1`
-> > 返回：`true`
+> >返回：`true`
 > > 解释：`链表中有一个环，其尾部连接到第二个节点`
 >
 > **`示例 2`**：
 >
-> > ![image-20220501161526766](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161526766.png)
-> >
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161526766.png" style="zoom:80%;" />
+> 
 > > 输入：`head = [1,2], pos = 0`
-> > 返回：`true`
+> >返回：`true`
 > > 解释：`链表中有一个环，其尾部连接到第一个节点`
 >
 > **`示例 3`** ：
 >
-> > ![image-20220501161546352](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161546352.png)
-> >
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161546352.png" style="zoom:80%;" />
+> 
 > > 输入：`head = [1], pos = -1`
-> > 返回：`false`
+> >返回：`false`
 > > 解释：`链表中没有环`
 >
 > 原题链接：[Leetcode - 141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
@@ -232,7 +232,7 @@ bool hasCycle(struct ListNode *head)
 }
 ```
 
-![image-20220430210039173](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430210039173.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430210039173.png)
 
 OK，带环链表的题做出来了
 
@@ -264,13 +264,17 @@ OK，带环链表的题做出来了
 
 来详细分析一下：
 
-画图抽象图来分析，一个带环链表，抽象的形式可以看作：![image-20220430232045310](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430232045310.png)
+画图抽象图来分析，一个带环链表，抽象的形式可以看作：
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430232045310.png)
 
 快慢指针 `同时` 从首节点开始走，快指针走得快，慢指针走得慢
 
 所以慢指针入环时，快指针早就已经入环了
 
-此时的情况可能是`(设一下，只是假设)`：![image-20220430232210782](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430232210782.png)
+此时的情况可能是`(设一下，只是假设)`：
+
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430232210782.png)
 
 两个指针都入环之后，快指针开始在环内追逐慢指针：
 
@@ -302,25 +306,29 @@ OK，带环链表的题做出来了
 >  >
 >  > 当 `X(两指针之间的距离)` 为偶数，两指针距离又是 `每次减2` 的变化，所以一定能相遇
 >
->  >  **`情况 2：`** `X` 为 奇数![pfast_3_pslow_J](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pfast_3_pslow_J.gif)此情况，快指针 超过 慢指针，但是由于快指针的移动是不连续的，所以两指针并不会相遇
+>  >  **`情况 2：`** `X` 为 奇数
 >  >
->  > 其之间的距离变成了 `-1`，但是现在并不能直接判断是否能相遇，因为不能保证后面的追击能不能相遇
+>  >  ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pfast_3_pslow_J.gif)
 >  >
->  > 又因为 我们设环的长度为 `C`，所以此时 两指针之间的距离也是 `C-1`
+>  >  此情况，快指针 超过 慢指针，但是由于快指针的移动是不连续的，所以两指针并不会相遇
 >  >
->  > 所以，就又分为了两种情况：当 `C-1` 为奇数，当 `C-1` 为偶数
+>  >  其之间的距离变成了 `-1`，但是现在并不能直接判断是否能相遇，因为不能保证后面的追击能不能相遇
 >  >
->  > 当 `C-1` 为 偶数的时候，这时，下次追击就可以相遇
+>  >  又因为 我们设环的长度为 `C`，所以此时 两指针之间的距离也是 `C-1`
 >  >
->  > 当 `C-1` 为 奇数的时候，这时，就永远不会相遇了
+>  >  所以，就又分为了两种情况：当 `C-1` 为奇数，当 `C-1` 为偶数
 >  >
->  > > 为什么永远不会相遇？ 
->  > >
->  > > 当 `C-1` 为奇数时，也就意味着本次追击的 `X(两指针之间的距离)` 为奇数
->  > >
->  > > `X` 为奇数，就又会出现 两指针之间的距离等于 `-1` 的情况，距离就有变成了 `C-1`
->  > >
->  > > 所以，当 `C-1` 为奇数时，永远不会遇到
+>  >  当 `C-1` 为 偶数的时候，这时，下次追击就可以相遇
+>  >
+>  >  当 `C-1` 为 奇数的时候，这时，就永远不会相遇了
+>  >
+>  >  > 为什么永远不会相遇？ 
+>  >  >
+>  >  > 当 `C-1` 为奇数时，也就意味着本次追击的 `X(两指针之间的距离)` 为奇数
+>  >  >
+>  >  > `X` 为奇数，就又会出现 两指针之间的距离等于 `-1` 的情况，距离就有变成了 `C-1`
+>  >  >
+>  >  > 所以，当 `C-1` 为奇数时，永远不会遇到
 
 
 
@@ -350,7 +358,9 @@ OK，带环链表的题做出来了
 
 详细分析一下：
 
-首先还是画图假设一下：![image-20220501142311619](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501142311619.png)
+首先还是画图假设一下：
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501142311619.png)
 
 > 先思考一个问题：慢指针 `从入环到被追上` ，走过的长度 是不是如假设的那样，`会不会已经走了一圈后才被追上的`？
 >
@@ -383,7 +393,7 @@ OK，带环链表的题做出来了
 
 这个式子有什么用呢？
 
-![image-20220501142311619](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501142311619.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501142311619.png)
 
 其实，这个等式说明：
 
@@ -417,26 +427,26 @@ OK，带环链表的题做出来了
 >
 > **`示例 1`**：
 >
-> > ![image-20220501161642662](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161642662.png)
-> >
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161642662.png" style="zoom:80%;" />
+>
 > > 输入：`head = [3,2,0,-4], pos = 1`
 > > 输出：`返回索引为 1 的链表节点`
 > > 解释：`链表中有一个环，其尾部连接到第二个节点`
 >
 > **`示例 2`**：
 >
-> > ![image-20220501161623339](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161623339.png)
-> >
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161623339.png" style="zoom:80%;" />
+>
 > > 输入：`head = [1,2], pos = 0`
 > > 输出：`返回索引为 0 的链表节点`
 > > 解释：`链表中有一个环，其尾部连接到第一个节点`
 >
 > **`示例 3`**：
 >
-> > ![image-20220501161546352](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161546352.png)
-> >
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501161546352.png" style="zoom:80%;" />
+>
 > > 输入：`head = [1], pos = -1`
-> > 输出：`返回 null`
+> >输出：`返回 null`
 > > 解释：`链表中没有环`
 >
 > 原题链接：[Leetcode - 142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
@@ -475,7 +485,7 @@ struct ListNode *detectCycle(struct ListNode *head)
 }
 ```
 
-![image-20220501150938765](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501150938765.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501150938765.png)
 
 
 
@@ -495,6 +505,4 @@ struct ListNode *detectCycle(struct ListNode *head)
 
 ---
 
-![翻滚小黄狗](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E7%BF%BB%E6%BB%9A%E5%B0%8F%E9%BB%84%E7%8B%97.gif)
-
-求评论、点赞、收藏~
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E7%BF%BB%E6%BB%9A%E5%B0%8F%E9%BB%84%E7%8B%97.gif" alt="翻滚小黄狗" style="zoom:80%;" />

@@ -1,14 +1,14 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '怎么防止云服务图床被爬虫爬？给自己的图床添加白名单~'
-pubDate: 2023-04-08
+pubDate: 2022-04-18
 description: ''
 author: '七月.cc'
 cover:
     url: 'https://img-blog.csdnimg.cn/3ffc2687b14840ef87c27e14844d9cfb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LiD5pyISnVseS4=,size_20,color_FFFFFF,t_70,g_se,x_16'
     square: 'https://img-blog.csdnimg.cn/3ffc2687b14840ef87c27e14844d9cfb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LiD5pyISnVseS4=,size_20,color_FFFFFF,t_70,g_se,x_16'
     alt: 'cover'
-tags: ["云服务", "图床", "白名单"]
+tags: ["云服务", "图床", "白名单", "Git"]
 theme: 'dark'
 featured: false
 ---
@@ -18,7 +18,8 @@ featured: false
 上个月发生了一件让许多人破防的一件事：**`Gitee 图床炸了`**
 
 在 `Gitee` 上建立的图床里的图片全都变成了 `Gitee` 的图标：
-![请添加图片描述](https://img-blog.csdnimg.cn/3ffc2687b14840ef87c27e14844d9cfb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LiD5pyISnVseS4=,size_20,color_FFFFFF,t_70,g_se,x_16)
+
+![](https://img-blog.csdnimg.cn/3ffc2687b14840ef87c27e14844d9cfb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LiD5pyISnVseS4=,size_20,color_FFFFFF,t_70,g_se,x_16)
 
 
 这波事故过后一定有许多小伙伴也不敢再在 `Gitee` 创建图床，免得把再自己给整破防了。
@@ -34,11 +35,15 @@ featured: false
  这里以 `阿里云` 为例 `( 阿里云手机暂不支持操作，或者是我没找到如何修改 )`
 
 首先，在自己的 `OSS管理控制台` 进入`需要设立白名单的Bucket`
-![请添加图片描述](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/OSS_1.png)
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/OSS_1.png)
+
 然后再左边列表选择 `权限管理->防盗链`
+
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/OSS_2.png)
 
 然后找到 `开启防盗链`，并打开
+
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/OSS_3.png)
 
 
@@ -50,17 +55,22 @@ featured: false
 比如，我们在 `C站` 写博客需要访问图床外链，就把 `C站的域名` 添加进去：`*.csdn.net`
 
 或者，需要在 `阿里云OSS` 预览图片：
+
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cover_OSS.png)
 
 也需要将 `阿里云` 的域名添加进去，如果不添加就会变成这样：
+
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cover_OSS_2.png)
 
 将 `需要访问图床图片的网站域名` 添加进去之后，指定网站就可以访问获取图片了 !
 
 这里我添加了需要访问图片的域名：
+
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Referer_yuming.png)
+
 添加域名的方式，阿里云有给手册 ：
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/For_star.png)
+
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/For_star.png" alt=" |wide" style="zoom:80%;" />
 
 
 添加完成后，就可以`防止白名单外的网站访问图床内的图片`，就可以 `防止爬虫访问导致流量疯狂外流`。
@@ -71,18 +81,22 @@ featured: false
 考虑到有些小伙伴可能不知道自己的 网络 `ip`，这里提供一下查询方法`(Windows平台)`：
 > 1. 使用 `CMD` 指令查看：
 >  先打开 `CMD` 或 `Terminal(Win11)`：
->   `CMD`：可以 `Win + R` 组合键唤出  `运行`，然后输入 `CMD` 运行就可以
->   ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/run_CMD.png)
+>     `CMD`：可以 `Win + R` 组合键唤出  `运行`，然后输入 `CMD` 运行就可以
+>   
+>   ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/run_CMD.png)
 
 >  `Terminal(Win11)` ：右键 `开始按钮` 选择 `终端(Terminal)` 就可以 
->  ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/run_Terminal.png)
+>
+>  <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/run_Terminal.png" style="zoom:67%;" />
 
 >  然后在弹出的界面输入 `ipconfig /all` 回车
 >  就可以找到 `当前网络 ip`：
->  ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/now_ip_adress.png)
->  
+>
+>  ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/now_ip_adress.png)
+>
 >  2. 开始界面打开 `设置`，并打开 `网络与Internet`，找到 `属性` 点击就可以看到 `当前网络ip`：
->  ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/now_ip_adress2.png)
+>
+>    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/now_ip_adress2.png)
 
 找到自己的 `网络 ip` 然后添加到 `阿里云OSS` `防盗链(白名单)` 里就 OK 啦！ 
 

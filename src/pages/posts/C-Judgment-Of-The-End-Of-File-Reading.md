@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C语言] 文件读取结束的判定'
-pubDate: 2023-04-08
+pubDate: 2022-03-28
 description: '当我们对一个文件的数据进行读取，输入到内存中的时候，无论是读取文件数据正常结束，还是读取文件数据失败了，函数都会返回一个值'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409204006511.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409204006511.png'
     alt: 'cover'
 tags: ["C", "文件"]
 theme: 'dark'
 featured: false
 ---
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409204006511.png)
 
 # 文件读取结束的判定
 
@@ -174,4 +176,3 @@ int ferror( FILE *stream );
 >```
 >
 >可以修改一下，使两个函数 都生效以下~
->[[文件缓冲区]]

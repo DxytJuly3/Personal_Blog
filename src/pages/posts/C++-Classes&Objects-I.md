@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 类和对象(一)'
-pubDate: 2023-04-08
+pubDate: 2022-06-18
 description: 'C++ 中的类其实与 C语言 中的结构体类似。不过，C++将C语言 中的 struct 进行了升级，在C++中 struct 可以用来定义类'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225129759.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225129759.png'
     alt: 'cover'
 tags: ["C++", "类", "对象", "语法"]
 theme: 'dark'
 featured: false
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225129759.png)
 
 # 一、类
 
@@ -22,7 +24,7 @@ C++ 升级了 `struct` ，使其定义的结构体：
 1. 结构体内部可以定义函数
 2. 结构体名可以直接作为类型使用
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
+
 
 ```cpp
 struct User
@@ -49,11 +51,14 @@ struct User
 类似这样的结构体，在 C++ 中是合理合法的，函数是可以被定义在结构体内部的。
 并且在定义变量时，可以直接使用 `User` 不用再添加 `struct` 
 结构体内的函数也可以用使用结构体变量的方式调用。
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617134353881.png" alt="image-20220617134353881" style="zoom: 67%;" />
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617134353881.png)
 
 
 
-不过，在 C++ 中定义结构体通常用 `class` 而不是 `struct`；定义出的类型也通常被称为 `类`，而不是 结构体；使用类型定义的变量也不再称为变量了，而是 `对象`.![image-20220617140336912](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617140336912.png)
+不过，在 C++ 中定义结构体通常用 `class` 而不是 `struct`；定义出的类型也通常被称为 `类`，而不是 结构体；使用类型定义的变量也不再称为变量了，而是 `对象`.
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617140336912.png)
 
 
 
@@ -88,8 +93,6 @@ C++中的 结构体和类的内部 其实都设置有访问权限。但是结构
 
 但是访问限定符具体有什么作用呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 以上图中的 `User 类` 举个栗子
 
 ```cpp
@@ -117,17 +120,20 @@ private:
 ```
 
 在此类中，public 修饰两个成员函数，private 修饰四个成员变量。就表示，在类外不能直接访问成员变量
-![image-20220617171801682](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617171801682.png)
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617171801682.png)
 
 无法用 `u1._age` 来直接访问 `对象u1 中的 _age 变量`
 
-但是因为 private修饰的成员 只是`无法在类外进行访问，在类内依旧是可以进行访问的`，所以可以通过 public修饰的成员对private成员进行间接的访问： ![image-20220617172300730](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617172300730.png)
+但是因为 private修饰的成员 只是`无法在类外进行访问，在类内依旧是可以进行访问的`，所以可以通过 public修饰的成员对private成员进行间接的访问： 
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617172300730.png)
 
 ---
 
 
 
-![image-20220617173610971](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617173610971.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617173610971.png)
 
 > 有一个细节需要注意的是，访问限定符只在编译时起作用，当编译完成，数据映射至内存时就已经不存在什么公有成员、私有成员的概念了
 
@@ -137,11 +143,11 @@ private:
 
 使用C++类，可以更好的将数据与操作封装结合起来。而 C语言的结构体不可以。
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 比如在 之前文章中用C语言分析实现过的数据结构：`栈`
 
-**`C语言 结构体实现栈：`**![Stack_202206171749](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Stack_202206171749.png)
+**`C语言 结构体实现栈：`**
+
+![Stack](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Stack_202206171749.png)
 
 使用 C语言 实现的栈，其结构与操作接口是分离的。而使用 C++ 的类进行对栈的实现，就完全可以将操作接口也写入类中
 
@@ -222,7 +228,8 @@ private:
 > 对数据结构中的数据进行操作时，是`很忌讳不调用接口直接对数据进行操作`的：
 >
 > 比如：栈初始化时
-> ![class_StackInit_202206171822](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_StackInit_202206171822.png)
+>
+> ![class_StackInit |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_StackInit_202206171822.png)
 >
 > 这两种方式，直接操作数据肯定是不规范的。有时候会造成不必要的麻烦
 >
@@ -233,7 +240,8 @@ private:
 ## 2.3 类的作用域
 
 既然，一个类内部可以包含 成员函数。那么函数的声明及定义就有可能分离：
-![image-20220617184512841](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617184512841.png)
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617184512841.png)
 
 当类中，成员函数的声明与定义分离，定义时需要在函数名前加 `类名::` 连接`（:: 是作用域运算符）`
 
@@ -249,21 +257,23 @@ private:
 
 > 这里不再赘述，如有需要可以参考结构体博文：
 >
-> 结构体博文链接
+> [详解结构体，详细分析结构体对齐](http://julysblog.cn/posts/C-Struct)
 
 所以，**`一般的类的大小其实就是对齐后成员变量的大小`**
 
 但是，由于在类内可以存在成员函数，那么就存在一个特殊的类——只有成员函数，没有成员变量的类：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
+![class_onlyfunction ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_onlyfunction_202206172206.png)
 
-![class_onlyfunction_202206172206](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_onlyfunction_202206172206.png)
+像这样没有成员变量的类，它的大小会是多少呢？
 
-像这样没有成员变量的类，它的大小会是多少呢？<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221108502.png" alt="image-20220617221108502" style="zoom: 80%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221108502.png)
 
 可以看到，只有成员函数的类的大小为 `1`
 
-如果是空类呢？<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221308917.png" alt="image-20220617221308917" style="zoom: 80%;" />
+如果是空类呢？
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221308917.png)
 
 可以看到，没有成员变量的类，其大小都为 `1`
 
@@ -282,28 +292,31 @@ private:
 
 对一个有成员变量和成员函数的类，定义出的对象的内容有成员变量是一定的。但`这个对象的内容会存在成员函数吗？`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
+以这个类为例：
 
-以这个类为例：![class_User_202206172348](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_User_202206172348.png)
+![class_User ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_User_202206172348.png)
 
 根据这个疑问，就可以假设两种情况：
 
 1. 每个对象均存储一份成员函数
 
     > 对于相同的类，每个对象大致是这样的
-    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618000801437.png" alt="image-20220618000801437" style="zoom:67%;" />
+    >
+    > ![对象 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618000801437.png)
     >
     > 此方式有一个缺点，就是每个对象中都存储有功能相同的函数，会造成浪费
 
 2. 多个相同类的对象共用同一个成员函数
 
     > 对于相同的类，多个对象大致是这样的：
-    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618001443099.png" alt="image-20220618001443099" style="zoom:67%;" />
+    >
+    > ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618001443099.png)
 
 类对象在内存中的存储大致也就这两种方式了，那么计算机中究竟使用的是哪一种呢？
 
 调用函数调试，并查看反汇编代码：
-![image-20220618002216207](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618002216207.png)
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618002216207.png)
 
 可以发现，相同类的不同的对象，调用同一个成员函数，调用地址相同。
 
@@ -321,36 +334,36 @@ private:
 
 其实，类的成员函数中 `除自己写的参数之外，还有一个隐含的 this指针 参数`，就是用来指定函数所控制的对象的：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
-
 同样以此类为例：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_User_202206172348.png" alt="class_User_202206172348" style="zoom:67%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_User_202206172348.png)
 
 定义不同的对象，并且调用函数时，编译器会进行这样的处理：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618145428656.png" alt="image-20220618145428656" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618145428656.png)
 
 所以，对于一个成员函数，编译器处理后其实是这样的：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618151208745.png" alt="image-20220618151208745" style="zoom:67%;" />
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618151208745.png)
 
 但是这些操作都是由 `编译器` 完成的，不能手动添加，手动添加是错误的：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618151807316.png" alt="image-20220618151807316" style="zoom: 67%;" />
 
-1
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618152044913.png" alt="image-20220618152044913" style="zoom:67%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618151807316.png)
+
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618152044913.png)
 
 所以，`this指针在定义(声明)成员函数时不能写出来，也不能手动传参，this指针传参的整个过程是编译器完成的。所以被称为 隐含的this指针`
 
 虽然传参是编译器执行的，但是 ` 成员函数内部其实是可以直接使用 this指针 ` 的。
 
-可以使用成员函数将 this指针 的地址打印出来：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618155110595.png" alt="image-20220618155110595" style="zoom:67%;" />
+可以使用成员函数将 this指针 的地址打印出来：
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618155110595.png)
 
 ### 2.5.1 面试：this指针可否为空指针？this指针存储在哪个区？*
 
 思考一个问题，既然 this指针传参的整个过程都是由编译器实现的，那么this指针能否为空指针呢？
-
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
 
 以下面这段代码为例：
 
@@ -388,7 +401,7 @@ int main()
 
 注意：在执行 `Show()` 时并不会崩溃，因为 `Show() 函数中并没有对 this指针进行解引用`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618154435802.png" alt="image-20220618154435802" style="zoom:67%;" />
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618154435802.png)
 
 由此，可以判断出 其实` this指针 是可以为空指针的，this指针为空指针时不会有任何的编译错误`。但是，如果 this指针为空指针，那么成员函数很有可能会对空指针解引用，发成运行错误导致程序崩溃。所以，`this指针 最好不要为空指针`
 
@@ -402,5 +415,5 @@ int main()
 
 `不过，由于this指针 在成员函数中可能被频繁的使用到，所以为了提高使用效率，this指针也有可能被存储至寄存器中。(因编译器而异)`
 
-![image-20220618164320341](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618164320341.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618164320341.png)
 

@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[数据结构] 栈 详解'
-pubDate: 2023-04-08
+pubDate: 2022-05-07
 description: '本篇文章来介绍一下 `栈` 这种数据结构'
 author: '七月.cc'
 cover:
@@ -54,13 +54,13 @@ featured: false
 >
 > 操作系统中的 `栈`，如果调用函数，创建栈帧是从栈顶创建的，销毁栈帧也是从栈顶销毁的
 >
-> 详情可阅读博主本篇文章：[【程序员的自我修养】[动态图文] 超详解函数栈帧](https://d-xyt.blog.csdn.net/article/details/123962979)
+> 详情可阅读博主本篇文章：[【程序员的自我修养】[动态图文] 超详解函数栈帧](https://julysblog.cn/posts/Function-Stack-Frame)
 
 
 
 `栈` 存放数据的方式就像 砌砖，在 `不破坏结构` 的情况下只能这样 放 和 拿：
 
-![](https://img-blog.csdnimg.cn/img_convert/6929a33778e6355875037e2cade6f591.gif#pic_center)
+![ |wide](https://img-blog.csdnimg.cn/img_convert/6929a33778e6355875037e2cade6f591.gif#pic_center)
 
 由图 可以看出 `栈` 是一种 `后进先出(LIFO)` 的数据结构，即 最后放入的数据，最先出来
 
@@ -96,11 +96,11 @@ typedef struct Stack
 > `Top` 初值不同，接口的实现 会有细微的差异：
 > 初值为 `-1`，`Top` 指向数组最后一个元素的位置；压栈时，`Top` 先加一，再入数据
 >
-> ![image-20220507160801719](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507160801719.png)
+> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507160801719.png)
 >
 > 初值为 `0`，`Top` 指向数组最后一个元素的下一位置；压栈时，先入数据，`Top` 再加一
 >
-> ![image-20220507160745124](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507160745124.png)
+> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507160745124.png)
 >
 > `并且，由于 Top 有不同的情况，与栈有关的操作最好使用已有接口进行`
 
@@ -136,7 +136,7 @@ void StackInit(Stack *pst)
 }
 ```
 
-![image-20220507173412153](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507173412153.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507173412153.png)
 
 ### 入栈 StackPush
 
@@ -168,7 +168,7 @@ void StackPush(Stack *pst, StackDataType x)
 }
 ```
 
-![image-20220507174850928](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507174850928.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507174850928.png)
 
 ### 出栈 StackPop
 
@@ -207,7 +207,7 @@ StackDataType StackTop(const Stack *pst)
 }
 ```
 
-![image-20220507181738115](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507181738115.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507181738115.png)
 
 ### 判空 StackEmpty
 
@@ -224,7 +224,7 @@ bool StackEmpty(const Stack *pst)
 }
 ```
 
-![image-20220507182200048](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507182200048.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507182200048.png)
 
 ### 栈元素个数 StackSize
 
@@ -240,7 +240,7 @@ int StackSize(const Stack *pst)
 }
 ```
 
-![image-20220507182706721](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507182706721.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507182706721.png)
 
 ### 栈销毁 StackDestroy
 
@@ -255,7 +255,7 @@ void StackDestory(Stack *pst)
 }
 ```
 
-![image-20220507183021201](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507183021201.png)
+![ wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507183021201.png)
 
 
 
@@ -275,9 +275,5 @@ void StackDestory(Stack *pst)
 
 OK~ 本篇文章到此结束~ 
 
----
-
-求点赞、评论、收藏~
-
-![给你点个赞](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/005PeXV6gy1grtp9ji59cg306r07iaf0.gif)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/005PeXV6gy1grtp9ji59cg306r07iaf0.gif" alt="给你点个赞" style="zoom:80%;" />
 
