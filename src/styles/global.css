@@ -5985,11 +5985,11 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image.image-wide {
-  width: 77%
+  width: 75%
 }
 
 .image.image-wide .component-content {
-  width: 77%;
+  width: 75%;
   max-width: 880px
 }
 
