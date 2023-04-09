@@ -699,7 +699,7 @@ nvim ~/.config/nvim/init.vim
 
 这里我直接附上我自己的配置文件内容：
 
-```vim
+```
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'master'}
 Plug 'mg979/vim-xtabline'
