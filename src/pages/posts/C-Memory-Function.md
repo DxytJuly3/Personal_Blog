@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C语言] 内存函数介绍与模拟实现'
-pubDate: 2023-04-08
+pubDate: 2023-04-16
 description: 'memcpy、memmove……'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409195102451.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409195102451.png'
     alt: 'cover'
 tags: ["C", "函数", "内存"]
 theme: 'dark'
 featured: false
 ---
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409195102451.png)
 
 # 内存函数
 
