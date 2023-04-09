@@ -260,7 +260,7 @@ struct S2
 };
 ```
 
-我们将，上一个结构体成员中的，`i` 和`c2`换一换位置结果又是什么呢?![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160744394.png "width:50%") 我们发现只是换了一下位置，结构体大小就减少了 `4` 个字节 
+我们将，上一个结构体成员中的，`i` 和`c2`换一换位置结??果又是什么呢?![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160744394.png "width:50%") 我们发现只是换了一下位置，结构体大小就减少了 `4` 个字节 
 
 这次又是怎么对齐和计算的呢？
 
