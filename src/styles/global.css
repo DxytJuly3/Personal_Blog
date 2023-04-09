@@ -13,7 +13,11 @@
   --footer-directory-title-color: #1d1d1f;
   --footer-directory-title-color-hover: #000;
 }
-
+img {
+  width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
 
 *,
 ::before,
@@ -5985,12 +5989,11 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image.image-wide {
-  width: 77%
+  width: 100%
 }
 
 .image.image-wide .component-content {
-  width: 77%;
-  max-width: 880px
+  max-width: 680px
 }
 
 .image.image-wide .image-asset {
@@ -6004,7 +6007,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   border-radius: 0
 }
 
-@media only screen and (min-width: 660px) {
+@media only screen and (max-width: 660px) {
 
   .image.image-wide .image-sharesheet,
   .image.image-wide .pullquote-cover {

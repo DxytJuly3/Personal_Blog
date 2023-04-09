@@ -127,7 +127,9 @@ struct S1
 };
 ```
 
-我们用 `sizeof` 求出此结构体类型的大小是：`12` 字节 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160006153.png)
+我们用 `sizeof` 求出此结构体类型的大小是：`12` 字节 
+
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160006153.png"/>
 
 但是 `int`类型大小是 `4` 字节，`char` 类型的大小是 `1` 字节。这个结构体大小不应该是 `6` 字节吗？ 为什么是 `12` 字节呢？
 
@@ -167,7 +169,7 @@ struct S1
 >
 > 我们做图明确出来：
 >
->  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160055320.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160055320.png)
 >
 > 可以非常明显的看出，结构体成员`c1` 到 `i` 之间，有三个字节的空间是空的
 >
@@ -175,7 +177,7 @@ struct S1
 >
 > 所以，此结构体的内存空间占用情况，可能是这样的：
 >
->  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160201908.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160201908.png)
 >
 > 那么，为什么呢？为什么会有 开辟了，但是没有用到 的空间呢？一个结构体类型的大小，到底如何计算呢？
 
@@ -214,7 +216,8 @@ struct S1
 ```
 
 先看一下总大小：
- ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160320772.png)
+
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160320772.png"/>
 
 然后我们具体来计算一下：
 
@@ -227,13 +230,13 @@ struct S1
 >
 > 1. `c1` 存放在结构体变量 开始地址的 0 偏移处
 >
->     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160409063.png) 
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160409063.png)
 >
 > 2. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处
 >
 >    至少是`4` 
 >
->     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160443593.png)
+>    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160443593.png)
 >
 > 3. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处
 >
@@ -243,7 +246,7 @@ struct S1
 >
 >    `c2`所在空间已经是 第 `9` 个字节，所以此结构体总大小 最小为 `12`
 >
->     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160607382.png)
+>    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160607382.png)
 >
 >    所以，结构体大小为 `12` 字节
 
@@ -260,7 +263,11 @@ struct S2
 };
 ```
 
-我们将，上一个结构体成员中的，`i` 和`c2`换一换位置结??果又是什么呢?![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160744394.png "width:50%") 我们发现只是换了一下位置，结构体大小就减少了 `4` 个字节 
+我们将，上一个结构体成员中的，`i` 和`c2`换一换位置结果又是什么呢?
+
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160744394.png"/>
+
+我们发现只是换了一下位置，结构体大小就减少了 `4` 个字节 
 
 这次又是怎么对齐和计算的呢？
 
@@ -270,15 +277,22 @@ struct S2
 >|            `i`             |              `(int)`4              |        8         |          4           |
 >
 >1. `c1` 存放在结构体变量 开始地址的 0 偏移处
->    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160409063.png)
+>
+>   ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160409063.png)
+>
 >2. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处，`c2` 下面就可以
->    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160846070.png)
->3. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处
->   至少是`4` 
->    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160914404.png)
+>
+>   ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160846070.png)
+>
+>3. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处, 至少是`4` 
+>
+>   ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160914404.png)
+>
 >4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `4` 的整数倍。
 >   `i`存放完，结构体占`8`个字节，正好是 `4`的倍数，所以不用再占用其他空间
->    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160952045.png)
+>
+>   ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160952045.png)
+>
 >   此结构体总大小为：`8`字节
 
 ##### 1.4.2.3 示例3：
@@ -309,23 +323,21 @@ struct S3
 >
 >     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161023625.png)
 >
-> 3. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处
+> 3. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍处, 至少是`12` 
 >
->    至少是`12` 
->
->     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161057999.png)
+>    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161057999.png)
 >
 > 4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `8` 的整数倍。
 >
 >    `i`存放完，结构体占`16`个字节，正好是 `8`的倍数，所以不用再占用其他空间
 >
->     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161138105.png)
+>    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161138105.png)
 >
 >    此结构体总大小为：`16`字节
 
 我们来验证一下：
 
- ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161204408.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161204408.png"/>
 
 确实跟我们计算的一样，这个结构体大小为 `16` 字节
 
@@ -378,9 +390,7 @@ struct S4
 >
 >    `c1` 存放完，已经占用 `25` 字节，所以此结构体总大小 最小为 `32`
 >
->    即
->
->     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161317937.png)
+>    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161317937.png)
 >
 >    此结构体总大小为：`32` 字节
 
@@ -529,20 +539,20 @@ struct S2
 > 
 > struct S1
 > {
->     char c1;
->     int i;
->     char c2;
+>  char c1;
+>  int i;
+>  char c2;
 > }
 > 
 > int main()
 > {
->     printf("%zu", sizeof(struct S1));
->     
->     return 0;
+>  printf("%zu", sizeof(struct S1));
+> 
+>  return 0;
 > }
 > ```
 >
->  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161432807.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161432807.png)
 >
 > 此时，`struct S1`的总大小变成了 `6` 字节，而我们没有改变的时候是 `12` 字节
 
