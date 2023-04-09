@@ -13,27 +13,42 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
       <ul role="list" class="section-tiles">
         {
           // tile-hero
-          allPosts.slice(0, 2).map((post) => {
+          allPosts.slice(0, 1).map((post) => {
             return (
-              <Tile title={post.frontmatter.title} href={post.url} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} cover={post.frontmatter.cover.url} level="1" />
+              <Tile title={post.frontmatter.title} 
+                    href={post.url} 
+                    date={post.frontmatter.pubDate} 
+                    tags={post.frontmatter.tags} 
+                    cover={post.frontmatter.cover.url} 
+                    level="1" />
             );
           })
         }
 
         {
           // tile-2up
-          allPosts.slice(2, 6).map((post) => {
+          allPosts.slice(1, 5).map((post) => {
             return (
-              <Tile title={post.frontmatter.title} href={post.url} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} cover={post.frontmatter.cover.url} level="2" />
+              <Tile title={post.frontmatter.title} 
+                    href={post.url}
+                    date={post.frontmatter.pubDate}
+                    tags={post.frontmatter.tags}
+                    cover={post.frontmatter.cover.url}
+                    level="2" />
             );
           })
         }
 
         {
           // tile-3up
-          allPosts.slice(6, 12).map((post) => {
+          allPosts.slice(5, 12).map((post) => {
             return (
-              <Tile title={post.frontmatter.title} href={post.url} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} cover={post.frontmatter.cover.url} level="3" />
+              <Tile title={post.frontmatter.title} 
+                    href={post.url} 
+                    date={post.frontmatter.pubDate} 
+                    tags={post.frontmatter.tags} 
+                    cover={post.frontmatter.cover.url} 
+                    level="3" />
             );
           })
         }
