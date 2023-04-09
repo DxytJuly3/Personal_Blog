@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C语言] 结构体相关分析'
-pubDate: 2023-04-08
+title: '[C语言] 详解结构体，详细分析结构体对齐'
+pubDate: 2022-02-15
 description: '结构体是一些值的集合，这些值成为成员变量。结构的每个成员可以是不同类型的变量。结构体属于自定义类型。'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409155622571.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409155622571.png'
     alt: 'cover'
 tags: ["C语言", "结构体", "语法"]
 theme: 'dark'
 featured: false
 ---
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409155622571.png)
 
 #  结构体
 
@@ -127,7 +129,7 @@ struct S1
 
 我们用 `sizeof` 求出此结构体类型的大小是：`12` 字节
 
-![image-20220124135912996](C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124135912996.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160006153.png)
 
 但是 `int`类型大小是 `4` 字节，`char` 类型的大小是 `1` 字节。这个结构体大小不应该是 `6` 字节吗？ 为什么是 `12` 字节呢？
 
@@ -157,7 +159,7 @@ struct S1
 >
 > 我们先计算一下上边这段结构体类型，各成员的偏移量(`%zu是输出 size_t 类型的数据的指定格式`)
 >
-> ![image-20220124141635244](C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124141635244.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409155912476.png)
 >
 > 第一个，`c1`的偏移量是 `0`;
 >
@@ -167,7 +169,7 @@ struct S1
 >
 > 我们做图明确出来：
 >
->  <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124144039803.png" alt="image-20220124144039803" style="zoom:67%;" />
+>  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160055320.png)
 >
 > 可以非常明显的看出，结构体成员`c1` 到 `i` 之间，有三个字节的空间是空的
 >
@@ -175,7 +177,7 @@ struct S1
 >
 > 所以，此结构体的内存空间占用情况，可能是这样的：
 >
->  <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124144940813.png" alt="image-20220124144940813" style="zoom:67%;" />
+>  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160201908.png)
 >
 > 那么，为什么呢？为什么会有 开辟了，但是没有用到 的空间呢？一个结构体类型的大小，到底如何计算呢？
 
@@ -214,7 +216,7 @@ struct S1
 ```
 
 先看一下总大小：
- <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124160252990.png" alt="image-20220124160252990" style="zoom:67%;" />
+ ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160320772.png)
 
 然后我们具体来计算一下：
 
@@ -227,23 +229,23 @@ struct S1
 >
 > 1. `c1` 存放在结构体变量 开始地址的 0 偏移处
 >
->     <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124154534873.png" alt="image-20220124154534873" style="zoom: 67%;" /> 
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160409063.png) 
 >
 > 2. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处
 >
 >    至少是`4` 
 >
->     <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124155055202.png" alt="image-20220124155055202" style="zoom:67%;" />
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160443593.png)
 >
 > 3. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处
 >
->     <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124155317987.png" alt="image-20220124155317987" style="zoom:67%;" />
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160509167.png)
 >
 > 4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `4` 的整数倍。
 >
 >    `c2`所在空间已经是 第 `9` 个字节，所以此结构体总大小 最小为 `12`
 >
->     <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124155736544.png" alt="image-20220124155736544" style="zoom:67%;" />
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160607382.png)
 >
 >    所以，结构体大小为 `12` 字节
 
@@ -262,7 +264,7 @@ struct S2
 
 我们将，上一个结构体成员中的，`i` 和`c2`换一换位置结果又是什么呢？
 
- <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124160428100.png" alt="image-20220124160428100" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160744394.png)
 
 我们发现只是换了一下位置，结构体大小就减少了 `4` 个字节 
 
@@ -275,23 +277,23 @@ struct S2
 >
 >1. `c1` 存放在结构体变量 开始地址的 0 偏移处
 >
->    <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124154534873.png" alt="image-20220124154534873" style="zoom: 67%;" /> 
+>    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160409063.png)
 >
 >2. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处，`c2` 下面就可以
 >
->    <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124160939391.png" alt="image-20220124160939391" style="zoom:67%;" />
+>    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160846070.png)
 >
 >3. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处
 >
 >   至少是`4` 
 >
->    <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124161026248.png" alt="image-20220124161026248" style="zoom:67%;" />
+>    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160914404.png)
 >
 >4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `4` 的整数倍。
 >
 >   `i`存放完，结构体占`8`个字节，正好是 `4`的倍数，所以不用再占用其他空间
 >
->    <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124161322999.png" alt="image-20220124161322999" style="zoom:67%;" />
+>    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160952045.png)
 >
 >   此结构体总大小为：`8`字节
 
@@ -317,29 +319,29 @@ struct S3
 >
 > 1. `n` 存放在结构体变量 开始地址的 `0` 偏移处
 >
->     <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124163039058.png" alt="image-20220124163039058" style="zoom:67%;" />
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161007720.png)
 >
 > 2. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处
 >
->     <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124163133970.png" alt="image-20220124163133970" style="zoom:67%;" />
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161023625.png)
 >
 > 3. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处
 >
 >    至少是`12` 
 >
->     <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124163205300.png" alt="image-20220124163205300" style="zoom:67%;" />
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161057999.png)
 >
 > 4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `8` 的整数倍。
 >
 >    `i`存放完，结构体占`16`个字节，正好是 `8`的倍数，所以不用再占用其他空间
 >
->     <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124163407789.png" alt="image-20220124163407789" style="zoom:67%;" />
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161138105.png)
 >
 >    此结构体总大小为：`16`字节
 
 我们来验证一下：
 
- <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124163820717.png" alt="image-20220124163820717" style="zoom:67%;" />
+ ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161204408.png)
 
 确实跟我们计算的一样，这个结构体大小为 `16` 字节
 
@@ -378,15 +380,15 @@ struct S4
 >
 > 1. `n` （大小为`4`）存放在结构体变量 开始地址的 `0` 偏移处
 >
->     <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124165613737.png" alt="image-20220124165613737" style="zoom:67%;" />
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161222127.png)
 >
 > 2. `s` （大小为`16`）的对齐数是 `8`，所以存放在偏移量是 `8`的整数倍 处
 >
->     <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124170021927.png" alt="image-20220124170021927"  />
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161234978.png)
 >
 > 3. `c1`（大小为 `1`）的对齐数是 `1`，所以存放在偏移量是 `1`的倍数 处
 >
->     ![image-20220124170223547](C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124170223547.png)
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161247181.png)
 >
 > 4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `8` 的整数倍。
 >
@@ -394,7 +396,7 @@ struct S4
 >
 >    即
 >
->     <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124170531153.png" alt="image-20220124170531153" style="zoom:67%;" />
+>     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161317937.png)
 >
 >    此结构体总大小为：`32` 字节
 
@@ -465,11 +467,11 @@ struct S4
    >
    >1. 假设 不对齐内存
    >
-   >    <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124173955115.png" alt="image-20220124173955115" style="zoom:67%;" />
+   >    ![内存不对其 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161339649.png)
    >
    >2. 假设 对齐内存
    >
-   >    <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124174019513.png" alt="image-20220124174019513" style="zoom:67%;" />
+   >    ![内存对齐 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161351037.png)
    >
    >假设，我们是 32 位环境，一次可以读取 4 字节
    >
@@ -477,7 +479,7 @@ struct S4
    >
    >> 我们要访问完整的 `i` 的数据，就需要访问两次
    >>
-   >>  <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124174747128.png" alt="image-20220124174747128" style="zoom:67%;" />
+   >>  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161403422.png)
    >>
    >> 因为，第一次只访问到了 `i`的 前三个字节，第二次访问了 `i` 的最后一个字节 
    >
@@ -487,7 +489,7 @@ struct S4
    >>
    >> 跳过前 4 个字节，直接访问 `i` 的数据，效率要更高一些
    >>
-   >>  <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124175136669.png" alt="image-20220124175136669" style="zoom:67%;" />
+   >>  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161417134.png)
    >
    >所以，内存对齐，有一定的性能的提升
 
@@ -556,7 +558,7 @@ struct S2
 > }
 > ```
 >
->  <img src="C:\Users\xyt15\AppData\Roaming\Typora\typora-user-images\image-20220124202355959.png" alt="image-20220124202355959" style="zoom:67%;" />
+>  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161432807.png)
 >
 > 此时，`struct S1`的总大小变成了 `6` 字节，而我们没有改变的时候是 `12` 字节
 
@@ -631,4 +633,3 @@ struct S2
 > 函数传参时，参数是需要压栈的，会有时间和空间上的系统开销。
 >
 > 如果传递一个结构体对象的时候，结构体过大，函数压栈的系统开销就会比较大，会导致项目性能的下降。
-[[枚举, 联合]]
