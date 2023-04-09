@@ -5990,7 +5990,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 
 .image.image-wide .component-content {
   width: 100%;
-  max-width: 2560px
+  max-width: 880px
 }
 
 .image.image-wide .image-asset {
@@ -6004,16 +6004,16 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   border-radius: 0
 }
 
-@media only screen and (min-width: 1441px) {
+@media only screen and (min-width: 660px) {
 
   .image.image-wide .image-sharesheet,
   .image.image-wide .pullquote-cover {
-    max-width: 1920px;
+    max-width: 660px;
     margin: 0 auto
   }
 }
 
-@media only screen and (min-width: 1922px) {
+@media only screen and (min-width: 660px) {
 
   .image.image-wide .image-sharesheet,
   .image.image-wide .pullquote-cover {
