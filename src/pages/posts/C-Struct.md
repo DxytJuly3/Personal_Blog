@@ -270,15 +270,15 @@ struct S2
 >|            `i`             |              `(int)`4              |        8         |          4           |
 >
 >1. `c1` 存放在结构体变量 开始地址的 0 偏移处
->    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160409063.png)
+>    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160409063.png)
 >2. `c2` 的对齐数是 `1`，所以存放在偏移量是 `1`的整数倍 处，`c2` 下面就可以
->    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160846070.png)
+>    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160846070.png)
 >3. `i` 的对齐数是 `4`，所以存放在偏移量是 `4`的整数倍 处
 >   至少是`4` 
->    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160914404.png)
+>    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160914404.png)
 >4. 结构体总大小必须为 最大对齐数的整数倍，在此结构体中即为 `4` 的整数倍。
 >   `i`存放完，结构体占`8`个字节，正好是 `4`的倍数，所以不用再占用其他空间
->    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160952045.png)
+>    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160952045.png)
 >   此结构体总大小为：`8`字节
 
 ##### 1.4.2.3 示例3：
