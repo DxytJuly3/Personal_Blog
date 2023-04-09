@@ -5,8 +5,8 @@ pubDate: 2023-04-09
 description: '在学习C语言的过程中，每一个 .c 文件都会经过编译链接等预处理操作才能成为一个 .exe 的可执行文件的. 这些预处理过程到底是如何进行的，就是本篇文章的内容'
 author: '七月.cc'
 cover:
-    url: 'https://img-blog.csdnimg.cn/img_convert/f00256fa637661664369a35cb27a8501.png'
-    square: 'https://img-blog.csdnimg.cn/img_convert/f00256fa637661664369a35cb27a8501.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/cover.jpg'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/cover.jpg'
     alt: 'cover'
 tags: ["编译", "C", "程序员的自我修养"]
 theme: 'dark'
