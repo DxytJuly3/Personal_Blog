@@ -6010,7 +6010,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 
   .image.image-wide .image-sharesheet,
   .image.image-wide .pullquote-cover {
-    max-width: 1920px;
+    max-width: 780px;
     margin: 0 auto
   }
 }
