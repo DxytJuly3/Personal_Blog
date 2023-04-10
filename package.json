@@ -7,7 +7,9 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
+		"build-site": "next build && next-sitemap --config next-sitemap.config.js",
 		"astro": "astro"
+		
 	},
 	"dependencies": {
 		"@astrojs/rss": "^2.1.1",
@@ -16,5 +18,8 @@
 		"md5": "^2.3.0",
 		"rehype": "^12.0.1",
 		"unist-util-visit": "^4.1.2"
+	},
+	"devDependencies": {
+		"next-sitemap": "^4.0.7"
 	}
 }
