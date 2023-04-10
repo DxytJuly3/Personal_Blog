@@ -13,7 +13,7 @@ theme: 'dark'
 featured: true
 ---
 
-![image-20230408162547569](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408162547569.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408162547569.png)
 
 ---
 
@@ -41,13 +41,13 @@ featured: true
 
 为什么我们在信号出现的时候可以正确的判断出信号的含义？
 
-是 **`因为我们在信号还未发出的时候, 其实就已经知道了某些信号的含义. 所以我们在接收到信号之后, 才会做出相应的动作.`**
+是  **`因为我们在信号还未发出的时候, 其实就已经知道了某些信号的含义. 所以我们在接收到信号之后, 才会做出相应的动作.`**
 
 而对应的, Linux操作系统中的 进程信号其实也是这样的. 
 
 Linux的进程信号是给进程发送的, 且信号一定具有一定的含义, 也就是说, *`进程接收到信号之后需要 可以正确的处理接收到的信号的能力`*
 
-不过, **`在接收到信号之前, 进程就应该具备处理信号的能力`**, 除此之外, 还需要其他的能力. 也就是说：
+不过,  **`在接收到信号之前, 进程就应该具备处理信号的能力`**, 除此之外, 还需要其他的能力. 也就是说：
 
 1. 进程本来就具有下面的这些能力, 无论是否接收到信号
 2. 进程需要有识别进程信号的能力, 可以接收, 也可以分辨出是什么信号
@@ -79,7 +79,7 @@ Linux的进程信号是给进程发送的, 且信号一定具有一定的含义,
 
 进程可以直接去处理信号, 也可以暂时将信号搁置到一边, 不立即处理. 
 
-不过, **`进程不对信号立即处理, 不代表没有处理信号. 进程接收到信号之后, 一定会先记住这个信号被接收了`**. 只有进程记住了接收到的信号, 进程才能在之后处理信号.
+不过,  **`进程不对信号立即处理, 不代表没有处理信号. 进程接收到信号之后, 一定会先记住这个信号被接收了`**. 只有进程记住了接收到的信号, 进程才能在之后处理信号.
 
 并且, 进程处理信号也会像我们处理外卖一样, 也有几种情况:
 
@@ -95,24 +95,25 @@ Linux的进程信号是给进程发送的, 且信号一定具有一定的含义,
 
 那么 Linux系统中的进程信号都有什么？我们可以使用 kill -l 查看Linux系统中的进程信号：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404091257203.png" alt="image-20230404091257203" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404091257203.png)
 
-kill -l 显示出的Linux进程信号中, **`1 ~ 31 号都是普通的进程信号`**. 
+kill -l 显示出的Linux进程信号中,  **`1 ~ 31 号都是普通的进程信号`**. 
 
-而 **`34 ~ 64 都是属于实时信号`**. 实时信号是需要 `立即处理` 的信号, 而普通信号则不需要立马处理.
+而  **`34 ~ 64 都是属于实时信号`**. 实时信号是需要 `立即处理` 的信号, 而普通信号则不需要立马处理.
 
 这些信号在使用的时候, 可以直接使用各信号前面的数字, 也可以使用信号字母. 数字叫 信号的编号, 而大写字母则是信号的名称
 
 并且, 看到这些都是大写字母组成的信号, 我们第一时间可以想到什么？
 
-其实这些信号都是 **`宏`**. 这些宏定义在 **`signum.h`** 头文件中：
+其实这些信号都是  **`宏`**. 这些宏定义在  **`signum.h`** 头文件中：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404093506092.png" alt="image-20230404093506092" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404093506092.png)
 
 除了直接查看头文件里定义的内容, 还可以通过 `man 7 signal` 来查看man手册中记录的有关信号的内容：
-![image-20230404093655013](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404093655013.png)
 
-man 手册中, 不仅记录了信号的宏定义和编号, 还记录的此 **`信号的含义, 即默认处理方法.`**
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404093655013.png)
+
+man 手册中, 不仅记录了信号的宏定义和编号, 还记录的此  **`信号的含义, 即默认处理方法.`**
 
 ## 进程信号的处理
 
@@ -122,11 +123,11 @@ man 手册中, 不仅记录了信号的宏定义和编号, 还记录的此 **`�
 
 那么是不是说, 进程信号 其实就是操作系统通过 修改进程PCB中的数据 来达到 向进程发送信号的目的 的呢？
 
-是的, 进程PCB中描述着 一个记录进程信号的 **`位图`**, 当使用指令或其他方式 `向进程发送信号时, 操作系统就会在进程信号位图的指定位置写入1`. 位图中指定位置的数据变为了1, 就说明写入了相应的信号. 进程就可以根据位图信息 来判断接收到了什么信号.
+是的, 进程PCB中描述着 一个记录进程信号的  **`位图`**, 当使用指令或其他方式 `向进程发送信号时, 操作系统就会在进程信号位图的指定位置写入1`. 位图中指定位置的数据变为了1, 就说明写入了相应的信号. 进程就可以根据位图信息 来判断接收到了什么信号.
 
 这就是 `信号发送给进程的原理`, 并且也解释了 `进程是如何接收信号的`. 
 
-因此, **`向进程发送信号 也可以说 向进程写入信号`**
+因此,  **`向进程发送信号 也可以说 向进程写入信号`**
 
 不过, 我们实际发送进程信号的时候, 一般还是直接使用进程信号的编号. 也就是 `kill -l` 列出信号列表时, 每个信号前面的数字
 
@@ -142,13 +143,13 @@ man 手册中, 不仅记录了信号的宏定义和编号, 还记录的此 **`�
 
 但是 进程接收到信号 自定义处理, 则是一种特殊情况. 自定义处理方法 是由程序的编写者定义的.
 
-当用户编写了指定信号的自定义处理方法时, 进程在接收到信号之后, 本该由系统内核处理的信号 会转换为用户态的指定处理方法 来处理信号. 这种情况被称为 **`信号的捕捉`**
+当用户编写了指定信号的自定义处理方法时, 进程在接收到信号之后, 本该由系统内核处理的信号 会转换为用户态的指定处理方法 来处理信号. 这种情况被称为  **`信号的捕捉`**
 
 ### signal() 捕捉信号
 
 signal() 是一个系统调用接口, 用于捕捉进程信号, 并由用户处理:
 
-![image-20230404102659624](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404102659624.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404102659624.png)
 
 此函数的声明为：`sighandler_t signal(int signum, sighandler_t handler);`
 
@@ -160,7 +161,7 @@ signal() 是一个系统调用接口, 用于捕捉进程信号, 并由用户处�
 
 1. `int signum`, 此为signal() 的第一个参数, 需要传入指定的信号编号, 表示捕捉此信号时 自定义处理
 
-2. `sighandler_t handler`, 此为 signal()的第二个参数, 需要传入一个 返回值为空, 参数为一个int类型 的函数指针, 其实可直接传入一个函数名. 传入的函数, 即为 **`指定信号的自定义处理函数`**.
+2. `sighandler_t handler`, 此为 signal()的第二个参数, 需要传入一个 返回值为空, 参数为一个int类型 的函数指针, 其实可直接传入一个函数名. 传入的函数, 即为  **`指定信号的自定义处理函数`**.
 
 	即, 当捕捉到指定信号之后, 不会按照默认情况去处理此信号, 而是通过我们传入的自定义函数来处理
 
@@ -201,15 +202,15 @@ int main() {
 
 我们知道, `Ctrl + C` 快捷键会给前台进程发送 `2信号(SIGINT)`, 此信号的默认处理方式是：从键盘中断进程.
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SIGINT.gif" alt="SIGINT" style="zoom:80%;" />
+![SIGINT |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SIGINT.gif)
 
 而上面的代码中, 我们通过使用 signal() 将2信号的处理方式设置为一个自定义的回调函数. 在使用 `Ctrl + C` 会发生什么呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGINT.gif" alt="signal_SIGINT" style="zoom:80%;" />
+![signal_SIGINT |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGINT.gif)
 
 可以看到, 尽管一直使用 `Ctrl + C` 快捷键, 也不能中断进程了, 而是不断回调我们传入的函数 以自定义处理信号.
 
-这就是 signal() 的作用, **`捕捉指定信号, 并自定义处理`**
+这就是 signal() 的作用,  **`捕捉指定信号, 并自定义处理`**
 
 > 按理论来说, signal() 是可以针对所有的普通信号进行捕捉的, 但实际上存在例外：
 >
@@ -244,11 +245,11 @@ int main() {
 > }
 > ```
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGKILL.gif" alt="signal_SIGKILL" style="zoom:80%;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGKILL.gif" alt="SIGKILL |wide" style="zoom:56%;" />
 
 这是处理进程信号的一种方式, 即 用户自定义处理方法来处理信号.
 
-并且我们知道了 **`进程信号可以由 键盘 来产生`**. 我们使用键盘组合键 `Ctrl + C`, 产生了 2信号, 并由操作系统发送给了前台进程
+并且我们知道了  **`进程信号可以由 键盘 来产生`**. 我们使用键盘组合键 `Ctrl + C`, 产生了 2信号, 并由操作系统发送给了前台进程
 
 那么进程信号究竟可以怎么样产生呢？
 
@@ -256,7 +257,7 @@ int main() {
 
 ### 键盘产生进程信号
 
-上面我们介绍自定义处理进程信号时, 提到了 **`进程信号可以由键盘产生`**. 
+上面我们介绍自定义处理进程信号时, 提到了  **`进程信号可以由键盘产生`**. 
 
 比如：`Ctrl + C` 产生 `2) SIGINT` 信号, 可以通过键盘中断进程运行
 
@@ -270,7 +271,7 @@ int main() {
 
 kill 除了是一个命令行命令之外, 还是一个系统调用:
 
-![image-20230404164654595](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404164654595.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404164654595.png)
 
 kill()系统调用的用法其实就与 kill命令行命令相同.
 
@@ -279,7 +280,7 @@ kill()系统调用的用法其实就与 kill命令行命令相同.
 也就是说, kill()系统调用的两个参数应该传入:
 
 1. `pid_t pid`, 此参数传入需要发送进程的pid
-2. `int sig`, 此参数传入需要发送的进程信号, 可以使用 **`信号编号`** 也可以使用 **`信号宏名`**
+2. `int sig`, 此参数传入需要发送的进程信号, 可以使用  **`信号编号`** 也可以使用  **`信号宏名`**
 
 且, man 手册中提到, kill()执行成功则返回0, 否则返回 -1
 
@@ -333,7 +334,7 @@ int main(int argc, char* argv[]) {
 
 raise()也是一个系统调用接口：
 
-![image-20230404173228488](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404173228488.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404173228488.png)
 
 如果说kill()的作用是给指定的进程发送信号, 那么 `raise()` 就是 `给调用者发送信号, 也就是给自己发送信号`
 
@@ -369,17 +370,17 @@ int main(int argc, char* argv[]) {
 
 最终的执行结果为：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/raise.gif" alt="raise" style="zoom:80%;" />
+![raise](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/raise.gif)
 
-从结果可以看出, `raise()` 的作用确实是 **`向自己发送信号`**
+从结果可以看出, `raise()` 的作用确实是  **`向自己发送信号`**
 
 #### abort()
 
 abort() 是一个使用和作用更加简单的系统调用：
 
-![image-20230404175023714](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404175023714.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404175023714.png)
 
-此系统调用的作用就是, **`使调用它的进程异常终止`**
+此系统调用的作用就是,  **`使调用它的进程异常终止`**
 
 > man 手册中关于 abort() 系统调用的描述的大致意思是：
 >
@@ -389,11 +390,11 @@ abort() 是一个使用和作用更加简单的系统调用：
 >
 > 如果, ==SIGABRT== 信号被忽略 或 被捕捉且处理信号的函数会返回. 则 `abort() 函数仍然会将进程终止`. 他会恢复进程对 ==SIGABRT== 信号的默认配置并通过二次发送信号, 达到终止进程的目的.
 
-也就是说, **`调用 abort() 一般情况下一定会使进程异常退出, 无论 SIGABRT 信号是被忽略还是被捕捉`**
+也就是说,  **`调用 abort() 一般情况下一定会使进程异常退出, 无论 SIGABRT 信号是被忽略还是被捕捉`**
 
 abort() 会向自己发送 ==SIGABRT== 信号, SIGABRT 信号的编号是什么呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404180640582.png" alt="image-20230404180640582" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404180640582.png)
 
 那么, 我们可以在代码中使用 abort() 函数：
 
@@ -426,7 +427,7 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/abort_2023-4-4.gif" alt="abort_2023-4-4" style="zoom:80%;" />
+![abort |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/abort_2023-4-4.gif)
 
 正常情况下, abort() 可以使进程异常退出
 
@@ -462,9 +463,9 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGABRT_abort_2023-4-4.gif" alt="signal_SIGABRT_abort_2023-4-4" style="zoom:80%;" />
+![SIGABORT |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGABRT_abort_2023-4-4.gif)
 
-可以看到, 进程最终还是调用 abort() 终止了. 但是与不捕捉 ==SIGABRT== 信号时不同的是, **`abort() 实际上是调用了两次才成功终止了进程`**
+可以看到, 进程最终还是调用 abort() 终止了. 但是与不捕捉 ==SIGABRT== 信号时不同的是,  **`abort() 实际上是调用了两次才成功终止了进程`**
 
 因为, 我们可以看到, 第一次调用 abort() 时, 给进程发送的 ==SIGABRT== 信号被捕捉了.
 
@@ -474,7 +475,7 @@ int main(int argc, char* argv[]) {
 
 ==SIGALRM== 是一个软件条件产生的信号. 我们可以在程序内 `调用 alarm() 系统调用来设置闹钟`. 
 
-等到闹钟"响" 的时候, 操作系统就会向进程发送 ==SIGALRM== 信号. 此信号的默认处理是 **`终止进程`**
+等到闹钟"响" 的时候, 操作系统就会向进程发送 ==SIGALRM== 信号. 此信号的默认处理是  **`终止进程`**
 
 ==SIGALRM== 信号的编号是14：
 
@@ -500,7 +501,7 @@ int main(int argc, char* argv[]) {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/alarm_2023-4-4.gif" alt="alarm_2023-4-4" style="zoom:80%;" />
+![alarm |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/alarm_2023-4-4.gif)
 
 这段代码的作用, 其实是计算了 1s 内操作系统的I/O次数.
 
@@ -533,17 +534,17 @@ int main(int argc, char* argv[]) {
 > }
 > ```
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cnt_alarm_2023-4-4.gif" alt="cnt_alarm_2023-4-4" style="zoom:80%;" />
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cnt_alarm_2023-4-4.gif" alt="cnt_alarm_2023-4-4" style="zoom:85%;" />
 >
 > 可以看到, 最终的执行结果就是 亿级的, 而不是万级
 >
 > 这才是, 计算的速度. 
 >
-> 所以说, **`I/O速度 相比较于硬件的运行速度 是非常的慢的`**
+> 所以说,  **`I/O速度 相比较于硬件的运行速度 是非常的慢的`**
 
-alarm() 是一个系统调用, 但是 ==SIGALRM== 信号 并**`不是这个系统调用本身产生的`**.
+alarm() 是一个系统调用, 但是 ==SIGALRM== 信号 并 **`不是这个系统调用本身产生的`**.
 
-alarm() 的作用只是设置一个闹钟, **`只是设置了一个条件`**.
+alarm() 的作用只是设置一个闹钟,  **`只是设置了一个条件`**.
 
 ### 硬件异常产生进程信号
 
@@ -571,20 +572,29 @@ int main() {
 }
 ```
 
-除0, 执行结果: <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405164205433.png" alt="image-20230405164205433" style="zoom:80%;" />
+除0, 执行结果:
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405164205433.png)
+
 报出 `浮点异常` 的错误
 
-解引用空指针, 执行结果: <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405164430588.png" alt="image-20230405164430588" style="zoom:80%;" />
+解引用空指针, 执行结果: 
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405164430588.png)
+
 报出 `段错误`
 
-越界访问, 执行结果: <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405164750973.png" alt="image-20230405164750973" style="zoom:80%;" />
+越界访问, 执行结果: 
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405164750973.png)
+
 也是报出 `段错误`
 
 这两个错误的结果都是导致进程崩溃退出. 我们现在只能说它是发生了某种错误导致进程崩溃退出了. 
 
-而 **`进程崩溃的本质是什么呢？`**
+而  **`进程崩溃的本质是什么呢？`**
 
-其实 进程崩溃的本质是 **`进程收到了异常信号`**
+其实 进程崩溃的本质是  **`进程收到了异常信号`**
 
 我们可以测试一下, 当我们把信号都捕捉并自定义处理之后, 再发生 段错误 或 浮点异常 时：
 
@@ -624,15 +634,23 @@ int main() {
 
 此时代码的执行结果是:
 
-1. 越界访问: <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405165616328.png" alt="image-20230405165616328" style="zoom:80%;" />
-2. 解引用空指针: <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405165654908.png" alt="image-20230405165654908" style="zoom:80%;" />
-3. 除0: <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405165733969.png" alt="image-20230405165733969" style="zoom:80%;" />
+1. 越界访问:
 
-可以看到, 当我们将1~31信号自定义处理时, 从代码的执行结果就可以看出来, 其实 进程代码发生异常错误导致进程崩溃退出, **`本质上是 异常错误产生了相应的信号 并发送给了进程, 进而才导致了进程的退出`**
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405165616328.png)
+
+2. 解引用空指针:
+
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405165654908.png)
+
+3. 除0: 
+
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405165733969.png)
+
+可以看到, 当我们将1~31信号自定义处理时, 从代码的执行结果就可以看出来, 其实 进程代码发生异常错误导致进程崩溃退出,  **`本质上是 异常错误产生了相应的信号 并发送给了进程, 进而才导致了进程的退出`**
 
 我们看到, `越界访问和解引用空指针` 会产生信号11, 而 `除0` 会产生信号8. 这两个信号在Linux系统中, 可以看到：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405170438971.png" alt="image-20230405170438971" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405170438971.png)
 
 这两个信号的默认处理方案都是 使进程终止.
 
@@ -646,9 +664,9 @@ int main() {
 
 有关 除0错误 产生信号, 过程其实是这样的.
 
-再分析之前, 我们要先明白一点：**`进程的所有非图形计算操作实际上都是由CPU执行的`**.
+再分析之前, 我们要先明白一点： **`进程的所有非图形计算操作实际上都是由CPU执行的`**.
 
-也就是说, 进程执行的 除0 操作, 其实也是在CPU内部执行的. 而 CPU 内部有一个寄存器, 叫状态寄存器. 当 CPU执行到除0操作时, 很明显CPU是不能正确计算的, 此时CPU就会 **`将状态寄存器设置为有错误`** 的状态：浮点数异常.
+也就是说, 进程执行的 除0 操作, 其实也是在CPU内部执行的. 而 CPU 内部有一个寄存器, 叫状态寄存器. 当 CPU执行到除0操作时, 很明显CPU是不能正确计算的, 此时CPU就会  **`将状态寄存器设置为有错误`** 的状态：浮点数异常.
 
 即, CPU内部的寄存器设置了错误状态, 操作系统就可以识别到CPU内有报错. 然后 操作系统就会做两件事
 
@@ -663,7 +681,7 @@ int main() {
 
 那么 越界访问和野指针又是因为什么呢？
 
-首先, 我们知道 我们使用的语言层面的地址, 其实都是虚拟地址. 进程在访问虚拟地址时, 会 **`通过虚拟地址转化为物理地址, 再找到物理内存, 在读取访问对应的数据或代码`**. 
+首先, 我们知道 我们使用的语言层面的地址, 其实都是虚拟地址. 进程在访问虚拟地址时, 会  **`通过虚拟地址转化为物理地址, 再找到物理内存, 在读取访问对应的数据或代码`**. 
 
 而 地址的转化工作 实际上是由 MMU(内存管理单元——硬件) 和 页表(软件) 结合实现的. 如果 访问的虚拟地址存在问题, 那么 转化过程就会出现错误, 此时的错误会在 MMU硬件上体现出来, 操作系统也就可以发现硬件出现了问题.
 
@@ -676,15 +694,15 @@ int main() {
 
 ---
 
-也就是说, 实际上 进程在执行内部代码时出现的这两个错误, 实际上**`都会在硬件上体现出来, 然后产生相应的信号`**, 再通过操作系统发送给进程.
+也就是说, 实际上 进程在执行内部代码时出现的这两个错误, 实际上 **`都会在硬件上体现出来, 然后产生相应的信号`**, 再通过操作系统发送给进程.
 
 这也就是进程信号产生的第四种方式, 硬件异常产生
 
 我们已经理解了 进程崩溃退出的本质其实是硬件异常产生了会让进程退出的信号. 
 
-那么, **`进程崩溃一定会使进程退出吗？`**
+那么,  **`进程崩溃一定会使进程退出吗？`**
 
-答案是否定的, **`进程崩溃的本质是进程收到了信号, 不能再正常运行了`**. 而信号的处理 处理默认情况, 还是有其他情况的. 比如, 当我们把指定的信号捕捉并自定义处理方法时, 进程就不会退出了
+答案是否定的,  **`进程崩溃的本质是进程收到了信号, 不能再正常运行了`**. 而信号的处理 处理默认情况, 还是有其他情况的. 比如, 当我们把指定的信号捕捉并自定义处理方法时, 进程就不会退出了
 
 下面这段代码的例子, 就很好的展示进程崩溃不退出的情况：
 
@@ -714,7 +732,7 @@ int main() {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/code_err_noexit_2023-4-5.gif" alt="code_err_noexit_2023-4-5" style="zoom:80%;" />
+![code_err_noexit |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/code_err_noexit_2023-4-5.gif)
 
 这段代码的执行结果是, 无限的输出 捕捉到了8信号.
 
@@ -732,23 +750,23 @@ core dump 是什么？
 
 status指针指向的是一个整型, 而这个整型只需要关注 `低16位`就可以了, `此低16位中的高8位 用来表示退出码, 低8位 用来表示退出信号`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308163321498.png" alt="image-20230308163321498" width="80%" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308163321498.png)
 
-并且, 还提到表示退出信号的8位, **`暂时只需要关注低7位, 其中最高位是一个单独的 core_dump 标志, 暂时忽略`**
+并且, 还提到表示退出信号的8位,  **`暂时只需要关注低7位, 其中最高位是一个单独的 core_dump 标志, 暂时忽略`**
 
 > 博主有关进程控制的文章的相关链接：
 >
-> [【Linux】[万字] 详析进程控制：fork子进程运行规则？怎么回收子进程？什么是进程替换？进程替换怎么操作？](https://blog.csdn.net/dxyt2002/article/details/129745548)
+> [[Linux\] 详析进程控制：fork子进程运行规则？怎么回收子进程？什么是进程替换？进程替换怎么操作？](http://julysblog.cn/posts/Linux-Process-Control)
 
 那么, core dump 究竟是什么？
 
 core dump *`可以是一个动作 叫做 内存快照`*. 
 
-也*`可以是 stutas 整型中的一个标记位`*, 此标记位 表示进程是否执行了 core dump 操作, 如果**`执行了 core dump标记位就会被置为1`**, **`否则会被置为0`**. 
+也*`可以是 stutas 整型中的一个标记位`*, 此标记位 表示进程是否执行了 core dump 操作, 如果 **`执行了 core dump标记位就会被置为1`**,  **`否则会被置为0`**. 
 
 而 进程只有在接收到特定的信号时, 才可能会执行 core dump 操作:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405180115554.png" alt="image-20230405180115554" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405180115554.png)
 
 我们可以通过在命令行使用 `man 7 signal` 命令, 来查看man手册中记载的有关进程信号的部分详细信息. 其中记录着各信号以及其编号.
 
@@ -786,7 +804,7 @@ int main() {
 
 但实际上, 我们执行上面的代码的结果是：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405181416211.png" alt="image-20230405181416211" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405181416211.png)
 
 我们在子进程中执行了除0操作, 并且父进程等待子进程接收退出信息. 但是最终 core dump标志位的值并不是1.
 
@@ -794,17 +812,17 @@ int main() {
 
 其实这与系统的设置有关, 我们在命令行使用 `ulimit -a` 可以查看系统的一部分相关设置：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405181640938.png" alt="image-20230405181640938" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405181640938.png)
 
 其中, 有一个 core file size 的设置, 如果你使用的是云服务器的话, 这个设置应该不是0 就是 unlimited.
 
-如果 **`使用的是虚拟机的话, 这个设置应该是有数值的, 也不会出现进程不执行 core cump的情况`**
+如果  **`使用的是虚拟机的话, 这个设置应该是有数值的, 也不会出现进程不执行 core cump的情况`**
 
 当, 我们使用 `ulimit -c 20` 将 core file size 设置为 20 之后, 再执行上面的代码程序：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405182006009.png" alt="image-20230405182006009" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405182006009.png)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405182254736.png" alt="image-20230405182254736" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405182254736.png)
 
 其实, `core file size` 设置就是 设置系统可生成的 core文件的数量, 服务器默认会设置为0
 
@@ -812,7 +830,7 @@ int main() {
 
 因为, `core dump 操作其实就是将进程的内存信息和当时的部分运行状态 "快照" 下来, 存储到 core 文件中`
 
-core 文件的命名, 其实就是 **`core.进程pid`**
+core 文件的命名, 其实就是  **`core.进程pid`**
 
 ### core 文件有什么用？
 
@@ -820,7 +838,7 @@ core 文件的命名, 其实就是 **`core.进程pid`**
 
 我们查看core文件的内容：
 
-![image-20230405182851145](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405182851145.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405182851145.png)
 
 可以看到, 都是乱码.
 
@@ -832,23 +850,23 @@ core 文件的命名, 其实就是 **`core.进程pid`**
 
 	`g++ -g mykill.cc -o mykillg`
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405183419680.png" alt="image-20230405183419680" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405183419680.png)
 
 2. 然后再执行 `./mykillg`, 会生成一个新的 core文件
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405183503574.png" alt="image-20230405183503574" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405183503574.png)
 
 3. 然后我们使用 gdb 调试进程：
 
 	`gdb mykillg`
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405183554388.png" alt="image-20230405183554388" style="zoom:80%;" />
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405183554388.png)
 
 4. 在 gdb 调试界面, 直接输入 `core-file core.2127`
 
-	![image-20230405183649016](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405183649016.png)
+	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405183649016.png)
 
-	可以发现, 我们通过gdb调试进程时使用core文件, 可以 **`直接定位出 进程上次运行的错误位置、信息`**
+	可以发现, 我们通过gdb调试进程时使用core文件, 可以  **`直接定位出 进程上次运行的错误位置、信息`**
 
 也就是说 core 文件, 其实是为 事后使用gdb调试程序时 快速定位错误信息 所生成的文件.
 
@@ -860,7 +878,7 @@ core 文件的命名, 其实就是 **`core.进程pid`**
 
 在我的服务器中, 我们一段这么简单的代码 生成的core文件有多大？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405184205019.png" alt="image-20230405184205019" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405184205019.png)
 
 一个 core文件就是16KB.
 
@@ -884,11 +902,11 @@ core 文件的命名, 其实就是 **`core.进程pid`**
 
 为了方便介绍进程信号在进程内核中的表示, 这里还需要介绍几个概念：
 
-1. 进程 执行对进程信号的实际处理 动作, 称为 **`信号递达`**, 传递的递
-2. 进程信号 从产生到递达之间的状态, 称为 **`信号未决`**. 即 信号接收到了, 但是没处理的状态
-3. 进程 可以选择 **`阻塞某种进程信号`**. 即 接收到了, 但是阻塞信号递达, 就是不做处理
+1. 进程 执行对进程信号的实际处理 动作, 称为  **`信号递达`**, 传递的递
+2. 进程信号 从产生到递达之间的状态, 称为  **`信号未决`**. 即 信号接收到了, 但是没处理的状态
+3. 进程 可以选择  **`阻塞某种进程信号`**. 即 接收到了, 但是阻塞信号递达, 就是不做处理
 4. 被阻塞信号产生时, 将保持未决状态, 直到进程解除对此信号的阻塞, 信号才会递达
-5. 信号阻塞 和 忽略不同, **`忽略是处理的行为, 即信号已经递达`**. 而**`阻塞是递达之前的状态`**
+5. 信号阻塞 和 忽略不同,  **`忽略是处理的行为, 即信号已经递达`**. 而 **`阻塞是递达之前的状态`**
 
 ### 在内核中表示
 
@@ -896,7 +914,7 @@ core 文件的命名, 其实就是 **`core.进程pid`**
 
 而实际上, 进程PCB中描述的有关进程信号的位图, 其实有三个：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405225334274.png" alt="image-20230405225334274" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230405225334274.png)
 
 task_strcut 结构体中描述则两个位图和一个指针数组.
 
@@ -916,7 +934,7 @@ block 是阻塞位图, 用来表示对应位置的信号是否阻塞. 当`指定
 
 即, 这两个位图和一个指针数组, 需要横着对比观察, 可以更好的分析 进程内核有关信号的描述信息.
 
-总的来说 **`pending 位图表示的是进程接收信号的情况, block 位图表示的是进程阻塞信号的情况, 而 handler 数组表示的是指定信号的对应处理方法`**
+总的来说  **`pending 位图表示的是进程接收信号的情况, block 位图表示的是进程阻塞信号的情况, 而 handler 数组表示的是指定信号的对应处理方法`**
 
 那么, 按照对三个结构的分析. 上图展示的例子中:
 
@@ -932,11 +950,11 @@ block 是阻塞位图, 用来表示对应位置的信号是否阻塞. 当`指定
 
 不过, 在Linux操作系统中, pending 和 block 并不是以整型来表示位图的. 而是以一个结构体的形式：`sigset_t`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406090112245.png" alt="image-20230406090112245" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406090112245.png)
 
 `sigset_t` 是一个 typedef 出来的类型, 实际上是一个结构体`__sigset_t`, 不过这个结构体内部只有一个 `unsigned long int`类型的数组
 
-也就是说, 实际上 pending 和 block 位图的表现形式其实是以 **`数组`** 表现出来的
+也就是说, 实际上 pending 和 block 位图的表现形式其实是以  **`数组`** 表现出来的
 
 而其中, 实际以 `sigset_t` 形式表现的 pending位图, 被称为 `未决信号集`; 同样以 `sigset_t` 形式表现的 block位图, 被称为 `阻塞信号集`, 也叫 `信号屏蔽字`
 
@@ -946,7 +964,7 @@ block 是阻塞位图, 用来表示对应位置的信号是否阻塞. 当`指定
 
 > 为什么 sigset_t 结构体中的数组大小不固定？
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406090824167.png" alt="image-20230406090824167" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406090824167.png)
 >
 > 这是 此结构体的实际内容.
 >
@@ -954,7 +972,7 @@ block 是阻塞位图, 用来表示对应位置的信号是否阻塞. 当`指定
 >
 > 而不同配置平台的 unsigned long int 类型的大小可能是不同的, 所以 数组的大小也可能不同.
 
-由于数组的大小可能不固定, 所以 我们并 **`不能直接访问此数组来对信号集进行操作`**. 所以 操作系统为我们提供了一些系统调用
+由于数组的大小可能不固定, 所以 我们并  **`不能直接访问此数组来对信号集进行操作`**. 所以 操作系统为我们提供了一些系统调用
 
 ```c
 int sigpending(sigset_t *set);
@@ -969,7 +987,7 @@ int sigismember(const sigset_t *set, int signo);
 
 1. `int sigpending()`:
 
-  ![image-20230406094527802](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406094527802.png)
+  ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406094527802.png)
 
   使用此接口, 可以获取进程的未决信号集内容, 传入的 sigset_t 指针是一个输出性参数, 获取的未决信号集内容会存储在传入的变量中
 
@@ -979,7 +997,7 @@ int sigismember(const sigset_t *set, int signo);
 
 2. `int sigemptyset()`:
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406094934981.png" alt="image-20230406094934981" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406094934981.png)
 
 	调用此函数, 会将传入的信号集初始化为空, 即所有信号、阻塞会被消除, 信号集的所有位设置为0
 
@@ -987,7 +1005,7 @@ int sigismember(const sigset_t *set, int signo);
 
 3. `int sigfillset()`:
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406095213355.png" alt="image-20230406095213355" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406095213355.png)
 
 	调用此函数, 会将传入的信号集所有位设置为1.
 
@@ -995,7 +1013,7 @@ int sigismember(const sigset_t *set, int signo);
 
 4. `int sigaddset()` 和 `int sigdelset()`:
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406095638337.png" alt="image-20230406095638337" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406095638337.png)
 
 	`sigaddset()` 的作用是, 给指定信号集中添加指定信号, 即 将指定信号集中的指定位置设置为1
 
@@ -1005,7 +1023,7 @@ int sigismember(const sigset_t *set, int signo);
 
 5. `int sigismember()`:
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406100142578.png" alt="image-20230406100142578" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406100142578.png)
 
 	调用此函数, 可以判断 信号集中是否有某信号. 即 判断信号集的某位是否为1
 
@@ -1017,19 +1035,19 @@ int sigismember(const sigset_t *set, int signo);
 
 而 `sigprocmask()` 的使用稍微复杂一些：
 
-![image-20230406142706779](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406142706779.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406142706779.png)
 
 `int sigprocmask(int how, const sigset_t *set, sigset_t *oldset)`, 从参数来看就比上面的接口要复杂的多.
 
-而这个接口的作用是: **`获取 和 修改 信号屏蔽字`**. 这个接口的使用相对来说比较复杂
+而这个接口的作用是:  **`获取 和 修改 信号屏蔽字`**. 这个接口的使用相对来说比较复杂
 
 我们来分析一下, 这个接口的参数都有什么意义：
 
-> 假设, **`当前进程的 信号屏蔽字(阻塞信号集) 为 mask`**
+> 假设,   **`当前进程的 信号屏蔽字(阻塞信号集) 为 mask`**
 
 1. 首先介绍 `const sigset_t *set` 也就是第二个参数
 
-	第二个参数需要传入一个信号集, 此信号集是 **`修改进程的信号屏蔽字(mask)用的`**.
+	第二个参数需要传入一个信号集, 此信号集是  **`修改进程的信号屏蔽字(mask)用的`**.
 
 	此参数`需要根据 how(第一个参数) 的不同, 来传入不同意义的信号集`
 
@@ -1037,7 +1055,7 @@ int sigismember(const sigset_t *set, int signo);
 
 	第三个参数也是需要传入一个信号集, 不过一般传入被全部置0的信号集.
 
-	此参数是一个输出型参数, 用于获取没做修改的 mask, 即函数执行结束后, **`此参数会获取没有执行此函数时的mask`**.
+	此参数是一个输出型参数, 用于获取没做修改的 mask, 即函数执行结束后,  **`此参数会获取没有执行此函数时的mask`**.
 
 3. 最后介绍 `int how` 第一个参数
 
@@ -1053,21 +1071,21 @@ int sigismember(const sigset_t *set, int signo);
 
 1. 如果需要为指定位置添加阻塞：
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406153613173.png" alt="image-20230406153613173" style="zoom: 67%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406153613173.png)
 
-	其实就是 将传入的 set 与进程原来的信号屏蔽字 做 **`按位或操作`**, 最终结果 作为进程最新的信号屏蔽字
+	其实就是 将传入的 set 与进程原来的信号屏蔽字 做  **`按位或操作`**, 最终结果 作为进程最新的信号屏蔽字
 
 2. 如果需要为指定信号解除阻塞：
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406153832047.png" alt="image-20230406153832047" style="zoom:67%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406153832047.png)
 
 	其实就是 将传入的 `set先按位取反`, 再与进程原来的信号屏蔽字 做 `按位与操作`. 最终结果 作为进程的新的信号屏蔽字
 
 3. 如果需要直接设置信号屏蔽字：
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406154100984.png" alt="image-20230406154100984" style="zoom:67%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406154100984.png)
 
-	其实就是, 直接将传入的 `set 覆盖进程原来的信号屏蔽字`, 即 **`将传入的set 作为进程新的信号屏蔽字`**
+	其实就是, 直接将传入的 `set 覆盖进程原来的信号屏蔽字`, 即  **`将传入的set 作为进程新的信号屏蔽字`**
 
 ### 信号集操作相关代码演示
 
@@ -1081,7 +1099,7 @@ int sigismember(const sigset_t *set, int signo);
 
 还可以使用 sigprocmask() 接口, 来对进程的信号屏蔽字做修改. 
 
-那么 我们就演示一下, **`对信号屏蔽字做修改, 并向进程发送信号 将进程的未决信号集打印出来查看`**：
+那么 我们就演示一下,  **`对信号屏蔽字做修改, 并向进程发送信号 将进程的未决信号集打印出来查看`**：
 
 ```cpp
 #include <iostream>
@@ -1157,13 +1175,13 @@ int main() {
 
 我们将循环打印未决信号集的部分代码改为：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406164123322.png" alt="image-20230406164123322" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406164123322.png)
 
 然后 代码的演示结果为：
 
-![blockshow_UNBLOCK_2023-4-6](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/blockshow_UNBLOCK_2023-4-6.gif)
+![blockshow_UNBLOCK](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/blockshow_UNBLOCK_2023-4-6.gif)
 
-可以看到, 在解除指定信号阻塞之后, 进程处理了对应的未决信号, 即 **`解除信号阻塞之后, 对应信号递达了`**
+可以看到, 在解除指定信号阻塞之后, 进程处理了对应的未决信号, 即  **`解除信号阻塞之后, 对应信号递达了`**
 
 ## 深入理解进程处理信号 **
 
@@ -1173,47 +1191,47 @@ int main() {
 
 而且, 我们说 信号处于未决状态之后, 如果信号没有阻塞, 进程会在合适的时候处理信号. 即 `进程会在合适的时候将信号递达`
 
-那么 问题来了, **`什么时候才是合适的时候？`** **`进程究竟会在什么时候处理信号？`**
+那么 问题来了, **`什么时候才是合适的时候？`**  **`进程究竟会在什么时候处理信号？`**
 
 这个答案就是：**`当 进程从内核态, 转换为用户态的时候, 进程会进行信号的检测与处理`**
 
-那么就又有问题出现了, **`什么是内核态？ 什么又是用户态？ 什么是内核态和用户态的转换？`**
+那么就又有问题出现了,  **`什么是内核态？ 什么又是用户态？ 什么是内核态和用户态的转换？`**
 
 ### 进程的内核态 和 用户态
 
 我们知道, 操作系统中 每个进程都有一个进程地址空间, 以32位环境举例大概长这样：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406165440060.png" alt="image-20230406165440060" style="zoom:67%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406165440060.png)
 
 并且, 进程地址空间 与 物理内存之间是由 页表相互映射的.
 
 但是我们之间只介绍了一个页表, 即 *`用户空间部分 与 物理内存`* 之间的相互页表映射
 
-而实际上, 进程地址空间 与 物理内存之间并不只有一张页表, **`还存在一张页表 用于 内核空间 与 物理内存 之间相互映射, 被称为内核级页表`**
+而实际上, 进程地址空间 与 物理内存之间并不只有一张页表,  **`还存在一张页表 用于 内核空间 与 物理内存 之间相互映射, 被称为内核级页表`**
 
-并且, ==**`与用户级的页表不同, 进程地址空间的内核空间 与 物理内存之间的映射页表, 整个操作系统只有一张`**==, 也就是说操作系统中 **`所有进程共用一张 内核级页表`**. 即：
+并且,  ==**`与用户级的页表不同, 进程地址空间的内核空间 与 物理内存之间的映射页表, 整个操作系统只有一张`**==, 也就是说操作系统中  **`所有进程共用一张 内核级页表`**. 即：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406172142849.png" alt="image-20230406172142849" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230406172142849.png)
 
-整个操作系统只有一张内核级页表, 也就意味着 每个进程的 内核空间的内容是相同的, 同样意味着 **`物理内存中 只加载着一份有关进程内核空间内容的数据和代码`**
+整个操作系统只有一张内核级页表, 也就意味着 每个进程的 内核空间的内容是相同的, 同样意味着  **`物理内存中 只加载着一份有关进程内核空间内容的数据和代码`**
 
-**`如果`** 每个进程都可以随便访问内核空间, 那其实就是说 每个进程都可以随便修改 物理内存中只有着一份的、所有进程共享的数据和代码.
+ **`如果`** 每个进程都可以随便访问内核空间, 那其实就是说 每个进程都可以随便修改 物理内存中只有着一份的、所有进程共享的数据和代码.
 
 但是这样做就太危险了. 物理内存中只有一份的、每个进程共享的数据和代码, 其实就可以看作是系统级数据和代码
 
-而为了保护这部分 数据和代码, **`进程会分为两种状态`**：**`内核态`** 和 **`用户态`**
+而为了保护这部分 数据和代码,  **`进程会分为两种状态`**： **`内核态`** 和  **`用户态`**
 
-当进程 *`需要访问、调用、执行 内核数据 或 代码(中断、陷阱、系统调用等)时`*, 就会 **`陷入内核, 转化为内核态`**, 因为只有 `进程处于内核态时, 才有权限访问内核级页表, 即有权限访问内核数据与代码`
+当进程 *`需要访问、调用、执行 内核数据 或 代码(中断、陷阱、系统调用等)时`*, 就会  **`陷入内核, 转化为内核态`**, 因为只有 `进程处于内核态时, 才有权限访问内核级页表, 即有权限访问内核数据与代码`
 
-当进程*`不需要访问、调用、执行 内核数据 或 代码, 或进程时间片结束时`*, 就会 **`返回用户, 转化为用户态`**, 此时 进程将不具备访问内核级页表的权限, `只能访问用户级页表`
+当进程 *`不需要访问、调用、执行 内核数据 或 代码, 或进程时间片结束时`*, 就会  **`返回用户, 转化为用户态`**, 此时 进程将不具备访问内核级页表的权限, `只能访问用户级页表`
 
 如果用图片表示, 可能就是这样的：
 
-![image-20230407152228275](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230407152228275.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230407152228275.png)
 
-这样有利于**`保护 内核级数据和代码`**. 也就是 **`进程在发生从内核态转换为用户态的过程时, 会检测进程的信号并处理`**
+这样有利于 **`保护 内核级数据和代码`**. 也就是  **`进程在发生从内核态转换为用户态的过程时, 会检测进程的信号并处理`**
 
-> 那么, **`操作系统如何判断进程当前的状态呢？`**
+> 那么,  **`操作系统如何判断进程当前的状态呢？`**
 >
 > CPU内部存在一个 状态寄存器CR3, 此寄存器内有比特标识位表示当前进程的状态:
 >
@@ -1224,25 +1242,25 @@ int main() {
 
 进程在运行时, 会存在两个状态：内核态和用户态.
 
-并且, 在进程整个的运行过程中, **`进程会有无数次的状态转换`**. 为什么呢？
+并且, 在进程整个的运行过程中,  **`进程会有无数次的状态转换`**. 为什么呢？
 
-首先我们知道, 我们使用的语言提供的大部分操作, 实际上是**`没有资格直接访问系统级的软硬件资源`**的 本质上都会直接或间接地去调用系统接口(printf、scanf……), 然后通过操作系统 `直接或间接地访问一些系统级的软硬件资源`.  操作系统作为所有硬件和软件的管理者肯定是要提供这样的功能的.
+首先我们知道, 我们使用的语言提供的大部分操作, 实际上是  **`没有资格直接访问系统级的软硬件资源`** 的 本质上都会直接或间接地去调用系统接口(printf、scanf……), 然后通过操作系统 `直接或间接地访问一些系统级的软硬件资源`.  操作系统作为所有硬件和软件的管理者肯定是要提供这样的功能的.
 
 只要进程可以正常地运行, 那么进程就总是需要通过操作系统去访问软硬件资源, 然后就会 `无数次地陷入内核(切换状态, 切换页表)`, 再访问内核代码数据, 然后完成访问, `再将结果返回给用户(切换状态, 切换页表)`, 最终用户得到结果.
 
-那么可能有人会问, ==如果编写的程序不调用任何函数呢？==
+那么可能有人会问, `如果编写的程序不调用任何函数呢？`
 
 比如, 我`只在 main函数内部使用一个 while(1);` 使进程死循环的运行. 那么, 此`进程还会无数次的发生状态转换吗？`
 
 答案是, `会的`
 
-因为, 只要是进程, 那么他就有一定的时间片. 即使是一个什么都不执行的死循环, **`只要时间片用完了, 那么就需要将此进程从CPU上剥离下来`**,  而剥离操作一定是操作系统做的, 那么也就是说将 **`进程从CPU上剥离下来也是需要陷入内核执行内核代码的`**. 将进程从CPU上剥离下来的时候, 需要维护一下进程的上下文, 以便下次接着执行进程的代码. 
+因为, 只要是进程, 那么他就有一定的时间片. 即使是一个什么都不执行的死循环,  **`只要时间片用完了, 那么就需要将此进程从CPU上剥离下来`**,  而剥离操作一定是操作系统做的, 那么也就是说将  **`进程从CPU上剥离下来也是需要陷入内核执行内核代码的`**. 将进程从CPU上剥离下来的时候, 需要维护一下进程的上下文, 以便下次接着执行进程的代码. 
 
 剥离下来之后, 操作系统执行调度算法, 将下一个需要运行的进程的上下文加载到CPU中, 然后新进程从内核态转换为用户态, CPU再执行新进程的代码.
 
 > 进程被剥离下来, 进程会进入内核态维护起来. 等待下次运行时, 又会回到用户态执行代码.
 
-那么现在我们知道了, **`即使一个进程什么实际作用都没有, 这个进程的运行过程中, 也会发生无数次的内核态与用户态的转换`**
+那么现在我们知道了,  **`即使一个进程什么实际作用都没有, 这个进程的运行过程中, 也会发生无数次的内核态与用户态的转换`**
 
 那么这与信号的处理有什么关系呢？
 
@@ -1250,7 +1268,7 @@ int main() {
 
 我们以简单的一个进程执行了open系统接口举个例子, 那么大概的流程就是：
 
-![image-20230407172443777](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230407172443777.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230407172443777.png)
 
 文字分析:
 
@@ -1265,19 +1283,19 @@ int main() {
 
 ---
 
-而 **`如果进程的未决信号中存在着用户自定义的处理方法, 又该是怎样的处理方式呢？`**
+而  **`如果进程的未决信号中存在着用户自定义的处理方法, 又该是怎样的处理方式呢？`**
 
 实际上, 如果处理信号的方法使用户自定义的, 即 用户捕捉了进程信号. 
 
-那么进程就会**`先去执行用户代码将信号处理了`**, 然后再将open()的结果返回给用户.
+那么进程就会 **`先去执行用户代码将信号处理了`**, 然后再将open()的结果返回给用户.
 
 
 
-不过, 这里会有一个问题：**`进程执行用户自定义的信号处理函数时, 进程应该以内核态执行还是以用户态执行呢？`**
+不过, 这里会有一个问题： **`进程执行用户自定义的信号处理函数时, 进程应该以内核态执行还是以用户态执行呢？`**
 
-我们知道, 进程处于内核态的时候是可以访问用户代码的. 那么 此时 **`进程 需不需要切换回用户态`**之后, 再执行用户自定义函数呢？
+我们知道, 进程处于内核态的时候是可以访问用户代码的. 那么 此时  **`进程 需不需要切换回用户态`**之后, 再执行用户自定义函数呢？
 
-答案是 **`肯定需要`**的. 
+答案是 **`肯定需要`** 的. 
 
 进程处于用户态时, 是无法访问内核代码的. 这是保护系统的一种方式. 而如果进程此时 以内核态的身份 执行用户代码, 会不会出现什么问题呢？
 
@@ -1291,15 +1309,15 @@ int main() {
 
 
 
-既然进程会先转换为用户态, 那么就又有一个问题：**`执行完用户处理方法之后, 进程还需不需要再陷入内核, 然后再返回用户？`**
+既然进程会先转换为用户态, 那么就又有一个问题： **`执行完用户处理方法之后, 进程还需不需要再陷入内核, 然后再返回用户？`**
 
 这个答案, 也是肯定的: `需要再陷入内核`
 
-因为, 进程原本是因为需要执行内核代码才陷入内核的, 只是在执行完毕之后需要先处理一下信号才暂时回到了用户态. `此时是无法返回到进程原本代码的执行位置的.` 因为 **`进程执行内核代码之后的返回信息 还在内核中`**, 以用户态的身份是无法访问并返回给用户的. 所以, 进程在以用户态的身份执行过信号的用户处理方法之后, 还需要再次陷入内核, 然后根据内核中的返回信息使用特定的返回调用 返回到用户. 
+因为, 进程原本是因为需要执行内核代码才陷入内核的, 只是在执行完毕之后需要先处理一下信号才暂时回到了用户态. `此时是无法返回到进程原本代码的执行位置的.` 因为  **`进程执行内核代码之后的返回信息 还在内核中`**, 以用户态的身份是无法访问并返回给用户的. 所以, 进程在以用户态的身份执行过信号的用户处理方法之后, 还需要再次陷入内核, 然后根据内核中的返回信息使用特定的返回调用 返回到用户. 
 
 所以, 用图片展示大致的流程就是：
 
-![image-20230407182139316](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230407182139316.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230407182139316.png)
 
 这个流程有些复杂, 可以认真捋一下：
 
@@ -1311,17 +1329,17 @@ int main() {
 6. 以用户态执行完自定义信号处理方法之后, 不能直接返回到用户, 需要`再次陷入到内核`
 7. 再次陷入内核之后, 获取返回信息 再调用特定的返回调用, 返回到用户. 这个过程需要`转换回用户态`
 
-可以看到, 如果处理信号`需要执行用户自定义的处理方法`时, 那么 从调用内核代码到返回用户 的整个过程一共需要 **`经历4次状态转换`**
+可以看到, 如果处理信号`需要执行用户自定义的处理方法`时, 那么 从调用内核代码到返回用户 的整个过程一共需要  **`经历4次状态转换`**
 
-而, 如果处理信号`不需要执行用户自定义处理方法`时, 那么 从调用内核代码到返回用户 的整个过程 就只需要 **`经历2次状态转换`**
+而, 如果处理信号`不需要执行用户自定义处理方法`时, 那么 从调用内核代码到返回用户 的整个过程 就只需要  **`经历2次状态转换`**
 
 ---
 
 针对 从调用内核代码到返回用户的整个过程, 可以由一个简化图来解释：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230407185827730.png" alt="image-20230407185827730" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230407185827730.png)
 
-上面的这个简略图, 可以看作是一个 **`无穷∞画法`**
+上面的这个简略图, 可以看作是一个  **`无穷∞画法`**
 
 > 这里, 进程执行完用户自定义信号处理方法 返回内核之后, 之后的执行流程与PCB信号集有一个交点.
 >
@@ -1343,17 +1361,17 @@ int main() {
 
 `sigaction():`
 
-![image-20230408085255453](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408085255453.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408085255453.png)
 
 从man手册中对sigaction()的描述以及参数可以看出, 此函数的使用比 signal() 要复杂的多：
 
-1. 第一个参数 `int signum`, 很明显 这个参数就需要传入指定的进程信号, 表示**`要捕捉的信号`**
+1. 第一个参数 `int signum`, 很明显 这个参数就需要传入指定的进程信号, 表示 **`要捕捉的信号`**
 
 2. 第二个参数 `const struct sigaction *act`, 这个参数很奇怪, 它与此函数同名, 并且是一个结构体指针
 
 	这个结构体的内容是什么？
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408085547938.png" alt="image-20230408085547938" style="zoom:80%;" />
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408085547938.png)
 
 	在man手册中, 可以看到 `struct sigaction` 的内容一共有5个：
 
@@ -1363,7 +1381,7 @@ int main() {
 	4. `int sa_flags;`, 此成员包含着系统提供的一些选项, 本篇文章使用中都设置为0
 	5. `void (*sa_restorer)(void);`, 很明显 此成员也是一个函数指针. 但我们暂时不考虑他的意义.
 
-	也就是说, 我们暂时可以知道, `sigaction()`的第二个参数是一个结构体指针, 并且指向的结构体里 **`有一个成员是用来自定义处理信号`**的
+	也就是说, 我们暂时可以知道, `sigaction()`的第二个参数是一个结构体指针, 并且指向的结构体里 **`有一个成员是用来自定义处理信号`** 的
 
 	此参数的作用就是, 将指定信号的处理动作改为传入的`struct sigaction` 的内容
 
@@ -1426,7 +1444,7 @@ int main() {
 
 这段代码的执行结果, 与 使用signal()捕捉信号相同, 但是使用要麻烦一些：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/while_sigaction(2)_2023-4-8.gif" alt="while_sigaction(2)_2023-4-8" style="zoom:80%;" />
+![while_sigaction |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/while_sigaction(2)_2023-4-8.gif)
 
 可以看到, 当进程受到 2信号时, 会执行我们自定义的处理方法. 表示我们使用 `sigaction()` 捕捉2信号成功
 
@@ -1486,17 +1504,17 @@ int main() {
 
 我们在需要传入`sigaction()` 的第二个参数中的`sa_mask`信号集中, 添加 3信号.
 
-就可以做到 **`进程捕捉到指定信号并自定义处理的同时, 阻拦3信号的递达`**
+就可以做到  **`进程捕捉到指定信号并自定义处理的同时, 阻拦3信号的递达`**
 
 执行结果如下:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/while_sigaction(2)_mask3_2023-4-8.gif" alt="while_sigaction(2)_mask3_2023-4-8" style="zoom:80%;" />
+![while_sigaction(2)_mask3](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/while_sigaction(2)_mask3_2023-4-8.gif)
 
-即, `struct sigaction`结构体的`sa_mask` 成员的意义是, **`添加进程在处理捕捉到的信号时对其他信号的阻塞`**. 如果需要添加对其他信号的阻塞, 那么就可以继续在 `sa_mask` 中添加其他信号.
+即, `struct sigaction`结构体的`sa_mask` 成员的意义是,  **`添加进程在处理捕捉到的信号时对其他信号的阻塞`**. 如果需要添加对其他信号的阻塞, 那么就可以继续在 `sa_mask` 中添加其他信号.
 
 不过, 这样做有什么意义呢？
 
-这样做可以 ==**`防止用户自定义处理信号时, 嵌套式的发送其他信号并捕捉处理`**==. 
+这样做可以 == **`防止用户自定义处理信号时, 嵌套式的发送其他信号并捕捉处理`**==. 
 
 如果 用户的自定义处理信号方法内部, 还会发送其他信号, 并且用户还对其进行了捕捉. 那么 信号的处理就无止尽了. 这种情况是不允许发生的.
 
@@ -1510,7 +1528,7 @@ int main() {
 
 不过, 我们还可以通过一种方式使 调用signal() 或 sigaction() 捕捉信号时, 只传入相同的函数指针就可以实现 对不同信号不同处理：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408102546919.png" alt="image-20230408102546919" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408102546919.png)
 
 当我们定义完指定信号的处理函数之后, 我们可以再定义一个 `handlerAll(int signo)` 函数, 并使用 switch 语句, 将不同的 signo 分别处理.
 
@@ -1526,7 +1544,7 @@ int main() {
 
 一个进程中, 存在一个==`全局的单链表`==结构. 并且此时需要执行一个节点的头插操作：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408104659228.png" alt="image-20230408104659228" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408104659228.png)
 
 那么此时, 头插的操作就是：
 
@@ -1541,11 +1559,11 @@ head = node1;
 
 并且, 自定义处理函数中 也存在一个新节点头插操作:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408110708978.png" alt="image-20230408110708978" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408110708978.png)
 
 那么此时, 就会执行 `node2` 的头插操作, 执行完毕的结果就是：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408110742582.png" alt="image-20230408110742582" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408110742582.png)
 
 即, `node2 成为了链表的第一个节点 head`
 
@@ -1553,17 +1571,17 @@ head = node1;
 
 所以下面应该执行 `head = node1;`, 结果就成了这样:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408111301819.png" alt="image-20230408111301819" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408111301819.png)
 
 结果就是, `node2` 无法被找到了.
 
 这个结果是：main函数和信号自定义处理函数, 先后向单链表中头插两个节点, 而最后只有一个节点真正插入链表中了  
 
-这个结果造成了什么问题？ **`内存泄漏`**, 这是一个很严重的问题
+这个结果造成了什么问题？  **`内存泄漏`**, 这是一个很严重的问题
 
 那么造成这个结果的原因是什么？
 
-是因为 单链表的头插函数, 被不同的控制流程调用了, 并且是在第一次调用还没返回时就再次进入该函数, 这个行为称为 **`重入`**
+是因为 单链表的头插函数, 被不同的控制流程调用了, 并且是在第一次调用还没返回时就再次进入该函数, 这个行为称为  **`重入`**
 
 而 像例子中这个单链表头插函数, 访问的是一个全局链表, 所以`可能因为重入而造成数据错乱`, 这样的函数 被称为 `不可重入函数`, 即此函数不能重入, 重入可能会发生错误
 
@@ -1608,7 +1626,7 @@ int main() {
 
 此代码, 通过处理2信号, 将全局变量 flags 从0改为1, 使进程正常退出. `正常编译` 运行的结果是:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/novolatile_2023-4-8.gif" alt="novolatile_2023-4-8" style="zoom:80%;" />
+![novolatile |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/novolatile_2023-4-8.gif)
 
 此代码的main函数中, 不会对 flags 做出修改. 
 
@@ -1628,7 +1646,7 @@ int main() {
 
 还是相同的代码, 我们可以在`gcc` 编译时, 使用 `-O2` 选项 让编译器做出这样的优化：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/novolatile_O2_2023-4-8.gif" alt="novolatile_O2_2023-4-8" style="zoom:80%;" />
+![novolatile_O2 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/novolatile_O2_2023-4-8.gif)
 
 优化之后, 在运行可执行程序. 可以看到 我们发送 2信号 即使将flags改为了1, 也已经不能让进程正常退出了.
 
@@ -1640,9 +1658,9 @@ int main() {
 volatile int flags = 0; 		// 全局变量
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/volatile_O2_2023-4-8.gif" alt="volatile_O2_2023-4-8" style="zoom:80%;" />
+![volatile_O2 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/volatile_O2_2023-4-8.gif)
 
-这就是 `volatile` 关键词的作用, 即 **`保持内存的可见性`**. 告知编译器，被该关键字修饰的变量, 不允许被优化, 对该变量的任何操作, 都`必须在真实的内存中进行操作` 
+这就是 `volatile` 关键词的作用, 即  **`保持内存的可见性`**. 告知编译器，被该关键字修饰的变量, 不允许被优化, 对该变量的任何操作, 都`必须在真实的内存中进行操作` 
 
 ## SIGCHLD 信号
 
@@ -1652,7 +1670,7 @@ volatile int flags = 0; 		// 全局变量
 
 而, 实际上 子进程退出是会通知父进程的, 只不过父进程会忽略而已. 
 
-这个通知的方式是: ==**`子进程退出时, 会向父进程发送一个信号, 即 SIGCHLD 信号`**==
+这个通知的方式是: == **`子进程退出时, 会向父进程发送一个信号, 即 SIGCHLD 信号`**==
 
 怎么证明呢？
 
@@ -1695,13 +1713,13 @@ int main() {
 
 这段代码的执行结果是:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SIGCHLD_2023-4-8.gif" alt="SIGCHLD_2023-4-8" style="zoom:80%;" />
+![SIGCHLD](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SIGCHLD_2023-4-8.gif)
 
 可以看到, 子进程退出时 父进程确实收到了一个信号, 这个信号是 17.
 
 17 是 ==SIGCHLD== 吗？可以在man手册中查看：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408122431671.png" alt="image-20230408122431671" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230408122431671.png)
 
 可以看到, ==SIGCHLD== 的值确实是17. 而 默认的处理是 `ignore` 忽略
 
@@ -1709,11 +1727,11 @@ int main() {
 
 man手册中写了, 子进程暂停或终止时会发送 ==SIGCHLD== 信号, 我们来测试一下：
 
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404091257203.png" alt="image-20230404091257203" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404091257203.png)
 >
 > 暂停信号是 19, 继续信号是 18
 
-![STOP_SIGCHLD_2023-4-8](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/STOP_SIGCHLD_2023-4-8.gif)
+![STOP_SIGCHLD](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/STOP_SIGCHLD_2023-4-8.gif)
 
 可以看到, 其实子进程不仅退出时会向父进程发送 ==SIGCHLD== 信号, 暂停时 和 恢复时 都会向父进程发送 ==SIGCHLD== 信号
 
@@ -1767,19 +1785,19 @@ int main() {
 
 这段代码 捕捉 ==SIGCHLD== 信号 处理此信号为调用`waitpid()`回收子进程.
 
-> `waitpid()`, 第一个参数应该传入回收子进程的pid, 不过 **`-1 表示回收任意子进程`**
+> `waitpid()`, 第一个参数应该传入回收子进程的pid, 不过  **`-1 表示回收任意子进程`**
 >
-> 第三个参数传入 0 表示 **`阻塞等待`**.
+> 第三个参数传入 0 表示  **`阻塞等待`**.
 
 运行结果是：
 
-![signal_SIGCHLD_2023-4-8](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGCHLD_2023-4-8.gif)
+![signal_SIGCHLD](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGCHLD_2023-4-8.gif)
 
 可以看到, 即使waitpid()设置为阻塞等待, 也还是可以随时回收一个子进程.
 
 但是目前这个回收子进程的方式, 还存在很大的BUG.
 
-如果我们 **`同时创建多个子进程, 并将这些子进程同时退出`**, 会出现什么状况:
+如果我们  **`同时创建多个子进程, 并将这些子进程同时退出`**, 会出现什么状况:
 
 ```cpp
 #include <cassert>
@@ -1827,7 +1845,7 @@ int main() {
 }    
 ```
 
-![signal_SIGCHLD_BUG1_2023-4-8](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGCHLD_BUG1_2023-4-8.gif)
+![signal_SIGCHLD_BUG1](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGCHLD_BUG1_2023-4-8.gif)
 
 在代码运行起来之后, 监控脚本可以非常清除的看到 `子进程从创建到退出的整个过程`.
 
@@ -1856,11 +1874,13 @@ void freeChild(int signo) {
 }
 ```
 
-将信号处理方法内, 回收子进程的部分设置为 `死循环回收`, 没有子进程需要回收的时候跳出循环, 应该就可以把所有子进程都回收掉：![signal_SIGCHLD_BUG3_2023-4-8](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGCHLD_BUG3_2023-4-8.gif)
+将信号处理方法内, 回收子进程的部分设置为 `死循环回收`, 没有子进程需要回收的时候跳出循环, 应该就可以把所有子进程都回收掉：
+
+![signal_SIGCHLD_BUG3](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGCHLD_BUG3_2023-4-8.gif)
 
 这样确实可以将所有的子进程都回收掉, 但是又出现了新的问题：
 
-**`捕捉到信号之后, 如果有子进程一直不退出, 父进程代码不会再运行了. 因为调用的函数 会一直在死循环内, 回不到main函数中了`**
+ **`捕捉到信号之后, 如果有子进程一直不退出, 父进程代码不会再运行了. 因为调用的函数 会一直在死循环内, 回不到main函数中了`**
 
 ```cpp
 #include <cassert>
@@ -1920,7 +1940,7 @@ int main() {
 
 我们将子进程设置为不同时间退出, 观察两个时间差内 进程的运行：
 
-![signal_SIGCHLD_BUG4_2023-4-8](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGCHLD_BUG4_2023-4-8.gif)
+![signal_SIGCHLD_BUG4](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGCHLD_BUG4_2023-4-8.gif)
 
 可以看到, 5s后退出的子进程被回收之后, 30s后退出的进程退出之前, 父进程的代码一直没有运行.
 
@@ -1999,7 +2019,7 @@ int main() {
 
 此时, 代码运行的结果就是：
 
-![signal_SIGCHLD_NOBUG_2023-4-8](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGCHLD_NOBUG_2023-4-8.gif)
+![signal_SIGCHLD_NOBUG](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGCHLD_NOBUG_2023-4-8.gif)
 
 这才是父进程回收子进程的最终版本~
 

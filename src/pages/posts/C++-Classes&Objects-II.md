@@ -38,7 +38,7 @@ featured: false
 
 以一个简单的日期类为例：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618190104510.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618190104510.png)
 
 `void SetDate`：是给 对象 设置日期内容的成员函数。
 
@@ -64,13 +64,13 @@ featured: false
 
     给构造函数添加内容：
 
-    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(5).png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(5).png)
 
     
 
     创建对象，并查看对象：
 
-    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619114415149.png)
+    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619114415149.png)
 
     `对象d1`已经按照构造函数初始化
 
@@ -78,7 +78,7 @@ featured: false
 
     如果构造函数无内容(无显式构造函数)，那么：
 
-    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619133748010.png)
+    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619133748010.png)
 
     `对象d1` 将是随机值
 
@@ -90,7 +90,7 @@ featured: false
 
     同样以日期类为例：
 
-    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619140021015.png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619140021015.png)
 
     对于重载的构造函数，传参使用是这样使用的：
 
@@ -104,7 +104,7 @@ featured: false
     d2.Display();
     ```
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619140341215.png)
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619140341215.png)
 
     既然可以传参使用，那么就涉及另一个运用：`缺省参数`
 
@@ -130,7 +130,7 @@ featured: false
 
     而无参构造函数 和 全缺省构造函数 是默认构造函数，这两种写法是不能同时存在的
 
-    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619142238895.png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619142238895.png)
 
     ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619142846977.png)
 
@@ -140,11 +140,11 @@ featured: false
 
     以下面的 日期类包含时间类 为例：
     
-    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(10).png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(10).png)
     
     使用以上日期类定义对象，并且输出日期类 对象内容：
     
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619155322301.png)
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619155322301.png)
     
     `内置类型成员数据没有处理，自定义类型成员数据 调用其类的默认构造函数处理`。但是，如果 自定义类型成员没有默认构造函数，则会发生报错：
     
@@ -178,7 +178,7 @@ featured: false
 
 以下面 顺序表类为例：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(13).png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(13).png)
 
 `~SeqList` 即为此类的析构函数。析构函数到底有什么作用呢？什么是资源清理？
 
@@ -209,7 +209,7 @@ int main()
 
     以顺序表类为例，其析构函数需写为：
     
-    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619225219081.png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619225219081.png)
     
 3. #### 一个类，有且只有一个析构函数
 
@@ -302,11 +302,11 @@ int main()
 
 以日期类为例，展示一下功能
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(14).png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(14).png)
 
 调用拷贝构造，使 `对象d1` 拷贝至 `对象d2`
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620191812996.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620191812996.png)
 
 ## 4.1 拷贝构造的特性
 
@@ -331,7 +331,7 @@ int main()
     >
     > 使用了指针传参，就不是拷贝构造函数了，拷贝构造函数的功能是：`对象的内容拷贝到另一个对象；而不是指针指向的内容拷贝到另一个对象`
 
-    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620211803081.png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620211803081.png)
 
 3. #### 无显式定义拷贝构造函数时，编译器自动生成拷贝构造函数
 
@@ -350,7 +350,7 @@ int main()
 
     比如，一个简单的 顺序表类
 
-    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620213637751.png)
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620213637751.png)
 
     用这样的 对象实例化时，需要对成员进行`malloc`申请内存的，使用`浅拷贝`会引发很严重的问题
     

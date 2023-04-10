@@ -70,7 +70,7 @@ featured: false
 
 添加域名的方式，阿里云有给手册 ：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/For_star.png" alt=" |wide" style="zoom:80%;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/For_star.png" alt=" |inline" style="zoom:80%;" />
 
 
 添加完成后，就可以`防止白名单外的网站访问图床内的图片`，就可以 `防止爬虫访问导致流量疯狂外流`。
@@ -83,7 +83,7 @@ featured: false
 >  先打开 `CMD` 或 `Terminal(Win11)`：
 >     `CMD`：可以 `Win + R` 组合键唤出  `运行`，然后输入 `CMD` 运行就可以
 >   
->   ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/run_CMD.png)
+>   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/run_CMD.png)
 
 >  `Terminal(Win11)` ：右键 `开始按钮` 选择 `终端(Terminal)` 就可以 
 >
@@ -92,11 +92,11 @@ featured: false
 >  然后在弹出的界面输入 `ipconfig /all` 回车
 >  就可以找到 `当前网络 ip`：
 >
->  ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/now_ip_adress.png)
+>  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/now_ip_adress.png)
 >
 >  2. 开始界面打开 `设置`，并打开 `网络与Internet`，找到 `属性` 点击就可以看到 `当前网络ip`：
 >
->    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/now_ip_adress2.png)
+>    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/now_ip_adress2.png)
 
 找到自己的 `网络 ip` 然后添加到 `阿里云OSS` `防盗链(白名单)` 里就 OK 啦！ 
 

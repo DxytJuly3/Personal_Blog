@@ -1,18 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++-STL] 用哈希表封装unordered_map和unordered_set'
-pubDate: 2023-04-08
+pubDate: 2022-11-13
 description: 'STL的两个容器 unordered_map 和 unordered_set 底层是由哈希表实现的, 那么本篇文章的内容 就是将哈希表封装为 unordered_set 和 unordered_map'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144442165.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144442165.png'
     alt: 'cover'
 tags: ["C++", "STL", "语法", "哈希"]
 theme: 'dark'
 featured: false
 ---
 
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144442165.png)
 
 上一篇文章介绍分析了 哈希表的结构 与 基础的插入 查找 删除 三个接口, 也介绍了 STL的两个容器 unordered_map 和 unordered_set 底层是由哈希表实现的, 那么本篇文章的内容 就是将哈希表封装为 unordered_set 和 unordered_map
 
@@ -26,9 +27,9 @@ featured: false
 
 > 阅读本文章之前, 建议先阅读博主 红黑树 和 set与map封装 的相关文章:
 >
-> [红黑树相关文章()]()
+> [[C++-STL\] 红黑树的详析分析与实现](http://julysblog.cn/posts/DS-Analysis-RedBlack-Tree)
 >
-> [set与map封装相关文章()]()
+> [[C++-STL\] set和map容器的模拟实现](http://julysblog.cn/posts/C++-Simulate-the-Implementation-of-Set&Map)
 
 unordered_set 和 unordered_map 的封装 其实与 set 和 map 的封装 `很相似`:
 

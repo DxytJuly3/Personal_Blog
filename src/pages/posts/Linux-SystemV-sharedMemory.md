@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 详解 System V: 共享内存原理、创建及使用'
-pubDate: 2023-04-08
+pubDate: 2023-04-03
 description: 'System V 给进程间通信指定的标准有三种 1. System V 消息队列 2. System V 共享内存 3. System V 信号量 本篇文章主要分析介绍 共享内存'
 author: '七月.cc'
 cover:
@@ -13,7 +13,7 @@ theme: 'dark'
 featured: false
 ---
 
-![image-20230403092332554](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230403092332554.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230403092332554.png)
 
 ---
 
@@ -29,7 +29,7 @@ System V 给进程间通信指定的标准有三种：
 
 # 共享内存
 
-我们知道, **`进程间通信的前提是：先让不同的进程看到同一份资源`**
+我们知道,  **`进程间通信的前提是：先让不同的进程看到同一份资源`**
 
 Linux的管道通信给进程间看到的同一份资源是：管道文件
 
@@ -41,7 +41,7 @@ Linux操作系统中, 由于进程地址空间的存在, 进程具有独立性
 
 进程的进程地址空间的大致模型是这样的：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328180441494.png" alt="image-20230328180441494" style="zoom:80%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328180441494.png)
 
 在Linux动态库的相关文章中提到过, 动态库在进程运行时是加载到内存中, 再被映射到进程地址空间的共享区的
 
@@ -53,9 +53,9 @@ Linux操作系统中, 由于进程地址空间的存在, 进程具有独立性
 
 然后多进程只需要从这块内存空间内读取或写入数据, 就可以达到进程通信的功能：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328181610751.png" alt="image-20230328181610751" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328181610751.png)
 
-也就是说, 使用**`共享内存进程间通信的原理就是, 在物理内存中开辟一块共享内存, 然后通过页表将这块物理内存映射到进程地址空间中. 这块物理内存可以被多个进程映射, 所以就可以以此实现进程通信`**
+也就是说, 使用 **`共享内存进程间通信的原理就是, 在物理内存中开辟一块共享内存, 然后通过页表将这块物理内存映射到进程地址空间中. 这块物理内存可以被多个进程映射, 所以就可以以此实现进程通信`**
 
 ## 共享内存的创建与删除
 
@@ -65,7 +65,7 @@ Linux操作系统中, 由于进程地址空间的存在, 进程具有独立性
 
 ### 共享内存的创建 shmget()
 
-![image-20230328204726605](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328204726605.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328204726605.png)
 
 shmget() 是操作系统提供的`分配共享内存的系统调用`, 需要三个参数：
 
@@ -83,7 +83,7 @@ shmget() 是操作系统提供的`分配共享内存的系统调用`, 需要三�
 
 	也就是说, size 参数传入 1、1024、2048、4096 时, 系统都会开辟 `4KB`. 当传入 4097 时, 系统就开会开辟 `8KB`
 
-	不过, **`虽然系统会按照 4KB为单位开辟空间, 但实际上能够使用的大小还是 size字节`**
+	不过,  **`虽然系统会按照 4KB为单位开辟空间, 但实际上能够使用的大小还是 size字节`**
 
 2. 其次是, 第三个参数: 
 
@@ -93,13 +93,15 @@ shmget() 是操作系统提供的`分配共享内存的系统调用`, 需要三�
 
 	`IPC_CREAT`: 传入此宏, 则表示创建一个新的共享内存段. ==若共享内存段已存在, 则获取此内存段. 若不存在, 就创建新的内存段==
 
-	`IPC_EXCL`: 此宏, 必须要与 `IPC_CREAT` 一起用. 传入此宏, 则表示如果==创建的内存段不存在, 则正常创建, 否则返回错误==. 使用这个宏, 可以**`保证此次使用shmget函数成功时, 创建出的共享内存一定是全新的`**
+	`IPC_EXCL`: 此宏, 必须要与 `IPC_CREAT` 一起用. 传入此宏, 则表示如果==创建的内存段不存在, 则正常创建, 否则返回错误==. 使用这个宏, 可以  **`保证此次使用shmget函数成功时, 创建出的共享内存一定是全新的`**
 
 3. 最后介绍, 第一个参数:
 
 	`key_t key`, 此参数其实是传入一个整数. 
 
-	因为 key_t 其实就是整型：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328221108075.png" alt="image-20230328221108075" style="zoom:67%;" />
+	因为 key_t 其实就是整型：
+
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328221108075.png)
 
 	传入的key值, 其实是 `创建的共享内存段在操作系统层面的的唯一标识符`
 
@@ -115,19 +117,19 @@ shmget() 是操作系统提供的`分配共享内存的系统调用`, 需要三�
 
 	Linux系统也为key值的获取提供了一个系统调用：`ftok()`
 
-	![image-20230328222807427](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328222807427.png)
+	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328222807427.png)
 
 	pathname 是一个文件的路径, proj_id 则是随意的8比特位的数值
 
-	ftok()执行成功会返回一个 key值, 这个**`key值是由传入文件的 inode值 和 传入的proj_id 值通过一定的算法计算出来的`**
-
+	ftok()执行成功会返回一个 key值, 这个 **`key值是由传入文件的 inode值 和 传入的proj_id 值通过一定的算法计算出来的`**
+	
 	文件的inode是唯一的, 所以不同的文件计算出的key值, 也会不同
 
 分析完shmget()的参数, 要完整的了解shmget()的作用, 还需要了解其返回值
 
 `shmget()`的返回值：
 
-![image-20230328223740737](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328223740737.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328223740737.png)
 
 若创建共享内存成功, 或找到共享内存, 则返回共享内存id.
 
@@ -161,11 +163,11 @@ int main() {
 
 当这段代码执行一次时：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328224615468.png" alt="image-20230328224615468" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328224615468.png)
 
 成功一次, 然后再多次执行时：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328224647281.png" alt="image-20230328224647281" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328224647281.png)
 
 会发现, 在第一次创建之后, 再次创建就会一直创建失败、创建错误.
 
@@ -173,13 +175,13 @@ int main() {
 
 第一次创建共享内存的进程早就退出了, 但是我们再次已相同的key值创建共享内存, 却会创建失败
 
-难道, **`共享内存不会跟随进程的退出而被释放吗？`**
+难道,  **`共享内存不会跟随进程的退出而被释放吗？`**
 
 没错, 共享内存并不会随进程的退出而被释放, 也就是说, 创建共享内存的进程退出之后, 共享内存其实时依旧存在在操作系统中的
 
 我们可以在命令行使用 `ipcs -m` 查看操作系统内存在的共享内存：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328225149380.png" alt="image-20230328225149380" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328225149380.png)
 
 某key值的共享内存已经存在了, 所以不能再次以相同的key值创建
 
@@ -199,14 +201,14 @@ int main() {
 
 	我们使用 `ipcs -m` 可以 以列表的形式列出已经创建的共享内存：
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093003625.png" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093003625.png)
 
 	此列表中, 存在两个标识符可以表示一块共享内存: key 和 shmid
 
 	而我们使用 `ipcrm -m` 删除共享内存使用的是 `shmid`
 
 	所以 在此例中, 我们在命令行使用: `ipcrm -m 1` 就可以删除刚刚创建出的共享内存:
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093249770.png" alt="image-20230329093249770" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093249770.png)
 
 	但是, 共享内存肯定不会只能从命令行删除.
 
@@ -214,7 +216,7 @@ int main() {
 
 2. `shmctl()`, 是一个系统调用接口, 可以用来删除已创建的共享内存
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093504785.png" alt="image-20230329093504785" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093504785.png)
 
 	此系统调用, 其实是控制共享内存的接口, 其参数：
 
@@ -222,13 +224,13 @@ int main() {
 
 	2. `int cmd`, 这个参数需要传入操作系统提供的控制共享内存块的选项. 其中有一个选项是 摧毁共享内存块用的 `IPC_RMID`
 
-		![image-20230329094151381](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329094151381.png)
+		![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329094151381.png)
 
 		传入 `IPC_RMID` 可以将指定的共享内存块, 标记为被摧毁了. 可以达到删除的目的
 
 	3. `struct shmid_ds *buf`, 需要传入一个指针, 指针应该指向一个 `shmid_ds`结构体. 此结构体的内容是:
 
-		<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329094525917.png" alt="image-20230329094525917" style="zoom:80%;" />
+		![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329094525917.png)
 
 		不过我们删除共享内存块, 一般用不上这个.
 
@@ -270,27 +272,27 @@ int main() {
 
 	这段代码的运行效果是:
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329095449845.png" alt="image-20230329095449845" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329095449845.png)
 
 	创建成功10s后:
 
-	![image-20230329095633312](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329095633312.png)
+	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329095633312.png)
 
 我们介绍了这些内容, 实在介绍什么？
 
-其实就是**`创建一个可以让不同进程看到的同一个资源, 这个资源就是共享内存块`**
+其实就是 **`创建一个可以让不同进程看到的同一个资源, 这个资源就是共享内存块`**
 
 ## 使用共享内存 进程通信
 
 上面介绍了, 共享内存的创建和删除. 创建和删除一定都不是目的, `使用` 才是目的
 
-**`让进程看到已经创建出来的共享内存, 其实就是将 物理内存中的共享内存通过也表映射到进程地址空间的共享区中`**
+ **`让进程看到已经创建出来的共享内存, 其实就是将 物理内存中的共享内存通过也表映射到进程地址空间的共享区中`**
 
 归根结底, 共享内存只是一块内存空间. 
 
 与 管道通信不同, 管道说到底是一个文件. 所以使用管道进行通信需要用到Linux文件操作的系统调用接口(open、close、read、write……).
 
-而共享内存是一块内存空间, 实际上是`可以直接使用`的. 就像 我们`使用C/C++ malloc或new 出来的空间一样, 都是可以直接使用`的. 并且, 使用**`共享内存通信, 其实是进程间通信最快的一种通信方式`** 
+而共享内存是一块内存空间, 实际上是`可以直接使用`的. 就像 我们`使用C/C++ malloc或new 出来的空间一样, 都是可以直接使用`的. 并且, 使用 **`共享内存通信, 其实是进程间通信最快的一种通信方式`** 
 
 但是, 进程使用这块共享内存, 除了先创建共享内存之外, 还需要让内存看到这块共享内存. 
 
@@ -300,7 +302,7 @@ int main() {
 
 `shmat()` 其实就是 share memory attach 的简写.
 
-![image-20230329101923945](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329101923945.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329101923945.png)
 
 `shmat()` 需要传入三个参数:
 
@@ -326,7 +328,7 @@ int main() {
 
 	`SHM_RDONLY`, 使用此宏 表示连接 只读共享内存
 
-`shmat()` 连接共享内存成功之后, 会返回一个地址, 此地址与 malloc 和 new 的用法相同. **`需要根据接收地址的数据类型 来进行类型强转, 进而控制数据的读取或写入格式`**
+`shmat()` 连接共享内存成功之后, 会返回一个地址, 此地址与 malloc 和 new 的用法相同.  **`需要根据接收地址的数据类型 来进行类型强转, 进而控制数据的读取或写入格式`**
 
 不同的进程连接到同一个共享内存之后, 就可以进行进程通信了:
 
@@ -398,11 +400,11 @@ int main() {
 >
 > 若不设置权限, 则创建出的共享内存块的权限会0, 即任何用户无法使用:
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329105553570.png" alt="image-20230329105553570" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329105553570.png)
 >
 > 当我们通过 `| 0666` 设置权限之后:
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329105706308.png" alt="image-20230329105706308" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329105706308.png)
 
 `ipcShmClient:`
 
@@ -466,37 +468,37 @@ clean:
 
 `make` 生成可执行程序, 再执行可执行程序的结果是：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SHM_SHOW.gif" alt="SHM_SHOW" style="zoom:80%;" />
+![SHM SHOW ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SHM_SHOW.gif)
 
 观察代码的执行结果, 最直观的感受是什么？
 
-最直观的感受就是, **`接收端会一直循环打印共享内存块内的内容`**. 无论内存块中是否已经被写入了数据.
+最直观的感受就是,  **`接收端会一直循环打印共享内存块内的内容`**. 无论内存块中是否已经被写入了数据.
 
 这说明什么? 这其实说明了, `共享内存块 与 管道不同 不存在访问控制机制`.
 
-这其实也展现出共享内存的一个缺点, **`共享内存不太安全`**. 没有访问控制, 随时都可以访问. 终究没有那么安全
+这其实也展现出共享内存的一个缺点,  **`共享内存不太安全`**. 没有访问控制, 随时都可以访问. 终究没有那么安全
 
 而再这两个进程同时运行时, 我们再通过 ipcs -m 查看共享内存块时:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SHM_AT.gif" alt="SHM_AT" style="zoom:80%;" />
+![SHM AT](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SHM_AT.gif)
 
 在这个动图中, 两个进程运行的过程中, 共享内存块的属性有什么变化？
 
 其实可以很明显的看到: 
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329111729949.png" alt="image-20230329111729949" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329111729949.png)
 
 然后在进程退出的过程中:
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329111901986.png" alt="image-20230329111901986" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329111901986.png)
 
-![image-20230329111950715](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329111950715.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329111950715.png)
 
 可以看到, 共享内存块的属性中, `nattch` 在变化
 
 nattch是什么?
 
-这个属性, 记录的是**`共享内存块连接的进程数`**
+这个属性, 记录的是 **`共享内存块连接的进程数`**
 
 而连接数的增加, 一定是因为进程通过`shmat()`系统接口成功连接到了共享内存块
 
@@ -506,11 +508,11 @@ nattch是什么?
 
 `shmdt()` 也是Linux操作系统提供的系统调用接口. `用来取消进程与共享内存快之间的连接`
 
-![image-20230329163901266](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329163901266.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329163901266.png)
 
-此系统调用接口的参数, 需要传入`shmat()` 成功执行的返回值, 即 **`进程和共享内存块的连接地址`**
+此系统调用接口的参数, 需要传入`shmat()` 成功执行的返回值, 即  **`进程和共享内存块的连接地址`**
 
-![image-20230329170843316](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329170843316.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329170843316.png)
 
 `shmat()` 的作用可以说是 让进程看到共享内存块以至于让进程可以使用共享内存块.
 
@@ -888,7 +890,7 @@ make之后, 生成的可执行程序的执行结果是：
 
 此例中我们添加了几个函数接口：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152119892.png" alt="image-20230402152119892" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152119892.png)
 
 并且, 共享内存的创建、连接、删除都与之前例子中没有区别.
 
@@ -896,15 +898,15 @@ make之后, 生成的可执行程序的执行结果是：
 
 1. 服务端
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152334706.png" alt="image-20230402152334706" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152334706.png)
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152539511.png" alt="image-20230402152539511" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152539511.png)
 
 2. 客户端
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152805743.png" alt="image-20230402152805743" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152805743.png)
 
-	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152953351.png" alt="image-20230402152953351" style="zoom:80%;" />
+	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152953351.png)
 
 只有这两部分不同, 就可以通过管道实现使用共享内存的简单的访问控制.
 

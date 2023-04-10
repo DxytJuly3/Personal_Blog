@@ -62,7 +62,7 @@ featured: false
 
 # 栈帧是如何创建的?
 > 	以下均在Windows平台，VS2013编译环境下演示
->				
+>					
 > 	不同平台，不同编译环境下的栈帧操作可能会有差异，但是逻辑相通。
 
 创建一个最简单的可以观察函数栈帧的程序
@@ -115,7 +115,7 @@ int main()
 以动画形式演示：
  1. `main` 函数调用之前，`mainCRTStartup` 和 `__mainCRTStartup` 函数的栈帧创建(无详细内容)：
 
-  ![简单main 函数栈帧创建 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/SF_MAINSRTSTARTUP_PUSH.gif)
+  ![简单main 函数栈帧创建 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/SF_MAINSRTSTARTUP_PUSH.gif)
 
  2. 进入 `main` 函数：
 > 1. `(push ebp)` 压栈，压入内容是 `ebp` 指向的地址`(为保存当前 ebp 内容)``
@@ -125,22 +125,22 @@ int main()
 此时，`ebp` 和 `esp` 的实际变化为：
 > 未执行 :
 >
-> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/push_esp_ebp_change.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/push_esp_ebp_change.png)
 >
 > 执行 `push ebp` :
 >
-> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/pushA_esp_ebp_change.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/pushA_esp_ebp_change.png)
 >
 > 执行 `mov ebp,esp` :
 >
-> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/mov_esp_ebp_change.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/mov_esp_ebp_change.png)
 
-![压栈ebp，调整 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/push_epb.gif)
+![压栈ebp，调整 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/push_epb.gif)
 3. 此时，反汇编中的语句光标指向了 
 
 `sub esp,0E4h`
 
-![next_esp_sub |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/sub_esp.png)
+![next_esp_sub |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/sub_esp.png)
 
 即下一句执行指令的就是 `sub esp,0E4h`
 > 汇编语言：`sub 相减`
@@ -150,13 +150,13 @@ int main()
 执行`sub esp,0E4h` 的变化：
 > 未执行：
 >
-> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/No_sub.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/No_sub.png)
 >
 > 执行 `sub esp,0E4h`：
 >
-> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/sub_esp_change.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/sub_esp_change.png)
 
-![sub esp,0E4h |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/sub_esp_0E4h.gif)
+![sub esp,0E4h |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/sub_esp_0E4h.gif)
 
 执行之后，`esp` 和 `ebp` 之间会 存在一块由其新维护的空间
 
@@ -176,14 +176,14 @@ int main()
 
   ![Push_ebx_esi_edi](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Push_ebx_esi_edi.png)
 
-![Save_ebx_esi_edi |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Save_ebx_esi_edi.gif)
+![Save_ebx_esi_edi |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Save_ebx_esi_edi.gif)
 
 保存了寄存器`ebx` `esi` `edi`
 
 5. 指令继续执行：
 > 1. 执行 `lea edi,[ebp-0E4h]` ：
 >
->   ![lea_edi |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/lea_edi.png)
+>   ![lea_edi |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/lea_edi.png)
 >
 >   这里的 `ebp-0E4h` 地址，经过对比，就是 预开辟的 `main` 函数栈帧的栈顶地址`(0x00AFF8A4)`
 > > 汇编指令 ：`lea(Load effect address)`   加载有效地址
@@ -191,18 +191,18 @@ int main()
 >
 > 2. 执行 `mov ecx,39h` 和 `mov eax,0CCCCCCCCh`
 >
->   ![No_mov_ecx_eax |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/No_mov_ecx_eax.png)
+>   ![No_mov_ecx_eax |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/No_mov_ecx_eax.png)
 >
 >   👇👇👇
 >
->   ![mov_ecx_eax |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/mov_ecx_eax.png)
+>   ![mov_ecx_eax |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/mov_ecx_eax.png)
 >
 >   寄存器 `ecx` 存入 `十六进制 39(十进制 57)`
 >   寄存器 `eax` 存入`0xCCCCCCCC`
 >
 > 3. 执行 `rep_stos  dword_ptr_es:[edi]`：
 >
->   ![rep_stos |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/rep_stos_change.png)
+>   ![rep_stos |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/rep_stos_change.png)
 >
 >   执行之后，从 `0x00AFF988 - 4` 到 `0x00AFF8A4` 的`(每4字节)`所有内容都被设置为了 `0xCCCCCCCC` ，即 开辟的`main` 栈帧中的所有内容被设置为 `0xCCCCCCCC` 
 > > 汇编指令：
@@ -230,7 +230,7 @@ int main()
 > 局部变量就会表示随机值。
 > 所以 输出一个未初始化的局部变量，很可能会出现：
 >
-> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/0xCCCCCCCC.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/0xCCCCCCCC.png)
 
 到此，`main` 函数栈帧的预创建全部完成（只是预创建）。
 接下来就是，局部变量的创建、调用函数栈帧的创建、函数传参、函数返回等。
@@ -246,7 +246,7 @@ int main()
 ## 局部变量在栈帧中的创建
 先在反汇编窗口中，右键选择显示符号名，可以看到：
 
-![字符名 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Show_char_name.png)
+![字符名 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Show_char_name.png)
 
 关闭字符名则会显示地址：
 
@@ -259,7 +259,7 @@ int main()
 
 ![Local_variables_creat](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Local_variables_creat.png)
 
-![Local_variables_creat |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Local_variables_creat.gif)
+![Local_variables_creat |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Local_variables_creat.gif)
 
 局部变量的创建相对简单，一张动图就可以理解。
 
@@ -301,14 +301,14 @@ int main()
 
 到此时内存变化：
 
-![Virtual_variables_creat |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Creat_Virtual_parameters.gif)
+![Virtual_variables_creat |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Creat_Virtual_parameters.gif)
 
 > `jmp` 指令：无条件跳转至 后边的地址处
 > 即在此指令中，跳转至`00911A40` 处
 
 执行 `jmp` ：
 
-![jmp Add |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/jmp_add.png)
+![jmp Add |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/jmp_add.png)
 
 执行 `jmp` 之后，进入 `Add 函数`，会发现一段熟悉的指令，和进入 `main` 函数时的前几行指令相似。
 这段指令就是 `Add` 函数预开辟栈帧的指令（不再分析），直接看图：
@@ -318,9 +318,9 @@ int main()
 
 2. 连续执行指令，预创建及处理 `Add` 函数栈帧：
 
-  ![Add_函数栈帧创建 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Add_SF_Creat.png)
+  ![Add_函数栈帧创建 ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Add_SF_Creat.png)
 
-![Add_SF_Creat |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Add_SF_Creat.gif)
+![Add_SF_Creat |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Add_SF_Creat.gif)
 
 以上是 `Add` 函数栈帧的创建过程。
 
@@ -331,16 +331,16 @@ int main()
 
 观察、对比汇编代码：
 
-> ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Use_Virtual_variables.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Use_Virtual_variables.png)
 >
 > 1. `z` ，是在 `Add` 函数栈帧内创建的局部变量，对应的地址是 `ebp-8`，即从 `ebp(此时维护Add栈帧的栈底指针)` 向低地址偏移 `8 字节`，发现在 `Add` 栈帧内部。
 >
->   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Add_Creat_VR.png)
+>   ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Add_Creat_VR.png)
 >
 > 2. `x`、`y` 分别对应 ：`ebp+8` 、`ebp+0Ch`
 >     即从 `ebp` 向高地址偏移 `8 字节` 和 `12 字节`，很明显不在 `Add` 函数栈帧内，究竟在哪？
 >
->   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Add_VR_address.png)
+>   ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Add_VR_address.png)
 >
 >   分析之后发现，`Add` 函数调用的形参 其实就是之前(即将进入`Add`函数时)，执行这一段代码时压栈的内容：
 > > ```
@@ -366,7 +366,7 @@ int main()
 ##  函数返回
 函数返回并没有看上去那么简单：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Return_Add.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Return_Add.png)
 
 `return z;` 语句之后，其实都是函数返回需要进行的操作。
 
@@ -388,7 +388,7 @@ int main()
 
    在进入 `Add` 函数后 压栈的 `edi`, `esi`, `ebx` 三个内容退栈
 
-   ![pop_edi_esi_ebx |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Add_pop_edi_esi_ebx.png)
+   ![pop_edi_esi_ebx |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Add_pop_edi_esi_ebx.png)
 
 3. 然后将 `ebp` 的值 给 `esp` 
 
@@ -406,7 +406,7 @@ int main()
 
     这整个过程的动画
     
-    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Destory_Add_SF.gif)
+    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/Destory_Add_SF.gif)
 
 5. 最后一步就是 `ret` 指令
     当 `Add` 函数使用结束之后，汇编代码应该继续回到 `main` 函数中的 `call` 指令的下一条语句的地方：
@@ -422,7 +422,7 @@ int main()
 
   `ret` 指令执行之后，会直接把这个空间弹出栈，然后返回到这个空间存放的地址的指令处：
 
-  ![ret |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/ret.gif)
+  ![ret |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/ret.gif)
 
   ![返回main函数](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/ret_after.png)
 
@@ -437,7 +437,7 @@ int main()
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/mov_eax_to_c.png)
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/esp%2B8_mov_c.gif)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/esp%2B8_mov_c.gif)
 
 代码走到这里，函数栈帧的大部分内容都已经讲的很清楚了。本篇文章到这里也就结束了。
 

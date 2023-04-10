@@ -689,7 +689,7 @@ int fseek( FILE *stream, long offset, int origin );
 
 >首先，我们先创建一个文件（我这里路径是 `D:\TEST.txt` ），并输入内容
 >
->![fseek_TEST |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_TEST.png)
+>![fseek_TEST |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_TEST.png)
 >
 >当我们不使用 `fseek` 函数时，
 >
@@ -720,7 +720,11 @@ int fseek( FILE *stream, long offset, int origin );
 >}
 >```
 >
->这段代码的运行结果是： <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_NOFSEEK.png" alt="fseek_NOFSEEK" style="zoom: 67%;" /> 此时，文件指针应该在 文件内容的 `k` 字符上。如果再使用 `ch = fgetc(pf)` ，并输出 `ch` 存入的字符，将输出 `k`。
+>这段代码的运行结果是： 
+>
+>![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_NOFSEEK.png)
+>
+> 此时，文件指针应该在 文件内容的 `k` 字符上。如果再使用 `ch = fgetc(pf)` ，并输出 `ch` 存入的字符，将输出 `k`。
 >
 >但是如果这时候我们使用 `fseek` 函数，就可以将文件指针定位到文件内容的其他地方，时文件指针指向的文件内容改变：
 >
@@ -761,21 +765,21 @@ int fseek( FILE *stream, long offset, int origin );
 >`fseek` 函数，三次使用的运行结果 分别为： 
 >
 >>  `fseek(pf, 10, SEEK_CUR);`
->>
+>
 >>  ![fseek_SEEK_CUR |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_CUR.png)
->>
+>
 >>  文件指针从当前位置向后偏移 10 个字符，到 `u` 
 >
 >> `fseek(pf, 15, SEEK_SET);` 
->>
+>
 >> ![fseek_SEEK_SET |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_SET.png)
->>
+>
 >> 文件指针从文件内容的首位，想后偏移 15 个字符，到 `p`
 >
 >> `fseek(pf, -5, SEEK_END);` 
->>
+>
 >> ![fseek_SEEK_END |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_END.png)
->>
+>
 >> 文件字符从文件内容的末字符之后，向 前 偏移 5 个字符，到 `v`
 >
 
@@ -826,9 +830,9 @@ long ftell( FILE *stream );
 > }
 > ```
 >
->  上述代码的运行结果：
+> 上述代码的运行结果：
 >
-> ![ftell_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-ftell_FILE.png)  
+> ![ftell_FILE |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-ftell_FILE.png)
 >
 > 两次 `fget(pf)` 之后，计算偏移量 为 `2`;
 

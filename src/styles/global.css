@@ -65,7 +65,7 @@ address,
 caption,
 th,
 figcaption {
-  font-size: .875em;
+  font-size: 1em;
   font-family: SF Mono, monaco, -apple-system, roboto mono, monospace;
   font-weight: normal;
   font-style: normal
@@ -5674,7 +5674,8 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image-inline .component-content {
-  width: 760px
+  width: 70%;
+  max-width: 480px;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -5985,12 +5986,11 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .image.image-wide {
-  width: 67%
+  width: 780px;
 }
 
 .image.image-wide .component-content {
-  width: 67%;
-  max-width: 880px
+  width: 780px;
 }
 
 .image.image-wide .image-asset {

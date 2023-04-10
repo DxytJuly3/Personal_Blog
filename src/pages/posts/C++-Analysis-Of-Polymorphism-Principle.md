@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 多态原理的分析'
-pubDate: 2023-04-08
+pubDate: 2022-07-30
 description: '编译器是怎么实现多态调用的？'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410124130907.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410124130907.png'
     alt: 'cover'
 tags: ["C++", "多态", "原理"]
 theme: 'dark'
 featured: false
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410124130907.png)
 
 上一篇文章 详细介绍了什么是多态 和 多态的使用等方面的问题。但是却留下了一个最大的疑问
 
@@ -33,20 +35,21 @@ featured: false
 
 下面有一道面试题：
 
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726134930627.png" alt="image-20220726134930627" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726134930627.png)
 >
 > 上述类，**`sizeof(Base)`** 是多少？
 >
 > 按照类和对象的基础知识，**类成员函数不在类中 不占类空间，所以只计算 成员变量的大小，最总结果为 4**
 >
 > 但是实际查看会发现：
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726135319978.png" alt="image-20220726135319978" style="zoom:80%;" />
+>
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726135319978.png)
 >
 > **Base 类的大小为 8(32位环境)**
 >
 > 这是为什么？查看Base 类对象内容：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726135849223.png" alt="image-20220726135849223" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726135849223.png)
 >
 > 可以看到，除成员变量 _b 之外，还存在一个指针 指向了一张表，并且 **这个指针处于类对象的开头位置**
 >
@@ -65,11 +68,11 @@ featured: false
 
 如果 继承体系中 父子类虚函数构成了重写，子类虚表的内容会是什么呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726142249999.png" alt="image-20220726142249999" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726142249999.png)
 
 对比子类和父类对象的内容：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726142135476.png" alt="image-20220726142135476" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726142135476.png)
 
 可以看到，子类对象中继承于父类的那一部分也有一个虚表指针
 
@@ -84,11 +87,11 @@ featured: false
 
 举个例子：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726144150670.png" alt="image-20220726144150670" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726144150670.png)
 
 使用上面的子类 实例化对象并查看对象的内容：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726144411368.png" alt="image-20220726144411368" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726144411368.png)
 
 在VS的监视窗口中，子类对象，**既没有新建一个虚表存放只属于自己的虚函数的指针，原虚表中也没有显示只属于自己的虚函数指针**
 
@@ -97,7 +100,8 @@ featured: false
 监视窗口中没有显示，但是在介绍继承的时候说过，VS的监视窗口是经过软件优化过后的，会不会只是监视窗口没有显示，但 只属于自己的虚函数指针 其实也在原续编中存储呢？ 
 
 监视窗口可以看到虚表的地址，由此就可以从内存窗口中查看到地址存储的内容：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726145241845.png" alt="image-20220726145241845" style="zoom:80%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726145241845.png)
 
 可以看到，需表中确实存储了 虚函数指针，但是**第三个指针不能确定是否 是只属于子类的虚函数的指针**，需要验证
 
@@ -139,11 +143,11 @@ featured: false
 > > 此函数循环体的结束标志是，遇到 `nullptr`
 > > 是因为在VS 平台下，虚表的结尾是一个空指针
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726152135478.png" alt="image-20220726152135478" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726152135478.png)
 >
 > 继续调用函数：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726152400059.png" alt="image-20220726152400059" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726152400059.png)
 >
 > 可以看到 函数指针调用函数，**第三个函数指针的执行结果确实与 子类自己的虚函数执行结果相同**
 >
@@ -187,28 +191,28 @@ featured: false
 
 以 买票的多态为例：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726185017441.png" alt="image-20220726185017441" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726185017441.png)
 
 当使用父类指针或父类引用接收子类的地址或对象时：
 
-![image-20220726191641257](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726191641257.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726191641257.png)
 
 可以发现：对象 `stu1`  和 `eld1` 的虚表内存储的都是 **重写后的虚函数的指针**
 并且，父类指针 `ptrPer` 指向的就是 `stu1 的父类部分`；父类引用 `quoPer` 就是 `eld1父类部分的别名`
 
 这样就可以赋予 父类指针 或 父类引用 不同的对象，来多态调用虚函数：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726192409169.png" alt="image-20220726192409169" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726192409169.png)
 
 但这只是满足了多态调用的两个条件。**编译器是如何选择多态调用还是普通调用的？**
 
 用以下类 举个例子：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726231928693.png" alt="image-20220726231928693" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726231928693.png)
 
 `Advanced类`中的 `Func1` 重写了` Base类`中的 `Func1`，此时：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726232434061.png" alt="image-20220726232434061" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726232434061.png)
 
 由于 `ptrBas` 只是 `Advanced对象`中的**`Base`部分的指针**，所以 它指向的内容并**没有 `Advanced`类中的`Func2`**
 所以 执行`ptrBas->Func2()` 时，默认会**普通调用 `Base`类中的`Func2()`**
@@ -232,7 +236,7 @@ VS环境下证明的方法有一个，那就是 **查看反汇编代码** (此�
 
 依旧按照上面例子的操作，查看其反汇编代码：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726234452222.png" alt="image-20220726234452222" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726234452222.png)
 
 首先可以非常明显的看到，多态调用 与 普通调用的反汇编代码的步骤是不一样的
 
@@ -241,16 +245,17 @@ VS环境下证明的方法有一个，那就是 **查看反汇编代码** (此�
 > `dword` 为 4 字节
 
 >  多态调用：
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220727000215510.png" alt="image-20220727000215510" style="zoom:80%;" />
 >
-> 虽然具体意思不明确，但是大概意思还是可以看出来的
-> 其实就是在**使用各种寄存器，找虚表，查虚表，然后找到函数地址了再call**
+>  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220727000215510.png)
 >
-> 也就是说，程序再运行时 才去找函数地址了，能够说明 **多态调用函数，是在程序运行时才通过查表来确定函数地址的**
+>  虽然具体意思不明确，但是大概意思还是可以看出来的
+>  其实就是在**使用各种寄存器，找虚表，查虚表，然后找到函数地址了再call**
+>
+>  也就是说，程序再运行时 才去找函数地址了，能够说明 **多态调用函数，是在程序运行时才通过查表来确定函数地址的**
 
 > 普通调用：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220727000717413.png" alt="image-20220727000717413" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220727000717413.png)
 >
 > 普通调用，直接就call了函数地址，也就是说运行时就已经知道了需要调用的函数的地址
 >
@@ -284,19 +289,19 @@ VS环境下证明的方法有一个，那就是 **查看反汇编代码** (此�
 
 多继承体系中，子类继承了两个父类，那么父类的虚函数在子类对象中是怎么存在的呢？子类自己的虚函数在对象中又是怎么存在的呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728103126822.png" alt="image-20220728103126822" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728103126822.png)
 
 以上面这个继承体系为例，查看子类的内容：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728104114303.png" alt="image-20220728104114303" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728104114303.png)
 
 从监视窗口可以看到，多继承子类对象中存在多张虚表(具体要看父类个数)
 
 由于VS对虚表进行了优化，使用 查看虚表的函数查看这两张虚表：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728104924827.png" alt="image-20220728104924827" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728104924827.png)
 
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728104937477.png" alt="image-20220728104937477" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728104937477.png)
 >
 > 取第二个虚表的地址
 > 首先就是将对象地址跳过第一个父类的大小，获得第二个父类的地址
@@ -316,7 +321,7 @@ VS环境下证明的方法有一个，那就是 **查看反汇编代码** (此�
 
 编译器的这个处理，可以从多态调用的反汇编代码中分析出来：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728110724739.png" alt="image-20220728110724739" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728110724739.png)
 
 > **于 `Base1`部分的 `Advanced:: func1` 的调用：**
 >
@@ -356,7 +361,7 @@ VS环境下证明的方法有一个，那就是 **查看反汇编代码** (此�
 
 下面是两次调用 汇编代码简略的执行过程的对比：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728142521678.png" alt="image-20220728142521678" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220728142521678.png)
 
 可以看到，调用`Base1`部分的`func1`，是通过`Base1`虚表中的壳子 **直接跳转**到 真正的函数指针，然后建立栈帧
 
@@ -386,9 +391,9 @@ VS环境下证明的方法有一个，那就是 **查看反汇编代码** (此�
 
 在使用的时候看一下对象的结构、内容就可以明白：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon(23).png" alt="carbon(23)" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon(23).png)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220729192844327.png" alt="image-20220729192844327" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220729192844327.png)
 
 可以看到，最子类对象的内容：
 
@@ -406,11 +411,11 @@ VS环境下证明的方法有一个，那就是 **查看反汇编代码** (此�
 
 示例依旧是上面的继承体系，不过改为虚拟继承
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon(24).png" alt="carbon(24)" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon(24).png)
 
 此时实例化子类对象，查看虚拟继承之后的结构：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730114033736.png" alt="image-20220730114033736" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730114033736.png)
 
 可以看到Elementary 类部分被整合在一起，存放到了子类对象的底部，两个腰部 子类都存放了查找父类部分的偏移量(虚基表)
 
@@ -425,7 +430,7 @@ VS环境下证明的方法有一个，那就是 **查看反汇编代码** (此�
 >
 > 如果 腰部子类同时重写了 最终子类没有重写的父类虚函数，则会报错：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730115216628.png" alt="image-20220730115216628" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730115216628.png)
 >
 > **虚函数重写不明确，且子类继承不明确**
 >
@@ -433,7 +438,7 @@ VS环境下证明的方法有一个，那就是 **查看反汇编代码** (此�
 
 还可以看到，Advanced类自己的虚函数单独存放在了一个虚表内，并且 Advanced类 对象开头存放的就是此虚表的地址：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730114221986.png" alt="image-20220730114221986" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730114221986.png)
 
 # 关于多态的一些问题
 
@@ -463,23 +468,27 @@ C++多态的细节其实是比较多的，什么**接口继承**、**协变**、
     > >
     > > 由于 类内定义的函数默认inline ，所以需要设置一下，方便控制
     > >
-    > > 首先打开项目属性：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730131704053.png" alt="image-20220730131704053" style="zoom:80%;" />
+    > > 首先打开项目属性：
     > >
-    > > 然后进行设置![image-20220730131814973](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730131814973.png)
+    > > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730131704053.png" alt="|inline" style="zoom: 80%;" />
+    > >
+    > > 然后进行设置
+    > >
+    > > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730131814973.png)
     >
-    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730132006960.png" alt="image-20220730132006960" style="zoom:80%;" />
+    > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730132006960.png)
     >
     > Elementary 类中，func1设置 inline，func2 不设置
     >
-    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730132323580.png" alt="image-20220730132323580" style="zoom:80%;" />
+    > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730132323580.png)
     >
     > 说明，虚函数确实是可以inline的，编译器也是会听取建议的
     >
     > 但是，如果是多态调用呢？
     >
-    > ![image-20220730133029181](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730133029181.png)
+    > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730133029181.png)
     >
-    > ![image-20220730133228953](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730133228953.png)
+    > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730133228953.png)
     >
     > 可以看到，编译器十分的灵活：
     >
@@ -503,7 +512,7 @@ C++多态的细节其实是比较多的，什么**接口继承**、**协变**、
 
     > 答：虚函数表 是在**编译阶段生成**的，但是 是在对象实例化时，在 **构造函数的初始化列表阶段 给对象的虚表指针 初始化赋值**的
     >
-    > ![Constructor_Virtual-List](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Constructor_Virtual-List.gif)
+    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Constructor_Virtual-List.gif" alt="Constructor_Virtual-List" style="zoom: 61%;" />
     >
     > 那么虚函数表是存放在内存中的哪个区域的呢？
     >
@@ -529,7 +538,7 @@ C++多态的细节其实是比较多的，什么**接口继承**、**协变**、
     >
     > 并且可以验证一下：
     >
-    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730140933217.png" alt="image-20220730140933217" style="zoom:80%;" />
+    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220730140933217.png" alt="image-20220730140933217" style="zoom:63%;" />
     >
     > 勉强可以验证 虚函数表的存放区域
 

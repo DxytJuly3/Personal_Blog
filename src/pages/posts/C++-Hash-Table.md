@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++-STL] 哈希表以及unordered_set和unordered_set的介绍'
-pubDate: 2023-04-08
+pubDate: 2022-11-11
 description: 'unordered_set 和 unordered_map 的底层是由 哈希表 实现的, 那么 什么是哈希表？'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410143243680.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410143243680.png'
     alt: 'cover'
-tags: ["C++", "STL", "语法", "哈希"]
+tags: ["C++", "STL", "语法", "哈希", "数据结构"]
 theme: 'dark'
 featured: false
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410143243680.png)
 
 在分析实现了 set 和 map 之后, STL 之中还有两个名字与之非常相似的容器, unordered_set 和 unordered_map
 
@@ -28,9 +30,9 @@ unordered_set 和 unordered_map在大体使用上与 set 和 map相似, 只是�
 
 官方文档中对于 这两个容器的描述是这样的：
 
-![image-20221110175001906](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221110175001906.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221110175001906.png)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221110175156194.png" alt="image-20221110175156194" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221110175156194.png)
 
 > unordered_set 的介绍可以参考 unordered_map
 
@@ -80,7 +82,7 @@ unordered_set 和 unordered_map在大体使用上与 set 和 map相似, 只是�
 >
 > 使用哈希方法 将这届数据 放入容量大小为10的数组中, 则 使用 `hash(key) = key % capacity` 计算位置:
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111080739507.png" alt="image-20221111080739507" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111080739507.png)
 
 ## 哈希冲突
 
@@ -126,7 +128,7 @@ unordered_set 和 unordered_map在大体使用上与 set 和 map相似, 只是�
 
 那么以上面的例子为基础: 再次插入 13, 那么哈希表中应该就是这样的情况:
 
-![image-20221111093214911](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111093214911.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111093214911.png)
 
 >  13 直接存储在 3 的后面
 >
@@ -146,7 +148,7 @@ unordered_set 和 unordered_map在大体使用上与 set 和 map相似, 只是�
 
 即 如果使用二次探测 在哈希表中插入: 2 12 22 32, 那么 哈希表中应该是这样的情况:
 
-![image-20221111100247841](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111100247841.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111100247841.png)
 
 > 使用二次探测, 不会造成向后数据堆积的情况, 但是会造成`空间浪费太多`
 
@@ -158,7 +160,7 @@ unordered_set 和 unordered_map在大体使用上与 set 和 map相似, 只是�
 
 比如像下面这样直接删除 22:
 
-![image-20221111100921080](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111100921080.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111100921080.png)
 
 > 没有删除的时候, 查找 32, 则会先找到 2, 再找到 12, 再找到 22, 最后找到 32
 >
@@ -327,7 +329,7 @@ private:
 
 > 将 `4 11 99 17 14 24 47 19 31 49 37 39 34 55` 以此插入 哈希桶中, 哈希桶的结构就可以示意为:
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111145748481.png" alt="image-20221111145748481" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111145748481.png)
 >
 > 将 哈希地址相同的数据 以 `单链表的形式存储在各个位置中`
 
@@ -603,11 +605,11 @@ size_t BKDRHash(const string& str) {
 
 这个时候 `仿函数` 就又需要上场了
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221112073636532.png" alt="image-20221112073636532" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221112073636532.png)
 
 官方文档中对于 unordered_map 的模板参数的描述, `第三个 Hash , 需要传入的函数就是 取key类型的哈希值的仿函数`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221112074536539.png" alt="image-20221112074536539" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221112074536539.png)
 
 仿函数的具体内容就是针对 key类型计算哈希值:
 

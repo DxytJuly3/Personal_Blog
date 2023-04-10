@@ -1,7 +1,7 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] string类的模拟实现'
-pubDate: 2023-04-08
+pubDate: 2022-07-04
 description: '本篇文章着重 模拟实现 string类 及其各接口'
 author: '七月.cc'
 cover:
@@ -13,7 +13,7 @@ theme: 'dark'
 featured: false
 ---
 
-![image-20221031220947803](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221031220947803.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221031220947803.png)
 
 ---
 

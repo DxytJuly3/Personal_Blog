@@ -60,7 +60,7 @@ featured: false
 
 `栈` 存放数据的方式就像 砌砖，在 `不破坏结构` 的情况下只能这样 放 和 拿：
 
-![ |wide](https://img-blog.csdnimg.cn/img_convert/6929a33778e6355875037e2cade6f591.gif#pic_center)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/6929a33778e6355875037e2cade6f591.gif)
 
 由图 可以看出 `栈` 是一种 `后进先出(LIFO)` 的数据结构，即 最后放入的数据，最先出来
 
@@ -96,11 +96,11 @@ typedef struct Stack
 > `Top` 初值不同，接口的实现 会有细微的差异：
 > 初值为 `-1`，`Top` 指向数组最后一个元素的位置；压栈时，`Top` 先加一，再入数据
 >
-> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507160801719.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507160801719.png)
 >
 > 初值为 `0`，`Top` 指向数组最后一个元素的下一位置；压栈时，先入数据，`Top` 再加一
 >
-> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507160745124.png)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507160745124.png)
 >
 > `并且，由于 Top 有不同的情况，与栈有关的操作最好使用已有接口进行`
 
@@ -255,7 +255,7 @@ void StackDestory(Stack *pst)
 }
 ```
 
-![ wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507183021201.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507183021201.png)
 
 
 

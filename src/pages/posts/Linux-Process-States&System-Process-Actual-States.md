@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 进程状态相关概念、Linux实际进程状态、进程优先级'
-pubDate: 2023-04-08
+pubDate: 2023-03-03
 description: '生成进程之后, 操作系统会给进程分配其所需要的资源。而为了整个操作系统的稳定和效率, 操作系统会对进程进行调度、管理, 在调度管理的过程中进程会存在不同的状态, 这些不同的状态就被称为进程状态。'
 author: '七月.cc'
 cover:
-    url: 'https://img-blog.csdnimg.cn/img_convert/d54be4415a0f78ae0b65e9ffa2756a4b.png'
-    square: 'https://img-blog.csdnimg.cn/img_convert/d54be4415a0f78ae0b65e9ffa2756a4b.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150917148.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150917148.png'
     alt: 'cover'
 tags: ["Linux", "进程", "系统"]
 theme: 'dark'
 featured: false
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150917148.png)
 
 # 进程状态的概念
 
@@ -106,7 +108,7 @@ featured: false
 
 再Linux内核源码中, 有关进程状态分类的部分是这样的：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303151243423.png" alt="image-20230303151243423" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303151243423.png)
 
 Linux将进程的状态分为了：R(running)、S(sleeping)、D(disk sleep)、T(stopped)、t(tracing stop)、Z(zombie) 和 X(dead) 7种
 
@@ -134,11 +136,13 @@ int main() {
 }
 ```
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SleepStat%2015-32-21.gif" alt="SleepStat 15-32-21" style="zoom:80%;" />
+![SleepStat](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SleepStat%2015-32-21.gif)
 
 可以看到, 进程是运行着的, 并且右边一直在屏幕上刷着一句话`"I am a process, pid = 17590"`
 
-而使用 ps 查询17590时 也可以查询的到, 但是此时系统显示 进程的状态却是 `S`~~(忽略‘+’号)~~ ！<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303153810698.png" alt="image-20230303153810698" style="zoom:80%;" />
+而使用 ps 查询17590时 也可以查询的到, 但是此时系统显示 进程的状态却是 `S`~~(忽略‘+’号)~~ ！
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303153810698.png)
 
 上面介绍了, 只要一个进程在CPU的运行队列中, 那么这个进程就在运行态, 在Linux中就应该处于 R 状态。而且 程序不停地在运行时可以观察得到的。那为什么系统显示当前进程的状态是 S 呢？S 究竟是个什么状态？
 
@@ -154,9 +158,9 @@ int main() {
 >
 > 其实很简单, 只需要将上面代码中 cout 语句删除, 让此进程不需要使用其他硬件资源, 那就可以看到此进程在R (running)状态了：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303155607212.png" alt="image-20230303155607212" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303155607212.png)
 >
-> ![image-20230303155535534](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303155535534.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303155535534.png)
 
 S 状态是睡眠状态, 也可以被称为`浅度睡眠`。既然有浅度睡眠, 那与之对应的深度睡眠也不会缺少。
 
@@ -170,7 +174,7 @@ D(disk sleeping) 深度睡眠状态, 其实也是阻塞状态, 不过是 `特指
 
 S 状态是可中断的, 即可以被 kill 掉：
 
-![image-20230303160601469](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303160601469.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303160601469.png)
 
 但 D 状态是不能被中断的, 也没有办法演示
 
@@ -218,7 +222,9 @@ Linux系统中的 X状态, 就是概念中的终止状态。当进程不会再�
 
 只有在此进程的退出信息被父进程或操作系统读取了之后, 进程才会最后进入 X状态, 随时等待着被释放。所以, 其实 `Z状态是维护进程退出信息的状态`
 
->  `task_struct` 中部分退出信息<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303170038653.png" alt="task_struct 中部分退出信息" style="zoom:80%;" />
+>  `task_struct` 中部分退出信息
+>
+>  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303170038653.png)
 
 ### 模拟僵尸进程
 
@@ -248,7 +254,7 @@ int main() {
 }
 ```
 
-![image-20230303172722044](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303172722044.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303172722044.png)
 
 此时, 子进程运行已经结束, 而父进程也不读取退出信息, 就会导致子进程一直处于僵尸状态。
 
@@ -287,7 +293,7 @@ int main() {
 
 然后使用`kill -19 进程标识符` 或 `Ctrl+Z`, 将进程暂停：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303180222917.png" alt="image-20230303180222917" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303180222917.png)
 
 此时显示进程的状态为 T状态
 
@@ -295,7 +301,7 @@ int main() {
 
 既然 t特指进程调试时遇到断点时所处的状态, 那就用gdb调试的方式查看：
 
-![image-20230303181109616](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303181109616.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230303181109616.png)
 
 可以看到, 使用gdb调试进程的时候, 当进程遇到断点, 此时进程的状态就会进入 t(stracing stop)状态
 
@@ -305,17 +311,17 @@ Linux中, 存在一种特殊的进程——孤儿进程
 
 只看名字其实就已经能想象到是什么意思了, 孤儿进程是指 `子进程运行没有结束, 但是父进程的运行结束了, 父进程先被回收了, 那么此时的子进程就成了孤儿,  被称为孤儿进程`
 
-![image-20230304094123880](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304094123880.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304094123880.png)
 
-![image-20230304094431837](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304094431837.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304094431837.png)
 
 并且, 此时子进程一直在命令行中运行, 但是并不影响其他指令的执行：
 
-![image-20230304094640370](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304094640370.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304094640370.png)
 
 并且, `此时的子进程无法被Ctrl+C终止掉, 只能使用kill -9 PID的方式kill`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304095030602.png" alt="image-20230304095030602" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304095030602.png)
 
 > 因为此时的子进程已经成为了后台进程, 在进程状态一栏中, 之前的进程的状态后都会有一个`+`号, 此 `+`号表示此程序是前台进程
 >
@@ -325,7 +331,7 @@ Linux中, 存在一种特殊的进程——孤儿进程
 
 因为当子进程的父进程提前结束的时候, 此子进程就会被系统接管, 此子进程也变成了孤儿进程, PID为1的进程就是系统：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304095400283.png" alt="image-20230304095400283" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304095400283.png)
 
 # Linux进程的优先级
 
@@ -352,7 +358,7 @@ Linux中, 存在一种特殊的进程——孤儿进程
 1. `priority`：在Linux系统中, `指当前进程的优先级, 此数值越小即表明进程的优先级越高`
 2. `nice`：在Linux系统中, 可以理解为 `当前进程优先级被调整的数值`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304091910718.png" alt="image-20230304091910718" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304091910718.png)
 
 > PRI即为priority, NI即为nice
 
@@ -368,29 +374,29 @@ Linux中, 存在一种特殊的进程——孤儿进程
 >
 > `知道进程的PID时, 进入top, 再按r, 再输入PID, 再输入需要的NI值, 就可以做到NI值的修改(必须为root用户)`
 
-![image-20230304100931552](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304100931552.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304100931552.png)
 
 运行了一个死循环进程, PID 为 27495
 
-![image-20230304101126267](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304101126267.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304101126267.png)
 
 进入top界面
 
 输入进程PID：
 
-![image-20230304101255970](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304101255970.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304101255970.png)
 
 在输入需要修改到的NI值：
 
-![image-20230304101416265](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304101416265.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304101416265.png)
 
 然后可以发现, top界面中, NI和PR值都改变了：
 
-![image-20230304101550416](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304101550416.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304101550416.png)
 
 使用ps -la查看此进程的优先级, 发现同样发生了改变：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304101731404.png" alt="image-20230304101731404" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304101731404.png)
 
 > PS：不同程序界面的PRI值不同, 可能是因为基准不同
 
@@ -402,9 +408,9 @@ Linux中, 存在一种特殊的进程——孤儿进程
 
 当我设置NI值 -100 和 100 时：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304102113415.png" alt="设置NI -100" style="zoom:80%;" />
+![设置NI -100](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304102113415.png)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304102240387.png" alt="设置NI 100" style="zoom:80%;" />
+![设置NI 100](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304102240387.png)
 
 可以发现, 其实 NI最低只能设置到-20, 最高只能设置到19。
 

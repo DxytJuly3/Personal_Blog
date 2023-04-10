@@ -94,3 +94,6 @@ void *memset( void *dest, int c, size_t num);
 ```
 
 作用：将数组前 `num` 字节，每个字节赋值为 `c`
+
+---------------------
+

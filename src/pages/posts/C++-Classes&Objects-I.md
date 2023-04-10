@@ -52,7 +52,7 @@ struct User
 并且在定义变量时，可以直接使用 `User` 不用再添加 `struct` 
 结构体内的函数也可以用使用结构体变量的方式调用。
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617134353881.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617134353881.png)
 
 
 
@@ -127,7 +127,7 @@ private:
 
 但是因为 private修饰的成员 只是`无法在类外进行访问，在类内依旧是可以进行访问的`，所以可以通过 public修饰的成员对private成员进行间接的访问： 
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617172300730.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617172300730.png)
 
 ---
 
@@ -229,7 +229,7 @@ private:
 >
 > 比如：栈初始化时
 >
-> ![class_StackInit |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_StackInit_202206171822.png)
+> ![class_StackInit |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_StackInit_202206171822.png)
 >
 > 这两种方式，直接操作数据肯定是不规范的。有时候会造成不必要的麻烦
 >
@@ -267,13 +267,13 @@ private:
 
 像这样没有成员变量的类，它的大小会是多少呢？
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221108502.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221108502.png)
 
 可以看到，只有成员函数的类的大小为 `1`
 
 如果是空类呢？
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221308917.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221308917.png)
 
 可以看到，没有成员变量的类，其大小都为 `1`
 
@@ -302,7 +302,7 @@ private:
 
     > 对于相同的类，每个对象大致是这样的
     >
-    > ![对象 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618000801437.png)
+    > ![对象 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618000801437.png)
     >
     > 此方式有一个缺点，就是每个对象中都存储有功能相同的函数，会造成浪费
 
@@ -310,7 +310,7 @@ private:
 
     > 对于相同的类，多个对象大致是这样的：
     >
-    > ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618001443099.png)
+    > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618001443099.png)
 
 类对象在内存中的存储大致也就这两种方式了，那么计算机中究竟使用的是哪一种呢？
 
@@ -348,7 +348,7 @@ private:
 
 但是这些操作都是由 `编译器` 完成的，不能手动添加，手动添加是错误的：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618151807316.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618151807316.png)
 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618152044913.png)
@@ -359,7 +359,7 @@ private:
 
 可以使用成员函数将 this指针 的地址打印出来：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618155110595.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618155110595.png)
 
 ### 2.5.1 面试：this指针可否为空指针？this指针存储在哪个区？*
 
@@ -401,7 +401,7 @@ int main()
 
 注意：在执行 `Show()` 时并不会崩溃，因为 `Show() 函数中并没有对 this指针进行解引用`
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618154435802.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618154435802.png)
 
 由此，可以判断出 其实` this指针 是可以为空指针的，this指针为空指针时不会有任何的编译错误`。但是，如果 this指针为空指针，那么成员函数很有可能会对空指针解引用，发成运行错误导致程序崩溃。所以，`this指针 最好不要为空指针`
 

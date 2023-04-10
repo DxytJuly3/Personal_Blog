@@ -42,7 +42,7 @@ featured: false
   定长的数组是 `有一定的弊端` 的，即 `只能存储一定数量的数据`
   即：
   
-  ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Quiet_Seq.gif)
+  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Quiet_Seq.gif)
   
   采用定长的数组实现顺序表，`顺序表存满(即数组存满)之后，无法直接继续存储数据，想要继续存储数据就需要改动源代码.`
   一般实现代码为：
@@ -68,7 +68,7 @@ featured: false
   
   即：
   
-  ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/dynamic_SeqList.gif)
+  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/dynamic_SeqList.gif)
   
   当数组处于已满的状态且再要存入数据时，数组扩容。
   
@@ -249,7 +249,7 @@ void seqListPrint(SeqList* psl)
 
 验证：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SLPrint_blog.jpg)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SLPrint_blog.jpg)
 
 ### 顺序表尾删
 ```c
@@ -299,7 +299,7 @@ void seqListPopBack(SeqList* psl)
 变成负数之后，如果继续进行其他操作，一定会发生错误
 比如：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/popBack_beyond3.jpg)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/popBack_beyond3.jpg)
 
 即使，尾插了两次，顺序表中还是无法输出数据，也就是说，再次尾插的两个数据并没有存放至顺序表中。
 因为 这两次尾插，是从 `Size 为 -3` 的地方执行的，并没有从 `0` 位置开始，所以无法存入，`同时也发生了越界现象`。
@@ -418,7 +418,7 @@ void seqListPopFront(SeqList* psl)
 
 验证：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/popFront_beyond.jpg)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/popFront_beyond.jpg)
 即使删除过多，也不会出错。
 
 ### 顺序表查找
@@ -448,7 +448,7 @@ int seqListFind(SeqList* psl, SLDataType x)
 
 验证：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListFind.jpg)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListFind.jpg)
 
 验证了，一般情况、边界情况、未找到情况，均返回正确。
 
@@ -484,7 +484,7 @@ void seqListInsert(SeqList* psl, size_t pos, SLDataType x)
 验证一下：
 > 在插入之前可以使用 查找函数 获取一下 `pos` 位置
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert.jpg)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert.jpg)
 
 `pos` 位置插入数据 成功了。
 
@@ -493,7 +493,7 @@ void seqListInsert(SeqList* psl, size_t pos, SLDataType x)
 比如，当我在 `20` 这个位置插入，会发生什么呢？
 看一下：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert2.jpg)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert2.jpg)
 
 在 `20` 位置插入数据没有报错，但是输出的时候输出的是随机值
 而且，在实际的操作中，程序是延迟了一会才结束的
@@ -533,7 +533,7 @@ void seqListInsert(SeqList* psl, size_t pos, SLDataType x)
 ```
 现在再执行一遍代码：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert3.jpg)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert3.jpg)
 
 当 `pos` 大于 `Size` 时，会输出警告，并停止插入。
 
@@ -637,7 +637,7 @@ void seqListErase(SeqList* psl, size_t pos)
 验证一下：
 删除之前插入的三个 `0`：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListErase.jpg)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListErase.jpg)
 
 删除成功，同样 超出 `Size` 直接取消删除。
 
@@ -688,7 +688,7 @@ void seqListPopFront(SeqList* psl)
 
 也使用改良后的 `头删` `尾删`验证：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListErase_FrontBack.jpg)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListErase_FrontBack.jpg)
 
 改良后的 `头删` 和 `尾删` 成功
 

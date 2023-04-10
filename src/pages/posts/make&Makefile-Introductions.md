@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] make与makefile用法简单介绍'
-pubDate: 2023-04-08
+pubDate: 2023-02-27
 description: 'make其实只是一个指令, 需要在当前目录下存在makefile文件时才可以正确执行'
 author: '七月.cc'
 cover:
-    url: 'https://img-blog.csdnimg.cn/dc442dfd499c4e408af77999ae065594.png'
-    square: 'https://img-blog.csdnimg.cn/dc442dfd499c4e408af77999ae065594.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410145307692.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410145307692.png'
     alt: 'cover'
 tags: ["Linux", "命令", "makefile"]
 theme: 'dark'
 featured: false
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410145307692.png)
 
 在Windows平台上编写C/C++代码, 一般使用的都是配置完成的集成的开发环境, 比如Dev-C++、VS或VS Code等。
 
@@ -21,17 +23,17 @@ featured: false
 
 以一个简单的 C++ 文件为例：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230227112324266.png" alt="image-20230227112324266" style="zoom:67%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230227112324266.png)
 
 在Linux平台下 需要使用g++指令来进行编译：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230227112451565.png" alt="image-20230227112451565" style="zoom:67%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230227112451565.png)
 
 可以生成可执行文件`helloworld`
 
 > 有关Linux平台下代码的编译的分析, 推荐博主文章：
 >
-> [【程序员的自我修养】理解编译到链接的过程](https://blog.csdn.net/dxyt2002/article/details/123768528)
+> [[程序员的自我修养\] 理解编译到链接的过程](http://julysblog.cn/posts/Compile&Link)
 >
 > 本篇文章不多赘述
 
@@ -41,9 +43,13 @@ featured: false
 
 ## make 是什么？
 
-make其实只是一个指令, 需要在当前目录下存在makefile文件时才可以正确执行, 否则就会出现：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230227114212877.png" alt="image-20230227114212877" style="zoom:67%;" />
+make其实只是一个指令, 需要在当前目录下存在makefile文件时才可以正确执行, 否则就会出现：
 
-当makefile文件存在, 且内容正确的时候, 再执行make则会出现：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230227115214759.png" alt="image-20230227115214759" style="zoom:67%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230227114212877.png)
+
+当makefile文件存在, 且内容正确的时候, 再执行make则会出现：
+
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230227115214759.png)
 
 执行make之后, 执行了g++操作, 生成了helloworld可执行文件
 
@@ -53,7 +59,9 @@ make其实只是一个指令, 需要在当前目录下存在makefile文件时才
 
 makefile 是一个文件, 为 make指令提供依靠的文件
 
-以上面为例, 其中makefile文件的内容是：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228211500117.png" alt="image-20230228211500117" style="zoom:67%;" />
+以上面为例, 其中makefile文件的内容是：
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228211500117.png)
 
 此文件的内容, 其实大致包括两个东西：
 
@@ -83,11 +91,13 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 
 一般, make存在一个对应的指令叫 `make clean`, 此指令用于`清除make指令执行之后生成的文件`
 
-此指令 只有在makefile文件中表明clean的依赖方法时才能使用, 在上例中即为：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228215630769.png" alt="image-20230228215630769" style="zoom:67%;" />
+此指令 只有在makefile文件中表明clean的依赖方法时才能使用, 在上例中即为：
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228215630769.png)
 
 执行的结果为：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228220043504.png" alt="image-20230228220043504" style="zoom:67%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228220043504.png)
 
 > makefile文件中
 >
@@ -102,13 +112,23 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 >
 > 那么有没有可能, makefile文件的每个依赖关系语句的目标文件, 都可以作为make指令的后缀 与 make结合作为一个指令。此指令的作用是执行依赖关系的依赖方法
 >
-> 测试一下：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228222513199.png" alt="image-20230228222513199" style="zoom:67%;" />
+> 测试一下：
 >
-> 然后先执行 make：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228222633669.png" alt="image-20230228222633669" style="zoom:67%;" />生成了helloworld可执行文件和helloworld.o文件
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228222513199.png)
 >
-> 再make clean清除：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228222754184.png" alt="image-20230228222754184" style="zoom:67%;" />
+> 然后先执行 make：
 >
-> 那么可不可以 输入 make helloworld.o 只执行相应的依赖方法呢？<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228223021219.png" alt="image-20230228223021219" style="zoom:67%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228222633669.png)
+>
+> 生成了helloworld可执行文件和helloworld.o文件
+>
+> 再make clean清除：
+>
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228222754184.png)
+>
+> 那么可不可以 输入 make helloworld.o 只执行相应的依赖方法呢？
+>
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228223021219.png)
 >
 > 答案是可以的, 所以 其实makefile依赖关系中的目标文件是可以作为make指令的后缀 当成一个单独的指令的
 
@@ -118,17 +138,25 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 
 .PHONY可以看作是makefile文件的关键词, 其后修饰目标文件名, 可表示 `无论此目标文件名是否存在是否为最新, 此目标文件的依赖方法恒可以执行`
 
-依旧以上为例：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228230610372.png" alt="image-20230228230610372" style="zoom:67%;" />
+依旧以上为例：
 
-当多次执行make指令时：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228230837691.png" alt="image-20230228230837691" style="zoom:67%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228230610372.png)
 
-当在makefile文件中添加, `.PHONY:helloworld` 时, 再多次执行 make：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228231503651.png" alt="image-20230228231503651" style="zoom:67%;" />
+当多次执行make指令时：
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228230837691.png)
+
+当在makefile文件中添加, `.PHONY:helloworld` 时, 再多次执行 make: 
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230228231503651.png)
 
 所以, 被.PHONY修饰的目标文件名, 即表示 `此目标文件的依赖方法恒可执行, 无论目标文件是否存在、是否最新`
 
 ### *扩展：make时, 指令如何判断目标文件是否最新？
 
-在系统中, 存在一个指令叫 stat, 这个指令的作用是显示文件的状态属性：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301165423095.png" alt="image-20230301165423095" style="zoom:67%;" />
+在系统中, 存在一个指令叫 stat, 这个指令的作用是显示文件的状态属性：
+
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301165423095.png)
 
 对文件使用 stat指令可以看到, 文件具有三个有关时间的属性：`最近访问时间` `最近更改时间` `最近改动时间`
 
@@ -136,5 +164,10 @@ makefile内容写入完毕之后, 只需要在当前目录下执行make指令, �
 
 而 make 判断目标文件是否最新的依据, 就是 将当前目标文件的最近更改时间与其依赖文件的最近更改时间做对比, 若发现依赖文件的最近更改时间比较新, 则执行make生成新的目标文件：
 
-1. <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301170213210.png" alt="例1" style="zoom:67%;" />
-2. <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301171323048.png" alt="image-20230301171323048" style="zoom:67%;" />
+1. - 
+
+	![例1](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301170213210.png)
+
+2. - 
+
+	![例2](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301171323048.png)

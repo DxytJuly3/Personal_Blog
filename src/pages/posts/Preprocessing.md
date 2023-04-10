@@ -1,19 +1,22 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '编译器的预处理是什么情况？'
-pubDate: 2023-04-08
+pubDate: 2022-03-12
 description: '在C语言的代码编写中，经常会见到的 #include #define #pragma 等写在整个代码文件开头的位置，这些 拥有 # 且一般写在 代码开头的语句，就是代码的 预处理指令'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410170823347.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410170823347.png'
     alt: 'cover'
-tags: ["编译"]
+tags: ["编译", "C"]
 theme: 'dark'
 featured: false
 ---
 
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410170823347.png)
+
 # 预处理详解
+
 在C语言的代码编写中，经常会见到的 `#include ` `#define` `#pragma` 等写在整个代码文件开头的位置，这些 拥有 `#` 且一般写在 代码开头的语句，就是代码的 `预处理指令`。
 
 ## 预定义符号
@@ -49,8 +52,10 @@ int main()
 }
 ```
 代码执行效果：
+
 ![预定义符号](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-Symbols.png)
-![预定义符号效果](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-Symbols-Show.png)
+
+![预定义符号效果 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-Symbols-Show.png)
 
 ## #define
 #define 
@@ -67,7 +72,7 @@ The time now is %s.\n", \
 ```
 这些被定义的 **宏** 在使用的时候，是不需要输入参数的，可以直接在代码编写中使用：
 
-![define-symbol-show](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-define-symbol-show.png)
+![define-symbol-show |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-define-symbol-show.png)
 
 截图，使用 `uchar` 定义了 无符号字符类型变量 `c`
 `c < 10`， 所以 `c` 被赋予 `Max`
@@ -118,7 +123,8 @@ int main()
 	return 0;
 }
 ```
-![define_function-pk](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/define_function-pk.png)
+![define_function-pk |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/define_function-pk.png)
+
 结果是，`#define` 定义的 有参宏 与 自定义的函数，都实现了两数相加的功能。
 
 像这样，对变量大小的相加、相减、比较等简单的代码执行， 有参宏 和 函数都可以实现，不过可以明显地看出，对于比较这些功能的实现，宏的规模和执行，都要比函数要优许多。

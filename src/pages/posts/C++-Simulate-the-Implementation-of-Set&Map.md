@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++-STL] set和map容器的模拟实现'
-pubDate: 2023-04-08
+pubDate: 2022-10-25
 description: 'STL容器中, set 和 map 虽然底层都是红黑树, 但是这两个容器的模板参数是不一样的, 这是一个非常需要解决的问题'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410142718567.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410142718567.png'
     alt: 'cover'
 tags: ["C++", "语法", "STL", "容器", "类"]
 theme: 'dark'
 featured: false
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410142718567.png)
 
 # set 和 map 模板参数
 
@@ -34,23 +36,29 @@ map 则是 `template<class Key, class Value>`
 
 简单分析一下 STL源码是怎么解决这个问题的：
 
->  STL关于 set的部分源码： <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221023161225036.png" alt="image-20221023161225036" style="zoom:67%;" />
+>  STL关于 set的部分源码： 
 >
-> 可以看到, typedef红黑树的部分, 红黑树的模板参数传参是 `<key_type, value_type>`
+>  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221023161225036.png)
 >
-> 而 `key_type` 和 `value_type` 其实都是 `Key`
+>  可以看到, typedef红黑树的部分, 红黑树的模板参数传参是 `<key_type, value_type>`
+>
+>  而 `key_type` 和 `value_type` 其实都是 `Key`
 
->  STL关于 map的部分源码： <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221023161511574.png" alt="image-20221023161511574" style="zoom:67%;" />
+>  STL关于 map的部分源码: 
 >
-> map中 typedef红黑树的部分, 红黑树的模板参数传参 也是 `<key_type, value_type>`
+>  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221023161511574.png)
 >
-> 但是 map的 `key_type` 是 `Key`, 而 `value_type` 是 `pair<const Key, T>`
+>  map中 typedef红黑树的部分, 红黑树的模板参数传参 也是 `<key_type, value_type>`
+>
+>  但是 map的 `key_type` 是 `Key`, 而 `value_type` 是 `pair<const Key, T>`
 
 只看 set 和 map 类型的部分源码基本看不出什么, 只能看出 STL实现两容器 底层使用的是有两个数据模板参数的红黑树
 
 想要进一步看出具体的解决方案, 还要阅读一下 红黑树的部分源码
 
->  STL关于 红黑树的部分源码：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221023155204283.png" alt="image-20221023155204283" style="zoom: 67%;" />
+>  STL关于 红黑树的部分源码：
+>
+>  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221023155204283.png)
 >
 >  图中, 左半部分 是关于红黑树节点的部分源码; 右半部分 是关于红黑树结构的部分源码
 >
@@ -136,7 +144,7 @@ private:
 
 ### pair类 数据大小的比较
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221025160609241.png" alt="image-20221025160609241" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221025160609241.png)
 
 图中 蓝紫色部分的代码 就是 pair类中重载的比较运算符, 其中 `==` 和 `<` 运算符的功能是：
 
@@ -155,7 +163,7 @@ pair对象的比较 与 pair对象的两个成员变量都有关系, 但是 `红
 
 其实可以效仿STL中的解决方法： **对不同的 容器 实现针对此容器的 取节点Key值的 `仿函数`**
 
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221025195746705.png" alt="image-20221025195746705" style="zoom:80%;" />
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410142903834.png)
 >
 > 这是 在STL源码 分析的部分关于 `取节点数据的Key值的仿函数` 的代码
 >
@@ -173,11 +181,10 @@ pair对象的比较 与 pair对象的两个成员变量都有关系, 但是 `红
 >                return key;
 >            }
 >        };
->     
-> };
+>     };
 > ```
->
-> 在 Set类 中定义一个 私有仿函数
+> 
+>在 Set类 中定义一个 私有仿函数
 
 > map 的取key值的仿函数：
 >
@@ -189,8 +196,7 @@ pair对象的比较 与 pair对象的两个成员变量都有关系, 但是 `红
 >                return kv.first;
 >            }
 >        };
->     
-> };
+>     };
 > ```
 
 ## Set、Map结构 及 底层红黑树插入实现
@@ -444,7 +450,7 @@ struct _RB_Tree_Iterator {
 
 > 以一棵 二叉搜索树 为例：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221026154152076.png" alt="image-20221026154152076" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221026154152076.png)
 >
 > 此 红黑树的中序遍历是：17 22 31 34 41 53 54 56 58 67 70 77 78 82 94
 >
@@ -1179,8 +1185,10 @@ set 和 map 是以红黑树为底层封装起来的, 上面已经实现了 红�
 
 封装完成之后, 就可以进行测试：
 
-测试 set：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221026211512396.png" alt="image-20221026211512396" style="zoom:80%;" />
+测试 set：
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221026211512396.png)
 
 测试 map：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221026211713090.png" alt="image-20221026211713090" style="zoom:80%;" />
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410143003182.png)

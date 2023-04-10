@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++-STL之前] 剖析string类~ 介绍C++-STL'
-pubDate: 2023-04-08
+pubDate: 2022-07-02
 description: 'C++ 为了更方便的管理、操作、使用字符串，设计了一个类模板 —— basic_string'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410092441942.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410092441942.png'
     alt: 'cover'
 tags: ["C++", "语法", "STL", "类"]
 theme: 'dark'
 featured: false
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410092441942.png)
 
 # 什么是 string
 
@@ -57,41 +59,53 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 > 使用 `string` 类时，需要包含 `#include <iostream>` 头文件
 > 为使用方便，可将 `namespace std` 全部展开
 
-![image-20220701144546185](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701144546185.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701144546185.png)
 
 一个一个看：
 
 1. `string s1;` 无参调用构造函数，即实例化一个空对象`s1`
 
-    ![image-20220701145114542](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701145114542.png)
+    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701145114542.png)
 
 2. `string s2(s);` `string s3("hello world");` 
 
     使用 C字符串 实例化 对象`s2` 和 `s3`
-    ![image-20220701145702297](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701145702297.png)
+
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701145702297.png)
 
 3. `string s4(s2);` `string s5 = s4;` 调用拷贝构造函数，实例化对象`s4` 和 `s5`
-    ![image-20220701150151309](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701150151309.png)
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701150151309.png)
 
 4. `string s6(10, 'S');` 将前 10 个字节，初始化为 `'S'`，实例化对象`s6`
-    ![image-20220701150355501](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701150355501.png)
+
+    ![|inine](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701150355501.png)
 
 5. `string s7(s, 4);` `string s8("hello world", 5);`
 
     以 C字符串的前`n`个字符 实例化对象 
-    ![image-20220701150904242](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701150904242.png)
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701150904242.png)
 
 6. `string s9(s2, 2, 5);`
 
     以 字符串对象 `s2`，从 `pos`位置(从0开始)向后延伸`n`位，实例化对象
-    ![image-20220701151527272](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701151527272.png)
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701151527272.png)
 
     > 此构造函数声明为：`string (const string& str, size_t pos, size_t len = npos);`
     >
     > 其中 `参数len` 给了 `缺省值 npos`
-    > `npos` 是 `string`类中的静态无符号常整型值为 -1：![image-20220701151854518](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701151854518.png)
     >
-    > 无符号的 -1，即为`int`类型中最大值：4294967295<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701152205743.png" alt="image-20220701152205743" style="zoom: 67%;" />
+    > `npos` 是 `string`类中的静态无符号常整型值为 -1：
+    >
+    > ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701151854518.png)
+    >
+    > 
+    >
+    > 无符号的 -1，即为`int`类型中最大值：4294967295
+    >
+    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701152205743.png" alt=" |wide" style="zoom:120%;" />
     >
     > 参数`len` 有缺省值`npos`就意味着，如果`len`不传参，就是从 `pos` 位置延伸到字符串最后
     > 因为实际上不会有字符串的长度 可以达到 4294967295 独占4G的内存
@@ -107,7 +121,9 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
     此方法类似于 字符数组的下标访问
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701154525074.png" alt="image-20220701154525074" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701154525074.png)
+
+    
 
     `operator[]`是重载函数：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701154617222.png" alt="image-20220701154617222" style="zoom:80%;" />
 
@@ -128,7 +144,7 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
     >
     > 但，在其他 `STL` 类中，不可将其简单的看作指针
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701160106425.png" alt="image-20220701160106425" style="zoom:67%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701160106425.png)
 
     > 迭代器的比较，最好不要用 `<` `>` `<=` `>=`，因为在其他 类中的数据地址可能不是连续的
 
@@ -139,6 +155,7 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
     2. `const_iterator`：正向 可读 迭代器
 
         <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701161139146.png" alt="begin()" style="zoom:80%;" /> 取 `string`对象中字符串首字符位置，返回给正向迭代器
+
         <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701161202943.png" alt="end()" style="zoom:80%;" />取 `string`对象中字符串末字符的下一位置，返回给正向迭代器
 
         `const` 可以很容易理解
@@ -149,39 +166,45 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
     4. `const_reverse_iterator` ：反向 可读 迭代器
 
         <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701161822237.png" alt="rbegin()" style="zoom:80%;" /> 取`string`对象字符串的末字符下一位置，返回给`反向迭代器`
+        
         <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701162114527.png" alt="image-20220701162114527" style="zoom:80%;" />取 `string`对象中字符串首字符位置，返回给`反向迭代器`
-
+        
         反向，代表 此迭代器`从右向左`为正向，即 自增移动方向为从右向左
-        ![image-20220701162537076](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701162537076.png)
+        
+        ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701162537076.png)
 
 3. **范围`for `**
 
     范围`for`方法，C++11 提出的 调用迭代器的、编写更为简洁的方法
 
-    ![image-20220701162904284](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701162904284.png)
+    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701162904284.png)
 
 ## 3. string类对象的容量操作
 
-| 函数名称                              | 功能说明                                            |
-| ------------------------------------- | --------------------------------------------------- |
-| **`size()`（重点） **                 | 返回字符串有效字符长度                              |
-| `length()`                            | 返回字符串有效字符长度                              |
-| `capacity()`                          | 返回空间总大小                                      |
-| **`empty()` （重点） **               | 检测字符串是否为空串，是返回`true`，否则返回`false` |
-| **`clear() `（重点） **               | 清空有效字符                                        |
-| **`reserve(size_t n = 0) `（重点） ** | 为字符串预留空间，`扩容量`                          |
-| **`resize(size_t n)` （重点） **      | 将有效字符的个数改为`n`个，多出的空间用字符`c`填充  |
-| **`max_size()`**                      | 返回字符串最大长度                                  |
+| 函数名称                             | 功能说明                                            |
+| ------------------------------------ | --------------------------------------------------- |
+| **`size()`（重点）**                 | 返回字符串有效字符长度                              |
+| `length()`                           | 返回字符串有效字符长度                              |
+| `capacity()`                         | 返回空间总大小                                      |
+| **`empty()` （重点）**               | 检测字符串是否为空串，是返回`true`，否则返回`false` |
+| **`clear() `（重点）**               | 清空有效字符                                        |
+| **`reserve(size_t n = 0) `（重点）** | 为字符串预留空间，`扩容量`                          |
+| **`resize(size_t n)` （重点）**      | 将有效字符的个数改为`n`个，多出的空间用字符`c`填充  |
+| **`max_size()`**                     | 返回字符串最大长度                                  |
 
 1. `size()` 返回字符串 有效字符长度，即返回 对象的`size`
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014459482.png" alt="image-20220702014459482" style="zoom:80%;" />
+
+    
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701163922731.png" alt="image-20220701163922731" style="zoom:80%;" />
 
 2. `length()` 返回字符串 有效字符长度，即返回 对象的`size`
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014528535.png" alt="image-20220702014528535" style="zoom:80%;" />
+
+    
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701164101742.png" alt="image-20220701164101742" style="zoom:80%;" />
 
@@ -197,19 +220,19 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014555100.png" alt="image-20220702014555100" style="zoom:80%;" />
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701164843926.png" alt="image-20220701164843926" style="zoom:80%;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701164843926.png" alt="image-20220701164843926" style="zoom:70%;" />
 
 4. `empty()` 检测字符串是否为空串
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014614957.png" alt="image-20220702014614957" style="zoom:80%;" />
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701165208407.png" alt="image-20220701165208407" style="zoom:80%;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701165208407.png" alt="image-20220701165208407" style="zoom:70%;" />
 
 5. `clear() ` 清空有效字符，即`size清零`
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014631260.png" alt="image-20220702014631260" style="zoom:80%;" />
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701165549254.png" alt="image-20220701165549254" style="zoom:80%;" />
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701165549254.png" alt="image-20220701165549254" style="zoom:70%;" />
 
 6. `reserve(size_t n = 0)` 为字符串预留空间，`扩容量`
 
@@ -221,10 +244,11 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
     `reserve` 就是 防止频繁扩容降低效率时 用的，它的作用是，为字符串预开辟空间，`可一次性开辟指定大小的空间`
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701170453946.png" alt="image-20220701170453946" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701170453946.png)
 
     `reserve` 只能扩容，不能缩容：
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701170757104.png" alt="image-20220701170757104" style="zoom:80%;" />
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701170757104.png)
 
 7. `resize(size_t n, char c)`将有效字符的个数改为`n`个，多出的空间用字符`c`填充
 
@@ -232,15 +256,15 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
     `resize` 存在重载函数 `resize(size_t n)` 
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701172227266.png" alt="image-20220701172227266" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701172227266.png)
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701172209163.png" alt="image-20220701172209163" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701172209163.png)
 
     > 当使用 `resize(size_t n)` 不传指定字符时，多出的位置会被初始化为 `0`
 
     `resize` 也无法缩容，但是，可以指定有效字符大小：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701173023479.png" alt="image-20220701173023479" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701173023479.png)
 
 8. `max_size` 返回字符串最大长度
 
@@ -270,71 +294,71 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
 2. **`append `** 在字符串后追加一个字符串
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014810995.png" alt="image-20220702014810995" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014810995.png)
 
     `append`函数有多种重载，即 它有多种用法：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702012826368.png" alt="image-20220702012826368" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702012826368.png)
 
-3. **`operator+=` ** 在字符串后追加字符串`str`
+3. **`operator+=`** 在字符串后追加字符串`str`
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014830480.png" alt="image-20220702014830480" style="zoom:80%;" />
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014830480.png)
 
     这个运算符重载函数，在`string`中 尾插用的最多，比前面两个多得多，因为它非常的方便
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702013319195.png" alt="image-20220702013319195" style="zoom:67%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702013319195.png)
 
 4. **`c_str`** 返回 C格式字符串，即C语言中的指针指向的字符串
 
     `c_str` 非常的重要，因为编写程序时，可能会经常用到C语言标准库中的接口，需要使用指针，此时就需要`c_str` 发挥作用
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702013910083.png" alt="image-20220702013910083" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702013910083.png)
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014202756.png" alt="image-20220702014202756" style="zoom:80%;" />
+    ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014202756.png)
 
     不过要注意，`c_str` 的返回值是 被`const`修饰的
 
-5. **`find`**
+5.  **`find`**
 
     从字符串`pos`位置开始往后找字符`c`，返回该字符在字符串中的位置
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702015015800.png" alt="image-20220702015015800" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702015015800.png)
 
     `find`并不仅限于找字符，还可以找字符串：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702020617945.png" alt="image-20220702020617945" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702020617945.png)
 
-6. **`rfind` ** 
+6. **`rfind`**
 
     从字符串`pos`位置开始往前找字符`c`，返回该字符在字符串中的位置
 
     使用与 `find` 一致
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702020733453.png" alt="image-20220702020733453" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702020733453.png)
 
 7. **`substr `**
 
     在`str`中从`pos`位置开始，截取`n`个字符，然后将其返回
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702020819889.png" alt="image-20220702020819889" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702020819889.png)
 
     `substr` 将截取的字符串以`string对象`的形式返回
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702021321823.png" alt="image-20220702021321823" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702021321823.png)
 
 9. **`insert`**  `pos`位置插入字符串
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702021841372.png" alt="image-20220702021841372" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702021841372.png)
 
     由于 `insert` 很可能需要挪动数据，所以不常用
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702022958193.png" alt="image-20220702022958193" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702022958193.png)
 
 10. **`erase`** 指定范围删除字符
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702022009777.png" alt="image-20220702022009777" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702022009777.png)
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702022215069.png" alt="image-20220702022215069" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702022215069.png)
 
 ## 5. string类非成员函数
 
@@ -351,23 +375,23 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
 1. **`operator+`**
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702103205687.png" alt="image-20220702103205687" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702103205687.png)
 
     可以在官方文档中看到，`operator+` 的返回值都是传值返回，所以一般不会使用，还要深拷贝效率太低
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702104343443.png" alt="image-20220702104343443" style="zoom: 67%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702104343443.png)
 
 2. **`operator>>`** 
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702104609922.png" alt="image-20220702104609922" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702104609922.png)
 
     `operator>>` 主要是为了输入数据，所以操作非常的简单
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702105543038.png" alt="image-20220702105543038" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702105543038.png)
 
     但是 还有一个问题是：
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702104921446.png" alt="image-20220702104921446" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702104921446.png)
 
     当然还有其他解决办法
 
@@ -375,27 +399,27 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
     **`getline`** 与 `>>` 和 `scanf` 都不同，**`getline` **只以`'\n'` ，以及`指定的符号`来判断接受字符结束的标志
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110223514.png" alt="image-20220702110223514" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110223514.png)
 
     所以使用 `getline` 可以用来接收带空格的字符串数据
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110056046.png" alt="image-20220702110056046" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110056046.png)
 
     甚至可以控制 `获取某个指定字符之前的字符串`
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110610225.png" alt="image-20220702110610225" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110610225.png)
 
 4. **`operator<<`**
 
     `operator<<` 的作用就是直接输出 对象中字符串的内容了
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110818395.png" alt="image-20220702110818395" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110818395.png)
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110744645.png" alt="image-20220702110744645" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110744645.png)
 
 5. **`relational operators`**
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110914325.png" alt="image-20220702110914325" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702110914325.png)
 
     比较大小，即为`>` `<` `==` `!=` 等逻辑判断运算符的重载
 
@@ -403,9 +427,9 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
 6. **`swap`** 交换 两`string`对象 内容
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702021549614.png" alt="image-20220702021549614" style="zoom:80%;" />
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702021549614.png)
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702021735666.png" alt="image-20220702021735666" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702021735666.png)
 
 > 这部分内容，都是`string类`的非成员函数
 >

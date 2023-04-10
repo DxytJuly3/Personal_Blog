@@ -82,7 +82,7 @@ struct ListNode* middleNode(struct ListNode* head)
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430201513575.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430201513575.png)
 
 ## 题2：链表中倒数最后k个结点
 
@@ -90,7 +90,7 @@ struct ListNode* middleNode(struct ListNode* head)
 
 > 例如，输入 `{1,2,3,4,5}, 2` 时，对应的链表结构如下图所示：
 >
-> ![ |wide](https://uploadfiles.nowcoder.com/images/20211105/423483716_1636084313645/5407F55227804F31F5C5D73558596F2C)
+> ![ |inline](https://uploadfiles.nowcoder.com/images/20211105/423483716_1636084313645/5407F55227804F31F5C5D73558596F2C)
 >
 > 其中蓝色部分为该链表的最后2个结点，所以 `返回倒数第2个结点（也即结点值为4的结点）` 即可，系统会打印后面所有的节点来比较。
 >
@@ -151,7 +151,7 @@ struct ListNode* FindKthToTail(struct ListNode* pHead, int k )
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430203858767.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430203858767.png)
 
 
 
@@ -232,7 +232,7 @@ bool hasCycle(struct ListNode *head)
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430210039173.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430210039173.png)
 
 OK，带环链表的题做出来了
 
@@ -274,7 +274,7 @@ OK，带环链表的题做出来了
 
 此时的情况可能是`(设一下，只是假设)`：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430232210782.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430232210782.png)
 
 两个指针都入环之后，快指针开始在环内追逐慢指针：
 
@@ -308,7 +308,7 @@ OK，带环链表的题做出来了
 >
 >  >  **`情况 2：`** `X` 为 奇数
 >  >
->  >  ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pfast_3_pslow_J.gif)
+>  >  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pfast_3_pslow_J.gif)
 >  >
 >  >  此情况，快指针 超过 慢指针，但是由于快指针的移动是不连续的，所以两指针并不会相遇
 >  >
@@ -485,7 +485,7 @@ struct ListNode *detectCycle(struct ListNode *head)
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501150938765.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501150938765.png)
 
 
 

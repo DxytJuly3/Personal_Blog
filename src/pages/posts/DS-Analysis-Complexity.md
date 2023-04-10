@@ -291,7 +291,7 @@ int Find_10(int *arr, int arrSize)
 > > 二分查找每次查找一次，`下一次查找的范围会缩小为当前范围的一半`
 > > 只需要一张动图就可解释：
 > >
-> > ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/BinarySearch.gif)
+> > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/BinarySearch.gif)
 > >
 > > 可以看出，每次查找之后，下一次需要查找的元素只剩下一半，所以最坏的情况其实是 需要查找：`log N`次
 > > `复杂度中，log N即为 以2为底N的对数`
@@ -325,7 +325,7 @@ int Find_10(int *arr, int arrSize)
 > 此函数为 `递归求斐波那契数列`
 > 递归求斐波那契数列，一个简单的递归分析图：
 >
-> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Fib_5.jpg)
+> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Fib_5.jpg)
 >
 > 发现正常调用函数，会再发生两次递归，所以应该是 `2^N`
 > 但是因为当 `N < 3` 会返回 `1`，不再递归，所以应该是 `2^N - x` `(不容易计算所以用 x 表示)`，但是无论怎样，相减的常数因该是对`2^N` 造不成多大影响的

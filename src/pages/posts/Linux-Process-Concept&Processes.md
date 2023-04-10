@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[Linux] 系统进程相关概念、系统调用、Linux进程详析、进程查看、fork()初识'
-pubDate: 2023-04-08
+pubDate: 2023-03-01
 description: '关于什么是进程这个问题, 一般都会用一句简单的话来回答：运行起来的程序就是进程. 这句话不能说是错的, 但也不全对。如果运行起来的程序就是进程, 那么进程和程序又有什么区别呢？'
 author: '七月.cc'
 cover:
-    url: 'https://img-blog.csdnimg.cn/7678156b02a74035abcd4e3fdc2a6596.png'
-    square: 'https://img-blog.csdnimg.cn/7678156b02a74035abcd4e3fdc2a6596.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150215730.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150215730.png'
     alt: 'cover'
 tags: ["Linux", "进程", "系统"]
 theme: 'dark'
 featured: false
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150215730.png)
 
 # 进程相关概念
 
@@ -45,7 +47,7 @@ PCB是一个统称, 不同的操作系统中一般存在不同的具体的PCB, �
 
 此结构体描述了进程的所有属性, 在Linux2.6内核中, 关于此结构体的代码超过300行：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301195324329.png" alt="image-20230301195324329" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301195324329.png)
 
 此结构体所包含的进程的属性包括：
 
@@ -83,13 +85,15 @@ PCB是一个统称, 不同的操作系统中一般存在不同的具体的PCB, �
 
 ### 1. ps
 
-ps是Linux提供的指令, 使用 man ps的指令可以看到：![image-20230301203045585](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301203045585.png)
+ps是Linux提供的指令, 使用 man ps的指令可以看到：
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301203045585.png)
 
 ps后还可以使用各种选项, 具体可以在系统中查看
 
 当使用ps ajx时：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301204202581.png" alt="image-20230301204202581" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301204202581.png)
 
 系统会以指定的格式 将当前的进程显示出来
 
@@ -113,7 +117,7 @@ int main() {
 
 将上述代码使用g++编译生成名为 AMProcess的可执行程序, 并执行此程序, 然后使用`ps ajx | grep "AMProcess"`搜索进程：
 
-![image-20230301205425126](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301205425126.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301205425126.png)
 
 可以看到, 我们自己编写的程序运行起来, 可以在系统中找到其进程`(暂时忽略前面的数字)`
 
@@ -125,7 +129,7 @@ int main() {
 >
 > 当 再次基础上 使用 `| grep -v grep` 排除 grep相关进程之后：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301210423936.png" alt="image-20230301210423936" style="zoom:80%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301210423936.png)
 >
 > 可以发现, 此时ps展示的只有 AMProcess程序运行之后成为的进程
 
@@ -133,7 +137,9 @@ int main() {
 
 Linux系统中, 存在一个实时维护进程的路径, 即 /proc路径。此目录在 `/`路径下
 
-进入 /proc路径 查看此路径下的文件, 可以看到 一堆数字名称的目录<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301210837474.png" alt="image-20230301210837474" style="zoom:80%;" />
+进入 /proc路径 查看此路径下的文件, 可以看到 一堆数字名称的目录
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301210837474.png)
 
 这些目录就是此刻系统中存在的进程
 
@@ -143,7 +149,7 @@ Linux系统中, 存在一个实时维护进程的路径, 即 /proc路径。此�
 
 当我们创建一个进程, 并进入此进程数字目录之后, 可以看到目录下的文件：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315175119515.png" alt="image-20230315175119515" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315175119515.png)
 
 可以看到, /proc目录下的表示一个进程的目录下存在着许多的文件, 其中有两个文件是当前我们可以理解的：
 
@@ -155,7 +161,7 @@ Linux系统中, 存在一个实时维护进程的路径, 即 /proc路径。此�
 
 当我不结束此进程的运行, 并将 a.out 文件移动到其他位置时, 再查看proc目录下表示此进程的目录下的cwd和exe文件时：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315175851785.png" alt="image-20230315175851785" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230315175851785.png)
 
 
 
@@ -173,31 +179,31 @@ Linux系统中, 每一个进程都存在一个唯一的标识符, 此标识符�
 
 如果想要知道的话, 只需要使用 `ps ajx | head` 将头栏显示出来, 就可以知道哪一栏是进程的PID了：
 
-![image-20230301212101997](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301212101997.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301212101997.png)
 
 所以, 其实使用 `ps ajx` 查看系统进程的时候, 第2列 就表示进程的 PID
 
 所以 我们编写程序的进程 的PID, 也可以以此查看(`ps ajx | head -1 && ps ajx | grep "AMProcess" | grep -v grep`)：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301212429393.png" alt="image-20230301212429393" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301212429393.png)
 
 可以看到 ./AMProcess进程的 PID是23668, 这个数字也可以在 /proc路径下找到：
 
-![image-20230301212614206](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301212614206.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301212614206.png)
 
 进入 23668 这个路径, 可以看到 此路径即为 维护./AMProcess进程的路径：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213003808.png" alt="image-20230301213003808" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213003808.png)
 
 如果, 还是不能确定的话 可以使用 kill指令, 将23668进程kill掉：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213412381.png" alt="image-20230301213412381" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213412381.png)
 
 > AMProcess进程被kill掉, 当再次运行AMProcess程序时：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213639300.png" alt="image-20230301213639300" style="zoom:67%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213639300.png)
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213856975.png" alt="image-20230301213856975" style="zoom:67%;" />
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213856975.png)
 >
 > 发现, 此程序在系统中的进程的PID已经不再是 23668, 而是 5359, /proc 路径下也没有了 23668, 却有 5359
 >
@@ -209,7 +215,7 @@ Linux系统中, 每一个进程都存在一个唯一的标识符, 此标识符�
 
 即 getpid()系统调用：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302081130650.png" alt="image-20230302081130650" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302081130650.png)
 
 > 查看系统调用可以用 man 2或3 系统调用 指令来查看, 但是在使用 man 2或3 之前, 需要安装 man-pages
 >
@@ -217,13 +223,15 @@ Linux系统中, 每一个进程都存在一个唯一的标识符, 此标识符�
 
 此系统调用可以直接在程序中使用：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302081525766.png" alt="image-20230302081525766" style="zoom:67%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302081525766.png)
 
-此时, 编译运行程序：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302081826732.png" alt="image-20230302081826732" style="zoom:80%;" />
+此时, 编译运行程序：
+
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302081826732.png)
 
 可以输出此程序的PID, 使用kill指令进行验证：
 
-![image-20230302082115261](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302082115261.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302082115261.png)
 
 #### PPID
 
@@ -235,37 +243,41 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 在使用 ps ajx | head 指令查看系统进程时, 第一列数据就是PPID, 第二列数据才是PID：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302082719959.png" alt="image-20230302082719959" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302082719959.png)
 
 ##### getppid() 获取PPID
 
 与 getpid()一样, getppid() 也是Linux提供的系统调用
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302082939131.png" alt="image-20230302082939131" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302082939131.png)
 
 同样可以在程序中使用：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302083128066.png" alt="image-20230302083128066" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302083128066.png)
 
 并打印出来：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302083206268.png" alt="image-20230302083206268" style="zoom:80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302083206268.png)
 
 ## 父进程 与 子进程
 
 既然存在PPID(Parent Process ID), 那么也就说明其实进程之间是存在父子关系的
 
-我们自己编写的c++程序也存在父进程<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302083557676.png" alt="image-20230302083557676" style="zoom:80%;" />
+我们自己编写的c++程序也存在父进程
+
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302083557676.png)
 
 在这个例子中, ./AMProcess进程的父进程是28528号进程
 
-如果不小心将此进程结束了, 再次运行此程序：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302084109375.png" alt="image-20230302084109375" style="zoom:67%;" />
+如果不小心将此进程结束了, 再次运行此程序：
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302084109375.png)
 
 可以发现, 无论重新运行程序多少次, 生成进程之后PID会发生变化, 但是`PPID始终不变 恒为28528`
 
 这是为什么呢？这个28528进程究竟是什么呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302084424090.png" alt="image-20230302084424090" style="zoom:67%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302084424090.png)
 
 在我这里, 28528进程是-zsh
 
@@ -295,13 +307,13 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 fork()是Linux提供的系统调用：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302091221322.png" alt="image-20230302091221322" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302091221322.png)
 
 通过man手册查看fork, 只看一小部分 仿佛fork()只是一个简单的返回pid_t类型数据的函数
 
 那么fork()究竟返回什么呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302091542542.png" alt="image-20230302091542542" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302091542542.png)
 
 man手册中, 关于fork()的返回值是这样描述的：
 
@@ -326,7 +338,9 @@ int main() {
 }
 ```
 
-将代码编译为CreatCProcess可执行程序, 并运行：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302092830090.png" alt="image-20230302092830090" style="zoom:80%;" />
+将代码编译为CreatCProcess可执行程序, 并运行：
+
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302092830090.png)
 
 可以惊奇的发现, 居然输出了两次, 并且输出内容不同, 而源文件中只存在一个输出语句。
 
@@ -338,7 +352,7 @@ int main() {
 
 答案其实就藏在man手册关于fork()的解释中：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302093719692.png" alt="image-20230302093719692" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302093719692.png)
 
 我们都知道, 一个程序应该是有内容的, 当程序被加载到内存中成为了进程, 程序的内容也就被加载到了内存中
 

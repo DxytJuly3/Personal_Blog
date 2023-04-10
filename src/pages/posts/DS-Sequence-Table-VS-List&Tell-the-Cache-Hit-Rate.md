@@ -13,7 +13,7 @@ theme: 'dark'
 featured: false
 ---
 
-![cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_cover.jpg)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_cover.jpg)
 
 ---
 

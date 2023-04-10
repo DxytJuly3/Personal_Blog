@@ -1,17 +1,19 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
 title: '[C++] 位图与布隆过滤器的相关介绍'
-pubDate: 2023-04-08
+pubDate: 2023-02-20
 description: '哈希是一种思想, 位图 和 布隆过滤器是哈希思想的实现的一种'
 author: '七月.cc'
 cover:
-    url: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
-    square: 'https://pic.lookcos.cn/i/usr/uploads/2023/02/1277661091.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144904319.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144904319.png'
     alt: 'cover'
-tags: ["哈希", "位图"]
+tags: ["C++", "哈希", "位图"]
 theme: 'dark'
 featured: false
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144904319.png)
 
 哈希是一种思想, 除了之前文章中介绍的一些使用哈希思想实现的哈希表之外, 哈希思想的应用还有其他的方面。也就是本篇文章所介绍的 位图 和 布隆过滤器
 
@@ -88,7 +90,7 @@ private:
 
 以 14 这个数为例, 在位图中映射的位置就应该是第2个单元的第2位上(右–>左 0–>7)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230214185132886.png" alt="image-20230214185132886" style="zoom:67%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230214185132886.png)
 
 以此规则, 添加 可以将数据映射的比特位设置为 0 或 1 的接口：
 
@@ -168,7 +170,7 @@ bool test(size_t x) {
 
 > 最左按第0位算
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230216183312772.png" alt="image-20230216183312772" style="zoom:67%;" />
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144947499.png)
 
 意思为：`当ip计算出的三个不同的哈希值再位图中映射同时存在时, 表示此ip存在`。
 
@@ -176,17 +178,19 @@ bool test(size_t x) {
 
 依旧以ip的问题为例：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230216182555469.png" alt="image-20230216182555469" style="zoom:67%;" />
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144952521.png)
 
-在此例中, 粉色ip(212.0.222.67)计算出的三个哈希值分别是11、12、15, 而这三个哈希值也分别在其他的ip哈希值中。也就是说`同一个比特位可能被不同的原数据计算出的相同哈希值映射`, 这也就可能会出现下面这种情况：
+在此例中, 粉色ip(212.0.222.67)计算出的三个哈希值分别是11、12、15, 而这三个哈希值也分别在其他的ip哈希值中。
 
-> 将粉色ip的映射在位图中删除：
->
-> ![image-20230216210452763](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230216210452763.png)
->
-> 但是通过观察可以发现, 原粉色ip(212.0.222.67)计算出的三个哈希值11、12、15, 依旧映射在位图中, 这也说明了如果此时查找 ip212.0.222.67. 依旧可以在位图中查找到, 即使此ip实际并没有在位图中映射：
->
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230216213740848.png" alt="image-20230216213740848" style="zoom:67%;" />
+也就是说`同一个比特位可能被不同的原数据计算出的相同哈希值映射`, 这也就可能会出现下面这种情况：
+
+将粉色ip的映射在位图中删除：
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230216210452763.png)
+
+但是通过观察可以发现, 原粉色ip(212.0.222.67)计算出的三个哈希值11、12、15, 依旧映射在位图中, 这也说明了如果此时查找 ip212.0.222.67. 依旧可以在位图中查找到, 即使此ip实际并没有在位图中映射：
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230216213740848.png)
 
 使用多个哈希值进行映射减少了发生哈希冲突的概率, 但并不能完全避免哈希冲突。存在哈希冲突就有可能在查找时发生错误或误判, 即有一定的`误报率`
 
@@ -215,11 +219,11 @@ bool test(size_t x) {
 
 那么对于第二个问题, 该如何解决 一个比特位的映射, 可能是多个数据共同占用这一位 这个问题呢？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230220104636778.png" alt="image-20230220104636778" style="zoom:67%;" />
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410145044646.png)
 
 在上图中展示的IP中, 如果为了删除粉色IP 进而直接删除其在比特位中的映射, 即：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230220105222810.png" alt="image-20230220105222810" style="zoom:67%;" />
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410145049695.png)
 
 将粉色IP哈希值的映射位直接删除, 那么会造成什么问题？
 
@@ -247,7 +251,7 @@ bool test(size_t x) {
 
 这种思路的布隆过滤器被称为 `Counting BloomFilter`
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230220143343068.png" alt="image-20230220143343068" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230220143343068.png)
 
 以多个比特位实际表示一个哈希映射位和映射次数的这种结构, 可以实现对原数据的删除。
 
@@ -255,7 +259,7 @@ bool test(size_t x) {
 
 比如删除蓝色和粉色ip, 之后`Counting BloomFilter`的大致模型就应该是：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230220144928203.png" alt="image-20230220144928203" style="zoom:67%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230220144928203.png)
 
 这样的思路, 就可以实现布隆过滤器对数据的删除
 

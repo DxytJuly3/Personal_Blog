@@ -19,7 +19,7 @@ featured: false
 
 C++中引入了重载的概念，使得可以编写多个函数名相同但参数、返回值不同的函数，例如：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630125804097.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630125804097.png)
 
 相同的函数名可以传入不同的参宿，进而调用不同的函数
 
@@ -75,7 +75,7 @@ template<typename T1, typename T2, ......, typename Tn>
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630140832260.png)
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630140920692.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630140920692.png)
 
 这个就是函数模板大致的使用过程 及 结果
 
@@ -102,7 +102,7 @@ template<typename T1, typename T2, ......, typename Tn>
 
 这时候，就必须使用显式实例化指定类型了：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630144116496.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630144116496.png)
 
 显式实例化使用函数模板的格式就是：
 
@@ -110,7 +110,7 @@ template<typename T1, typename T2, ......, typename Tn>
 
 当然，`不只是无法隐式实例化才能使用显式实例化的，任何函数模板都可以显式实例化`
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630151022809.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630151022809.png)
 
 即使编译器可以推断出 模板参数的类型，也同样可以使用 `显式实例化`
 
@@ -120,13 +120,14 @@ template<typename T1, typename T2, ......, typename Tn>
 
 >  如果对只有一个模板参数的函数模板，传入两个不同类型的参数会发生什么？
 >
->  ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630150013137.png)
+>  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630150013137.png)
 >
 >  发生这种情况，解决方法有两种：`强制类型转换` 和 `显式实例化`，即：
 >
->  ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630150407051.png)
+>  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630150407051.png)
 >
 >  但是由于这两种方式都发生了类型的转换，所以 对应的函数模板的参数也需要改变为 `const` 修饰的：
+>
 >  ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630150541615.png)
 
 > PS：模板参数可以给缺省类型，模板函数的参数也可以给缺省类型
@@ -168,7 +169,7 @@ class 类模板名
 
 而类模板中成员的定义 就与 函数模板的定义一样
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630162812338.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630162812338.png)
 
 类模板中，成员函数在类外定义时：
 
@@ -202,11 +203,11 @@ class 类模板名
 
 即，假如 模板的定义和声明分离在了两个文件中，也就是这样：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/20220630164906.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/20220630164906.png)
 
 那么源文件经过`预处理`之后就会大致变成这样，且文件名会变为`.i` 后缀：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630165723271.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220630165723271.png)
 
 可以非常明显的发现，`main` 函数所在文件里是`没有关于类模板函数的定义`的
 

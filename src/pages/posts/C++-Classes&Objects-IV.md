@@ -72,7 +72,7 @@ featured: false
 
 即：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626231708005.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220626231708005.png)
 
 而在成员变量声明中的这个东西：
 
@@ -88,7 +88,7 @@ featured: false
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627140435108.png)
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627140634031.png#center" alt=" |wide" style="zoom:80%;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627140634031.png#center" alt=" |inline" style="zoom:80%;" />
 
 是 `1` 和 `随机值`
 
@@ -130,7 +130,7 @@ featured: false
 
 如果不加 `const` 修饰就会报错：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627144459207.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627144459207.png)
 
 因为 `直接使用数值进行对象实例化，数值会先构造成一个临时对象，临时对象其实是具有常性的`
 如果不用`const`修饰就加以引用，其实是一种权限放大的操作，是错误的 
@@ -143,7 +143,7 @@ featured: false
 >
 > PS：直接使用常量传参在 `string` 中，非常有意义：
 >
-> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627150359000.png)
+> ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627150359000.png)
 
 # 二、static 修饰类成员
 
@@ -181,7 +181,7 @@ featured: false
 
 此类，每调用一次 `默认构造函数` ，`静态成员变量_x`自增1
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627171625667.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627171625667.png)
 
 实例化四个对象，`_x`自增四次，所以四个对象访问的`_x`都是 `4`
 
@@ -255,13 +255,13 @@ featured: false
 
 所以对于`流插入<<` 和 `流提取>>` 应该这样定义重载函数：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628000515269.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628000515269.png)
 
 `ostream&` 和 `istream&` 作为类型，分别取 `_cout`、`_cin` 作 `cout`、`cin`的别名
 
 定义完之后会发现，无法正常使用：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628003034692.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628003034692.png)
 
 原因很清楚：
 因为`运算符重载默认，第一个参数为左操作数，第二个参数为右操作数`
@@ -275,7 +275,7 @@ featured: false
 
 所以，在类外应该这样定义：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628004249949.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628004249949.png)
 
 但是，在编译器中无法编译通过：
 
@@ -285,11 +285,11 @@ featured: false
 
 如果想要正常使用，只需要将函数添加为`友元函数`就可以了！
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628003647141.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628003647141.png)
 
 这样就可以正常的使用了：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628004424890.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628004424890.png)
 
 ---
 
@@ -316,7 +316,7 @@ featured: false
 
 还是以日期类为例，`将日期类作为时间类的友元类`
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628010522764.png)
+![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628010522764.png)
 
 友元类的所有成员函数，都可以作为另一个类的友元函数使用
 
@@ -334,7 +334,7 @@ featured: false
 >
 > 并且，`内部类就是外部类的友元类`，但 外部类不是内部类的友元类
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628012549678.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628012549678.png)
 
 类B的对象，可访问 类A对象的成员
 
@@ -347,6 +347,6 @@ featured: false
 > 3. 对右内部类的类使用 `sizeof()`，结果是`只有外部类的大小，不算内部类`。
 >     因为内部类是独立的，并不属于外部类
 >
->     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628013446903.png" style="zoom: 60%;" />
+>     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628013446903.png)
 >
 >     `sizeof(A)` 不计算 类B的大小
