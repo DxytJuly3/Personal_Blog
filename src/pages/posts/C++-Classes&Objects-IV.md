@@ -245,7 +245,8 @@ featured: false
 下面就来对日期类实现一下 `cout` 与 `cin` 的功能：
 
 对内置类型使用的 `cout <<` 和 `cin >>`，其中的 `<<` 和 `>>` 也是重载，因为其原本的意义应该是`<< 按位左移`、`>> 按位右移`
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627233819574.png" alt="image-20220627233819574" style="zoom:67%;" />
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220627233819574.png)
 
 既然是重载，那么 `cout` 和 `cin` 就属于操作数，`cout` 和 `cin` 是什么类型的操作数呢？
 
@@ -294,7 +295,8 @@ featured: false
 ---
 
 在上面对日期类中 `>>` 和 `<<` 的重载，想要正常使用两个运算符，就必须使用友元：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628004819766.png" alt="image-20220628004819766" style="zoom:80%;" />
+
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220628004819766.png)
 
 像这样的函数，就被称为`友元函数`
 

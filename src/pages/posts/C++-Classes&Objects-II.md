@@ -221,7 +221,7 @@ int main()
 
     > 以下动图是创建对象、调用构造函数、调用析构函数、对象生命周期结束的过程
     >
-    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_202206192330.gif" alt="class_202206192330" style="zoom:67%;" />
+    > ![class |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_202206192330.gif)
     >
     > 当 `对象slt1` 声明周期即将结束时，指令光标继续移动就会自动调用析构函数，清理对象数据、资源
 

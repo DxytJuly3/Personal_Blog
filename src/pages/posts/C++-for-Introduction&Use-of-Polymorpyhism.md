@@ -277,4 +277,4 @@ C++ 规定，在一个**虚函数 函数名后 加上 `=0` 那么这个虚函数
 >
 > 是因为正常调用，编译器会只考虑B类本身的内容，即使A类虚函数被重写了，但是没有多态调用 编译器不会将其认定为 **接口继承**，而是 认定为 **实现继承**。
 >
-> 所以就 以<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726101349534.png" alt="image-20220726101349534" style="zoom:80%;" /> 调用
+> 所以就 以<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726101349534.png" alt="image-20220726101349534" style="zoom:75%;" /> 调用
