@@ -245,7 +245,7 @@ int main() {
 > }
 > ```
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGKILL.gif" alt="SIGKILL |wide" style="zoom:56%;" />
+> ![SIGKILL |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/signal_SIGKILL.gif)
 
 这是处理进程信号的一种方式, 即 用户自定义处理方法来处理信号.
 
@@ -479,7 +479,7 @@ int main(int argc, char* argv[]) {
 
 ==SIGALRM== 信号的编号是14：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404184826180.png" alt="image-20230404184826180" style="zoom:80%;" />
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230404184826180.png)
 
 ```cpp
 #include <iostream>
@@ -534,7 +534,7 @@ int main(int argc, char* argv[]) {
 > }
 > ```
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cnt_alarm_2023-4-4.gif" alt="cnt_alarm_2023-4-4" style="zoom:85%;" />
+> ![cnt_alarm |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cnt_alarm_2023-4-4.gif)
 >
 > 可以看到, 最终的执行结果就是 亿级的, 而不是万级
 >

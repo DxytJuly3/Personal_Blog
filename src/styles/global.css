@@ -6003,6 +6003,17 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   width: 100%;
   border-radius: 0
 }
+@media only screen and (max-width: 1068px) {
+  .image-wide .component-content {
+    width: 692px
+  }
+}
+
+@media only screen and (max-width: 734px) {
+  .image-wide .component-content {
+    width: 100%
+  }
+}
 
 @media only screen and (min-width: 660px) {
 
