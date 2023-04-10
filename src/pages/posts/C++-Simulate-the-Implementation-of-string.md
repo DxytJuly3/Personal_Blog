@@ -9,7 +9,7 @@ cover:
     square: 'hhttps://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221031220947803.png'
     alt: 'cover'
 tags: ["C++", "语法", "STL", "类"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

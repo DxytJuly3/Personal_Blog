@@ -9,7 +9,7 @@ cover:
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322080209683.png'
     alt: 'cover'
 tags: ["Linux", "进程", "系统"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

@@ -9,7 +9,7 @@ cover:
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Stack_Cover.jpg'
     alt: 'cover'
 tags: ["C", "数据结构", "栈"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

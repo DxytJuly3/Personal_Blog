@@ -10,7 +10,7 @@ cover:
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409203643904.png'
     alt: 'cover'
 tags: ["C", "文件"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

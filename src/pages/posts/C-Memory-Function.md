@@ -9,7 +9,7 @@ cover:
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409195102451.png'
     alt: 'cover'
 tags: ["C", "函数", "内存"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

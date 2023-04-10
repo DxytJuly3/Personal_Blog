@@ -9,7 +9,7 @@ cover:
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410112636958.png'
     alt: 'cover'
 tags: ["C++", "继承", "原理"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

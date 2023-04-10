@@ -9,7 +9,7 @@ cover:
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/cover.jpg'
     alt: 'cover'
 tags: ["C", "函数", "原理", "程序员的自我修养"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

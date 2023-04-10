@@ -9,7 +9,7 @@ cover:
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329164921613.png'
     alt: 'cover'
 tags: ["Linux", "inode", "文件系统"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

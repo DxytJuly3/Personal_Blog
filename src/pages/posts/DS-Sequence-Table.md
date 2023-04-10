@@ -9,7 +9,7 @@ cover:
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/DS_Cover_qesList.jpg'
     alt: 'cover'
 tags: ["C", "数据结构", "顺序表"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

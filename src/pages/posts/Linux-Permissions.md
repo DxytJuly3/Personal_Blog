@@ -9,7 +9,7 @@ cover:
     square: 'https://img-blog.csdnimg.cn/13ae3119a7774365ad1e3b674889ffa0.png'
     alt: 'cover'
 tags: ["Linux", "权限", "系统", "文件"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

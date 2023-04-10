@@ -9,7 +9,7 @@ cover:
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409202145390.png'
     alt: 'cover'
 tags: ["C", "函数"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

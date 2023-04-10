@@ -9,7 +9,7 @@ cover:
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402142449044.png'
     alt: 'cover'
 tags: ["Linux", "进程通信", "系统", "文件"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

@@ -9,7 +9,7 @@ cover:
     square: 'https://img-blog.csdnimg.cn/3ffc2687b14840ef87c27e14844d9cfb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LiD5pyISnVseS4=,size_20,color_FFFFFF,t_70,g_se,x_16'
     alt: 'cover'
 tags: ["云服务", "图床", "白名单", "Git"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 

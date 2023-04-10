@@ -9,7 +9,7 @@ cover:
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409232038709.png'
     alt: 'cover'
 tags: ["C++", "语法", "内存管理"]
-theme: 'dark'
+theme: 'light'
 featured: false
 ---
 
