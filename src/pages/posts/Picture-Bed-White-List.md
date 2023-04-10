@@ -70,7 +70,7 @@ featured: false
 
 添加域名的方式，阿里云有给手册 ：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/For_star.png" alt=" |inline" style="zoom:80%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/For_star.png)
 
 
 添加完成后，就可以`防止白名单外的网站访问图床内的图片`，就可以 `防止爬虫访问导致流量疯狂外流`。

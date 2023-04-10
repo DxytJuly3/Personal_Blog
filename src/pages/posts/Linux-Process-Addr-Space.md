@@ -84,21 +84,45 @@ int main() {
 
 ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306101839314.png)
 
-1. 首先输出 main函数地址：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306102000284.png" alt="image-20230306102000284" style="zoom:80%;" /> 是输出的所有地址中最小的, 也就是最低的
+1. 首先输出 main函数地址：
+
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306102000284.png)
+
+    是输出的所有地址中最小的, 也就是最低的
 
     但也不是整个进程的首地址, 这可以大致说明 `进程的代码地址应该是在其他所有数据之前的`
 
-2. 其次是 未初始化的全局变量、初始化的全局变量 和 初始化的函数内部定义的静态变量：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306102255151.png" alt="image-20230306102255151" style="zoom:80%;" />
+2. 其次是 未初始化的全局变量、初始化的全局变量 和 初始化的函数内部定义的静态变量：
 
-    首先是未初始化、初始化的全局变量：可以看到, 未初始化的全局变量的地址是在已经初始化的全局变量上面的, 也就对应了图中细分的静态区区域：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103810316.png" alt="image-20230306103810316" style="zoom:80%;" /> `全局变量相对来讲：未初始化数据在高地址, 初始化数据在低地址`
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306102255151.png)
+
+    首先是未初始化、初始化的全局变量：可以看到, 未初始化的全局变量的地址是在已经初始化的全局变量上面的, 也就对应了图中细分的静态区区域：
+
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103810316.png)
+
+     `全局变量相对来讲：未初始化数据在高地址, 初始化数据在低地址`
 
     而且可以看到, 经过初始化的在main函数体内部定义的static变量的地址 位于两个全局变量之间, 其实这就说明, `被static修饰的变量 其实实际上就是一个全局变量, 只有在进程结束后才会被释放的`
 
-3. 定义在栈上的数据：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306102916297.png" alt="image-20230306102916297" style="zoom:80%;" />, 按照定义的顺序, 最先定义的数据的地址空间最大最高, 之后定义的`按照定义顺序逐渐减小`, 这表明`在栈上定义数据 是由高到低占用空间的, 即在栈上定义数据占用空间是向下增长的`
+3. 定义在栈上的数据：
 
-4. 定义在堆上的数据：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103241681.png" alt="image-20230306103241681" style="zoom:80%;" />, 按照定义的顺序, `其占用空间的方向 与栈刚好相反`. `在堆区定义数据 是由低到高占用空间的, 即在堆区定义数据占用空间是向上增长的`
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306102916297.png)
 
-5. 栈 和 堆区数据的地址, 存在非常大的断层：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103628951.png" alt="image-20230306103628951" style="zoom:80%;" />, 这也说明 堆和栈之间是存在着非常大的一块地址空间的：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103958036.png" alt="image-20230306103958036" style="zoom:80%;" />
+    按照定义的顺序, 最先定义的数据的地址空间最大最高, 之后定义的`按照定义顺序逐渐减小`, 这表明`在栈上定义数据 是由高到低占用空间的, 即在栈上定义数据占用空间是向下增长的`
+
+4. 定义在堆上的数据：
+
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103241681.png)
+
+    按照定义的顺序, `其占用空间的方向 与栈刚好相反`. `在堆区定义数据 是由低到高占用空间的, 即在堆区定义数据占用空间是向上增长的`
+
+5. 栈 和 堆区数据的地址, 存在非常大的断层：
+
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103628951.png)
+
+    这也说明 堆和栈之间是存在着非常大的一块地址空间的
+
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306103958036.png)
 
 ## 如何感知到进程确实存在进程地址空间
 

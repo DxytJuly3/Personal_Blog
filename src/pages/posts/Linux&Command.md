@@ -130,14 +130,15 @@ featured: false
 > > > `/` 是 Linux 系统下的 路径分隔符
 > > > 一个网站的`url`的域名之后的部分的`/` 是相同的意思
 > > >
-> > > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706175740592.png" alt="image-20220706175740592" style="zoom:60%;" />
+> > > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706175740592.png)
 > > >
 > > > `/video/BV1ua411p7iA` 是与`linux`路径相同意思的东西，也就是说这些网站都是部署在`linux`操作系统上的
 > > >
 > > > - 
 > > >
 > > > `\` 则是 Windows 系统下的 路径分隔符
-> > > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702224305632.png" alt="image-20220702224305632" style="zoom:80%;" />
+> > >
+> > > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702224305632.png)
 > >
 > > > 有绝对路径，就有相应的 `相对路径`
 > > >
@@ -166,7 +167,7 @@ featured: false
 语法: **`pwd`**
 功能：显示用户当前所在的目录的绝对路径
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702232018294.png" alt="image-20220702232018294" style="zoom: 80%;" />
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702232018294.png)
 
 ## 3. cd
 
@@ -376,7 +377,11 @@ featured: false
 
 `cat` 单独使用，一般用来查看文件的所有内容，但是 `-s` 对多行连续的空行只输出一行，`-n` 会对所有输出行编号，`-b` 只对输出的非空行编号
 
-使用`cat -s -n\-b` 查看文件内容如此的文件：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706205334237.png" alt="image-20220706205334237" style="zoom:60%;" /><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706205622891.png" alt="image-20220706205622891" style="zoom:60%;" />
+使用`cat -s -n\-b` 查看文件内容如此的文件：
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706205334237.png)
+
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706205622891.png)
 
 > 其实除 `cat` 之外还有一个 类似用途的查看文件内容的指令 `tac`
 >
@@ -589,11 +594,18 @@ date 用法：**`date [OPTION]... [+FORMAT]`**
 
 **Unix时间戳 是从1970年1月1日（UTC/GMT的00:00）开始所经过的秒数**，不考虑闰秒。 
 
-在 Linux 中使用 `date +%s` 可以显示当前时间戳：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231426994.png" alt="image-20220706231426994" style="zoom:80%;" />
+在 Linux 中使用 `date +%s` 可以显示当前时间戳：
 
-在搜索引擎搜索 时间戳在线转换可以转换为时间：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231549931.png" alt="image-20220706231549931" style="zoom:80%;" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231426994.png)
 
-时间戳为0时：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231629899.png" alt="image-20220706231629899" style="zoom:80%;" />
+在搜索引擎搜索 时间戳在线转换可以转换为时间：
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231549931.png)
+
+时间戳为0时：
+
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231629899.png)
+
 时间戳是**从 1970年1月1日00:00 开始的，国内转换是 08:00 因为时区不同，存在时差**
 
 也可以使用 `date -d@时间戳` 将时间戳转换为时间：
@@ -786,4 +798,4 @@ Linux 不仅仅只有上面那些指令，还有许多指令需要学习：
 
 感谢阅读~
 
-<img src="https://img-blog.csdnimg.cn/6e5d35b9b94e4b9897743b2ca8e059d0.png#pic_center" alt="万分感谢" width="30%" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410181909816.png)

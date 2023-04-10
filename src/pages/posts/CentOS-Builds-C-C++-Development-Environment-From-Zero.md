@@ -896,4 +896,4 @@ yarn install
 
 感谢阅读！
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%87%E5%88%86%E6%84%9F%E8%B0%A2.jpg#center" alt="万分感谢" width="30%" />
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410181851457.png)

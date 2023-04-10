@@ -145,7 +145,8 @@ int main()
 即下一句执行指令的就是 `sub esp,0E4h`
 > 汇编语言：`sub 相减`
 > `sub esp,0E4h` 指 `esp = esp - 0E4h`
-> `0E4h` 是十六进制数，转换成十进制为 228：<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/0E4h.png" alt="0E4h" />
+> `0E4h` 是十六进制数，转换成十进制为 228：
+> ![0E4h |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/0E4h.png)
 
 执行`sub esp,0E4h` 的变化：
 > 未执行：

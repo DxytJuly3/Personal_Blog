@@ -172,11 +172,11 @@ featured: true
 > return 0;
 > }
 > ```
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-TEST-Macro.png" alt="TEST-Macro |wide"/>
+> ![TEST-Macro |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-TEST-Macro.png)
 >
 > 预编译处理：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-E-Macro.png" alt="GCC-PRE-E-Macro |wide"/>
+> ![GCC-PRE-E-Macro |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-E-Macro.png)
 
 > `test.i` 部分内容:
 >

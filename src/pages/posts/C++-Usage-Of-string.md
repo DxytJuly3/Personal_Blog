@@ -105,7 +105,7 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
     >
     > 无符号的 -1，即为`int`类型中最大值：4294967295
     >
-    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701152205743.png" alt=" |wide" style="zoom:120%;" />
+    > ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701152205743.png)
     >
     > 参数`len` 有缺省值`npos`就意味着，如果`len`不传参，就是从 `pos` 位置延伸到字符串最后
     > 因为实际上不会有字符串的长度 可以达到 4294967295 独占4G的内存
@@ -154,7 +154,7 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
     2. `const_iterator`：正向 可读 迭代器
 
-        <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701161139146.png" alt="begin()" style="zoom:80%;" /> 取 `string`对象中字符串首字符位置，返回给正向迭代器
+        <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701161139146.png" alt="begin()" style="zoom:75%;" /> 取 `string`对象中字符串首字符位置，返回给正向迭代器
 
         <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701161202943.png" alt="end()" style="zoom:80%;" />取 `string`对象中字符串末字符的下一位置，返回给正向迭代器
 
@@ -196,43 +196,39 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014459482.png" alt="image-20220702014459482" style="zoom:80%;" />
 
-    
-
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701163922731.png" alt="image-20220701163922731" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701163922731.png)
 
 2. `length()` 返回字符串 有效字符长度，即返回 对象的`size`
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014528535.png" alt="image-20220702014528535" style="zoom:80%;" />
 
-    
-
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701164101742.png" alt="image-20220701164101742" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701164101742.png)
 
     两函数返回值相同，即其实都返回 对象的 `size`，但是为什么有两个函数呢？
 
     > 因为，`string` 比 `STL` 出现的要早，对于字符串用 `length` 长度，比较合适
     >
     > 但是，后来 `STL` 出现之后，其中的类(树、链表等) 都用的 `size`，所以为了统一使用 `string` 添加了一个 `size`
-
+    
 3. `capacity()` 返回总容量大小
 
     `string` 管理字符串，空间是动态开辟的，所以会存在有效字符大小和总空间大小，这也就意味着 总空间满了之后，是需要扩容的
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014555100.png" alt="image-20220702014555100" style="zoom:80%;" />
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701164843926.png" alt="image-20220701164843926" style="zoom:70%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701164843926.png)
 
 4. `empty()` 检测字符串是否为空串
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014614957.png" alt="image-20220702014614957" style="zoom:80%;" />
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701165208407.png" alt="image-20220701165208407" style="zoom:70%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701165208407.png)
 
 5. `clear() ` 清空有效字符，即`size清零`
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014631260.png" alt="image-20220702014631260" style="zoom:80%;" />
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701165549254.png" alt="image-20220701165549254" style="zoom:70%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701165549254.png)
 
 6. `reserve(size_t n = 0)` 为字符串预留空间，`扩容量`
 
@@ -270,7 +266,7 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014734988.png" alt="image-20220702014734988" style="zoom:80%;" />
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701173729524.png" alt="image-20220701173729524" style="zoom:80%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220701173729524.png)
 
 ## 4. string类对象的修改操作 
 
@@ -290,7 +286,7 @@ C语言中，字符串是以`'\0'`结尾的一些字符的集合，并且C标准
 
     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702014755287.png" alt="image-20220702014755287" style="zoom:80%;" />
 
-    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702010928686.png" alt="image-20220702010928686" style="zoom:67%;" />
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702010928686.png)
 
 2. **`append `** 在字符串后追加一个字符串
 
