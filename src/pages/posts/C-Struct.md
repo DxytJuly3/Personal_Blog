@@ -129,7 +129,7 @@ struct S1
 
 我们用 `sizeof` 求出此结构体类型的大小是：`12` 字节 
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160006153.png"/>
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160006153.png)
 
 但是 `int`类型大小是 `4` 字节，`char` 类型的大小是 `1` 字节。这个结构体大小不应该是 `6` 字节吗？ 为什么是 `12` 字节呢？
 
@@ -217,7 +217,7 @@ struct S1
 
 先看一下总大小：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160320772.png"/>
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160320772.png)
 
 然后我们具体来计算一下：
 
@@ -265,7 +265,7 @@ struct S2
 
 我们将，上一个结构体成员中的，`i` 和`c2`换一换位置结果又是什么呢?
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160744394.png"/>
+<![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409160744394.png)
 
 我们发现只是换了一下位置，结构体大小就减少了 `4` 个字节 
 
@@ -337,7 +337,7 @@ struct S3
 
 我们来验证一下：
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161204408.png"/>
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409161204408.png)
 
 确实跟我们计算的一样，这个结构体大小为 `16` 字节
 
