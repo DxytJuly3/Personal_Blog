@@ -22,7 +22,8 @@
 }
 
 html {
-  -ms-text-size-adjust: 100%;
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
+   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%
 }
 
@@ -55,8 +56,88 @@ legend,
 pre,
 abbr,
 button {
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   margin: 0;
   padding: 0
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  line-height: 1.4;
+  cursor: text;
+  font-family: 'LXGW WenKai Mono', 'LXGW WenKai';
+}
+
+h3.md-focus:before,
+h4.md-focus:before,
+h5.md-focus:before,
+h6.md-focus:before {
+  visibility: hidden;
+}
+
+h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-top: 2rem;
+  border-bottom: 2px solid #f79f2a;
+}
+
+h2 {
+  font-size: 1.75rem;
+  display: inline-block;
+  border-bottom: 0.4px solid #f79f2a;
+
+  /* border: 2px dashed #f79f2a;
+    border-width: 0 0 2px 0; */
+}
+
+h2 .md-plain:after {
+  /* display: block; */
+  display: inline-block;
+  content: '';
+  height: 2px;
+  margin-top: 4px;
+  background-color: var(--h2-underline-bg);
+  border-radius: 2px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.43;
+  margin: 20px 0 7px;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.8rem;
+}
+
+li {
+  font-size: 1.011em;
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
+}
+
+ol {
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
+  font-style: italic;
+  font-size: 1.011em;
+  /* font-weight: bold; */
+   padding: 0px 1pc
 }
 
 pre,
@@ -66,7 +147,8 @@ caption,
 th,
 figcaption {
   font-size: 1em;
-  font-family: SF Mono, monaco, -apple-system, roboto mono, monospace;
+  /* font-family: SF Mono, monaco, -apple-system, roboto mono, monospace; */
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   font-weight: normal;
   font-style: normal
 }
@@ -82,7 +164,8 @@ th {
 }
 
 table {
-  border-collapse: collapse;
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
+   border-collapse: collapse;
   border-spacing: 0
 }
 
@@ -126,7 +209,7 @@ button:disabled {
 }
 
 html {
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  /* font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif; */
   font-size: 106.25%;
   quotes: "“" "”"
 }
@@ -136,7 +219,7 @@ body {
   line-height: 1.47059;
   font-weight: 400;
   letter-spacing: -.022em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  /* font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif; */
   background-color: #fff;
   color: #1d1d1f;
   font-style: normal
@@ -272,7 +355,7 @@ li li {
 
 a,
 .link {
-  color: #06c;
+  color: rgb(91, 194, 161);
   letter-spacing: inherit
 }
 
@@ -305,6 +388,8 @@ a:disabled,
 }
 
 header {
+  font-weight: bolder;
+  font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   position: sticky;
   top: 0;
   z-index: 2;
@@ -7399,7 +7484,7 @@ code {
   font-style: normal;
   font-family: 'LXGW WenKai Mono', "LXGW WenKai";
   color: #434de0;
-  background-color: #d8d0b8;
+  background-color: #aff9fd49;
   margin: 0px 0.25em;
 }
 
@@ -7412,6 +7497,7 @@ blockquote {
   color: #6e6e73;
   font-size: 16px;
 }
+
 
 .theme-dark blockquote {
   background: #1d1d1f;
@@ -7427,4 +7513,15 @@ blockquote {
 
 blockquote p {
   display: inline;
+}
+
+strong {
+  color: #b977e9;
+  font-size: 1.05rem;
+  font-weight: bold;
+  font-style: italic;
+  border-radius: 2px;
+  padding: 2px 6px;
+  position: relative;
+  border-left: none;
 }
