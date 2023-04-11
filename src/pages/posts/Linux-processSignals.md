@@ -2023,6 +2023,72 @@ int main() {
 
 这才是父进程回收子进程的最终版本~
 
+### 回收子进程的其他方式
+
+经过演示, 了解到 SIGCHLD 信号实际上是子进程退出时向父进程发送的信号. 不过父进程对此信号的处理 默认是忽略的.
+
+我们可以通过捕捉此信号来让父进程回收子进程. 不过如果我们捕捉此信号并设置忽略处理呢？
+
+```cpp
+#include <cassert>
+#include <cstdlib>
+#include <iostream>
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+using std::cout;
+using std::endl;
+
+int main() {
+    signal(SIGCHLD, SIG_IGN);
+    // 为方便演示, 我们只创建5个子进程
+    for (int i = 0; i < 5; i++) {
+        pid_t id = fork();
+        if (id == 0) {
+            // 子进程
+            int cnt = 0;
+            if(i < 2)
+                cnt = 5;        // 前2个子进程 5s 就退出
+            else
+                cnt = 30;       // 后3个子进程 30s 退出
+            while (cnt) {
+                cout << "我是子进程, pid: " << getpid() << ", cnt: " << cnt-- << endl;
+                sleep(1);
+            }
+            cout << "子进程退出, 进入僵尸状态" << endl;
+            exit(0);
+        }
+    }
+
+    // 父进程
+    while (true) {
+        cout << "我是父进程, pid: " << getpid() << endl;
+        sleep(1);
+    }
+
+    return 0;
+}
+```
+
+这段代码的执行结果是：
+
+![SIGCHLD_SETIGN](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SIGCHLD_SETIGN.gif)
+
+可以看到, 我们没有自定义处理子进程, 知识通过signal()手动对 SIGCHLD 信号设置了 SIG_IGN 忽略处理, 但是最终子进程却自动被回收了.
+
+不捕捉此信号时, 父进程对此信号的默认处理方式也是 忽略, 但最终子进程退出会进入僵尸状态.
+
+而我们捕捉此信号, 只是又手动设置了一遍忽略处理, 子进程却被自动回收了.
+
+所以, 如果 `只是为了更加方便的回收子进程, 可以直接捕捉并设置忽略.`
+
+那么 同样是忽略, 最终的结果却不同的原因是什么呢？
+
+我们设置的处理方式, 都是忽略. 与默认不同的是, 我们是通过了系统调用来设置的, 即 玄机实际在这个系统调用中.
+
+系统调用是一个函数, 一定会做一些有关信号的其他处理, 所以可能会造成同样的处理方法 结果却不同的情况. 不过不需要太过关心
+
 ---
 
 本篇文章到此结束, 感谢阅读~
