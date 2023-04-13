@@ -1,33 +1,38 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/hero.astro";
 ---
 
 <BaseLayout primaryTitle="关于">
   <section class="archive">
     <div class="section-content section-tag">
-      <div class="archive-tag">
-        <h2 class="tag-header">关于我</h2>
-        <div class="tag-post-list">
-          <ul>
-            <li></li>
-            <li>一个学生</li>
-            <li>爱折腾</li>
-            <li>爱音乐</li>
-          </ul>
-        </div>
-      </div>
+      <Hero>
+        <div class="archive-tag">
+          <div class="stack gap-2">
+		        <h1 class="title">关于我</h1>
+	        </div>
 
-      <div class="archive-tag">
-        <h2 class="tag-header">关注我</h2>
-        <div class="tag-post-list">
-          <ul>
-            <li>
-              <a href="https://github.com/DxytJuly3" target="_blank">Github</a>
-            </li>
-          </ul>
+          <h2 class="tag-header">七月.cc</h2>
+          <p class="tagline">
+            <img
+            width="222"
+            height="222"
+            src="/assets/pikachu-image.png"
+            alt="七月.CC"
+          />
+        </p>
+          <h3 class="tag-header">一个学生</h3>
+          <h6 class="tag-header"></h6>
         </div>
-      </div>
 
+        <div class="archive-tag">
+          <div class="stack gap-2">
+		        <h1 class="title">关注我</h1>
+	        </div>
+          <h2 class="tag-header"> <a href="https://github.com/DxytJuly3" target="_blank">Github</a> </h2>
+        </div>
+
+      </Hero>
     </div>
   </section>
 </BaseLayout>
