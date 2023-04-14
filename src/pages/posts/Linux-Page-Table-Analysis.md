@@ -150,7 +150,7 @@ CPU会分别用这三部分查找到物理内存.
 >
 > page在Linux内核源代码中是以一个结构体维护的：
 >
-> ![page 结构体](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414123109559.png)
+> ![page 结构体 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414123109559.png)
 >
 > 那么, 4GB的内存可以划分为多少page呢？
 >
