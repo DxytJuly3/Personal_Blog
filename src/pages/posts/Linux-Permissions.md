@@ -5,13 +5,19 @@ pubDate: 2022-07-09
 description: 'Linux下有两种用户：超级用户(root)、普通用户'
 author: '七月.cc'
 cover:
-    url: 'https://img-blog.csdnimg.cn/13ae3119a7774365ad1e3b674889ffa0.png'
-    square: 'https://img-blog.csdnimg.cn/13ae3119a7774365ad1e3b674889ffa0.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414150400864.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414150400864.png'
     alt: 'cover'
 tags: ["Linux", "权限", "系统", "文件"]
 theme: 'light'
 featured: false
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414150400864.png)
+
+---
+
+[TOC]
 
 # Linux 权限的概念
 
@@ -314,13 +320,13 @@ Linux系统规定：
 >     
 >
 >     **写权限：**
->    
+>            
 >     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220708095019590.png)
->    
+>            
 >     **执行权限：**
->    
+>            
 >     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220708095253026.png)
->    
+>            
 >     可以看到，**想要进入目录，访问者需要有执行权限**
 >
 > 2. 问题2：查看文件是怎么样查看的？目录文件又是怎么查看的？
@@ -348,15 +354,15 @@ Linux系统规定：
 >     
 >
 >     **用户对目录只没有读权限：**
->    
+>            
 >     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220708110218588.png)
 >
 >     
 >
 >     **用户对目录只没有写权限：**
->    
+>            
 >     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220708110716983.png)
->    
+>            
 >     > 用户对各个文件的权限是独立的，目录内文件的内容是否可以查看，与目录无关 与 文件本身有关
 >     >
 >     > 假如 **`用户对一个目录没有读权限，但不能说明用户对目录内的文件没有读权限`**

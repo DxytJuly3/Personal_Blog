@@ -15,6 +15,10 @@ featured: false
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409195102451.png)
 
+---
+
+[TOC]
+
 # 内存函数
 
 ## 1.`memcpy`

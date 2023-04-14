@@ -16,9 +16,11 @@ featured: false
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409203643904.png)
 
-# 文本文件、二进制文件及其存储
-
 ---
+
+[TOC]
+
+# 文本文件、二进制文件及其存储
 
 上一篇介绍过，文件按照功能分类，可以分为 `程序文件`、`数据文件` 两类。
 

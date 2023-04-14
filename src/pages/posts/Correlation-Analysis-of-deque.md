@@ -20,6 +20,10 @@ STL源码实现 `Stack` 和 `Queue` 都使用了 `deque` 作为适配器
 
 deque 是什么？它的结构是什么？为什么 Stack和 Queue要用它来作为适配器实现？
 
+---
+
+[TOC]
+
 # 文档中的 deque
 
 ![  ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220715164827658.png)

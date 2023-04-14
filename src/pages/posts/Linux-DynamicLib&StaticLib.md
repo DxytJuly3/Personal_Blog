@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![image-20230401094505214](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230401094505214.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230401094505214.png)
 
 ---
 
@@ -22,6 +22,10 @@ featured: false
 静态链接：在编译链接时, 将代码所使用到的静态库文件的代码全部加入到可执行文件中, 此时的可执行文件会生成的比较大. 不过, 此时可执行文件再运行时, 就不需要再查找库了. 静态库文件一般以 `.a` 结尾
 
 动态链接：不会在编译链接时将动态库文件的代码加入到可执行文件中, 而是在可执行文件运行时, 去查找所需动态库, 并将其加载到相应的进程中.  并且不同进程可以共享这些动态库. 动态库文件一般以 `.so` 结尾
+
+---
+
+[TOC]
 
 # 动静态库
 

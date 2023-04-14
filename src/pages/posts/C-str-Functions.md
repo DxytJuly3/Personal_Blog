@@ -15,6 +15,10 @@ featured: false
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409202145390.png)
 
+---
+
+[TOC]
+
 # 字符串函数
 
 ## 1. `strlen`

@@ -15,9 +15,13 @@ featured: false
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409155622571.png)
 
+---
+
+[TOC]
+
 #  结构体
 
-## 1. 结构体
+## 1. 结构体概念
 
 ​	结构体是一些值的集合，这些值成为成员变量。结构的每个成员可以是不同类型的变量。结构体属于自定义类型。
 

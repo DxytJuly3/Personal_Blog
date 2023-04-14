@@ -15,6 +15,10 @@ featured: false
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225237206.png)
 
+---
+
+[TOC]
+
 # 一、类的默认成员函数
 
 任何一个类，即使一个成员都不写，其实也会自动生成6个默认成员函数：

@@ -15,6 +15,10 @@ featured: false
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410153941135.png)
 
+---
+
+[TOC]
+
 # 简易Shell实现
 
 我们在Linux中使用的shell, 一般有两个 bash 和 zsh.

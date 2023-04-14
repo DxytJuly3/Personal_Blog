@@ -39,6 +39,10 @@ featured: false
 
 而除了每次使用gcc/g++指令来编译代码文件的方式之外, 还有另一种方式, 即本篇文章的主要内容：`make 和 makefile`
 
+---
+
+[TOC]
+
 # make 与 makefile
 
 ## make 是什么？

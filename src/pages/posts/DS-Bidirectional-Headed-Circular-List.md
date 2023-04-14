@@ -17,6 +17,8 @@ featured: false
 
 ---
 
+[TOC]
+
 # 引言
 
 在 `数据结构与算法：单链表篇` 的时候，已经介绍了 `链表` 的多种结构 `(具体内容可以去单链表的那篇去看一下，这里不再赘述)`
@@ -78,7 +80,7 @@ typedef struct ListNode
 10. `ListPrint`  链表打印
 11. `ListDestroy`  链表销毁
 
-### 链表尾插 ListPushBack
+### 链表尾插 `ListPushBack`
 
 ```c
 void ListPushBack(ListNode *phead, ListDataType x);
@@ -135,7 +137,7 @@ void ListPushBack(ListNode *phead, ListDataType x)
 
 
 
-### 链表初始化 ListInit
+### 链表初始化 `ListInit`
 
 ```c
 void ListInit(ListNode *pphead);
@@ -229,7 +231,7 @@ ListNode* ListInit()
 
 
 
-### 链表尾删 ListPopBack
+### 链表尾删 `ListPopBack`
 
 ```c
 void ListPopBack(ListNode *phead);
@@ -265,7 +267,7 @@ void ListPopBack(ListNode *phead)
 
 
 
-### 链表打印 ListPrint
+### 链表打印 `ListPrint`
 
 ```c
 void ListPrint(ListNode *phead);
@@ -300,7 +302,7 @@ void ListPrint(ListNode *phead)
 
 
 
-### 链表的头插 ListPushFront
+### 链表的头插 `ListPushFron`t
 
 ```c
 void ListPushFront(ListNode *phead, ListDataType x);
@@ -326,7 +328,7 @@ void ListPushFront(ListNode *phead, ListDataType x)
 
 ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504161039016.png)
 
-### 链表尾删 ListPopFront
+### 链表尾删 `ListPopFront`
 
 ```c
 void ListPopFront(ListNode *phead)
@@ -344,7 +346,7 @@ void ListPopFront(ListNode *phead)
 
 ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504161411773.png)
 
-### 链表查找 ListFind
+### 链表查找 `ListFind`
 
 ```c
 ListNode* ListFind(ListNode *phead, ListDataType x);
@@ -380,7 +382,7 @@ ListNode* ListFind(ListNode *phead, ListDataType x)
 
 
 
-### 链表 pos 之前插入 ListInsert
+### 链表 pos 之前插入 `ListInsert`
 
 ```c
 void ListInsert(ListNode *pos, ListDataType x);
@@ -455,7 +457,7 @@ void ListPushFront(ListNode *phead, ListDataType x)
 
 
 
-### 链表 pos 节点删除 ListErase
+### 链表 pos 节点删除 `ListErase`
 
 ```c
 void ListErase(ListNode *pos);
@@ -527,7 +529,7 @@ void ListPopFront(ListNode *phead)
 }
 ```
 
-### 链表销毁 ListDestroy
+### 链表销毁 `ListDestroy`
 
 ```c
 void ListDestroy(ListNode *phead);

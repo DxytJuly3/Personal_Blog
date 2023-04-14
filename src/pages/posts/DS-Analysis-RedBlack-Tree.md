@@ -16,6 +16,10 @@ featured: false
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140820248.png)
 
+---
+
+[TOC]
+
 # 红黑树
 
 `AVL树` 是一种 二叉平衡搜索树, 其结构特点可以用一个词来说明：`“绝对平衡”`。因为 `AVL树`的每个节点都完全满足 平衡的要求, 即 `左右子树的高度差不大于1`

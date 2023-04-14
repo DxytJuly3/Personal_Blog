@@ -6,13 +6,19 @@ description: '在学习C语言的过程中，每一个源文件都会经过编�
 这些预处理过程到底是如何进行的，就是本篇文章的内容'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/cover.jpg'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/Stack_Frames/cover.jpg'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151451674.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151451674.png'
     alt: 'cover'
 tags: ["编译", "C", "程序员的自我修养"]
 theme: 'light'
 featured: true
 ---
+
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151451674.png)
+
+---
+
+[TOC]
 
 #  程序的编译及链接
 

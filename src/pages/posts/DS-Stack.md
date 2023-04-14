@@ -17,6 +17,8 @@ featured: false
 
 ---
 
+[TOC]
+
 # 引言
 
 数据结构中有 `四大基础结构` ，即 `四大线性表`：顺序表、链表、**`栈`**、队列
@@ -122,7 +124,7 @@ typedef struct Stack
 > 6. 判空 StackEmpty
 > 7. 栈销毁 StackDestroy
 
-### 初始化 StackInit
+### 初始化 `StackInit`
 
 `Top` 初始化有两种情况，这里选择 初始化为 `0`
 
@@ -138,7 +140,7 @@ void StackInit(Stack *pst)
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507173412153.png)
 
-### 入栈 StackPush
+### 入栈 `StackPush`
 
 因为只有 压栈 时，栈的容量可能会满，所以就不需要单独写一个判断栈满的函数了
 
@@ -170,7 +172,7 @@ void StackPush(Stack *pst, StackDataType x)
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507174850928.png)
 
-### 出栈 StackPop
+### 出栈 `StackPop`
 
 因为 由 `数组` 实现的栈，开辟的空间是 `不能单独释放` 的。即：`出栈`，不需要释放空间，也不需要修改数据
 
@@ -191,7 +193,7 @@ void StackPop(Stack *pst)
 
 因为，在 `栈` 中是由 `Top` 来决定 `栈` 存放数据的数量的，所以 `Top` 减小就代表 `有数据出栈`
 
-### 取栈顶元素 StackTop
+### 取栈顶元素 `StackTop`
 
 ```c
 // 取栈顶元素
@@ -209,7 +211,7 @@ StackDataType StackTop(const Stack *pst)
 
 ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507181738115.png)
 
-### 判空 StackEmpty
+### 判空 `StackEmpty`
 
 ```c
 // 判空
@@ -226,7 +228,7 @@ bool StackEmpty(const Stack *pst)
 
 ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507182200048.png)
 
-### 栈元素个数 StackSize
+### 栈元素个数 `StackSize`
 
 ```c
 int StackSize(const Stack *pst)
@@ -242,7 +244,7 @@ int StackSize(const Stack *pst)
 
 ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507182706721.png)
 
-### 栈销毁 StackDestroy
+### 栈销毁 `StackDestroy`
 
 ```c
 void StackDestory(Stack *pst)

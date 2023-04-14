@@ -19,6 +19,10 @@ featured: false
 
 但是 上一篇文章中模拟实现的哈希表 还不足以直接封装起来共 unordered_set 和 unordered_map 使用, 所以在封装之前, 需要 `改造哈希表`
 
+---
+
+[TOC]
+
 # 改造哈希表
 
 ```

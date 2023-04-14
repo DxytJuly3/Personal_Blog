@@ -15,6 +15,10 @@ featured: false
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410001425349.png)
 
+---
+
+[TOC]
+
 # 泛型编程
 
 C++中引入了重载的概念，使得可以编写多个函数名相同但参数、返回值不同的函数，例如：

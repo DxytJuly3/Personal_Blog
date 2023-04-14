@@ -16,7 +16,10 @@ featured: false
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/DS_Cover_qesList.jpg)
 
 ---
+[TOC]
+
 # 顺序表引言
+
 数据结构中有 `四大基础结构` ，即 `四大线性表`：**`顺序表`**、`链表`、`栈`、`队列`
 
 被称为线性表是因为，数据用以上四种结构存储，再逻辑结构上都是 `在一条线上相邻连续的`
@@ -39,14 +42,14 @@ featured: false
 顺序表的实现方式一般分为两种：
 1. 静态的顺序表
     所谓`静态`，就是 `使用定长数组存储数据`
-  定长的数组是 `有一定的弊端` 的，即 `只能存储一定数量的数据`
-  即：
-  
+    定长的数组是 `有一定的弊端` 的，即 `只能存储一定数量的数据`
+    即：
+
   ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Quiet_Seq.gif)
-  
+
   采用定长的数组实现顺序表，`顺序表存满(即数组存满)之后，无法直接继续存储数据，想要继续存储数据就需要改动源代码.`
   一般实现代码为：
-  
+
   ```c
   #define N 10
   typedef int SLDataType;
@@ -61,21 +64,22 @@ featured: false
   ```
 
 2. 动态的顺序表
-    
+   
+
   `动态的顺序表`，就是 `使用动态开辟的数组存储数据`
-  
+
   动态开辟的数组，可以实现一个功能就是，`当数组满了的时候可以自动扩容`
-  
+
   即：
-  
+
   ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/dynamic_SeqList.gif)
-  
+
   当数组处于已满的状态且再要存入数据时，数组扩容。
-  
+
   这样采用动态数组实现的顺序表，`使用的时候不需要考虑容量的问题` ，所以 一般 `实现顺序表就用动态开辟的数组` 实现。
-  
+
   结构的实现代码为：
-  
+
   ```c
   typedef int SLDataType;
   

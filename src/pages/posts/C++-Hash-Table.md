@@ -24,6 +24,10 @@ set 和 map 的底层是由红黑树实现的, 而 unordered_set 和 unordered_m
 1. 第一部分：简单的介绍 unordered_set 和 unordered_map
 2. 第二部分：分析、实现线性探测的哈希表
 
+---
+
+[TOC]
+
 # STL的哈希表
 
 unordered_set 和 unordered_map在大体使用上与 set 和 map相似, 只是底层不同罢了
