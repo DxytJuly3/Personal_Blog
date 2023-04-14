@@ -17,7 +17,7 @@ featured: false
 
 ---
 
-[TOC]
+
 
 # 泛型编程
 

@@ -16,7 +16,7 @@ featured: false
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/DS_Cover_Com.jpg)
 
 ---
-[TOC]
+
 
 # 复杂度 引言
 

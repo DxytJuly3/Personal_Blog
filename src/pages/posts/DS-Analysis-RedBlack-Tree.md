@@ -18,7 +18,7 @@ featured: false
 
 ---
 
-[TOC]
+
 
 # 红黑树
 

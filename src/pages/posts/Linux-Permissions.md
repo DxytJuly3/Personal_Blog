@@ -17,7 +17,7 @@ featured: false
 
 ---
 
-[TOC]
+
 
 # Linux 权限的概念
 

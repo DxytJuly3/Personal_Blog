@@ -16,7 +16,7 @@ featured: false
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/List_cover.png)
 
 ---
-[TOC]
+
 
 # 单链表引言🐙
 

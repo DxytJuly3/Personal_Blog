@@ -17,7 +17,7 @@ featured: false
 
 ---
 
-[TOC]
+
 
 # 简易Shell实现
 

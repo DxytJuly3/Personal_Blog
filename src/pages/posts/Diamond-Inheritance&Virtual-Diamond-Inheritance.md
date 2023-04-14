@@ -23,7 +23,7 @@ featured: false
 
 ---
 
-[TOC]
+
 
 # 单继承 与 多继承
 

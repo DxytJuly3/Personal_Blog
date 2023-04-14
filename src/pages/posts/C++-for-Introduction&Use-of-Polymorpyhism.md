@@ -27,7 +27,7 @@ featured: false
 
 ---
 
-[TOC]
+
 
 # 什么是多态？
 

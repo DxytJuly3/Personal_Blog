@@ -23,7 +23,7 @@ featured: false
 
 ---
 
-[TOC]
+
 
 # 多态实现原理
 

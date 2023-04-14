@@ -25,7 +25,7 @@ featured: false
 
 ---
 
-[TOC]
+
 
 # 文件的相关概念
 

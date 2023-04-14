@@ -16,7 +16,7 @@ featured: false
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/DS_Cover_qesList.jpg)
 
 ---
-[TOC]
+
 
 # 顺序表引言
 

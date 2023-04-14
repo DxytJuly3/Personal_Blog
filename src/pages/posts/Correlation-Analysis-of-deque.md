@@ -22,7 +22,7 @@ deque 是什么？它的结构是什么？为什么 Stack和 Queue要用它来�
 
 ---
 
-[TOC]
+
 
 # 文档中的 deque
 

@@ -17,7 +17,7 @@ featured: false
 
 ---
 
-[TOC]
+
 
 # 预处理详解
 

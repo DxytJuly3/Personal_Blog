@@ -17,7 +17,7 @@ featured: false
 
 ---
 
-[TOC]
+
 
 # 字符串函数
 
