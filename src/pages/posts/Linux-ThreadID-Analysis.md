@@ -1,8 +1,8 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] 如何理解线程ID？'
+title: '[Linux] 如何理解线程ID？什么是线程局部存储？'
 pubDate: 2023-04-15
-description: ''
+description: '在Linux中, 使用 pthread_create() 创建线程的时候, 第一个参数就是用来接收线程ID的'
 author: '七月.cc'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415173757629.png'
@@ -11,7 +11,6 @@ cover:
 tags: ["Linux", "线程", "系统"]
 theme: 'light'
 featured: false
-
 ---
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415173757629.png)
@@ -160,6 +159,10 @@ struct thread_struct {
 2. 我们通过 `pthread` 库获取的线程ID, 表示的地址实际就是一个 描述线程属性的结构体的地址.
 
 	`pthread_t` 到底是什么类型呢？**`取决于实现`**. 对于Linux目前实现的 `NPTL` 实现而言, `pthread_t` 是一个 无符号长整型, 可以用来表示 `pthread` 库 维护线程时的唯一标识符, 也可以用来表示进程地址空间中的一个地址. 此地址就是 描述线程属性的结构体的地址.
+
+> pthread 库实现的线程是在Linux轻量级进程的基础上, 又维护了一些属性实现的.
+>
+> 即 pthread 库中描述线程属性的结构体应该是直接或间接维护有线程的PCB.
 
 ## 线程局部存储
 
