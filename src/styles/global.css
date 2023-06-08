@@ -17,28 +17,28 @@
 /* 注册你的字体并告诉浏览器它在哪里 */
 @font-face {
   font-family: 'Fira Code Regular';
-  src: url('/fonts/FiraCode-Regular.ttf') format('ttf');
+  src: url('/public/fonts/FiraCode-Regular.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Fira Code Bold';
-  src: url('/fonts/FiraCode-Bold.ttf') format('ttf');
+  src: url('/public/fonts/FiraCode-Bold.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'PingFang Regular';
-  src: url('/fonts/PingFangMedium-Regular.ttf') format('ttf');
+  src: url('/public/fonts/PingFangMedium-Regular.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'PingFang Bold';
-  src: url('/fonts/PingFangMedium-Bold.ttf') format('ttf');
+  src: url('/public/fonts/PingFangMedium-Bold.ttf') format('ttf');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
