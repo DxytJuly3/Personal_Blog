@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 import { formatDateV2 } from "../utils";
 const { posts } = Astro.props;
 posts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate));
