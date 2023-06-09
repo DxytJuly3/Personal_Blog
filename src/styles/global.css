@@ -199,6 +199,7 @@ table {
 main,
 summary,
 details {
+  font-family: 'Fira Code Regular', 'PingFang Regular';
   display: block
 }
 
@@ -5869,7 +5870,8 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   line-height: 1.33337;
   font-weight: 600;
   letter-spacing: -.01em;
-  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+
+  font-family: 'Fira Code Regular', 'PingFang Regular';
 }
 
 .theme-dark .image-description {
@@ -7384,6 +7386,7 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 }
 
 .tag {
+  font-family: 'Fira Code Regular', 'PingFang Regular';
   cursor: pointer;
   display: inline-block;
   text-align: center;
@@ -7518,6 +7521,7 @@ code {
 }
 
 blockquote {
+  font-family: 'Fira Code Regular', 'PingFang Regular';
   background: #fafafa;
   border-left: 0.3em solid #ccc;
   padding: 0.5em 0.5em;
@@ -7545,6 +7549,7 @@ blockquote p {
 }
 
 strong {
+  font-family: 'Fira Code Regular', 'PingFang Regular';
   color: #b977e9;
   font-size: 19px;
   font-weight: bold;
