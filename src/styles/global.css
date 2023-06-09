@@ -236,12 +236,14 @@ button:disabled {
 }
 
 html {
+  font-family: 'Fira Code Regular', 'PingFang Regular';
   /* font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif; */
   font-size: 106.25%;
   quotes: "“" "”"
 }
 
 body {
+  font-family: 'Fira Code Regular', 'PingFang Regular';
   font-size: 17px;
   line-height: 1.47059;
   font-weight: 400;
