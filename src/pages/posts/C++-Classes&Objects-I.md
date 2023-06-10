@@ -17,8 +17,6 @@ featured: false
 
 ---
 
-
-
 # 一、类
 
 C++ 中的类其实与 C语言 中的结构体类似。不过，C++ 将 C语言 中的 `struct` 进行了升级，在C++中 `struct` 可以用来定义类
@@ -27,8 +25,6 @@ C++ 升级了 `struct` ，使其定义的结构体：
 
 1. 结构体内部可以定义函数
 2. 结构体名可以直接作为类型使用
-
-
 
 ```cpp
 struct User
@@ -58,13 +54,9 @@ struct User
 
 ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617134353881.png)
 
-
-
 不过，在 C++ 中定义结构体通常用 `class` 而不是 `struct`；定义出的类型也通常被称为 `类`，而不是 结构体；使用类型定义的变量也不再称为变量了，而是 `对象`.
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617140336912.png)
-
-
 
 上图简单的将 由 `struct定义的结构体` 改为了 `由class定义的类`，并进行了一定的修改
 
