@@ -5,15 +5,15 @@ pubDate: 2022-07-16
 description: '反向迭代器该如何实现呢？它究竟是什么东西呢？'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410111431215.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410111431215.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.png'
     alt: 'cover'
 tags: ["C++", "语法", "STL", "迭代器"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410111431215.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.png)
 
 在 string 类介绍的时候，就已经开始接触迭代器了
 

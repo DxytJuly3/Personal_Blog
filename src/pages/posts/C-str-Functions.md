@@ -5,15 +5,15 @@ pubDate: 2022-02-09
 description: 'strlen、strcpy、strcat……'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409202145390.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409202145390.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811474.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811474.png'
     alt: 'cover'
 tags: ["C", "函数"]
 theme: 'light'
 featured: false
 ---
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409202145390.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811474.png)
 
 ---
 

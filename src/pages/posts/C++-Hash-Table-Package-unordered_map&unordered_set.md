@@ -5,15 +5,15 @@ pubDate: 2022-11-13
 description: 'STL的两个容器 unordered_map 和 unordered_set 底层是由哈希表实现的, 那么本篇文章的内容 就是将哈希表封装为 unordered_set 和 unordered_map'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144442165.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144442165.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813360.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813360.png'
     alt: 'cover'
 tags: ["C++", "STL", "语法", "哈希"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144442165.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813360.png)
 
 上一篇文章介绍分析了 哈希表的结构 与 基础的插入 查找 删除 三个接口, 也介绍了 STL的两个容器 unordered_map 和 unordered_set 底层是由哈希表实现的, 那么本篇文章的内容 就是将哈希表封装为 unordered_set 和 unordered_map
 
@@ -74,7 +74,7 @@ class hashTable {};
 2. ++操作, 迭代器根据哈希表中的桶的顺序及桶的内容 向后移动, 指向下一个节点
 
 	很明显, 想要实现在这个功能, 只知道某一个节点是不行的, 因为`哈希表存在多个桶(多个链表), 只知道某单个链表上的某个节点, 是不可能实现遍历整个哈希表的`. 所以 `每个迭代器中还需要知道迭代器指向节点所在的整个哈希表`, 也就是需要获取 此哈希表的指针
-
+	
 	那么 其实 `迭代器的模板参数需要与哈希表的模板参数一模一样`
 
 这两个功能 除确定了 哈希表的模板参数之外, 其实还确定了 哈希表的两个成员变量: `数据节点的指针变量, 节点所在哈希表的指针变量`:

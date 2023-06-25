@@ -5,15 +5,15 @@ pubDate: 2022-07-04
 description: '本篇文章着重 模拟实现 string类 及其各接口'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221031220947803.png'
-    square: 'hhttps://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221031220947803.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.png'
     alt: 'cover'
 tags: ["C++", "语法", "STL", "类"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221031220947803.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.png)
 
 ---
 

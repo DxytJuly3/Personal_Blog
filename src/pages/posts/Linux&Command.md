@@ -5,15 +5,15 @@ pubDate: 2022-07-08
 description: '要使用命令行熟练操作Linux，最重要的知识就是 Linux 操作系统的内核 以及 Linux环境下的指令，本篇文章的主要内容就是 Linux 环境下的 指令操作'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221031221702230.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221031221702230.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803778.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803778.png'
     alt: 'cover'
 tags: ["Linux", "命令", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221031221702230.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803778.png)
 
 ---
 

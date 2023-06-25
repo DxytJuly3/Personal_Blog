@@ -5,15 +5,15 @@ pubDate: 2022-03-02
 description: '文件按照功能，区分为两类：程序文件、数据文件'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409202401023.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409202401023.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812049.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812049.png'
     alt: 'cover'
 tags: ["C", "文件", "操作"]
 theme: 'light'
 featured: false
 ---
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409202401023.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812049.png)
 
 ---
 

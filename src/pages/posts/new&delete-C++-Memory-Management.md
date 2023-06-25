@@ -5,15 +5,15 @@ pubDate: 2022-06-29
 description: '在介绍详细 C++ 内存管理的方法之前，先简单做个铺垫，先介绍一下：C/C++程序 内存区域的划分'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409232038709.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409232038709.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805245.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805245.png'
     alt: 'cover'
 tags: ["C++", "语法", "内存管理"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409232038709.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805245.png)
 
 ---
 

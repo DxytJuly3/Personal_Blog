@@ -6,15 +6,15 @@ description: '文件按照功能分类，可以分为 程序文件、数据文�
 此外，文件的分类还有其他的分类方法，比如 按照文件数据的组织形式 来分为 二进制文件 和 文本文件。'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409203643904.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409203643904.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813684.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813684.png'
     alt: 'cover'
 tags: ["C", "文件"]
 theme: 'light'
 featured: false
 ---
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409203643904.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813684.png)
 
 ---
 

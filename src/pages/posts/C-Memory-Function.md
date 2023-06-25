@@ -5,15 +5,15 @@ pubDate: 2022-02-16
 description: 'memcpy、memmove……'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409195102451.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409195102451.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812215.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812215.png'
     alt: 'cover'
 tags: ["C", "函数", "内存"]
 theme: 'light'
 featured: false
 ---
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409195102451.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812215.png)
 
 ---
 

@@ -5,15 +5,15 @@ pubDate: 2023-04-15
 description: '在Linux中, 使用 pthread_create() 创建线程的时候, 第一个参数就是用来接收线程ID的'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415173757629.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415173757629.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802112.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802112.png'
     alt: 'cover'
 tags: ["Linux", "线程", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415173757629.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802112.png)
 
 ---
 

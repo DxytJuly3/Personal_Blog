@@ -5,15 +5,15 @@ pubDate: 2022-07-02
 description: 'C++ 为了更方便的管理、操作、使用字符串，设计了一个类模板 —— basic_string'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410092441942.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410092441942.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810988.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810988.png'
     alt: 'cover'
 tags: ["C++", "语法", "STL", "类"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410092441942.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810988.png)
 
 ---
 

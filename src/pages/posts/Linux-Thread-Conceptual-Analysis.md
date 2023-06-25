@@ -6,15 +6,15 @@ description: '线程可以说是实际区别于进程的一个概念, 但也可�
 而实际区别与否, 其实 **`与平台有关`**'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230411163745002.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230411163745002.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.png'
     alt: 'cover'
 tags: ["Linux", "线程", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230411163745002.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.png)
 
 我们已经了解了Linux操作系统进程部分相关知识：
 
@@ -177,7 +177,7 @@ Linux复用PCB实现TCB, 那么从CPU的角度看待线程, 其实与进程没�
 2. 线程相比进程, 粒度更细, 调用成本更低
 
 	进程切换调度, 需要切换PCB、进程地址空间、页表等
-
+	
 	而线程切换调度, 只需要切换TCB(实际还是PCB)就可以
 
 3. 线程是CPU调度的基本单位
@@ -370,7 +370,7 @@ Linux操作系统中其实可以创建多进程来分配代码并执行, 就比�
 5. 对于I/O密集型应用, 为了提高性能, 将I/O操作重叠. 线程可以同时等待不同的I/O操作
 
 	比如一个程序运行时, 需要等待操作系统和网卡之间的I/O操作, 又要等待操作系统和磁盘之间的I/O操作.
-
+	
 	如果单线程的话, 这两个I/O操作只能一个一个等, 不过, 如果是多线程的话就可以同时等待不用排队.
 
 不过, 线程并不是越多越好, 与平台有关, 更准确一点就是与 CPU有关
@@ -388,15 +388,15 @@ Linux操作系统中其实可以创建多进程来分配代码并执行, 就比�
 1. 可能造成性能损失
 
 	比如一个密集计算型线程正在运行, 且很少或不会被其他外部事件阻塞. 那么这类线程往往是无法与其他线程共用一个CPU的.
-
+	
 	如果密集计算型线程的数量比CPU支持的多线程数量还要多, 这些线程就可能不停的被CPU调度：不停的换出、换入. 因为这些线程都是要运行一下的, 不会只照着一部分线程一直运行, 而是会这一部分执行执行、那一部分执行执行. 这就会因为不停调度而造成性能损失.
-
+	
 	最好线程不要太多.
 
 2. 健壮性低
 
 	如果是进程, 由于进程地址空间的存在 进程是非常健壮的, 一个进程再怎么运行如果不是刻意为之一般也无法影响另一个进程.
-
+	
 	一个多线程程序内, 可能会因为 时间分配的细微偏差、共享了某些不该共享的数据, 而对其他线程或整个程序造成很大的不良影响.
 
 3. 缺乏访问控制

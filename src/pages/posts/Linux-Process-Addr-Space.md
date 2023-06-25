@@ -5,15 +5,15 @@ pubDate: 2023-03-06
 description: '在介绍C++的内存控制时, 我用了这样一张图来大致表述一个程序的程序地址空间, 并且也提到过这块空间占用的是内存. 不过这张图, 在Linux系统中需要稍微改动一下'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322080209683.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322080209683.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759942.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759942.png'
     alt: 'cover'
 tags: ["Linux", "进程", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322080209683.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759942.png)
 
 ---
 
@@ -238,9 +238,9 @@ Linux中, 调用fork()系统调用创建的子进程的代码是继承自其父�
 2. 程序在没有运行、没有被加载到内存中的时候, 程序内部是否存在类似进程地址空间里设置的区域？
 
 	程序内, 其实也是存在区域的. 在Linux系统中, 可以很简单的观察到：
-
+	
 	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230306165243300.png)
-
+	
 	> readelf 指令可以用来查看文件的某些信息
 
 

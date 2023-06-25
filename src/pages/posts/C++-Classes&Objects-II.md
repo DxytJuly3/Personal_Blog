@@ -5,15 +5,15 @@ pubDate: 2022-06-20
 description: '任何一个类，即使一个成员都不写，其实也会自动生成6个默认成员函数'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225237206.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225237206.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806489.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806489.png'
     alt: 'cover'
 tags: ["C++", "类", "对象", "语法"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225237206.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806489.png)
 
 ---
 

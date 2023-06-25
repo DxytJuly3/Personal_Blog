@@ -5,15 +5,15 @@ pubDate: 2023-03-01
 description: '关于什么是进程这个问题, 一般都会用一句简单的话来回答：运行起来的程序就是进程. 这句话不能说是错的, 但也不全对。如果运行起来的程序就是进程, 那么进程和程序又有什么区别呢？'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150215730.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150215730.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759330.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759330.png'
     alt: 'cover'
 tags: ["Linux", "进程", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150215730.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759330.png)
 
 ---
 

@@ -5,15 +5,15 @@ pubDate: 2023-02-27
 description: 'make其实只是一个指令, 需要在当前目录下存在makefile文件时才可以正确执行'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410145307692.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410145307692.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803222.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803222.png'
     alt: 'cover'
 tags: ["Linux", "命令", "makefile"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410145307692.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803222.png)
 
 在Windows平台上编写C/C++代码, 一般使用的都是配置完成的集成的开发环境, 比如Dev-C++、VS或VS Code等。
 
@@ -72,17 +72,17 @@ makefile 是一个文件, 为 make指令提供依靠的文件
 1. 依赖关系
 
 	就像 文件中第一行 `helloworld:helloworld.cpp` 这个语句, 就可以表示 `需要生成的可执行程序helloworld 依赖于 helloworld.cpp 文件`
-
+	
 	而这个格式也是makefile文件内容中 表示文件之间依赖关系的格式, 即 `xxxxx:xxxxx`
-
+	
 	`:`之前是目标文件, `:`之后是目标文件所依赖的文件, 目标文件可以存在多个依赖文件, 此时需要在`:`后表明多个依赖文件
 
 2. 依赖方法
 
 	除依赖关系之外, 目标文件与依赖文件之间还存在依赖方法, 即 表示依赖关系语句的下一行语句, 在上例中为 `g++ helloworld.cpp -o helloworld`
-
+	
 	此依赖方法, 其实就是 `由依赖文件生成目标文件所需要的执行的指令`
-
+	
 	表示依赖关系语句的下一行就是依赖方法。需要注意的是, 依赖方法前必须存在一个`Tab长度(不能为4个空格)`
 
 makefile内容写入完毕之后, 只需要在当前目录下执行make指令, 就可以`直接根据makefile中提供的依赖关系和依赖方法自动执行指令`

@@ -5,15 +5,15 @@ pubDate: 2023-03-04
 description: '什么是环境变量？认识 环境 这两个字, 也知道 变量 是什么, 把这两个词结合起来的环境变量是什么东西？'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410151414492.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410151414492.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757454.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757454.png'
     alt: 'cover'
 tags: ["Linux", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410151414492.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757454.png)
 
 ---
 
@@ -176,9 +176,9 @@ export其实也可以创建一个环境变量：
 3. `HOME` 指 当前用户的主工作目录
 
 	关于 `环境变量HOME`, 可以切换用户 观察其变化
-
+	
 	在非root用户使用su命令, 并输入root密码之后, 在查看 `环境变量HOME`, 可以发现其值改变了：
-
+	
 	![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304172541696.png)
 
 4. `MAIL` 邮箱全局变量

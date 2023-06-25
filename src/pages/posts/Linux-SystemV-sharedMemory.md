@@ -5,15 +5,15 @@ pubDate: 2023-04-03
 description: 'System V 给进程间通信指定的标准有三种 1. System V 消息队列 2. System V 共享内存 3. System V 信号量 本篇文章主要分析介绍 共享内存'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230403092332554.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230403092332554.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801269.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801269.png'
     alt: 'cover'
 tags: ["Linux", "进程", "系统", "通信"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230403092332554.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801269.png)
 
 System V 是一种操作系统进程间通信的标准. 
 
@@ -80,49 +80,49 @@ shmget() 是操作系统提供的`分配共享内存的系统调用`, 需要三�
 1. 首先介绍一下 第二个参数: 
 
 	`size_t size`, 此参数传入的是 `需要开辟多大的共享内存`, 单位是 `byte字节`
-
+	
 	系统会按照 `4KB` 为单位开辟空间, 因为系统 I/O 的单位大小就是 `4KB`
-
+	
 	也就是说, size 参数传入 1、1024、2048、4096 时, 系统都会开辟 `4KB`. 当传入 4097 时, 系统就开会开辟 `8KB`
-
+	
 	不过,  **`虽然系统会按照 4KB为单位开辟空间, 但实际上能够使用的大小还是 size字节`**
 
 2. 其次是, 第三个参数: 
 
 	`int shmflg`, 此参数传入的是 创建共享内存时的参数, 就像Linux文件操作的open系统调用的 O_WRONLY、O_RDONLY…… 
-
+	
 	此参数, 操作系统提供的最重要的两个宏是: `IPC_CREAT`  `IPC_EXCL``
-
+	
 	`IPC_CREAT`: 传入此宏, 则表示创建一个新的共享内存段. ==若共享内存段已存在, 则获取此内存段. 若不存在, 就创建新的内存段==
-
+	
 	`IPC_EXCL`: 此宏, 必须要与 `IPC_CREAT` 一起用. 传入此宏, 则表示如果==创建的内存段不存在, 则正常创建, 否则返回错误==. 使用这个宏, 可以  **`保证此次使用shmget函数成功时, 创建出的共享内存一定是全新的`**
 
 3. 最后介绍, 第一个参数:
 
 	`key_t key`, 此参数其实是传入一个整数. 
-
+	
 	因为 key_t 其实就是整型：
-
+	
 	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328221108075.png)
-
+	
 	传入的key值, 其实是 `创建的共享内存段在操作系统层面的的唯一标识符`
-
+	
 	共享内存是Linux系统的一种进程通信的手段, 而操作系统中 共享内存段 一定是有许多的, 为了管理这些共享内存段, 操作系统一定会描述共享内存段的各种属性.
-
+	
 	在Linux 操作系统中, 共享内存会被描述为一个结构体, 就像描述进程的task_struct、描述文件的file. 
-
+	
 	描述共享内存的结构体内会维护一个 key值, 表示此共享内存在系统层面的唯一表示符, 此key值一般由用户传入
-
+	
 	也就是 `shmget()` 系统调用的第一个参数 `key_t key`. 
-
+	
 	key值需要表示共享内存的唯一标识符, 所以每块共享内存的key值都需要不同, 也就是说 key 值虽然是用户传入的, 但是 key值 的获取也是需要一定的方法的
-
+	
 	Linux系统也为key值的获取提供了一个系统调用：`ftok()`
-
+	
 	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328222807427.png)
-
+	
 	pathname 是一个文件的路径, proj_id 则是随意的8比特位的数值
-
+	
 	ftok()执行成功会返回一个 key值, 这个 **`key值是由传入文件的 inode值 和 传入的proj_id 值通过一定的算法计算出来的`**
 	
 	文件的inode是唯一的, 所以不同的文件计算出的key值, 也会不同
@@ -200,46 +200,46 @@ int main() {
 1. ipcrm, 这是一个命令用于删除进程通信相关内容的
 
 	而 `ipcrm -m`, 则是删除共享内存的指令, -m 就是共享内存的选项.
-
+	
 	我们使用 `ipcs -m` 可以 以列表的形式列出已经创建的共享内存：
-
+	
 	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093003625.png)
-
+	
 	此列表中, 存在两个标识符可以表示一块共享内存: key 和 shmid
-
+	
 	而我们使用 `ipcrm -m` 删除共享内存使用的是 `shmid`
-
+	
 	所以 在此例中, 我们在命令行使用: `ipcrm -m 1` 就可以删除刚刚创建出的共享内存:
 	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093249770.png)
-
+	
 	但是, 共享内存肯定不会只能从命令行删除.
-
+	
 	在代码中也是可以删除的
 
 2. `shmctl()`, 是一个系统调用接口, 可以用来删除已创建的共享内存
 
 	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093504785.png)
-
+	
 	此系统调用, 其实是控制共享内存的接口, 其参数：
-
+	
 	1. `int shmid`, 此参数传入需要控制的共享内存的id, 其实就是 `shmget` 的返回值. 用来选择控制的共享内存块
-
+	
 	2. `int cmd`, 这个参数需要传入操作系统提供的控制共享内存块的选项. 其中有一个选项是 摧毁共享内存块用的 `IPC_RMID`
-
+	
 		![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329094151381.png)
-
+	
 		传入 `IPC_RMID` 可以将指定的共享内存块, 标记为被摧毁了. 可以达到删除的目的
-
+	
 	3. `struct shmid_ds *buf`, 需要传入一个指针, 指针应该指向一个 `shmid_ds`结构体. 此结构体的内容是:
-
+	
 		![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329094525917.png)
-
+	
 		不过我们删除共享内存块, 一般用不上这个.
-
+	
 		所以 `删除共享内存块 只需要传入 nullptr就可以`
-
+	
 	那么, 我们就可以 在代码中使用 `shmctl(shmid, IPC_RMID, nullptr);`, 删除指定的共享内存块
-
+	
 	```cpp
 	#include <iostream>
 	#include <sys/ipc.h>
@@ -271,13 +271,13 @@ int main() {
 	    return 0;
 	}
 	```
-
+	
 	这段代码的运行效果是:
-
+	
 	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329095449845.png)
-
+	
 	创建成功10s后:
-
+	
 	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329095633312.png)
 
 我们介绍了这些内容, 实在介绍什么？
@@ -313,21 +313,21 @@ int main() {
 2. `const void *shmaddr`, 传入一个地址. 此参数使用来指定连接地址的
 
 	通常可以选择传入 `nullptr`. 
-
+	
 	如果传入 `nullptr`, 那么就会自动选择连接地址
-
+	
 	如果传入的不是 `nullptr`, 那么就需要根据第三个参数中 是否传入了 SHM_RND, 来决定连接地址:
-
+	
 	1. 如果 没有传入 SHM_RND, 则就以传入的 shmaddr 作为连接地址
-
+	
 	2. 如果 第三个参数没有传入 SHM_RND, 则连接的地址会自动向下调整为SHMLBA的整数倍.
-
+	
 		`shmaddr - (shmaddr % SHMLBA)`
 
 3. `int shmflg`, 此参数需要传入操作系统提供的宏. 不过, 一般会使用两个宏
 
 	`SHM_RND`, 此宏是为了与第二个参数结合使用
-
+	
 	`SHM_RDONLY`, 使用此宏 表示连接 只读共享内存
 
 `shmat()` 连接共享内存成功之后, 会返回一个地址, 此地址与 malloc 和 new 的用法相同.  **`需要根据接收地址的数据类型 来进行类型强转, 进而控制数据的读取或写入格式`**
@@ -901,13 +901,13 @@ make之后, 生成的可执行程序的执行结果是：
 1. 服务端
 
 	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152334706.png)
-
+	
 	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152539511.png)
 
 2. 客户端
 
 	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152805743.png)
-
+	
 	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152953351.png)
 
 只有这两部分不同, 就可以通过管道实现使用共享内存的简单的访问控制.

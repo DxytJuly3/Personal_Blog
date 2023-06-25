@@ -5,15 +5,15 @@ pubDate: 2023-04-02
 description: 'Linux为我们提供了三种进程间通信的方法：1. pipe 管道通信 2. System V标准通信 3. POSIX标准通信. 本篇文章的主要内容是 匹配管道通信'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402142449044.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402142449044.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758839.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758839.png'
     alt: 'cover'
 tags: ["Linux", "进程通信", "系统", "文件"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402142449044.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758839.png)
 
 ---
 
@@ -64,15 +64,15 @@ Linux为我们提供了三种进程间通信的方法：
 1. `pipe 管道通信`
 
 	管道通信相信许多人已经用过了, 在命令行中的标志就是: `|`: 
-
+	
 	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230324112501490.png)
-
+	
 	管道通信一般用于**`本地进程`**之间传输数据.
-
+	
 	比如在上面的例子中, 我们将ps 进程执行的数据通过管道传输给了 grep, 才能筛选出指定的内容
-
+	
 	管道通信又分为：`匿名管道` 和 `命名管道`
-
+	
 	管道通信是本片文章的主要内容
 
 2. System V 进程通信
@@ -191,25 +191,25 @@ Linux为我们提供了三种进程间通信的方法：
 1. 为什么父子进程要分别以只读和只写方式打开两次文件, 然后再创建子进程呢？
 
 	为什么不是父进程以一个方式打开, 子进程再以另一个方式打开呢？
-
+	
 	因为`子进程会以继承父进程的方式打开同一个文件, 即子进程打开文件的方式与父进程是相同的`
-
+	
 	那这样的话, 父子进程通过想要通过管道实现进程通信, 子进程就需要先关闭已打开的文件, 再以某种方式打开同一个文件
-
+	
 	这样比较麻烦, 如果在创建子进程之前, 父进程就已经以两种方式打开同一个文件, 那么再子进程创建之后, 只需要父进程关闭一个端口, 子进程关闭另一个端口就可以了
 
 2. 必须父进程关闭读取端, 子进程关闭写入端吗？
 
 	并不是的, 父子进程关闭哪个端口, 其实是**`根据需求`**关闭的.
-
+	
 	如果子进程要向父进程传输数据, 那么关闭读取端的就应该是子进程
 
 3. 进程是如何知道管道被打开了什么端口的？或者说 **`进程是如何知道管道被打开了几次的？`**
 
 	其实在file结构体中, 存在一个计数变量 f_count：
-
+	
 	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327153807787.png)
-
+	
 	不过, 这个变量实际上还是一个结构体, 用于计数
 
 
@@ -510,79 +510,79 @@ int main() {
 > 1. 任务列表和任务信息部分：
 >
 > 	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327114104041.png)
->
+>	
 > 	这部分的代码
->
+>	
 > 	首先, 定义了一个任务列表:`vector<functor> functors` 和 用来存放任务信息的哈希表:`unordered_map<uint32_t, string> info`
->
+>	
 > 	functors 用来存储函数指针, 其下标即为对应任务的任务号
->
+>	
 > 	info 用来存储任务信息, pair的first存储任务号, second存储任务信息
->
+>	
 > 	然后, 写了三个任务函数, 没有具体功能
->
+>	
 > 	最后, 写了一个 将任务加载到functors任务列表、将任务信息加载到info的函数.
 >
 > 2. 然后就是main函数:
 >
 > 	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327114803469.png)
->
+>	
 > 	main函数的内部其实可以分为4大块:
->
+>	
 > 	1. 加载任务列表, 即 `执行 loadFunctor()函数`, 以保证任务列表和任务信息的正常使用
->
+>	
 > 	2. 创建匿名管道
->
+>	
 > 	3. 创建子进程, 并编写子进程执行的代码
->
+>	
 > 		子进程需要执行的无非是, 读取管道信息, 并由读取到的信息判断、执行派发的任务
->
+>	
 > 	4. 编写父进程需要执行的代码
->
+>	
 > 		而父进程需要执行的就是, 向管道中写入数据, 达到向子进程随机派发任务的目的
 >
 > 3. 再然后应该去写, 父进程需要执行的代码:
 >
 > 	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327115414065.png)
->
+>	
 > 	父进程的功能是 向子进程随机派发任务列表中的任务, 也就需要取随机值, 先使用srand初始化随机数发射
->
+>	
 > 	然后`关闭读取端`
->
+>	
 > 	然后派发任务:
->
+>	
 > 	派发任务需要`随机获取任务在functors中的编号`, 所以 `uint32_t commandCode = rand() % num`, `commandCode` 就是随机获取的任务编号
->
+>	
 > 	然后**`向管道中以uint32_t为单位, 写入一个任务编号`**, 就可以了
->
+>	
 > 	派发任务循环10次
 >
 > 4. 子进程需要执行的代码：
 >
 > 	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327152811581.png)
->
+>	
 > 	子进程的需要实现：可以从管道中接收父进程写入的任务编号
->
+>	
 > 	而父进程写入任务编号的类型是 uint32_t, 所以 `子进程读取时也需要以此类型读取`
->
+>	
 > 	所以 子进程先关闭写入端
->
+>	
 > 	然后, 定义一个 uint32_t 类型的变量(operatorType)用于从管道中读取任务编号
->
+>	
 > 	然后, `ssize_t ret = read(pipeFd[0], &operatorType, sizeof(uint32_t))`
->
+>	
 > 	> read: 会返回读取到的数据的字节数, 为0时, 表示写入端已不再写入数据
->
+>	
 > 	判断一下read的返回值, 这里判断 为0是派发任务结束 之后
->
+>	
 > 	直接用assert断言, ret的大小是sizeof(uint32_t) 类型的, 不然就是读取错数据类型了
->
+>	
 > 	> `(void)ret`: 此语句的作用是 为了解决release编译模式中, 有可能因为ret没被使用而出现的waring
 > 	> assert() 只在debug编译模式中有效, 使用release模式编译的话, assert()就没有了
 > 	> 所以release模式编译会出现 ret没被使用的情况
->
+>	
 > 	然后判断 读取到的数据是否在functors任务列表的范围内, 如果在则执行对应位置任务
->
+>	
 > 	否则就是bug, 需要告知用户
 
 ### 使用匿名管道 控制多个进程
@@ -799,25 +799,25 @@ int main() {
 1. 命令行创建
 
 	命名管道可以在命令行使用命令创建 `mkfifo`:
-
+	
 	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327181301468.png)
-
+	
 	管道都是先进先出的, 但是命名管道是可见的
-
+	
 	使用mkfifo 可以创建命名管道文件：
-
+	
 	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327181812864.png)
 
 2. 系统调用创建
 
 	Linux除了给了mkfifo命令, 还给了mkfifo()系统调用:
-
+	
 	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327182036574.png)
-
+	
 	`mkfifo(const char *pathname, mode_t mode)`有两个参数, 第一个参数肯定不用解释了, 是创建**`文件的路径及文件名`**
-
+	
 	第二个参数 mode 是什么？
-
+	
 	mode其实是创建文件的权限, 以这种格式传参`0000`
 
 ### 命名管道的使用

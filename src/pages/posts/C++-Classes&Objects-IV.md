@@ -5,8 +5,8 @@ pubDate: 2022-06-28
 description: '关于："对象的成员变量是在哪里定义的？" 的这个问题, 要提出一个名词：初始化列表'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409230426269.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409230426269.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251807073.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251807073.png'
     alt: 'cover'
 tags: ["C++", "类", "对象", "语法"]
 theme: 'light'
@@ -14,7 +14,7 @@ featured: false
 
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409230426269.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251807073.png)
 
 ---
 

@@ -5,15 +5,15 @@ pubDate: 2022-09-01
 description: 'set 和 map 的底层就是由一种二叉搜索树来实现的——红黑树. 本篇文章先来介绍一下 set 和 map 简单的介绍，以及相关接口的使用'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410134738352.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410134738352.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815314.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815314.png'
     alt: 'cover'
 tags: ["C++", "语法", "STL", "树"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410134738352.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815314.png)
 
 `set` 和 `map` 是C++ - STL 中非常重要的两个容器，上一篇文章介绍了 二叉搜索树。 
 
@@ -428,4 +428,3 @@ mapped_type 是map的第二个模板参数，其实就是关键字映射的值�
 在 上面的记录水果个数的例子中，返回的就是 某种水果的个数。如果是 苹果的个数，就说明刚刚记录的是苹果，就需要将苹果的个数`++`
 
 `map` 中 `operator[]` 是一个非常重要，也非常细节的重载函数，需要牢记
-

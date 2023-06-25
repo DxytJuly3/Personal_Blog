@@ -5,15 +5,15 @@ pubDate: 2022-07-26
 description: 'C++继承里面有一些坑是为C++的多态服务的。比如，继承类的析构函数构成隐藏，为什么？有什么意义？等'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410123137963.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410123137963.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809273.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809273.png'
     alt: 'cover'
 tags: ["C++", "多态", "语法"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410123137963.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809273.png)
 
 
 

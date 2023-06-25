@@ -5,15 +5,15 @@ pubDate: 2023-03-27
 description: '理解了文件描述符, 其实就可以相当于理解了 Linux系统的关于内存文件系统的整个大致框架和逻辑'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327174704077.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327174704077.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757935.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757935.png'
     alt: 'cover'
 tags: ["Linux", "文件", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230327174704077.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757935.png)
 
 ---
 
@@ -285,12 +285,13 @@ int main(int argc, char *argv[]) {
 
 	因为, C语言中的不管是文件操作, 还是某些流的操作, 都对系统调用进行了封装
 
-	
+
+​	
 
 6. 为什么语言要对系统调用进行封装？
 
 	首先, 原生的系统调用接口的使用并不是很简单的, 使用成本有点高(与封装后的接口相比)
-
+	
 	其次, 原生的系统调用接口并不具备跨平台的功能, `不同平台相同的功能的系统调用接口是不同的`, Windows、Linux、MacOS等都是不同的, 所以语言需要`对不同的平台的系统调用接口进行封装, 进而使语言具备跨平台的功能`
 
 7. 封装如何解决不能跨平台的问题？
@@ -300,7 +301,7 @@ int main(int argc, char *argv[]) {
 8. 为什么要学习系统级的文件相关接口？
 
 	首先, 系统级的相关接口比起每种语言的接口来说, 一定更接近系统底层, 可以更加了解底层
-
+	
 	其次, 学习系统调用之后, 对于各种语言的相关封装接口也可以有更加透彻的理解
 
 # Linux系统文件接口

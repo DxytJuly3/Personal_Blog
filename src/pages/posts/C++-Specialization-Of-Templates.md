@@ -5,15 +5,15 @@ pubDate: 2022-07-18
 description: '之前关于模板 还有一些问题没有解决，本篇文章就是对模板 提出问题和解决问题的'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410111905752.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410111905752.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810793.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810793.png'
     alt: 'cover'
 tags: ["C++", "语法", "泛型编程"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410111905752.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810793.png)
 
 本篇文章是 C++ 模板的第二篇文章，第一篇文章简单介绍了模板的函数模板、类模板的相关定义及调用等
 

@@ -5,15 +5,15 @@ pubDate: 2021-10-11
 description: 'AVL树 是最早被设计出来的平衡二叉搜索树'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140324830.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140324830.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813180.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813180.png'
     alt: 'cover'
 tags: ["C++", "STL", "数据结构"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140324830.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813180.png)
 
 上一篇文章介绍了 map multimap set multiset ，并且提到过 这些容器的 底层都是 **红黑树** 实现的
 
@@ -282,7 +282,7 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203119573.png)
 > > >
 > > > 	树失衡, 需要调平。 此时又该怎么调整树的结构呢？
-> > >			
+> > >						
 > > > 	其实也很简单, 将 60节点的左孩子 变成 40节点的右孩子, 再将 40节点 作为 60节点的左子树, 让 60节点变为树的根, 将树变为这样：
 > > >
 > > > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313203159437.png)
@@ -391,13 +391,13 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > > 1. 三叉链的连接
 > > >
 > > > 	AVL树的节点的结构是 三叉链结构, 除左右孩子指针之外 还存在一个存储父亲节点地址的 `父亲节点指针`
-> > >
+> > >			
 > > > 	所以在调节平衡 改变节点的位置 或 关系的时候, 需要 `特别注意 父亲节点的链接`
 > > >
 > > > 2. 不平衡节点的父亲节点为空时的处理
 > > >
 > > > 	不平衡节点的父亲节点为空, 也就是说 平衡因子的绝对值为 2 的节点 其实就是`整棵树的根`
-> > >
+> > >			
 > > > 	此时 需要单独处理, 因为是整颗树的根, 所以旋转之后 `subR` 节点应该变为整棵树的根
 > > >
 > > > 3. 不平衡节点的右孩子的左孩子为空时的处理
@@ -517,29 +517,29 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > > 1. `h = 0`
 > > >
 > > > 	h = 0, 也就意味着 A、B、C、D 树 都为空, 并且 60节点 都应该为空。因为 B、C 树的高度是 h-1
-> > >
+> > >			
 > > > 	所以 h = 0 时的实例图 应该为：
 > > >
 > > > ![60节点 就是新插入的节点  |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313204910566.png) 
 > > >
 > > > 	此时应该怎么调整呢？
-> > >			
+> > >						
 > > > 	最终要调节的是 80节点, 80节点是因为左子树高而失衡的, 所以 `最终需要右单旋来调节`
-> > >			
+> > >						
 > > > 	但是 右单旋处理的是 `左左` 的情况
-> > >			
+> > >						
 > > > 	所以 需要将 此树调整为 `左左`
-> > >			
+> > >						
 > > > 	而 左单旋就是将 `parent` 旋转到 `subR` 的左孩子, 并将`subR`连接到`parent`的父亲节点下
-> > >			
+> > >						
 > > > 	那么 就以 40节点为`parent`进行左单旋
-> > >			
+> > >						
 > > > 	即 
 > > >
 > > >   ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205051406.png)
 > > >
 > > > 	这样 就把树的结构调整为了 `左左` 的情况
-> > >			
+> > >						
 > > > 	然后 以 80节点 为 `parent` 进行 `右单旋`：
 > > >
 > > > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205202716.png)
@@ -553,21 +553,21 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > > ![(虚线, 表示 也可以在此位置插入)  |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205509787.png)
 > > >
 > > > 	以80节点为根的树 失衡的情况是 `左右`
-> > >			
+> > >						
 > > > 	80节点因为左子树高 而失衡, 最终需要 `右单旋`调节
-> > >			
+> > >						
 > > > 	所以 需要先将此树调整为 `左左`
-> > >			
+> > >						
 > > > 	以 40节点为 `parent` 进行左单旋, 可以将 `subR`(60节点)调整为左子树高, 且将 `subR` 连接在 `parent` 的父亲节点下
-> > >			
+> > >						
 > > > 	即可以将 此树调整为 `左左`
-> > >			
+> > >						
 > > > 	所以, 以 40节点为 `parent` 进行左单旋：
 > > >
 > > > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205650265.png)
 > > >
 > > > 	此时 以80节点为根的树 失衡的情况就变成了 `左左`
-> > >			
+> > >						
 > > > 	就可以 以 80节点为 `parent` 进行`右单旋`
 > > >
 > > > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205713734.png)
@@ -581,17 +581,17 @@ AVL树 是平衡二叉搜索树，建立的过程 是在 `二叉搜索树的前�
 > > > ![(虚线, 表示 也可以在此位置插入)  |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205806979.png)
 > > >
 > > > 	A、D树各 3 种情况, 新节点可能插入位置有 4 个, 所以此情况的结构一共有 `36` 种
-> > >			
+> > >						
 > > > 	但是还是可以用相同的思路分析：
-> > >			
+> > >						
 > > > 	80节点平衡因子是 -2, 最终需要 `右单旋`进行平衡
-> > >			
+> > >						
 > > > 	而 `右单旋`解决的是 `“左左”` 的情况, 而现在是 `“左右”`
-> > >			
+> > >						
 > > > 	根绝 左单旋的结果的特点 可以知道, 以 40节点为parent 执行左单旋操作
-> > >			
+> > >						
 > > > 	会将 `subR`(60节点)的左子树增高, 并将 `subR` 连接在 `parent` 的父亲节点之下
-> > >			
+> > >						
 > > > 	进而 可以使 以 80节点为根的树的失衡情况变为 `“左左”`
 > > >
 > > > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313205956389.png)
@@ -964,4 +964,3 @@ private:
 AVL树的 插入操作, 是AVL树第二难理解的内容, 最难理解的内容是 `AVL树 数据的删除`
 
 > `AVL树 数据的删除` 更难解决一些, 本篇文章不做分析
-

@@ -5,15 +5,15 @@ pubDate: 2023-04-14
 description: '简单的说, 页表是进程地址空间和物理内存之间的相互映射'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151330737.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151330737.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758696.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758696.png'
     alt: 'cover'
 tags: ["Linux", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151330737.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758696.png)
 
 上一篇文章介绍了线程的基本概念
 

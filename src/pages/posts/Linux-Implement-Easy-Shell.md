@@ -5,15 +5,15 @@ pubDate: 2023-03-11
 description: '我们可以通过shell, 执行各种命令. 而本篇文章的主要内容, 就是实现一个简易的shell'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410153941135.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410153941135.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757712.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757712.png'
     alt: 'cover'
 tags: ["Linux", "Shell", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410153941135.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757712.png)
 
 ---
 

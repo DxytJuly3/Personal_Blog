@@ -5,15 +5,15 @@ pubDate: 2022-07-21
 description: 'C++ 是一种面向对象的编程语言，而面向对象有三大特性：封装、继承、多态(三大特性 而不是 只有三个特性). 本篇文章的主要内容是 C++继承'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410112636958.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410112636958.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251808460.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251808460.png'
     alt: 'cover'
 tags: ["C++", "继承", "原理"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410112636958.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251808460.png)
 
 在首次接触，类与对象的时候就已经介绍过
 

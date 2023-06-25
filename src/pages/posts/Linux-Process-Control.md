@@ -5,15 +5,15 @@ pubDate: 2023-03-07
 description: '这次, 是第三次正式的对fork()系统调用进行介绍、补充'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230324101928406.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230324101928406.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759370.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759370.png'
     alt: 'cover'
 tags: ["Linux", "进程", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230324101928406.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759370.png)
 
 ---
 
@@ -286,31 +286,31 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 2. waitpid()
 
 	与 `wait(int *status)`不同, `waitpid(pid_t pid, int *status, int options)`有三个参数, 其返回值与wait()相同, `若返回值 > 0 返回值即为等待的子进程的PID; 若返回值 = -1, 即为调用失败, errorno会被设置为错误提示码; 若返回值 = 0, 则表示没有已退出的子进程可回收(此种情况的出现, 需要设置)`
-
+	
 	首先, 先介绍waitpid()三个参数的含义：
-
+	
 	1. ### `pid_t pid`
-
+	
 		 其实看到pid这个变量 就应该可以猜到此参数的意义.
-
+	
 		`此参数可以传入的是子进程的pid, 意为指定pid让父进程等待, 即 父进程等待指定的子进程`
-
+	
 		当此参数传入 `-1`时, waitpid()的作用 <=> wait(), 也是等待任意的子进程
-
+	
 		当此参数传入其他值时, 那么此值就表示某个pid, waitpid()的作用就是等待传入的此pid的子进程
-
+	
 	2. ### `int *status`
-
+	
 	  wait()仅有的一个参数也是这个参数, 那么这个参数的意义是什么？
-
+	
 	  status这个参数是一个指针参数, 也是一个`输出型参数`. 
-
+	
 	  输出型参数是什么意思？输出型参数意味着, 此参数其实`是向外部传递信息的`, 当 waitpid()此函数等待到一个退出的子进程的时候, **`子进程的退出信息会被存储到 status指针指向的内容中`**
-
+	
 	  子进程的退出信息不就是退出码吗？并不全是, 之前提到过进程的退出信息也是在 task_struct中存储着呢：
-
+	
 	  ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308093956744.png)
-
+	
 	  也就是说, `status指向的内容中不仅存储了退出码, 还存储了退出信号`. 退出码我们知道是什么, 而退出信号又是什么？
 	
 	  在上面我们提到过, 一个进程退出时应该有三种情况：
@@ -319,10 +319,11 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 	  2. 代码正常跑完, 结果不正确
 	  3. 代码没有跑完, 进程异常退出
 
-	  
+
+​	  
 
 	  前两种情况我们已经分析过了, 那么第三种情况 进程异常退出, 进程为什么会异常退出呢？
-
+	
 	  其实, `进程异常退出的原因是进程收到了某种信号`, 就类似 kill -9 这样的命令 其实就是一种信号
 	
 	  > 进程信号这里不做介绍, 只需要知道进程异常退出是收到了某种信号即可
@@ -420,7 +421,7 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 		也就是说, `options传入WNOHANG时, waitpid()只会回收当前已经退出的子进程, 如果没有子进程处于此状态, 那么waitpid()就会返回0. 在返回之后, 即使又有子进程退出了, waitpid()也不再回收`
 	
 		所以, `在options传入WNOHANG时, waitpid()的使用一般伴随着循环`. 即让waitpid()循环判断是否存在需要回收的子进程, 这样也不影响父进程做其他工作
-	
+
 
 # 进程替换
 

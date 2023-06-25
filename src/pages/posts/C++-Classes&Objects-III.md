@@ -5,15 +5,15 @@ pubDate: 2022-06-26
 description: 'C++ 中，引入了 运算符重载，使同类对象之间可以使用运算符，进而提高代码可读性'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225318200.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225318200.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806029.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806029.png'
     alt: 'cover'
 tags: ["C++", "类", "对象", "语法"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409225318200.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806029.png)
 
 –
 

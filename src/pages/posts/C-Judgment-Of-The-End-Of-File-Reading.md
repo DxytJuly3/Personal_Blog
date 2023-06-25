@@ -5,15 +5,15 @@ pubDate: 2022-03-28
 description: '当我们对一个文件的数据进行读取，输入到内存中的时候，无论是读取文件数据正常结束，还是读取文件数据失败了，函数都会返回一个值'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409204006511.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409204006511.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812483.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812483.png'
     alt: 'cover'
 tags: ["C", "文件"]
 theme: 'light'
 featured: false
 ---
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409204006511.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812483.png)
 
 ---
 

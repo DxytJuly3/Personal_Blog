@@ -6,15 +6,15 @@ description: 'STL源码, 实现 stack 和 queue 都使用了 deque 作为适配�
 为什么 Stack和 Queue要用它来作为适配器实现？'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410111126281.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410111126281.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815703.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815703.png'
     alt: 'cover'
 tags: ["C++", "STL", "容器", "语法"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410111126281.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815703.png)
 
 STL源码实现 `Stack` 和 `Queue` 都使用了 `deque` 作为适配器
 

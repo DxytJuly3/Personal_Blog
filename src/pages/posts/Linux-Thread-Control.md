@@ -6,15 +6,15 @@ description: '我们知道, 进程有自己相关控制接口, 等待、创建�
 而线程作为轻量级的进程, 其实也是有控制接口的.'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415171503544.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415171503544.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801575.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801575.png'
     alt: 'cover'
 tags: ["Linux", "线程", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415171503544.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801575.png)
 
 Linux系统中, 线程是轻量级的进程. 我们已经介绍过了线程的相关概念, 见过了线程再Linux操作系统中的存在形式.
 

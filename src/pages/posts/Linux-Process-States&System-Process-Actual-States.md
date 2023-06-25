@@ -5,15 +5,15 @@ pubDate: 2023-03-03
 description: '生成进程之后, 操作系统会给进程分配其所需要的资源。而为了整个操作系统的稳定和效率, 操作系统会对进程进行调度、管理, 在调度管理的过程中进程会存在不同的状态, 这些不同的状态就被称为进程状态。'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150917148.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150917148.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759202.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759202.png'
     alt: 'cover'
 tags: ["Linux", "进程", "系统"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410150917148.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759202.png)
 
 ---
 

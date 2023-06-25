@@ -5,15 +5,15 @@ pubDate: 2022-07-30
 description: '编译器是怎么实现多态调用的？'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410124130907.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410124130907.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251807185.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251807185.png'
     alt: 'cover'
 tags: ["C++", "多态", "原理"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410124130907.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251807185.png)
 
 上一篇文章 详细介绍了什么是多态 和 多态的使用等方面的问题。但是却留下了一个最大的疑问
 

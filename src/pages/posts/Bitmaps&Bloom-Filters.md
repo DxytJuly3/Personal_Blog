@@ -5,15 +5,15 @@ pubDate: 2023-02-20
 description: '哈希是一种思想, 位图 和 布隆过滤器是哈希思想的实现的一种'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144904319.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144904319.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805666.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805666.png'
     alt: 'cover'
 tags: ["C++", "哈希", "位图"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144904319.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805666.png)
 
 哈希是一种思想, 除了之前文章中介绍的一些使用哈希思想实现的哈希表之外, 哈希思想的应用还有其他的方面。也就是本篇文章所介绍的 位图 和 布隆过滤器
 
@@ -310,7 +310,7 @@ bool test(size_t x) {
 > 1. 海量数据绝大部分或者全部都只是同一个数据, 经过哈希切割出来的文件也是非常大的文件, 依旧存在海量数据的情况
 >
 > 	此种情况在统计的时候不会发生太大的问题, 因为在使用红黑树等容器遍历文件统计数量时, 容器中只会存储一个数据, 当遍历过程中再次遇到此数据时, 容器中并不会再次存储, 而只是进行统计 将计数进行++
->
+>	
 > 	所以, 不用担心此时会发生内存报错
 >
 > 2. 发生哈希冲突, 即同一个文件中可能存在太多个不同的IP(太多表示依旧是海量数据)

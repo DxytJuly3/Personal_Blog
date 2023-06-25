@@ -5,15 +5,15 @@ pubDate: 2022-06-30
 description: 'C++中的的模板，分为两部分：1. 函数模板 2. 类模板 本篇文章就从函数模板开始讲起'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410001425349.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410001425349.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810662.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810662.png'
     alt: 'cover'
 tags: ["C++", "语法", "泛型"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410001425349.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810662.png)
 
 ---
 

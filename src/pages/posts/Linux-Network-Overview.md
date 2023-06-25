@@ -5,15 +5,15 @@ pubDate: 2023-04-23
 description: '本篇文章首次接触网络, 将简单介绍一下网络的概念以及网络通信原理的简单理解'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230424103525580.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230424103525580.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251818539.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251818539.png'
     alt: 'cover'
 tags: ["Linux", "网络"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230424103525580.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251818539.png)
 
 ---
 

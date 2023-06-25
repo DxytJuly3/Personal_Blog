@@ -6,15 +6,15 @@ description: '红黑树 也是一种 二叉平衡搜索树, 但是 其对平衡�
 红黑树 关于平衡的限制是：最长的路径 不大于 最短路径的两倍'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140820248.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140820248.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.png'
     alt: 'cover'
 tags: ["C++", "数据结构", "STL", "树"]
 theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410140820248.png)
+![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.png)
 
 ---
 
