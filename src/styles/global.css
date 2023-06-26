@@ -104,14 +104,14 @@ h6.md-focus:before {
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 2.7rem;
   text-align: center;
   margin-top: 2rem;
   border-bottom: 2px solid #f79f2a;
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: 2.3rem;
   display: inline-block;
   border-bottom: 0.4px solid #f79f2a;
 
@@ -130,13 +130,13 @@ h2 .md-plain:after {
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   line-height: 1.43;
   margin: 20px 0 7px;
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 
 h5 {
@@ -149,15 +149,29 @@ h6 {
 
 li {
   font-size: 1.011em;
+  line-height: 1;
   font-family: 'Fira Code Regular', 'PingFang Regular';
 }
 
 ol {
   font-family: 'Fira Code Regular', 'PingFang Regular';
-  font-style: italic;
-  font-size: 1.011em;
-  /* font-weight: bold; */
-   padding: 0px 1pc
+  margin-left: 1.17647em;
+  color: #133231bc;
+  font-size: 16px;
+  font-weight: 450;
+  display: table;
+  background-color: #cccccc1f;
+  border-radius: 7px;
+  padding: 0rem 2.5rem;
+}
+
+
+ul {
+  display: table;
+  font-family: 'Fira Code Regular', 'PingFang Regular';
+  margin-left: 3.2em;
+  font-size: 16px;
+  font-weight: 450;
 }
 
 pre,
@@ -350,12 +364,6 @@ ul+*,
 ol+* {
   font-family: 'Fira Code Regular', 'PingFang Regular';
   margin-top: .8em
-}
-
-ul,
-ol {
-  font-family: 'Fira Code Regular', 'PingFang Regular';
-  margin-left: 1.17647em
 }
 
 ul ul,
@@ -7529,17 +7537,19 @@ code {
   tab-size: 4;
   font-style: normal;
   font-family: 'Fira Code Regular', 'PingFang Regular';
-  color: #434de0;
-  background-color: #aff9fd49;
-  margin: 0px 0.25em;
+  color: #5f5959;
+  background-color: #f79e2a10;
+  border-radius: 0.3rem;
+  padding: 0.1rem 0.3rem;
+  margin: 0.1rem 0.1rem;
 }
 
 blockquote {
   font-family: 'Fira Code Regular', 'PingFang Regular';
   background: #fafafa;
-  border-left: 0.3em solid #ccc;
+  border-left: 0.3em solid #897d7d;
   padding: 0.5em 0.5em;
-  border-radius: 4px;
+  border-radius: 7px;
   margin-bottom: 1.4211em;
   color: #6e6e73;
   font-size: 16px;
@@ -7558,16 +7568,11 @@ blockquote {
   color: #9999a5;
 }
 
-blockquote p {
-  display: inline;
-}
-
 strong {
   font-family: 'Fira Code Regular', 'PingFang Regular';
-  color: #b977e9;
-  font-size: 19px;
+  color: #3F545B;
+  font-size: 18px;
   font-weight: bold;
-  font-style: italic;
   border-radius: 2px;
   padding: 2px 6px;
   position: relative;
