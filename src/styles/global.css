@@ -157,7 +157,7 @@ ol {
   font-family: 'Fira Code Regular', 'PingFang Regular';
   margin-left: 1.17647em;
   color: #133231bc;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 450;
   display: table;
   background-color: #cccccc1f;
@@ -7570,7 +7570,7 @@ blockquote {
 strong {
   font-family: 'Fira Code Regular', 'PingFang Regular';
   color: #3F545B;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   border-radius: 2px;
   padding: 2px 6px;
