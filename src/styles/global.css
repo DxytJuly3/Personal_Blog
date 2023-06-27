@@ -155,29 +155,30 @@ ol {
   color: #133231bc;
   font-size: 13px;
   font-weight: bold;
-  display: flex;
-  flex-wrap: wrap;
+  display: table;
   background-color: #cccccc1f;
-  justify-content: space-between;
   border-radius: 7px;
-  padding: 0rem 2.5rem;
+  padding: 0rem 2rem;
 }
 
-ol li {
+/* ol li {
   word-wrap: break-word;
   word-break: break-all;
   white-space: normal;
-}
+} */
 
 /* 媒体查询 */
-@media screen and (max-width: 767px) {
-  ol li,
-  ul li {
-    max-width: 100%;
+@media screen and (max-width: 1068px) {
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
   }
-}
-/* 媒体查询 */
-@media screen and (min-width: 767px) {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
   ol li,
   ul li {
     max-width: 100%;
@@ -5806,12 +5807,12 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
 .component-content {
   margin-left: auto;
   margin-right: auto;
-  width: 920px
+  width: 1000px
 }
 
 @media only screen and (max-width: 1068px) {
   .component-content {
-    width: 576px
+    width: 678px
   }
 }
 
