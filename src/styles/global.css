@@ -149,21 +149,41 @@ li {
   font-family: 'Fira Code Regular', 'PingFang Regular';
 }
 
-ol li {
-  max-width: 810px;
-}
-
 ol {
   font-family: 'Fira Code Regular', 'PingFang Regular';
   margin-left: 1.17647em;
   color: #133231bc;
   font-size: 13px;
   font-weight: bold;
-  display: table;
+  display: flex;
+  flex-wrap: wrap;
   background-color: #cccccc1f;
+  justify-content: space-between;
   border-radius: 7px;
   padding: 0rem 2.5rem;
 }
+
+ol li {
+  word-wrap: break-word;
+  word-break: break-all;
+  white-space: normal;
+}
+
+/* 媒体查询 */
+@media screen and (max-width: 767px) {
+  ol li,
+  ul li {
+    max-width: 100%;
+  }
+}
+/* 媒体查询 */
+@media screen and (min-width: 767px) {
+  ol li,
+  ul li {
+    max-width: 100%;
+  }
+}
+
 
 ol strong,
 ul strong {
@@ -5801,9 +5821,15 @@ html.no-touch.no-reduced-motion .tile.tile-list[data-focus-method=key] .media--v
   }
 }
 
+.image.image-big {
+  width: auto;
+  max-width: 1200px;
+  border-radius: 5px
+}
+
 .image-big .component-content {
   width: 1200px;
-  margin: 0 -110px;
+  margin: 0 auto;
 }
 
 @media only screen and (max-width: 1068px) {
@@ -7445,7 +7471,7 @@ blockquote .image.image-wide .component-content {
 }
 
 pre {
-  max-width: 920px;
+  max-width: auto;
 }
 
 li .code pre {
