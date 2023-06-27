@@ -34,6 +34,7 @@
 ::after {  
   font-family: 'Fira Code Regular', 'PingFang Regular';
   box-sizing: inherit;
+  font-size: 14px;
 }
 
 html,
@@ -48,7 +49,6 @@ html {
 }
 
 body {
-  font-size: 14px;
   font-family: 'Fira Code Regular', 'PingFang Regular';
   margin: 0;
   padding: 0
@@ -163,6 +163,18 @@ ol {
   background-color: #cccccc1f;
   border-radius: 7px;
   padding: 0rem 2.5rem;
+}
+
+ol strong,
+ul strong {
+  font-family: 'Fira Code Regular', 'PingFang Regular';
+  color: #3F545B;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 2px;
+  padding: 2px 6px;
+  position: relative;
+  border-left: none;
 }
 
 
@@ -7551,7 +7563,7 @@ blockquote {
   border-radius: 7px;
   margin-bottom: 1.4211em;
   color: #6e6e73;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 
@@ -7570,7 +7582,6 @@ blockquote {
 strong {
   font-family: 'Fira Code Regular', 'PingFang Regular';
   color: #3F545B;
-  font-size: 16px;
   font-weight: bold;
   border-radius: 2px;
   padding: 2px 6px;
