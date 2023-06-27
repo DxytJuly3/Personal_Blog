@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251800381.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251800381.png)
 
 Linux中, 使用系统接口打开文件时, 系统会为打开的文件在此进程中分配fd, 而且是按照数组下标的顺序进行分配的
 
@@ -57,11 +57,11 @@ int main() {
 
 执行这段代码的结果是：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317211153325.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317211153325.png)
 
 可以看到, 新打开的文件分配的fd变成了`0`. 如果我们关闭0、2文件, 再打开两个文件, 新打开文件的fd会怎么分配呢？
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317211753825.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317211753825.png)
 
 这意味着什么？这其实意味着, `打开文件分配fd的规则其实是, 从头遍历fd_array[]数组, 将没有使用的最小下标分配给新打开的文件`
 
@@ -128,7 +128,7 @@ int main() {
 }
 ```
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317214441303.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317214441303.png)
 
 > 关闭fd=1, fprintf()之后, 必须要手动刷新文件缓冲区, 不过暂时不做解释
 >
@@ -136,7 +136,7 @@ int main() {
 
 代码的执行结果并没有在屏幕中输出任何信息. 那信息打印到哪里了呢？
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317214727485.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230317214727485.png)
 
 此时当你查看刚刚打开文件的内容, 会发现, `原来应该打印到标准输出流的信息 打印到了刚刚打开的文件中`
 
@@ -220,7 +220,7 @@ int main() {
 }
 ```
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318000914397.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318000914397.png)
 
 当, 以 追加并写入的方式打卡文件时, 就可以实现追加重定向：
 
@@ -250,7 +250,7 @@ int main() {
 }
 ```
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318001111053.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318001111053.png)
 
 ### dup2()实现输入重定向
 
@@ -285,7 +285,7 @@ int main() {
 }
 ```
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318003004837.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318003004837.png)
 
 # 文件缓冲区
 
@@ -321,7 +321,7 @@ int main() {
 
 这段代码的执行结果是：
 
-![printfBuffer |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/printfBuffer.gif)
+![printfBuffer |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/printfBuffer.gif)
 
 可以看到, 明明在printf()之后的 write()语句先输出了. 
 
@@ -383,7 +383,7 @@ int main() {
 
 这段代码的执行结果是, 先输出了`"I am a process"`, 然后在3s之后输出了`"Hello world"`
 
-![printfBuffer |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/printfBuffer.gif)
+![printfBuffer  |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/printfBuffer.gif)
 
 这样的结果可以确定一个结论：`系统接口wirte(), 是不存在文件缓冲区的, 所以用write()向标准输出写数据, 会直接在屏幕中打印出来`
 
@@ -463,13 +463,13 @@ int main() {
 
 执行上面的代码, 可以发现：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318094633174.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318094633174.png)
 
 屏幕上什么都没有打印.
 
 而, 当我们不关闭stdout时：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318094804037.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318094804037.png)
 
 执行代码就会在屏幕上打印三个`"Hello July"`
 
@@ -644,7 +644,7 @@ int main() {
 }
 ```
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318112042472.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318112042472.png)
 
 ## my_fclose()函数
 
@@ -731,9 +731,9 @@ int main() {
 }
 ```
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155910812.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155910812.png)
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155916107.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155916107.png)
 
 # 再谈重定向
 
@@ -791,13 +791,13 @@ int main() {
 }
 ```
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318203428385.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318203428385.png)
 
 这段代码分别向标准输出和标准错误打印了4句话, 那么当我们执行代码并输出重定向到文件中时：
 
 `./out_err > out_err.txt`
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318203744732.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230318203744732.png)
 
 这意味着什么？
 
@@ -811,11 +811,11 @@ int main() {
 
 在介绍之前, 先看一下这个命令：`./out_err 1> out_err.txt`
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155942131.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155942131.png)
 
 那么如果是这个呢？`./out_err 2> out_err.txt`
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155947345.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155947345.png)
 
 使用 `1> 重定向` 是输出重定向, 而使用 `2> 重定向` 则是错误重定向
 
@@ -835,7 +835,7 @@ int main() {
 
 `./out_err 1> out.txt 2> err.txt`
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155951117.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155951117.png)
 
 这样的重定向用法, `可以分离程序的运行日志, 可以将运行错误日志分离出来以便分析`
 
@@ -847,7 +847,7 @@ int main() {
 
 `./out_err 1> all.txt 2>&1`
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155954900.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410155954900.png)
 
 > 2>&1的操作, 可以看作 是 **`将标准错误输出重定向`**
 

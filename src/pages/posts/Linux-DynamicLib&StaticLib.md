@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251756107.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251756107.png)
 
 ---
 
@@ -80,13 +80,13 @@ featured: false
 > }
 > ```
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322091636437.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322091636437.png)
 
 ### 介绍静态链接
 
 除了上面可以直接编译链接一步生成可执行文件之外, 还可以通过添加选项将编译链接的过程分离开, 可以使用 `-c` 选项将代码文件先编译成目标文件而先不做链接：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322085615053.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322085615053.png)
 
 生成`.o` 的下一步就是链接了, 那么而我们知道, 我们所谓的链接, 其实就是把这些生成的`.o`目标文件连接起来生成可执行程序
 
@@ -96,7 +96,7 @@ featured: false
 
 我们创建另一个目录, 并只将两个`.o`文件移动过去 而不移动`.c`文件, 并再main函数中使用两个函数：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322093852419.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322093852419.png)
 
 可以发现, 即使没有指定编译`.c`文件, 只将`.o`文件链接起来, 就可以成功生成一个可执行文件
 
@@ -118,11 +118,11 @@ featured: false
 
 那么对于我们实现的两个简单的累加和print时间的函数来说, 我们就可以这样创建静态库：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322111304476.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322111304476.png)
 
 并且可以通过 `ar -tv` 查看静态库的信息：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322114733492.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322114733492.png)
 
 #### 打包静态库
 
@@ -137,7 +137,7 @@ cp *.a lib-static/lib
 cp *.h lib-static/include
 ```
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322213910529.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322213910529.png)
 
 ### 创建动态库
 
@@ -149,7 +149,7 @@ gcc -c 生成的目标文件, 只能用于静态库的创建, 不能用于动态
 
 创建动态库所用的`.o`文件, 是通过 `gcc -fPIC -c` 编译生成的
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322214155688.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322214155688.png)
 
 这样生成的目标文件也是可以直接链接生成可执行文件的.
 
@@ -161,7 +161,7 @@ gcc -c 生成的目标文件, 只能用于静态库的创建, 不能用于动态
 
 而动态库的命名也有严格的格式：`libxxxx.so`, 以`lib为开头, 以.so后缀结尾`
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322220024492.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322220024492.png)
 
 ####  什么是fPIC选项
 
@@ -184,7 +184,7 @@ cp *.so lib-dynamic/lib
 cp *.h lib-dynamic/include
 ```
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322220234075.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322220234075.png)
 
 ## 动、静态库的使用
 
@@ -205,7 +205,7 @@ cp *.h lib-dynamic/include
 
 在编写c语言时使用静态库：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322221356453.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322221356453.png)
 
 >  **在包含头文件时, 直接指定了头文件的相对位置**
 
@@ -235,11 +235,11 @@ cp *.h lib-dynamic/include
 	
 	我们需要将静态库文件添加到此路径下：
 	
-	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322223924103.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322223924103.png)
 	
 	然后再编译链接：
 	
-	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322223955105.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322223955105.png)
 	
 	会发现, 还是错误.
 	
@@ -247,7 +247,7 @@ cp *.h lib-dynamic/include
 	
 	以往我们使用C语言时, 我们使用的都是c语言提供的库. 而`gcc默认是认识c语言的库的, 但是它并不认识其他的第三方库`, 比如我们的库. 它不认识我们的库, 那么`即使我们的库就在系统库目录下、就在他眼前, 它也认不出来`
 	
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322224841491.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322224841491.png)
 	
 	系统的库文件目录下, 已经存在了我们的库文件, 但是gcc不认识
 	
@@ -255,7 +255,7 @@ cp *.h lib-dynamic/include
 	
 	这是, 就需要使用 `-l` 选项, 来指定我们需要的库：
 	
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322224353720.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322224353720.png)
 	
 	> gcc使用-l, 可以告诉gcc需要使用哪个库. 就是让gcc认识我们使用的库
 	>
@@ -271,7 +271,7 @@ cp *.h lib-dynamic/include
 	
 	删除之后, 再执行gcc语句：
 	
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322225401054.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322225401054.png)
 
 2. #### 指定头文件路径和库文件路径
 
@@ -294,7 +294,7 @@ cp *.h lib-dynamic/include
 	
 	再直接进行编译链接：
 	
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322230823048.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322230823048.png)
 	
 	头文件也找不到了, 而且库文件也肯定找不到, 使用的第三方库函数肯定也无法找到
 	
@@ -309,23 +309,23 @@ cp *.h lib-dynamic/include
 	
 	`gcc test.c -I ./include -L ./lib -lMyfunc`
 	
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322231507473.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322231507473.png)
 
 ### 动态库的使用
 
 按照上面使用静态库的经验, 我们可以直接使用`gcc -I -L -l` 来对使用动态库的代码, 进行编译链接：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322233946223.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322233946223.png)
 
 执行命令不会报错, 但是当我们运行生成的可执行程序的时候：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322234149963.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322234149963.png)
 
 我们会发现, 进程无法找到相对应的动态库.
 
 发生这种找不到库的错误的时候, 可以使用ldd命令来查看程序依赖的库：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322234749548.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230322234749548.png)
 
 系统表示, 程序依赖的一个 libMyfun.so 库找不到.
 
@@ -341,84 +341,84 @@ cp *.h lib-dynamic/include
 
 1. 在系统库目录下添加使用的动态库
 
-	在/lib64目录下添加动态库, 就是将动态库安装到系统中
-	
-	**`系统的库目录, 不仅仅只是给gcc提供库的查找路径的, 而是给系统中的所有进程`**, 所以 在系统库目录下添加动态库, 所有进程就可以找到
-	
-	这个就不演示了
+    在/lib64目录下添加动态库, 就是将动态库安装到系统中
+
+    **`系统的库目录, 不仅仅只是给gcc提供库的查找路径的, 而是给系统中的所有进程`**, 所以 在系统库目录下添加动态库, 所有进程就可以找到
+
+    这个就不演示了
 
 2. 添加相应的环境变量
 
-	Linux操作系统中, `有一个环境变量是用来 指定 进程动态运行时 查询库文件的路径的`: `LD_LIBRARY_PATH`
-	
-	所以, 我们只要添加环境变量, 进程就会向环境变量下的目录中查找动态库
-	
-	举个例子：
-	
-	```shell
-	# 永久添加环境变量
-	# 首先 先增加用户的写权限
-	sudo chmod a+w /etc/profile
-	vim /etc/profile
-	# 在打开文件的最后一行输入
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/July/gitCode/github/problem-of-learning/Linux/Code/CPP/libStaticDynamic/lib-dynamic/lib
-	# 保存退出之后, 关闭用户的写权限 再执行命令使修改生效
-	sudo chmod a-w /etc/profile
-	# 必须关闭用户写权限
-	source /etc/profile
-	```
-	
-	然后再执行可执行程序：
-	
-	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323002052643.png)
-	
-	可以看到, 程序已经可以正常执行
-	
-	> 测试完之后, 可以取消设置
+    Linux操作系统中, `有一个环境变量是用来 指定 进程动态运行时 查询库文件的路径的`: `LD_LIBRARY_PATH`
+
+    所以, 我们只要添加环境变量, 进程就会向环境变量下的目录中查找动态库
+
+    举个例子:
+
+    ```shell
+    # 永久添加环境变量
+    # 首先 先增加用户的写权限
+    sudo chmod a+w /etc/profile
+    vim /etc/profile
+    # 在打开文件的最后一行输入
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/July/gitCode/github/problem-of-learning/Linux/Code/CPP/libStaticDynamic/lib-dynamic/lib
+    # 保存退出之后, 关闭用户的写权限 再执行命令使修改生效
+    sudo chmod a-w /etc/profile
+    # 必须关闭用户写权限
+    source /etc/profile
+    ```
+
+    然后再执行可执行程序:
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323002052643.png)
+
+    可以看到, 程序已经可以正常执行
+
+    > 测试完之后, 可以取消设置
 
 3. 添加系统配置文件
 
-	除了上面的添加环境变量来让进程可以找到动态库之外, 还有另外一种方法：添加系统配置文件
-	
-	Linux操作系统中 `/etc/ld.so.conf.d` 路径下, 保存的是搜索动态库的配置文件：
-	
-	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323002503616.png)
-	
-	我们可以添加一个类似的文件, 来让进程知道向哪里查询动态库
-	
-	但是文件内容是什么呢？
-	
-	可以先查看一下已经存在的文件：
-	
-	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323002639608.png)
-	
-	可以看到, 其实这些配置文件的内容, 就是一个动态库所在的路径
-	
-	那么我们也可以比葫芦画瓢, 添加一个指定动态库路径的配置文件, 文件名可以随便写：
-	
-	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323003334543.png)
-	
-	添加了配置文件之后, 可执行程序还是不能正常运行的.
-	
-	因为我们添加的配置文件还没有被加载到系统内存中, 所需需要使用命令：`ldconfig 配置文件`
-	
-	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323003609394.png)
-	
-	> 可以删除配置文件后, 执行`ldconfig` 来取消配置文件的加载
+    除了上面的添加环境变量来让进程可以找到动态库之外, 还有另外一种方法：添加系统配置文件
+
+    Linux操作系统中 `/etc/ld.so.conf.d` 路径下, 保存的是搜索动态库的配置文件:
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323002503616.png)
+
+    我们可以添加一个类似的文件, 来让进程知道向哪里查询动态库
+
+    但是文件内容是什么呢?
+
+    可以先查看一下已经存在的文件:
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323002639608.png)
+
+    可以看到, 其实这些配置文件的内容, 就是一个动态库所在的路径
+
+    那么我们也可以比葫芦画瓢, 添加一个指定动态库路径的配置文件, 文件名可以随便写:
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323003334543.png)
+
+    添加了配置文件之后, 可执行程序还是不能正常运行.
+
+    因为我们添加的配置文件还没有被加载到系统内存中, 所需需要使用命令：`ldconfig 配置文件`
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323003609394.png)
+
+    > 可以删除配置文件后, 执行`ldconfig` 来取消配置文件的加载
 
 4. 添加软连接
 
-	这个方法与第一种方法类似, 也是想系统的库文件目录下添加文件
-	
-	不过此时添加的是动态库的软连接, 而不是原本的动态库文件：
-	
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323005804169.png)
-	
-	添加之后, 可以正常执行程序
-	
-	并且, 此时在编译的时候, 也不需要指定库的目录了！
-	
-	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323010241075.png)
+    这个方法与第一种方法类似, 也是向系统的库文件目录下添加文件
+
+    不过此时添加的是动态库的软连接, 而不是原本的动态库文件:
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323005804169.png)
+
+    添加之后, 可以正常执行程序
+
+    并且, 此时再编译, 也不需要指定库的目录了!
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323010241075.png)
 
 #### 为什么使用静态库的可执行程序没有查找不到库的情况？
 
@@ -442,7 +442,7 @@ cp *.h lib-dynamic/include
 
 而动态库是一个可执行文件, 它拥有`x执行权限`：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323011931508.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230323011931508.png)
 
 **`如果程序不知道其所使用的动态库的路径, 那么进程在运行时, 操作系统就不能根据程序把动态库加载到内存中`**
 

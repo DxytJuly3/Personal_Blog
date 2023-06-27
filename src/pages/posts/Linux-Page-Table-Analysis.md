@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758696.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758696.png)
 
 上一篇文章介绍了线程的基本概念
 
@@ -29,13 +29,13 @@ featured: false
 
 只是简单说了 `页表是进程地址空间和物理内存之间的相互映射`. 而且, 画图也对页表做了简单化处理：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230413190322897.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230413190322897.png)
 
 但是实际上, 页表并不是只有简单的两栏, 页表的实现是有些复杂的, 不是一张表可以描述的. 
 
 不过 整个结构抽象一下暂时还是可以以一级页表来表示：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230413191403715.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230413191403715.png)
 
 页表可以看作, 除了有虚拟地址或物理地址两栏之外, 其实还有其他栏：名中、RWX权限、U/K权限
 
@@ -124,7 +124,7 @@ CPU会分别用这三部分查找到物理内存.
 
 32位环境下, 页表映射的实现使用的是二级页表, 情况如下：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414120924586.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414120924586.png)
 
 首先使用虚拟地址的最高10位, 在`页目录`中找到一个相应的页表
 
@@ -182,7 +182,7 @@ CPU会分别用这三部分查找到物理内存.
 
 用一张图表示整个流程就是：
 
-![CPU通过页表用虚拟地址查找物理地址的过程](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414141948110.png)
+![CPU通过页表用虚拟地址查找物理地址的过程 |big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414141948110.png)
 
 那么介绍到这里, 其实针对页表中是否名中这一栏目, 就可以有一个更加具体的理解了.
 

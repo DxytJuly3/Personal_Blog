@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251818539.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251818539.png)
 
 ---
 
@@ -43,7 +43,7 @@ Linux的相关介绍, 从本篇文章开始 就要进入网络部分了.
 
 那么, 业务在计算机中处理完成之后, 就需要将业务数据从计算机中拿出来, 再传输到另一台计算机中. 也就是说 需要一个可以存储数据的中间媒介,  就像我们现在使用的U盘、移动硬盘等可以存储数据的硬件. 这样才能完成数据再不同计算机之间的传输.
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230424114812249.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230424114812249.png)
 
 如果多台计算机之间总是需要数据的传输, 这样的方式毫无疑问是非常的麻烦的. 
 
@@ -61,7 +61,7 @@ Linux的相关介绍, 从本篇文章开始 就要进入网络部分了.
 
 而我们明白, 计算机内部的各种硬件之间也是需要数据交互的, 而它们之间的交互其实就是通过 主板中的连接各硬件的线路来交互的.
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230424155848181.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230424155848181.png)
 
 如果将上图看作是一个计算机的结构简略图, 那么, 它们之间的连接线, 就可以看作是主板上连接各设备的线路.
 
@@ -81,7 +81,7 @@ Linux的相关介绍, 从本篇文章开始 就要进入网络部分了.
 
 根据计算机内部的各设备相连接的情况. 我们可以以类似的方式将多个不同的计算机的网卡设备相连接起来, 以实现多计算机之间数据交互的功能.
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230424172530267.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230424172530267.png)
 
 计算机`内部设备之间连接的线`比较`短`, 且比较`密集`.  在实际中, 这些线传输数据 可能相互之将会造成一定的干扰.
 
@@ -266,7 +266,7 @@ TCP/IP 通讯协议采用了 5层的层级结构，每一层都呼叫它的下�
 
 即使TCP/IP网络协议栈是 5层的, 但是也可以对应 OSI七层模型:
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230515224404521.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230515224404521.png)
 
 而一般网络开发的情况下, 物理层考虑的比较少. 因此很多时候也可以称为 **`TCP/IP四层模型`**
 
@@ -287,7 +287,7 @@ TCP/IP 通讯协议采用了 5层的层级结构，每一层都呼叫它的下�
 
 首先可以从一张图来表述: 
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230516223515037.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230516223515037.png)
 
 这张图 表述的内容 其实是 **`网络中不同层级的协议 其实是操作系统整个体系中各个部分中的一个模块`**.
 
@@ -456,13 +456,13 @@ TCP/IP 通讯协议采用了 5层的层级结构，每一层都呼叫它的下�
 >
 >     打开 Windows Powershell 或者 CMD, 执行 `ipconfig /all` 即可查看 当前主机网络的信息, 可以在其中找物理设备的MAC地址:
 >
->     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306181112482.png)
+>     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306181112482.png)
 >
 > - Linux:
 >
 >     打开终端, 执行 `ifconfig`, 即可查看 当前主机的部分网络信息:
 >
->     ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306181134260.png)
+>     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306181134260.png)
 
 每台可以连接到网络的主机都要有一个 `唯一的标识符`, 这个标识符就是主机中 `物理网络设备的MAC物理地址`
 
@@ -480,7 +480,7 @@ TCP/IP 通讯协议采用了 5层的层级结构，每一层都呼叫它的下�
 
 ---
 
-![局域网通信的简单原理 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306181217971.png)
+![局域网通信的简单原理 |big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306181217971.png)
 
 这是局域网通信时, 不同主机之间可能发生的数据流动图, 即 `局域网通信的简单原理图`. 
 
@@ -494,7 +494,7 @@ TCP/IP 通讯协议采用了 5层的层级结构，每一层都呼叫它的下�
 
 那么不同局域网之间该如何通信呢?
 
-![不同局域网通信简单原理 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251011777.png)
+![不同局域网通信简单原理 |big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251011777.png)
 
 此图, 即为不同局域网通信的简单的原理图. 
 
@@ -541,7 +541,7 @@ TCP/IP 通讯协议采用了 5层的层级结构，每一层都呼叫它的下�
 
 上面的网络通信原理简单介绍时, 举出的例子的主机内部协议都是 指定的, 即:
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251130568.png)
+![ |big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251130568.png)
 
 但是, 实际上不同主机的不同层级所使用的协议很大可能是不同的. 不同层级的协议也有很多:
 

@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757712.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757712.png)
 
 ---
 
@@ -55,11 +55,11 @@ featured: false
 
 且在接收用户输入的指令之前, 需要先输出一个用户提示符：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311195500369.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311195500369.png)
 
 执行：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/GIF%202023-3-11%2019-56-28.gif)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/GIF%202023-3-11%2019-56-28.gif)
 
 用户提示符是打印出来了, 但是 是无限循环地打印.
 
@@ -94,7 +94,7 @@ int main() {
 
 执行上述代码的结果是：
 
-![myShell_fgets |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/myShell_fgets.gif)
+![myShell_fgets  |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/myShell_fgets.gif)
 
 可以实现命令行输入, 并且接收输入内容.
 
@@ -157,7 +157,7 @@ command_argV[0] 设置为 命令名之后, 从 command_arg[1] 开始 将每一�
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311225342322.png)
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311225845184.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311225845184.png)
 
 将接收到的字符串分割存储到字符指针数组中之后, 就可以创建子进程并进程替换了
 
@@ -206,7 +206,7 @@ int main() {
 
 此时的代码, 就可以完成一些命令操作了：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311231019639.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311231019639.png)
 
 但是 执行结果好像有些奇怪
 
@@ -267,7 +267,7 @@ int main() {
 
 此时, 再执行代码：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311231631386.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311231631386.png)
 
 可以看到, 命令就可以正常执行了.
 
@@ -346,7 +346,7 @@ int main() {
 
 此时, ll 和 ls 就可以更加完善的执行：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311233716429.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311233716429.png)
 
 ### 5. 自建命令添加
 
@@ -356,7 +356,7 @@ shell最基本的功能已经实现了
 
 但是 有一些命令是无法执行的：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313154548153.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313154548153.png)
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313154906491.png)
 
@@ -364,7 +364,7 @@ shell最基本的功能已经实现了
 
 因为, cd 和 export 命令实际上都是shell的内建命令, PATH环境变量路径下存在的程序其实也没有实际功能的：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313162046302.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313162046302.png)
 
 可以看到, 执行 /usr/bin 路径下的cd程序, 也是没有作用的
 
@@ -470,7 +470,7 @@ int main() {
 }
 ```
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313164408816.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313164408816.png)
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230313165631214.png)
 

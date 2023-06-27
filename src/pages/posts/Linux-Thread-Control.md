@@ -14,7 +14,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801575.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801575.png)
 
 Linux系统中, 线程是轻量级的进程. 我们已经介绍过了线程的相关概念, 见过了线程再Linux操作系统中的存在形式.
 
@@ -63,7 +63,7 @@ int main() {
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_show_2023-4-14.gif)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_show_2023-4-14.gif)
 
 这段代码的执行结果, 是两个线程同时运行.
 
@@ -129,7 +129,7 @@ int main() {
 
 这段代码的执行结果是：
 
-![thread_join_retval](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_join_retval.gif)
+![thread_join_retval |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_join_retval.gif)
 
 可以看到, 我们输出传入 join接口的参数, 得到的结果是 thread_1 执行的回调函数的返回值.
 
@@ -208,7 +208,7 @@ int main() {
 }
 ```
 
-![thread_id](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_id.gif)
+![thread_id |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_id.gif)
 
 代码的执行结果显示, 线程的id是一个非常长的数值. 我们暂时不考虑其有什么含义.
 
@@ -267,7 +267,7 @@ int main() {
 
 代码的执行结果为：
 
-![pthread_self](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pthread_self.gif)
+![pthread_self |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pthread_self.gif)
 
 线程成功获取了自己的ID
 
@@ -333,7 +333,7 @@ int main() {
 while :; do ps -aL |head -1 && ps -aL |grep myThread |grep -v grep; sleep 1; done;
 ```
 
-![线程退出之后, 但还未join](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_over_beforejoin.gif)
+![线程退出之后, 但还未join |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_over_beforejoin.gif)
 
 执行和监控结果是, 当`线程退出`但还未被回收时, 线程`会立刻从ps打印的列表中消失`.
 
@@ -384,7 +384,7 @@ int main() {
 }
 ```
 
-![线程和进程接收信号相同状态](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Thread_Shared_SIG.gif)
+![线程和进程接收信号相同状态  |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Thread_Shared_SIG.gif)
 
 我们向进程发送19信号, 所有线程都会暂停运行.
 
@@ -443,9 +443,9 @@ int main() {
 }
 ```
 
-![线程浮点异常](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_error_float.gif)
+![线程浮点异常 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_error_float.gif)
 
-![线程发生段错误](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_error_segmentation.gif)
+![线程发生段错误 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_error_segmentation.gif)
 
 当线程出现不同的异常, 会影响进程的终止.
 
@@ -527,7 +527,7 @@ int main() {
 }
 ```
 
-![线程退出](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pthread_exit.gif)
+![线程退出 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pthread_exit.gif)
 
 ### `pthread_cancel()`
 
@@ -586,7 +586,7 @@ int main() {
 
 首先是, `主线程向新线程发送取消请求`：
 
-![主线程向新线程发送取消请求](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_cancel_main2new.gif)
+![主线程向新线程发送取消请求 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_cancel_main2new.gif)
 
 新线程被取消 退出, 退出信息为-1. 即为 取消退出.
 
@@ -596,7 +596,7 @@ int main() {
 
 如果将那2s的暂停取消(主线程中, cancel动作前的 sleep(2))：
 
-![主线程向新线程发送取消请求, 出现错误](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_cancel_main2new_error.gif)
+![主线程向新线程发送取消请求, 出现错误 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_cancel_main2new_error.gif)
 
 可以发现, 线程、进程都不正常的退出了.
 
@@ -620,7 +620,7 @@ int main() {
 
 将退出信息改为 **PTHREAD_CANCELED** . 这是一个 pthread 库提供的宏, 其实就是 `((void*)-1)` 的宏定义：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415085216694.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230415085216694.png)
 
 ## 线程分离
 
@@ -644,7 +644,7 @@ int main() {
 
 不过, `joinable 和 分离 是冲突的`. 毕竟 joinable 表示线程需要调用join回收, 分离线程 则表示此线程是自动回收的. 很明显是两个冲突的状态
 
-![线程join成功](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_join_success.gif)
+![线程join成功 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_join_success.gif)
 
 这是线程被正常join的现象.
 
@@ -702,7 +702,7 @@ int main() {
 
 上面的这段代码, 在线程需要执行的回调函数内 调用`pthread_detach(pthread_self());`将线程自己分离, 然后主线程内依旧使用 `pthread_join()` 回收. 不过接收返回值, 判断join执行的结果：
 
-![分离和joinable状态不可共存](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/detach_joinable_without.gif)
+![分离和joinable状态不可共存 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/detach_joinable_without.gif)
 
 可以看到, 主线程中的 `pthread_join()` 并没有成功的将4个线程回收掉. 而是报出了 `Invalid argument 无效参数` 的错误.
 
@@ -755,7 +755,7 @@ int main() {
 
 我们依旧在 回调函数内将线程分离, 那么这段代码的执行结果是：
 
-![分离了, 但是join执行成功](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/detach_butjoinsucess.gif)
+![分离了, 但是join执行成功 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/detach_butjoinsucess.gif)
 
 惊奇的发现, 线程退出之后成功得被 join 回收了.
 
@@ -810,7 +810,7 @@ int main() {
 }
 ```
 
-![在主线程中分离线程](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/detach_inmain_joinable_without.gif)
+![在主线程中分离线程 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/detach_inmain_joinable_without.gif)
 
 这样就可以解决 join 时, 新线程还未分离的问题.
 

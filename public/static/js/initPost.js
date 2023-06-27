@@ -110,11 +110,11 @@ function syntaxHighlight() {
 
   var styleLight = document.createElement("link");
   styleLight.rel = "stylesheet";
-  styleLight.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/base16/dracula.min.css";
+  styleLight.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/felipec.min.css";
 
   var styleDark = document.createElement("link");
   styleDark.rel = "stylesheet";
-  styleDark.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/base16/dracula.min.css";
+  styleDark.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/felipec.min.css";
 
   if (document.querySelector("body").classList.contains("theme-dark")) {
     document.head.appendChild(styleDark);

@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801269.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801269.png)
 
 System V 是一种操作系统进程间通信的标准. 
 
@@ -119,7 +119,7 @@ shmget() 是操作系统提供的`分配共享内存的系统调用`, 需要三�
 	
 	Linux系统也为key值的获取提供了一个系统调用：`ftok()`
 	
-	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328222807427.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230328222807427.png)
 	
 	pathname 是一个文件的路径, proj_id 则是随意的8比特位的数值
 	
@@ -199,88 +199,89 @@ int main() {
 
 1. ipcrm, 这是一个命令用于删除进程通信相关内容的
 
-	而 `ipcrm -m`, 则是删除共享内存的指令, -m 就是共享内存的选项.
-	
-	我们使用 `ipcs -m` 可以 以列表的形式列出已经创建的共享内存：
-	
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093003625.png)
-	
-	此列表中, 存在两个标识符可以表示一块共享内存: key 和 shmid
-	
-	而我们使用 `ipcrm -m` 删除共享内存使用的是 `shmid`
-	
-	所以 在此例中, 我们在命令行使用: `ipcrm -m 1` 就可以删除刚刚创建出的共享内存:
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093249770.png)
-	
-	但是, 共享内存肯定不会只能从命令行删除.
-	
-	在代码中也是可以删除的
+    而 `ipcrm -m`, 则是删除共享内存的指令, -m 就是共享内存的选项.
+
+    我们使用 `ipcs -m` 可以 以列表的形式列出已经创建的共享内存:
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093003625.png)
+
+    此列表中, 存在两个标识符可以表示一块共享内存: key 和 shmid
+
+    而我们使用 `ipcrm -m` 删除共享内存使用的是 `shmid`
+
+    所以 在此例中, 我们在命令行使用: `ipcrm -m 1` 就可以删除刚刚创建出的共享内存:
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093249770.png)
+
+    不过, 共享内存肯定不会只能从命令行删除.
+
+    在代码中也是可以删除的
 
 2. `shmctl()`, 是一个系统调用接口, 可以用来删除已创建的共享内存
 
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093504785.png)
-	
-	此系统调用, 其实是控制共享内存的接口, 其参数：
-	
-	1. `int shmid`, 此参数传入需要控制的共享内存的id, 其实就是 `shmget` 的返回值. 用来选择控制的共享内存块
-	
-	2. `int cmd`, 这个参数需要传入操作系统提供的控制共享内存块的选项. 其中有一个选项是 摧毁共享内存块用的 `IPC_RMID`
-	
-		![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329094151381.png)
-	
-		传入 `IPC_RMID` 可以将指定的共享内存块, 标记为被摧毁了. 可以达到删除的目的
-	
-	3. `struct shmid_ds *buf`, 需要传入一个指针, 指针应该指向一个 `shmid_ds`结构体. 此结构体的内容是:
-	
-		![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329094525917.png)
-	
-		不过我们删除共享内存块, 一般用不上这个.
-	
-		所以 `删除共享内存块 只需要传入 nullptr就可以`
-	
-	那么, 我们就可以 在代码中使用 `shmctl(shmid, IPC_RMID, nullptr);`, 删除指定的共享内存块
-	
-	```cpp
-	#include <iostream>
-	#include <sys/ipc.h>
-	#include <sys/shm.h>
-	#include <unistd.h>
-	using std::cout;
-	using std::endl;
-	using std::cerr;
-	
-	int main() {
-	    // 0. 创建共享内存块
-	    int key = ftok(".ipcShm", 0x14);
-	    int shmId = shmget(key, 4096, IPC_CREAT | IPC_EXCL);
-	    if(shmId == -1) {
-	        cerr << "shmget error" << endl;
-	        exit(1);
-	    }
-	    
-	    cout << "shmget success, key: " << key << " , shmId: " << shmId << endl;
-	    sleep(10);
-	
-	    // 1. 删除共享内存块
-	    int res = shmctl(shmId, IPC_RMID, nullptr);
-	    if(res == -1) {
-	        cerr << "shmget error" << endl;
-	        exit(2);
-	    }
-	
-	    return 0;
-	}
-	```
-	
-	这段代码的运行效果是:
-	
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329095449845.png)
-	
-	创建成功10s后:
-	
-	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329095633312.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329093504785.png)
 
-我们介绍了这些内容, 实在介绍什么？
+    此系统调用, 其实是控制共享内存的接口, 其参数:
+
+    1. `int shmid`, 此参数传入需要控制的共享内存的id, 其实就是 `shmget` 的返回值. 用来选择控制的共享内存块
+
+    2. `int cmd`, 这个参数需要传入操作系统提供的控制共享内存块的选项. 其中有一个选项是 摧毁共享内存块用的 `IPC_RMID`
+
+        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329094151381.png)
+
+        传入 `IPC_RMID` 可以将指定的共享内存块, 标记为被摧毁了. 可以达到删除的目的
+
+    3. `struct shmid_ds *buf`, 需要传入一个指针, 指针应该指向一个 `shmid_ds`结构体. 此结构体的内容是:
+
+        ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329094525917.png)
+
+        不过我们删除共享内存块, 一般用不上这个.
+
+        所以 `删除共享内存块 只需要传入 nullptr就可以`
+
+    那么, 我们就可以 在代码中使用 `shmctl(shmid, IPC_RMID, nullptr);`, 删除指定的共享内存块
+
+    ```cpp
+    #include <iostream>
+    #include <sys/ipc.h>
+    #include <sys/shm.h>
+    #include <unistd.h>
+    using std::cout;
+    using std::endl;
+    using std::cerr;
+    
+    int main() {
+        // 0. 创建共享内存块
+        int key = ftok(".ipcShm", 0x14);
+        int shmId = shmget(key, 4096, IPC_CREAT | IPC_EXCL);
+        if(shmId == -1) {
+            cerr << "shmget error" << endl;
+            exit(1);
+        }
+        
+        cout << "shmget success, key: " << key << " , shmId: " << shmId << endl;
+        sleep(10);
+    
+        // 1. 删除共享内存块
+        int res = shmctl(shmId, IPC_RMID, nullptr);
+        if(res == -1) {
+            cerr << "shmget error" << endl;
+            exit(2);
+        }
+    
+        return 0;
+    }
+    ```
+
+    这段代码的运行效果是:
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329095449845.png)
+
+    创建成功 10s 后:
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306271519139.png)
+
+我们介绍了这些内容, 是在介绍什么？
 
 其实就是 **`创建一个可以让不同进程看到的同一个资源, 这个资源就是共享内存块`**
 
@@ -488,7 +489,7 @@ clean:
 
 其实可以很明显的看到: 
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329111729949.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230329111729949.png)
 
 然后在进程退出的过程中:
 
@@ -892,7 +893,7 @@ make之后, 生成的可执行程序的执行结果是：
 
 此例中我们添加了几个函数接口：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152119892.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152119892.png)
 
 并且, 共享内存的创建、连接、删除都与之前例子中没有区别.
 
@@ -900,15 +901,15 @@ make之后, 生成的可执行程序的执行结果是：
 
 1. 服务端
 
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152334706.png)
+	![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152334706.png)
 	
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152539511.png)
+	![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152539511.png)
 
 2. 客户端
 
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152805743.png)
+	![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152805743.png)
 	
-	![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152953351.png)
+	![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230402152953351.png)
 
 只有这两部分不同, 就可以通过管道实现使用共享内存的简单的访问控制.
 

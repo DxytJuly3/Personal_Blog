@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759370.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759370.png)
 
 ---
 
@@ -54,7 +54,7 @@ featured: false
 
 子进程不修改数据时：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307195820005.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307195820005.png)
 
 子进程修改数据时：
 
@@ -130,7 +130,7 @@ fork()子进程创建失败的场景, 其实与操作系统中进程的数量和
 
 而main()函数的返回值说明了进程的执行结果, 其实也就是说**`进程的main()函数的返回值 其实是为了返回给父进程的`**, 而 main() 函数的返回值, 我们也称之为 **`进程的退出码`**, 此退出码被描述在进程的PCB中, 也就是Linux中的task_struct中：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307210527172.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307210527172.png)
 
 但是, 即使将退出码给父进程接收, 父进程怎么根据退出码来对进程任务的执行结果进行判断呢？
 
@@ -144,7 +144,7 @@ fork()子进程创建失败的场景, 其实与操作系统中进程的数量和
 
 > 在Linux中针对进程的不同退出码有不同的解释：
 >
-> ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307212714201.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307212714201.png)
 >
 > 在程序中打印 字符串函数strerror(i) 的值, 就可以将Linux系统认为的退出码的意义打印出来
 
@@ -154,11 +154,11 @@ Linux系统中, 任何进程退出时都会存在退出码. 但是进程的退�
 
 `echo $?`, 这个指令可以在命令行中输出上一个推出的进程的退出码:
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307213549395.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307213549395.png)
 
 编译运行此代码程序, 然后在命令行执行`echo $?` 就可以查看到退出码：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307213329167.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307213329167.png)
 
 可以看到, `echo $?` 显示了上一个退出进程的退出码`66`
 
@@ -182,19 +182,19 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 
 此函数`可以在代码的任意位置使用, 使进程退出, 且exit()的参数即为进程的退出码`：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308075225187.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308075225187.png)
 
 调用exit()函数, 但是不在main()函数中调用, 看一看进程是否执行exit()退出：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308075605575.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308075605575.png)
 
 `_exit()`:
 
 如果用上面相同的代码, 只将exit()改为_exit(), 结果会不会有变化呢？
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308080052306.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308080052306.png)
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308080303936.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308080303936.png)
 
 而 相同的代码, 调用exit()和_exit()在结果上是否有什么区别？
 
@@ -224,64 +224,64 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 
 1. wait()
 
-  wait()系统调用`会等待任意一个退出的子进程`~~(暂时不考虑wait()的参数, 在介绍waitpid()时再介绍这个指针参数)~~：
+    wait()系统调用`会等待任意一个退出的子进程`~~(暂时不考虑wait()的参数, 在介绍waitpid()时再介绍这个指针参数)~~：
 
-  ```c
-  #include <stdio.h>                                                                                                
-  #include <stdlib.h>                                                                                               
-  #include <unistd.h>                                                                                               
-  #include <sys/types.h>                                                                                            
-  #include <sys/wait.h>                                                                                             
-  
-  int main() {                                                                                                      
-      pid_t id = fork();                                                                                            
-  
-      if(id == 0) {                                                                                                 
-          int cnt = 5;                                                                                              
-          while(cnt) {                                                                                              
-              printf("我是子进程, %ds后进入Z状态, 变为僵尸进程\n", cnt);                                            
-              sleep(1);                                                                                             
-              cnt--;                                                                                                
-          }                                                                                                         
-          printf("我是子进程, 已进入僵尸状态\n");                                                                   
-          exit(123);                                                                                                
-      }                                                                                                             
-      else {                                                                                                        
-          sleep(6);                                                                                                 
-          printf("我是父进程, 还未等待子进程\n");                                                                   
-          sleep(19);                                                                                                
-          int cnt = 5;                                                                                              
-          while(cnt) {                                                                                              
-              printf("%ds后, 等待子进程\n", cnt);                                                                   
-              cnt--;                                                                                                
-              sleep(1);                                                                                             
-          }                                                                                                         
-          pid_t waitPid = wait(NULL);                                                                               
-          printf("我是父进程, 已等待子进程, 等待的进程的PID= %d\n", waitPid);                                       
-          sleep(10);              // 父进程等待子进程之后, 先不要结束, 便于观察现象                                               
-      }                                                                                                             
-  
-      return 0;                                                                                                     
-  }                                              
-  ```
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <unistd.h>
+    #include <sys/types.h>
+    #include <sys/wait.h>
+    
+    int main() {
+        pid_t id = fork();
+    
+        if (id == 0) {
+            int cnt = 5;
+            while (cnt) {
+                printf("我是子进程, %ds后进入Z状态, 变为僵尸进程\n", cnt);
+                sleep(1);
+                cnt--;
+            }
+            printf("我是子进程, 已进入僵尸状态\n");
+            exit(123);
+        }
+        else {
+            sleep(6);
+            printf("我是父进程, 还未等待子进程\n");
+            sleep(19);
+            int cnt = 5;
+            while (cnt) {
+                printf("%ds后, 等待子进程\n", cnt);
+                cnt--;
+                sleep(1);
+            }
+            pid_t waitPid = wait(NULL);
+            printf("我是父进程, 已等待子进程, 等待的进程的PID= %d\n", waitPid);
+            sleep(10); // 父进程等待子进程之后, 先不要结束, 便于观察现象
+        }
+    
+        return 0;
+    }
+    ```
 
-  > - `while :; do ps ajx | head -1 && ps ajx |grep wait_Test |grep -v grep; sleep 1; echo "----------------------------------------------------------------"; done #BR/#`
-  >
-  > 此命令行指令, 是`一个简单的指定进程的观测指令, 每1s打印一次所查找进程的相关信息`
+    > - `while :; do ps ajx | head -1 && ps ajx |grep wait_Test |grep -v grep; sleep 1; echo "----------------------------------------------------------------"; done #BR/#`
+    >
+    > 此命令行指令, 是`一个简单的指定进程的观测指令, 每1s打印一次所查找进程的相关信息`
 
-  此代码执行之后, 配合进程观测指令, 可以看到的结果是：
+    此代码执行之后, 配合进程观测指令, 可以看到的结果是：
 
-  ![1](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085424246.png)
+    ![1 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085424246.png)
 
-  ![2](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085614576.png)
+    ![2 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085614576.png)
 
-  ![3](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085829108.png)
+    ![3 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085829108.png)
 
-  ![4](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085952297.png)
+    ![4 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308085952297.png)
 
-  此代码, 可以看到子进程被创建, 子进程进入僵尸状态, 父进程等待子进程, 父进程退出的整个流程
+    此代码, 可以看到子进程被创建, 子进程进入僵尸状态, 父进程等待子进程, 父进程退出的整个流程
 
-  可以看到, 我们使用waitPid变量接收了wait()的返回值, 然后输出. 可以发现 `wait()系统调用的返回值, 即为其等待的子进程的PID.`
+    可以看到, 我们使用waitPid变量接收了wait()的返回值, 然后输出. 可以发现 `wait()系统调用的返回值, 即为其等待的子进程的PID.`
 
 2. waitpid()
 
@@ -291,136 +291,149 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 	
 	1. ### `pid_t pid`
 	
-		 其实看到pid这个变量 就应该可以猜到此参数的意义.
+	    其实看到pid这个变量 就应该可以猜到此参数的意义.
 	
-		`此参数可以传入的是子进程的pid, 意为指定pid让父进程等待, 即 父进程等待指定的子进程`
+	    `此参数可以传入的是子进程的pid, 意为指定pid让父进程等待, 即 父进程等待指定的子进程`
 	
-		当此参数传入 `-1`时, waitpid()的作用 <=> wait(), 也是等待任意的子进程
+	    当此参数传入 `-1`时, waitpid()的作用 <=> wait(), 也是等待任意的子进程
 	
-		当此参数传入其他值时, 那么此值就表示某个pid, waitpid()的作用就是等待传入的此pid的子进程
+	    当此参数传入其他值时, 那么此值就表示某个pid, waitpid()的作用就是等待传入的此pid的子进程
 	
 	2. ### `int *status`
 	
-	  wait()仅有的一个参数也是这个参数, 那么这个参数的意义是什么？
+	    wait()仅有的一个参数也是这个参数, 那么这个参数的意义是什么？
 	
-	  status这个参数是一个指针参数, 也是一个`输出型参数`. 
+	    status这个参数是一个指针参数, 也是一个`输出型参数`. 
 	
-	  输出型参数是什么意思？输出型参数意味着, 此参数其实`是向外部传递信息的`, 当 waitpid()此函数等待到一个退出的子进程的时候, **`子进程的退出信息会被存储到 status指针指向的内容中`**
+	    输出型参数是什么意思？输出型参数意味着, 此参数其实`是向外部传递信息的`, 当 waitpid()此函数等待到一个退出的子进程的时候, **`子进程的退出信息会被存储到 status指针指向的内容中`**
 	
-	  子进程的退出信息不就是退出码吗？并不全是, 之前提到过进程的退出信息也是在 task_struct中存储着呢：
+	    子进程的退出信息不就是退出码吗？并不全是, 之前提到过进程的退出信息也是在 task_struct中存储着呢：
 	
-	  ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308093956744.png)
+	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308093956744.png)
 	
-	  也就是说, `status指向的内容中不仅存储了退出码, 还存储了退出信号`. 退出码我们知道是什么, 而退出信号又是什么？
+	    也就是说, `status指向的内容中不仅存储了退出码, 还存储了退出信号`. 退出码我们知道是什么, 而退出信号又是什么？
 	
-	  在上面我们提到过, 一个进程退出时应该有三种情况：
+	    在上面我们提到过, 一个进程退出时应该有三种情况：
 	
-	  1. 代码正常跑完, 结果正确
-	  2. 代码正常跑完, 结果不正确
-	  3. 代码没有跑完, 进程异常退出
-
-
-​	  
-
-	  前两种情况我们已经分析过了, 那么第三种情况 进程异常退出, 进程为什么会异常退出呢？
+	    1. 代码正常跑完, 结果正确
+	    2. 代码正常跑完, 结果不正确
+	    3. 代码没有跑完, 进程异常退出
 	
-	  其实, `进程异常退出的原因是进程收到了某种信号`, 就类似 kill -9 这样的命令 其实就是一种信号
+	    前两种情况我们已经分析过了, 那么第三种情况 进程异常退出, 进程为什么会异常退出呢？
 	
-	  > 进程信号这里不做介绍, 只需要知道进程异常退出是收到了某种信号即可
+	    其实, `进程异常退出的原因是进程收到了某种信号`, 就类似 kill -9 这样的命令 其实就是一种信号
 	
-	  那么, 也就是说 status指向的空间, 不仅接收退出码, 还接收退出信号. 一个整型是怎么接收两个整型内容的呢？
+	    进程信号这里不做介绍, 只需要知道进程异常退出是收到了某种信号即可
 	
-	  其实 status指针指向的是一个整型, 而这个整型只需要关注 `低16位`就可以了, `此低16位中的高8位 用来表示退出码, 低8位 用来表示退出信号`：
+	    那么, 也就是说 status指向的空间, 不仅接收退出码, 还接收退出信号. 一个整型是怎么接收两个整型内容的呢？
 	
-	  ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308163321498.png)
+	    其实 status指针指向的是一个整型, 而这个整型只需要关注 `低16位`就可以了, `此低16位中的高8位 用来表示退出码, 低8位 用来表示退出信号`：
 	
-	  也就是说, `waitpid()使用时第二个参数需传入一个int类型变量的地址, 当waitpid()等待到一个子进程之后, 传入的地址所指向的变量的低16位中, 低八位表示子进程的退出信号, 高八位表示子进程退出码`
+	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308163321498.png)
 	
-	  并且, `当子进程是正常退出时, 表示退出信号的八位为0; 当子进程被某种进程信号所杀时, 表示退出码的八位为0.`
+	    也就是说, `waitpid()使用时第二个参数需传入一个int类型变量的地址, 当waitpid()等待到一个子进程之后, 传入的地址所指向的变量的低16位中, 低八位表示子进程的退出信号, 高八位表示子进程退出码`
 	
-	  举个例子：
+	    并且, `当子进程是正常退出时, 表示退出信号的八位为0; 当子进程被某种进程信号所杀时, 表示退出码的八位为0.`
 	
-	  就以这段代码作为展示：
+	    举个例子：
 	
-	  ```c
-	  #include <stdio.h>                                                                                            
-	  #include <unistd.h>                                                                                           
-	  #include <sys/types.h>                                                                                        
-	  #include <sys/wait.h>                                                                                         
-	  
-	  int main() {                                                                                                  
-	      pid_t id = fork();                                                                                        
-	  
-	      if(id == 0) {                                                                                             
-	          printf("我是子进程, 我的pid: %d\n", getpid());                                                        
-	          sleep(10);                                                                                            
-	      }                                                                                                         
-	      else {                                                                                                    
-	          printf("我是父进程, 我正在准备等待子进程\n");                                                         
-	          int status = 0;                                                                                       
-	          pid_t pidGet = waitpid(id, &status, 0);                                                               
-	          if(pidGet > 0)                                                                                        
-	              printf("等待成功, 子进程的退出码是 %d, 退出信号是 %d\n", (status>>8)&0xFF, status&0x7F);          
-	      }                                                                                                         
-	  
-	      return 0;                                                                                                 
-	  }      
-	  ```
+	    就以这段代码作为展示：
 	
-	  这段代码的程序运行的时候, 子进程会被创建, 并且15s之后会return 0. 父进程会调用waitpid()阻塞等待刚刚被创建的子进程. 当父进程等待子进程成功了, 父进程会获取子进程的退出码和退出信号并打印出来.
+	    ```c
+	    #include <stdio.h>
+	    #include <unistd.h>
+	    #include <sys/types.h>
+	    #include <sys/wait.h>
+	    
+	    int main() {
+	        pid_t id = fork();
+	    
+	        if (id == 0) {
+	            printf("我是子进程, 我的pid: %d\n", getpid());
+	            sleep(10);
+	        }
+	        else {
+	            printf("我是父进程, 我正在准备等待子进程\n");
+	            int status = 0;
+	            pid_t pidGet = waitpid(id, &status, 0);
+	            if (pidGet > 0)
+	                printf("等待成功, 子进程的退出码是 %d, 退出信号是 %d\n",
+	                       (status >> 8) & 0xFF, status & 0x7F);
+	        }
+	    
+	        return 0;
+	    }
+	    ```
 	
-	  > 关于`退出信号的计算, 需要status&0x7F, 是因为表示退出信号的八位, 其中最高位是一个单独的core_dump标志, 暂时忽略`
+	    这段代码的程序运行的时候, 子进程会被创建, 并且15s之后会return 0. 父进程会调用waitpid()阻塞等待刚刚被创建的子进程. 当父进程等待子进程成功了, 父进程会获取子进程的退出码和退出信号并打印出来.
 	
-	  若此时子进程是15s后返回的return 0退出的, 那么会有什么结果呢？
+	    > 关于`退出信号的计算, 需要status&0x7F, 是因为表示退出信号的八位, 其中最高位是一个单独的core_dump标志, 暂时忽略`
 	
-	  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308170832817.png)
+	    若此时子进程是15s后返回的return 0退出的, 那么会有什么结果呢？
 	
-	  而若子进程在创建之后的15s内, 被某种进程信号强制退出的话, 又会有什么结果呢？
+	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308170832817.png)
 	
-	  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308171415699.png)
+	    而若子进程在创建之后的15s内, 被某种进程信号强制退出的话, 又会有什么结果呢？
 	
-	  可以看到, 父进程中的整型变量status成功接收到了子进程的退出码和退出信号.
+	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308171415699.png)
 	
-	  > 父进程中的status变量接收到数据之后, 其实不需要通过手动位运算来计算出子进程的退出码和退出信号.
-	  >
-	  > 其实而可以通过两个`宏`：
-	  >
-	  > 1. `WEXITSTATUS(status): 提取子进程退出码`
-	  > 2. `WERMSIG(status): 提取子进程退出信号`
-	  >
-	  > 还有一个`宏`, 可以直接用来判断子进程是否正常退出：
-	  >
-	  > `WIFEXITED(status): 若子进程正常退出，则为真`    
+	    可以看到, 父进程中的整型变量status成功接收到了子进程的退出码和退出信号.
 	
-	  > 在上面提到过一个问题, 当进程退出码为0时, 往往意味着进程正常退出. 
-	  >
-	  > 而此时子进程接收到信号而退出, 肯定是不属于正常退出的范围的. 为什么子进程的退出码依旧是0？是否与 退出信号的9, 冲突了？
-	  >
-	  > 当然没有, `当退出信号不为0时, 退出码就没有意义了, 可以忽略不看`
+	    > 父进程中的status变量接收到数据之后, 其实不需要通过手动位运算来计算出子进程的退出码和退出信号.
+	    >
+	    > 其实而可以通过两个`宏`：
+	    >
+	    > 1. `WEXITSTATUS(status): 提取子进程退出码`
+	    > 2. `WERMSIG(status): 提取子进程退出信号`
+	    >
+	    > 还有一个`宏`, 可以直接用来判断子进程是否正常退出：
+	    >
+	    > `WIFEXITED(status): 若子进程正常退出，则为真`
+	
+	    > 在上面提到过一个问题, 当进程退出码为0时, 往往意味着进程正常退出. 
+	    >
+	    > 而此时子进程接收到信号而退出, 肯定是不属于正常退出的范围的. 为什么子进程的退出码依旧是0？是否与 退出信号的9, 冲突了？
+	    >
+	    > 当然没有, `当退出信号不为0时, 退出码就没有意义了, 可以忽略不看`
 	
 	3. ### `int options`
 	
-		这个参数其实像是waitpid()的一个配置参数, `通过不同的传参, 可以让waitpid()有不同的工作模式`
+	    这个参数其实像是waitpid()的一个配置参数, `通过不同的传参, 可以让waitpid()有不同的工作模式`
 	
-		#### 当`options传入的参数为0`时, waitpid()采用`阻塞等待`的工作模式.
+	    #### 当`options传入的参数为0`时, waitpid()采用`阻塞等待`的工作模式.
 	
-		什么是阻塞等待？
+	    什么是阻塞等待？
 	
-		之前我们介绍过阻塞是什么样的, 当进程在等待非CPU资源时, 我们称这种情况为进程阻塞
+	    之前我们介绍过阻塞是什么样的, 当进程在等待非CPU资源时, 我们称这种情况为进程阻塞
 	
-		而当options传入0时, waitpid()的工作模式就像是阻塞一样, 如果其等待的子进程还未退出, 那么父进程就会一直阻塞等着子进程退出, 在子进程退出之前, 父进程一直处于阻塞状态, 不会做其他事情, 就只是等着子进程退出. 
+	    而当options传入0时, waitpid()的工作模式就像是阻塞一样, 如果其等待的子进程还未退出, 那么父进程就会一直阻塞等着子进程退出, 在子进程退出之前, 父进程一直处于阻塞状态, 不会做其他事情, 就只是等着子进程退出. 
 	
-		`这个一直等着子进程退出的行为, 其实是一种等待软件资源的情况, 所以当options参数传入0时, waitpid()的工作模式可以被称为阻塞等待`
+	    `这个一直等着子进程退出的行为, 其实是一种等待软件资源的情况, 所以当options参数传入0时, waitpid()的工作模式可以被称为阻塞等待`
 	
-		#### 当`options传入的参数为WNOHANG`时, waitpid()采用`基于非阻塞的轮询等待方案`
+	    #### 当`options传入的参数为WNOHANG`时, waitpid()采用`基于非阻塞的轮询等待方案`
 	
-		与阻塞等待不同, 非阻塞的轮询等待方案, `不会让父进程一直处于阻塞状态`
+	    与阻塞等待不同, 非阻塞的轮询等待方案, `不会让父进程一直处于阻塞状态`
 	
-		当`options传入WNOHANG时, waitpid()只会当前等待一次, 如果等待时没有子进程退出需要回收, 那么waitpid()就会返回0`
+	    当`options传入WNOHANG时, waitpid()只会当前等待一次, 如果等待时没有子进程退出需要回收, 那么waitpid()就会返回0`
 	
-		也就是说, `options传入WNOHANG时, waitpid()只会回收当前已经退出的子进程, 如果没有子进程处于此状态, 那么waitpid()就会返回0. 在返回之后, 即使又有子进程退出了, waitpid()也不再回收`
+	    也就是说, `options传入WNOHANG时, waitpid()只会回收当前已经退出的子进程, 如果没有子进程处于此状态, 那么waitpid()就会返回0. 在返回之后, 即使又有子进程退出了, waitpid()也不再回收`
 	
-		所以, `在options传入WNOHANG时, waitpid()的使用一般伴随着循环`. 即让waitpid()循环判断是否存在需要回收的子进程, 这样也不影响父进程做其他工作
+	    所以, `在options传入WNOHANG时, waitpid()的使用一般伴随着循环`. 即让waitpid()循环判断是否存在需要回收的子进程, 这样也不影响父进程做其他工作
+	
+
+# 1
+
+## 2
+
+### 3
+
+#### 4
+
+##### 5
+
+###### 6
+
+
 
 
 # 进程替换

@@ -14,7 +14,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802921.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802921.png)
 
 上一篇文章我们分析了什么是线程互斥, 以及线程互斥的特点和使用.
 
@@ -181,7 +181,7 @@ int main() {
 
 然后在主线程中通过输入 n 和 N 来调用唤醒函数, 唤醒线程, 观察现象：
 
-![show_cond](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/show_cond.gif)
+![show_cond |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/show_cond.gif)
 
 在其他线程通过条件变量等待时, 我们在主线程内通过 输入 N 和 n 来唤醒等待的线程.
 
@@ -191,7 +191,7 @@ int main() {
 
 还可以使用 `pthread_cond_broadcast()` 来广播唤醒所有等待的线程：
 
-![使用 broadcast 唤醒所有等待的线程](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/show_cond_broadcast.gif)
+![使用 broadcast 唤醒所有等待的线程 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/show_cond_broadcast.gif)
 
 这里演示的是, cond 条件变量的没有场景的用法. 
 
@@ -268,7 +268,7 @@ int main() {
 
 执行结果为：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/show_cond_broadcast_withquit.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/show_cond_broadcast_withquit.gif)
 
 这就是条件和条件变量的最简单的使用.
 
@@ -306,7 +306,7 @@ int main() {
 
 这也是为什么, 上面例子中, 我们想让多线程退出时需要在条件满足时先释放锁, 然后再让线程退出. ：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420121724747.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420121724747.png)
 
 在 `第2行`, 我们让线程分离自己, 不用回收.
 
@@ -314,7 +314,7 @@ int main() {
 
 而 此时 线程是处于对临界资源上了锁的状态. 所以在退出之前要先解锁. 不然后面会出现死锁的状态(如果我们不分离线程的话)：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cond_exitnounlock_deadlock.gif)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cond_exitnounlock_deadlock.gif)
 
 ---
 
@@ -336,7 +336,7 @@ int main() {
 
 那么, 学生购买商品, 工厂供应商品. 其实都是 `通过超市` 这个渠道的.
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420102219748.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420102219748.png)
 
 ---
 
@@ -456,7 +456,7 @@ int main() {
 
 那么, 阻塞队列的大致结构为：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420151703532.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420151703532.png)
 
 成员变量：
 
@@ -470,13 +470,13 @@ int main() {
 
 上锁、解锁、条件等待、唤醒等待、判空、判满、生产任务、消费任务
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420163113768.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420163113768.png)
 
 这些都是私有的接口, 实际还需要两个公共的接口.
 
 完整的从阻塞队列中消费的接口 以及 完整的向阻塞队列中生产的接口:
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420163247899.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420163247899.png)
 
 实现了之后, 就可以测试一下了：
 
@@ -657,17 +657,17 @@ int main() {
 
 执行结果为：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pro_con_data_test.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pro_con_data_test.gif)
 
 productor生产线程 每2s, 生产一个数据. consumer消费线程跟随生产的节奏来消费数据.
 
 如果我们修改一下生产和消费的间隔, 或许更能说明条件变量的作用：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420165209035.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420165209035.png)
 
 消费线程2s一消费, 生产线程1s一生产：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pro_con_data_12.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pro_con_data_12.gif)
 
 可以看到, 刚开始因为 队列未满, 所以1s生成一个, 顺序为：5 4 3 3 4 0 1 6
 
@@ -695,7 +695,7 @@ productor生产线程 每2s, 生产一个数据. consumer消费线程跟随生�
 
 ### 问题2：什么时候唤醒 或者 什么时候解锁？
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420171705354.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420171705354.png)
 
 我们上面实现的接口, **`队列的解锁是在唤醒线程之前的, 即先解锁, 再唤醒线程`**
 
@@ -869,7 +869,7 @@ int main() {
 
 那么, 这段代码的执行结果：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pro_con_task.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pro_con_task.gif)
 
 上面我们实现的代码, 是使用阻塞队列 模拟生产者消费者模型, `生产和消费加减乘除的任务`
 
@@ -887,7 +887,7 @@ int main() {
 
 在上例中, 就是生产者制作任务 和 消费者处理任务的过程 ：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420183123290.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230420183123290.png)
 
 虽然 还是不太明显, 但是 多行的语句其实已经可以说明, `制作任务和处理任务的过程其实是需要消耗一定的资源的, 比如时间`.
 
@@ -1241,7 +1241,7 @@ int main() {
 
 实现之后, 编译执行这段代码：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/ringQueue_c1_p1.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/ringQueue_c1_p1.gif)
 
 我们在代码中设置, 1s生产一次数据, 3s消费一次数据.
 
@@ -1412,7 +1412,7 @@ int main() {
 
 代码的执行结果为：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/ringQueue_c3_p3.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/ringQueue_c3_p3.gif)
 
 虽然打印的结果很混乱, 但是还是可以看出`没有出现生产或消费出错`的.
 

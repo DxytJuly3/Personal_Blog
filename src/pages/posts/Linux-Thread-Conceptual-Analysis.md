@@ -14,7 +14,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.png)
 
 我们已经了解了Linux操作系统进程部分相关知识：
 
@@ -152,7 +152,7 @@ Linux复用PCB实现TCB, 那么从CPU的角度看待线程, 其实与进程没�
 
 而现在, 我们知道进程内部可以存在许多task_srtuct, 那么又可以怎样理解进程呢？
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412093635919.png)
+![ j|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412093635919.png)
 
 现在, 不能只认为 PCB + 代码和数据 就是一个进程. 而是 需要理解, 上图中的所有结构加起来才能叫一个进程.
 
@@ -273,7 +273,7 @@ int main() {
 
 不过, 我们编译时会发现有错误：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412105448190.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412105448190.png)
 
 是连接错误, 为什么呢？
 
@@ -281,13 +281,13 @@ int main() {
 
 因为, pthread 是第三方库, 所以我们需要手动链接：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412105716705.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412105716705.png)
 
 此时, 编译链接成功. 
 
 我们运行程序：
 
-![thread_show](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_show.gif)
+![thread_show |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_show.gif)
 
 可以看到线程在分别运行, 所输出的进程pid都是相同的. 
 
@@ -297,7 +297,7 @@ int main() {
 
 我们进程运行时查看系统的进程表：
 
-![系统中只有一个有关threadTest的进程](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_onlyone_process.gif)
+![系统中只有一个有关threadTest的进程 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_onlyone_process.gif)
 
 可以看到, 有关threadTest 的进程只有一个. 
 
@@ -307,7 +307,7 @@ int main() {
 
 我们可以在命令行使用 `ps -aL` 命令 来查看线程(a: all, -L: 轻量级进程)：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412112247311.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230412112247311.png)
 
 可以看到, 线程列表中 存在三个相同命令名的线程. 且这`三个线程同时属于一个PID 23412. 还拥有各自的 LWP 轻量级进程编号`. 
 

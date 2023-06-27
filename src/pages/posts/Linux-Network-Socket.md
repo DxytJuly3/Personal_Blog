@@ -12,10 +12,9 @@ cover:
 tags: ["Linux", "网络"]
 theme: 'light'
 featured: false
-
 ---
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251756988.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251756988.png)
 
 ---
 
@@ -47,7 +46,7 @@ featured: false
 
 网络协议栈与主机之间的关系是什么?
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306252053653.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306252053653.png)
 
 网络层和传输层是属于操作系统的. 更上层的应用层, 是给用户使用的.
 

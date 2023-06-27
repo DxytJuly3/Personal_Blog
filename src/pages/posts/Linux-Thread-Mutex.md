@@ -14,7 +14,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802036.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802036.png)
 
 多线程可以提高程序的并发性和运行效率，充分利用计算机的多核资源. 前面的几篇文章已经介绍了, Linux线程的基本概念、基本控制等内容.
 
@@ -80,7 +80,7 @@ int main() {
 }
 ```
 
-![cri_res_cri_sec |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cri_res_cri_sec.gif)
+![cri_res_cri_sec |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cri_res_cri_sec.gif)
 
 这段代码中, 临界资源和临界区都是什么？
 
@@ -90,7 +90,7 @@ int main() {
 
 并不是, 只有访问了临界资源的那一部分代码被称作临界区, 即：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416153122980.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416153122980.png)
 
 首先是, `if (tickets > 0)` 访问临界资源, 对临界资源进行了判断.
 
@@ -156,7 +156,7 @@ int main() {
 
 执行这段代码, 你就会发现有可能会出错误:
 
-![抢票出错](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/grabTickets_error.gif)
+![抢票出错 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/grabTickets_error.gif)
 
 可以看到, 线程3抢到了 编号为0的票, 线程4抢到了编号为-1的票. 这两张票 很明显是不应改存在的. 因为, 我们设置的 只有 `tickets > 0` 才会输出 抢到票了, 这句话.
 
@@ -164,7 +164,7 @@ int main() {
 
 根据代码, 临界区是：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416160134239.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416160134239.png)
 
 这部分代码存在两个计算： `tickets > 0` 和 `tickets--`
 
@@ -184,7 +184,7 @@ int main() {
 
 那么, 当 `tickets 为 1`, 且 `线程1` 进行判断时, 正常的情况是这样的:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416163216043.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416163216043.png)
 
 > CPU 进行逻辑判断, 其实是通过 判断式子, 计算出一个真值或假值, 进而返回到 判断语句中.
 >
@@ -198,21 +198,21 @@ int main() {
 
 然后 操作系统将CPU计算的结果保存到线程1的上下文数据中, 线程1 暂停运行:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416165843159.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416165843159.png)
 
 然后 线程2被调度 运行需要进行判断, 现在 `tickets 依旧为1`, 然后 CPU 根据 tickets 为1进行计算, 计算完成之后, 还没有将结果返回给线程2代码中, 又需要调度线程3了.
 
 然后 操作系统又将 CPU计算的结果保存到线程2的上下文数据中, 线程2 暂停运行:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416170346077.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416170346077.png)
 
 然后 线程3被调度 运行需要进行判断, 现在的 `tickets 还是1`, 然后CPU 根据tickets为1进行计算, 计算完成之后, 正常将结果返回给了线程3的代码中, 此时 tickets为1, 所以 判断结果肯定为真, 所以线程3 执行抢票操作 `tickets--`, `tickets 变为 0`. 线程3抢到 `编号为1` 的票:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416171227547.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416171227547.png)
 
 然后 线程1又被调度, 操作系统恢复线程1的上下文数据, 上次已经计算出了结果, 所以该将线程1上下文数据中保存的上次CPU计算逻辑判断结果返回到代码中, 由于是根据 tickets为1 计算的, 所以结果为真, 此时 线程1 也会执行抢票操作 `tickets--`, `tickets 变为 -1`. 线程1抢到 `编号为0`的票:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416172150514.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416172150514.png)
 
 然后 线程2又被调度, 操作系统恢复线程2的上下文数据, 将结果返回到代码中, 结果也是由 tickets 为1 计算的, 所以结果为真. 线程2也会执行抢票操作 `tickets--`, `tickets 变为 -2`. 线程2 抢到 `编号为-1` 的票.
 
@@ -387,7 +387,7 @@ int main() {
 
 然后查看代码的执行结果：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/mutex_use_show.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/mutex_use_show.gif)
 
 可以看到, 抢票的过程是非常和谐的. `没有发生数据错误`的问题. 
 
@@ -417,11 +417,11 @@ int main() {
 
 所以, 是将我们还需要在else后的控制块中进行解锁：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416233736687.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230416233736687.png)
 
 此时, 我们再执行代码：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/mutex_use_success.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/mutex_use_success.gif)
 
 可以看到, 票抢到很和谐, 而且线程退出的也很正常.
 
@@ -435,11 +435,11 @@ int main() {
 
 所以, 我们可以在`线程解锁之后, 让线程等一会` 不让他马上进入下一个循环. `让CPU有充足的时间调度其他线程`. 然后就可以看到 `"百线争鸣"` 啦
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417003951566.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417003951566.png)
 
 修改之后, 再看运行结果:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/mutex_success_opt.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/mutex_success_opt.gif)
 
 可以看到, 抢票过程非常的均匀, 也没有发生错错误
 
@@ -514,7 +514,7 @@ int main() {
 
 这段代码的执行结果为：
 
-![define_init_mutex](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/define_init_mutex.gif)
+![define_init_mutex |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/define_init_mutex.gif)
 
 多线程可以和谐的抢票.
 
@@ -522,7 +522,7 @@ int main() {
 
 而如果我们在主线程中定义一个 `static` 修饰的锁, 其实 线程执行的函数是看不到的.
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417145745192.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417145745192.png)
 
 那么, 如何使其他线程看到呢？
 
@@ -582,7 +582,7 @@ int main() {
 }
 ```
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/define_init_mutex.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/define_init_mutex.gif)
 
 多线程也是可以很和谐的运行的.
 
@@ -667,7 +667,7 @@ int main() {
 
 也可以正常的执行:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/define_init_static_mutex_struct.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/define_init_static_mutex_struct.gif)
 
 ### 锁的作用
 
@@ -711,9 +711,9 @@ int main() {
 
 那么, 以 lock 和 unlock 的伪代码, 分析以下 这两个操作的原子性是怎么实现的：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417113128941.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417113128941.png" style="zoom:80%;" />
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417113310347.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417113310347.png" style="zoom:80%;" />
 
 我们针对 lock 修改过的伪代码分析.
 
@@ -882,7 +882,7 @@ int main() {
 
 这两个代码文件编译运行的执行结果是：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_package_mutex.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_package_mutex.gif)
 
 在 `threadLock.hpp` 的这段代码中, 我们封装了两个类:
 
@@ -906,7 +906,7 @@ int main() {
 
 然后, 将抢票的操作单独实现了一个函数, 抢票成功返回true, 失败返回 flase:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417172111322.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417172111322.png)
 
 并在此函数中, 即将进入临界区时, 使用我们实例化的 `myMutex 对象 ` 实例化了一个 `lockGuard 对象`. 因为, 实例化 对象会自动执行构造函数, 而 lockGuard 类的构造函数内容就是 `上锁`. 所以 实例化 `lockGuard 对象` 就是自动上锁了.
 
@@ -991,7 +991,7 @@ int main() {
 
 	此变量就是用来维护开辟出来的堆的:
 
-	![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417182435387.png)
+	![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230417182435387.png)
 
 	我们使用 malloc 开辟出10块空间, 就会以 vm 的形式组成一个 10个节点的链表. 释放一块空间, 就会删除一个节点.
 
@@ -1086,7 +1086,7 @@ int main() {
 
 执行这段代码：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_deadlock.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/thread_deadlock.gif)
 
 这段代码的执行结果就是, 卡住. 没有代码在真正运行.
 
