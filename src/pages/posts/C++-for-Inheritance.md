@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251808460.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251808460.png)
 
 在首次接触，类与对象的时候就已经介绍过
 
@@ -77,7 +77,7 @@ C++中，继承是什么？
 
 就以 学校的老师和学生为例，首先需要定义一个 人 类：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220719014159953.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220719014159953.png)
 
 在介绍类和对象的时候 提到过，类的访问限定符有三个：public、protected、private, 分别表示公共、保护、私有
 
@@ -91,11 +91,11 @@ C++中，继承是什么？
 
 以 定义学生类继承上面那个类为例：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220720145047208.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220720145047208.png)
 
 图中所示即为继承定义的格式，简单的表示即为：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220720152842901.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220720152842901.png)
 
 以上面的继承格式为例：**Student 被称为，子类 或 派生类；public 被称为 继承方式；Person 被称为 父类 或 基类**
 
@@ -178,7 +178,7 @@ C++中，继承是什么？
 
 而 对于 父类指针 和 父类引用：
 
-![stu_pper_perx ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/stu_pper_perx.gif)
+![stu_pper_perx |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/stu_pper_perx.gif)
 
 可以看到 **子类对象的地址 可以 切割给父类指针**；**子类对象 可以直接切割给 父类引用**
 
@@ -202,7 +202,7 @@ C++中，继承是什么？
 
 不过，虽然 *子类对象 可以 赋值给父类对象* ，但是 **父类对象 不能 赋值给 子类对象**
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721010726568.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721010726568.png)
 
 >  **父类指针 和 父类引用 是通过强制类型转换  可以赋值给 子类指针 和 子类引用的** ，但是 这个操作与 **多态** 有关，就暂不赘述
 >
@@ -210,7 +210,7 @@ C++中，继承是什么？
 
 综上所述，父类 与 子类对象的赋值转换 可以这样用图表示：
 
-![子类对象 至 父类 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721013157021.png)
+![子类对象 至 父类 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721013157021.png)
 
 ## 继承作用域相关
 
@@ -218,9 +218,9 @@ C++中，继承是什么？
 
 1. 子类内，继承父类的部分 与 子类自己的部分 是 **两个独立的作用域**
 
-既然是两个独立的作用域，就不得不考虑一个问题：两个独立的作用域 按理来说是可以存在 同名变量或同名函数的，那么**子类内可不可以存在 与 父类内 同名的变量 或 同名的函数(同名成员)呢？**
+    既然是两个独立的作用域，就不得不考虑一个问题：两个独立的作用域 按理来说是可以存在 同名变量或同名函数的，那么**子类内可不可以存在 与 父类内 同名的变量 或 同名的函数(同名成员)呢？**
 
-答案是 **可以**
+    答案是 **可以**
 
 2. 子类和父类中可以存在同名成员，但是**子类成员 将屏蔽 父类对同名成员的直接访问**，这种情况叫**隐藏**，即 子类中的成员 将 父类中的同名成员隐藏了起来，这种情况也叫 **重定义**。
 
@@ -234,7 +234,7 @@ C++中，继承是什么？
     >
     > 答案 很明显：
     >
-    > ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721014742874.png)
+    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721014742874.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
     >
     > 直接访问 `_age` 会访问 `stu 自己的 _age` 而不是继承父类的 `_age`
     >
@@ -252,7 +252,7 @@ C++中，继承是什么？
 
  普通类有 默认成员函数，具有继承关系的子类也是有默认成员函数的，它们的作用就不一一介绍了，看下图可知
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721104712985.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721104712985.png)
 
 但是，**子类中默认成员函数的用法** 还是需要介绍一下的
 
@@ -262,7 +262,7 @@ C++中，继承是什么？
 
     就像这样：
 
-    ![Inherit_constructor](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Inherit_constructor.gif)
+    ![Inherit_constructor |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Inherit_constructor.gif)
 
     可以看到 子类实例化对象调用子类构造函数时，**会先去调用父类默认构造函数，然后再继续执行子类的构造函数**
 
@@ -274,15 +274,15 @@ C++中，继承是什么？
 
     否则会出现：
 
-    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721130419272.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721130419272.png)
     
     并且，**不能直接对 父类成员变量进行初始化，只能传参调用父类的构造函数**
     
     > 为实现，实例化 子类对象时，指定 姓名、性别、年龄，可以 **给子类对象的构造函数添加指定相应类型的形参**：
     >
     > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721140526606.png)
-
-对象实例化时 构造函数的调用 是这样的，而 析构函数、拷贝构造函数、赋值重载函数 也类似
+    
+    对象实例化时 构造函数的调用 是这样的，而 析构函数、拷贝构造函数、赋值重载函数 也类似
 
 2. 子类的拷贝构造的调用，是 **先调用父类的拷贝构造函数将父类的部分拷贝过来，然后在调用子类的拷贝构造进行拷贝**。 赋值重载函数也是一样的
 
@@ -320,7 +320,7 @@ C++中，继承是什么？
 
     按照之前的逻辑，子类的构造函数应该这样写：
 
-    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721152043967.png)
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721152043967.png" alt="|wide" style="zoom:80%;display: block; margin: 0 auto;" />
 
     为什么会出现：`没有与这些操作数匹配的'~'运算符`  `没有与参数列表匹配的构造函数Person::Person`  `Person 没有合适地默认构造可用` 这样的错误？
 
@@ -338,7 +338,7 @@ C++中，继承是什么？
 
     构成隐藏，所以 **指出类域**应该可以调用：
 
-    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721153222667.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721153222667.png)
 
     知名类域确实可以 调用 Person的析构函数了，但是 子类的析构过程 却调用了两次~Person，这又是为什么？
 
@@ -346,12 +346,12 @@ C++中，继承是什么？
 
     所以，**子类析构函数的定义其实不需要显式调用父类的析构函数**
 
-    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721144927644.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721144927644.png)
 
     可以看到 子类对象的析构是 **先调用 子类的析构函数 后自动调用 父类的析构函数的**
     调用父类析构函数的操作，是编译器自动执行的，不需要手动在子类析构函数内写出来：
     
-    ![Inherit_destructor](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Inherit_destructor.gif)
+    ![Inherit_destructor |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Inherit_destructor.gif)
 
 ### 问题：怎么定义一个不能被继承的类
 
@@ -372,7 +372,7 @@ C++中，继承是什么？
 
 `TEST` 作为 `Person的友元函数`，可以访问 `Person`的成员：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721160501463.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721160501463.png" alt="|inline" style="zoom:80%;display: block; margin: 0 auto;" />
 
 而 `Student`作为 `Person的子类`，`TEST`作为`Person的友元` 若解开注释：
 

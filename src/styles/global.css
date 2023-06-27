@@ -34,7 +34,7 @@
 ::after {  
   font-family: 'Fira Code Regular', 'PingFang Regular';
   box-sizing: inherit;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.2;
 }
 
@@ -91,14 +91,14 @@ h6 {
 }
 
 h1 {
-  font-size: 26px;
+  font-size: 38px;
   text-align: center;
   margin-top: 2rem;
   border-bottom: 2px solid #f79f2a;
 }
 
 h2 {
-  font-size: 22px;
+  font-size: 30px;
   display: inline-block;
   border-bottom: 0.4px solid #f79f2a;
 
@@ -117,21 +117,21 @@ h2 .md-plain:after {
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 26px;
   line-height: 1.43;
   margin: 20px 0 7px;
 }
 
 h4 {
-  font-size: 15px;
+  font-size: 22px;
 }
 
 h5 {
-  font-size: 13px;
+  font-size: 18px;
 }
 
 h6 {
-  font-size: 11px;
+  font-size: 16px;
 }
 
 h1 code, 
@@ -153,7 +153,7 @@ ol {
   font-family: 'Fira Code Regular', 'PingFang Regular';
   margin-left: 1.17647em;
   color: #133231bc;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
   display: table;
   background-color: #cccccc1f;
@@ -190,7 +190,6 @@ ol strong,
 ul strong {
   font-family: 'Fira Code Regular', 'PingFang Regular';
   color: #3F545B;
-  font-size: 13px;
   font-weight: bolder;
   border-radius: 2px;
   padding: 2px 6px;
@@ -7642,7 +7641,7 @@ blockquote {
   border-radius: 7px;
   margin-bottom: 1.4211em;
   color: #6e6e73;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 

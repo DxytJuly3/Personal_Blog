@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.png)
 
 ---
 
@@ -1156,4 +1156,4 @@ istream& operator>>(istream& in, string& s) {
 
 感谢阅读~
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410175841829.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410175841829.png" alt=" |inline" style="zoom:33%; display: block; margin: 0 auto;" />

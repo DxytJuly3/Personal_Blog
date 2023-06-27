@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251808894.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251808894.png)
 
 上一篇文章差不多就是C++继承基础用法的所有内容了
 
@@ -35,7 +35,7 @@ featured: false
 
 2. **多继承**：一个子类拥有多个直接父类
 
-    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721180442450.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721180442450.png)
 
     想这样，`Assistant(助教)` 分别继承了 `Student` 和 `Teacher`，就是一种多继承
 
@@ -61,7 +61,7 @@ C++ 中 存在多继承的概念和用法，那么就一定会出现一种情况
 >
 > 只要体系中 有相同父类的两个或多个子类被另一个子类继承了，就会形成菱形继承
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721182825807.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721182825807.png)
 
 形成菱形继承会 出现两个问题：
 
@@ -72,13 +72,13 @@ C++ 中 存在多继承的概念和用法，那么就一定会出现一种情况
 
 针对 存在 ***二义性成员*** 的对象，直接访问 这种成员，是会报错的：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721184141674.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721184141674.png)
 
 内容是，访问不明确
 
 不过，二义性无法直接访问的问题 其实是可以通过 **指明成员的类域** 进行解决的
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721184518782.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721184518782.png)
 
 但是 ***数据冗余*** 就不能这么简单的解决了
 
@@ -106,7 +106,7 @@ C++ 种提供了一个 关键字 `virtual`
 
 菱形虚拟继承 的作用是什么?
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721191349394.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721191349394.png)
 
 通过 VS2022 的监视窗口观察，好像并没有什么优化，甚至还多出了一个 `Person`
 
@@ -120,21 +120,21 @@ C++ 种提供了一个 关键字 `virtual`
 >
 > **32位环境**，请 **4 字节**查看
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721192512135.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721192512135.png)
 
 > A 类成员变量 _a 给缺省值 10
 
 先查看一般的 菱形继承 的对象模型**(8字节查看)**：
 
-![&d1_对象模模型](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/&d1_%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8Bx.gif)
+![&d1_对象模模型 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/&d1_%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8Bx.gif)
 
 可以看到，普通菱形继承的 对象d1 的对象模型是这样的
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721194019728.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721194019728.png)
 
 再来看一下，菱形虚拟继承的对象模型：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721194126391.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721194126391.png)
 
 ---
 
@@ -144,9 +144,7 @@ C++ 种提供了一个 关键字 `virtual`
 >
 > 为了 方便观察，给 对象的成员赋了值，且 A对象的成员 _a 给了缺省参数 10：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721200545442.png" alt="|inline" style="zoom:80%;" />
->
-> - 
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721200545442.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 对比来看 对象模型
 >
@@ -159,9 +157,9 @@ C++ 种提供了一个 关键字 `virtual`
 > 再对比 对象d1 中的数据，会发现，对象模型中存储的是：
 >
 > 1. **`B::A::_a = 10` `B::_b = 4`**
-> 2. **`C::A::_a = 10` `C::_c = 16`**
+>2. **`C::A::_a = 10` `C::_c = 16`**
 > 3. **`D::_d = 20`**
->
+> 
 > 所以 非虚拟菱形继承 的对象模型，在**内存中存储的就是 B、C 和 自己的成员，且是紧挨着存储的**
 >
 > 即：
@@ -172,17 +170,15 @@ C++ 种提供了一个 关键字 `virtual`
 >
 > 同样是给 对象的成员赋了值，且 A对象的成员 _a 给了缺省参数 10：
 >
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721200545442.png" alt="image-20220721200545442" style="zoom:80%;" />
->
-> - 
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721200545442.png" alt="image-20220721200545442" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 观察 其对象模型，可以发现存储的是地址和数值：
 >
 > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721203523504.png)
 >
 > 对象中 存储的数据 确实都在呢：_b = 4， _c = 16， _d = 20， _a = 10
-> 4、16、20、10 都存储在对象模型中，但是除此之外还有两个不知道是什么的地址
->
+>4、16、20、10 都存储在对象模型中，但是除此之外还有两个不知道是什么的地址
+> 
 > 观察那两个地址：
 >
 > ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721204121016.png)
@@ -199,11 +195,11 @@ C++ 种提供了一个 关键字 `virtual`
 >
 > 所以其实，B 和 C类还在 对象模型中
 >
-> ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721210125125.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721210125125.png)
 >
 > 只不过相对于 **非模拟继承**，直接存储 `_a` 
-> 变成了使用两个指针指向虚基表，从表中找到相对偏移量，再由偏移量找到 `_a`
->
+>变成了使用两个指针指向虚基表，从表中找到相对偏移量，再由偏移量找到 `_a`
+> 
 > 这种方法非常的麻烦，但是很有效的解决了 数据冗余和二义性 问题
 >
 > 因为 最高层父类的数据只存储了一份，如果想访问 就使用指针和偏移量去找，访问的都是同一个位置
@@ -224,7 +220,7 @@ C++ 种提供了一个 关键字 `virtual`
 >
 >  还是以 A,B,C,D 这个继承体系为例：
 >
->  ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721211413526.png)
+>  <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721211413526.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 >  如果不存储偏移量去找数据，怎么完成这个赋值的操作
 >
@@ -242,7 +238,7 @@ C++ 种提供了一个 关键字 `virtual`
 
 根据分析 简单类继承体系的对象模型，其实可以画出 Person、Student、Teacher和 Assistant 这个继承体系的对象模型：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721214325494.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220721214325494.png)
 
 > 菱形继承的关键源头，其实不在于菱形继承，而在于多继承
 

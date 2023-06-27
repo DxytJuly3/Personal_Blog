@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501153114604.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501153114604.png)
 
 ---
 
@@ -153,7 +153,7 @@ struct ListNode* FindKthToTail(struct ListNode* pHead, int k )
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430203858767.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430203858767.png" alt=" |inline" style="zoom:60%; display: block; margin: 0 auto;" />
 
 
 
@@ -268,7 +268,7 @@ OK，带环链表的题做出来了
 
 画图抽象图来分析，一个带环链表，抽象的形式可以看作：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430232045310.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220430232045310.png)
 
 快慢指针 `同时` 从首节点开始走，快指针走得快，慢指针走得慢
 
@@ -280,7 +280,7 @@ OK，带环链表的题做出来了
 
 两个指针都入环之后，快指针开始在环内追逐慢指针：
 
-![pfast_2_pslow](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pfast_2_pslow.gif)
+![pfast_2_pslow |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pfast_2_pslow.gif)
 
 因为 `当这样的两个指针都入环之后，两个指针之间的距离变化就变为了 每走一步减一`
 
@@ -310,7 +310,7 @@ OK，带环链表的题做出来了
 >
 >  >  **`情况 2：`** `X` 为 奇数
 >  >
->  >  ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pfast_3_pslow_J.gif)
+>  >  ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/pfast_3_pslow_J.gif)
 >  >
 >  >  此情况，快指针 超过 慢指针，但是由于快指针的移动是不连续的，所以两指针并不会相遇
 >  >
@@ -362,7 +362,7 @@ OK，带环链表的题做出来了
 
 首先还是画图假设一下：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501142311619.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501142311619.png)
 
 > 先思考一个问题：慢指针 `从入环到被追上` ，走过的长度 是不是如假设的那样，`会不会已经走了一圈后才被追上的`？
 >
@@ -395,7 +395,7 @@ OK，带环链表的题做出来了
 
 这个式子有什么用呢？
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501142311619.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220501142311619.png)
 
 其实，这个等式说明：
 

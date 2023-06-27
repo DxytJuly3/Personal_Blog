@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/DS_Cover_qesList.jpg)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/DS_Cover_qesList.jpg)
 
 ---
 
@@ -41,56 +41,58 @@ featured: false
 ## 顺序表的两种结构
 顺序表的实现方式一般分为两种：
 1. 静态的顺序表
+    
     所谓`静态`，就是 `使用定长数组存储数据`
+    
     定长的数组是 `有一定的弊端` 的，即 `只能存储一定数量的数据`
+    
     即：
-
-  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Quiet_Seq.gif)
-
-  采用定长的数组实现顺序表，`顺序表存满(即数组存满)之后，无法直接继续存储数据，想要继续存储数据就需要改动源代码.`
-  一般实现代码为：
-
-  ```c
-  #define N 10
-  typedef int SLDataType;
-  
-  typedef struct SeqList
-  {
-  	SLDataType a[N];    // SLDataType 表示数据类型，已经被typedef 为 int
-  	int Size;    //数组内存放数据数量
-  }SeqList;
-  
-  // 如果需要改变顺序表的容量就需要改动 N 的值
-  ```
+    
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Quiet_Seq.gif)
+    
+    采用定长的数组实现顺序表，`顺序表存满(即数组存满)之后，无法直接继续存储数据，想要继续存储数据就需要改动源代码.`
+    一般实现代码为：
+    
+    ```c
+    #define N 10
+    typedef int SLDataType;
+    
+    typedef struct SeqList
+    {
+    	SLDataType a[N];    // SLDataType 表示数据类型，已经被typedef 为 int
+    	int Size;    //数组内存放数据数量
+    }SeqList;
+    
+    // 如果需要改变顺序表的容量就需要改动 N 的值
+    ```
 
 2. 动态的顺序表
    
-
-  `动态的顺序表`，就是 `使用动态开辟的数组存储数据`
-
-  动态开辟的数组，可以实现一个功能就是，`当数组满了的时候可以自动扩容`
-
-  即：
-
-  ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/dynamic_SeqList.gif)
-
-  当数组处于已满的状态且再要存入数据时，数组扩容。
-
-  这样采用动态数组实现的顺序表，`使用的时候不需要考虑容量的问题` ，所以 一般 `实现顺序表就用动态开辟的数组` 实现。
-
-  结构的实现代码为：
-
-  ```c
-  typedef int SLDataType;
-  
-  typedef struct SeqList
-  {
-  	SLDataType* arr;    // 指向动态开辟的数组
-  	int Size;    //数组内存放数据数量
-  	int Capacity;    //顺序表容量
-  }SeqList;
-  // 此结构的顺序表 创建后，使用前，需要初始化
-  ```
+   `动态的顺序表`，就是 `使用动态开辟的数组存储数据`
+   
+   动态开辟的数组，可以实现一个功能就是，`当数组满了的时候可以自动扩容`
+   
+   即：
+   
+   ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/dynamic_SeqList.gif)
+   
+   当数组处于已满的状态且再要存入数据时，数组扩容。
+   
+   这样采用动态数组实现的顺序表，`使用的时候不需要考虑容量的问题` ，所以 一般 `实现顺序表就用动态开辟的数组` 实现。
+   
+   结构的实现代码为：
+   
+   ```c
+   typedef int SLDataType;
+   
+   typedef struct SeqList
+   {
+   	SLDataType* arr;    // 指向动态开辟的数组
+   	int Size;    //数组内存放数据数量
+   	int Capacity;    //顺序表容量
+   }SeqList;
+   // 此结构的顺序表 创建后，使用前，需要初始化
+   ```
 
 ## 顺序表接口实现
 
@@ -253,7 +255,7 @@ void seqListPrint(SeqList* psl)
 
 验证：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SLPrint_blog.jpg)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SLPrint_blog.jpg)
 
 ### 顺序表尾删
 ```c
@@ -303,7 +305,7 @@ void seqListPopBack(SeqList* psl)
 变成负数之后，如果继续进行其他操作，一定会发生错误
 比如：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/popBack_beyond3.jpg)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/popBack_beyond3.jpg)
 
 即使，尾插了两次，顺序表中还是无法输出数据，也就是说，再次尾插的两个数据并没有存放至顺序表中。
 因为 这两次尾插，是从 `Size 为 -3` 的地方执行的，并没有从 `0` 位置开始，所以无法存入，`同时也发生了越界现象`。
@@ -343,7 +345,7 @@ void seqListPushFront(SeqList* psl, SLDataType x);
 顺序表本质上是 `数组实现的`，那么需要在数组的首位置插入数据就不仅仅是插入数据那么简单。`需要先将数组中的数据向后移动一位，然后才能将新数据放入首位置`
 `演示：`
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/PushFront.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/PushFront.gif)
 
 `那么来实现头插一下：`
 ```c
@@ -380,7 +382,7 @@ void seqListPushFront(SeqList* psl, SLDataType x)
 
 验证：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListPushFront.jpg)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListPushFront.jpg)
 
 头插成功。
 
@@ -396,7 +398,7 @@ void seqListPopFront(SeqList* psl);
 不过，头删同样需要保证 `Size > 0` 才能执行。
 `演示：`
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/PopFront.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/PopFront.gif)
 
 `头删实现：`
 
@@ -422,7 +424,8 @@ void seqListPopFront(SeqList* psl)
 
 验证：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/popFront_beyond.jpg)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/popFront_beyond.jpg)
+
 即使删除过多，也不会出错。
 
 ### 顺序表查找
@@ -452,7 +455,7 @@ int seqListFind(SeqList* psl, SLDataType x)
 
 验证：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListFind.jpg)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListFind.jpg)
 
 验证了，一般情况、边界情况、未找到情况，均返回正确。
 
@@ -488,7 +491,7 @@ void seqListInsert(SeqList* psl, size_t pos, SLDataType x)
 验证一下：
 > 在插入之前可以使用 查找函数 获取一下 `pos` 位置
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert.jpg)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert.jpg)
 
 `pos` 位置插入数据 成功了。
 
@@ -497,7 +500,7 @@ void seqListInsert(SeqList* psl, size_t pos, SLDataType x)
 比如，当我在 `20` 这个位置插入，会发生什么呢？
 看一下：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert2.jpg)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert2.jpg)
 
 在 `20` 位置插入数据没有报错，但是输出的时候输出的是随机值
 而且，在实际的操作中，程序是延迟了一会才结束的
@@ -537,7 +540,7 @@ void seqListInsert(SeqList* psl, size_t pos, SLDataType x)
 ```
 现在再执行一遍代码：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert3.jpg)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/SeqList_posInsert3.jpg)
 
 当 `pos` 大于 `Size` 时，会输出警告，并停止插入。
 
@@ -600,7 +603,7 @@ void seqListPushFront(SeqList* psl, SLDataType x)
 
 使用改良后的 `头插` `尾插`验证：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListPushBack_Front_UPTATE.jpg)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListPushBack_Front_UPTATE.jpg)
 
 改良后的 `头插` 和 `尾插` 成功
 
@@ -641,7 +644,7 @@ void seqListErase(SeqList* psl, size_t pos)
 验证一下：
 删除之前插入的三个 `0`：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListErase.jpg)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListErase.jpg)
 
 删除成功，同样 超出 `Size` 直接取消删除。
 
@@ -692,7 +695,7 @@ void seqListPopFront(SeqList* psl)
 
 也使用改良后的 `头删` `尾删`验证：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListErase_FrontBack.jpg)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/seqListErase_FrontBack.jpg)
 
 改良后的 `头删` 和 `尾删` 成功
 

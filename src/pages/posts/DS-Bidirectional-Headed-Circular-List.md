@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![Blog_SXDTXHLB_cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Blog_SXDTXHLB_cover.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Blog_SXDTXHLB_cover.png)
 
 ---
 
@@ -46,7 +46,7 @@ featured: false
 
 `带头双向循环链表的结构` 示意图是这样的：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503180047664.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503180047664.png)
 
 ## 节点结构
 
@@ -112,7 +112,7 @@ void ListPushBack(ListNode *phead, ListDataType x);
 
 所以可以在此基础上 直接进行尾插：
 
-![List_Push_Back](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/List_Push_Back.gif)
+![List_Push_Back |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/List_Push_Back.gif)
 
 代码实现即为：
 
@@ -205,7 +205,7 @@ ListNode* ListInit()
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503220100159.png)
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503224018491.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503224018491.png)
 
 光标进入 `尾插接口`：
 
@@ -215,13 +215,13 @@ ListNode* ListInit()
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503221543363.png)
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503230829976.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503230829976.png)
 
 再将 `newNode` 与 `phead` 连接起来：
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503221910810.png)
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503231509032.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220503231509032.png)
 
 可以看到，即使是 只有头节点，尾插函数也可以成功发挥作用
 
@@ -296,7 +296,7 @@ void ListPrint(ListNode *phead)
 
 用打印函数，将上边的接口都验证一下：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504094219559.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504094219559.png)
 
 都可以正常发挥作用
 
@@ -326,7 +326,7 @@ void ListPushFront(ListNode *phead, ListDataType x)
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504161039016.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504161039016.png)
 
 ### 链表尾删 `ListPopFront`
 
@@ -344,7 +344,7 @@ void ListPopFront(ListNode *phead)
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504161411773.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504161411773.png)
 
 ### 链表查找 `ListFind`
 
@@ -378,7 +378,7 @@ ListNode* ListFind(ListNode *phead, ListDataType x)
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504154331160.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504154331160.png)
 
 
 
@@ -410,7 +410,7 @@ void ListInsert(ListNode *pos, ListDataType x)
 
  验证：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504155105531.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504155105531.png)
 
 
 
@@ -483,7 +483,7 @@ void ListErase(ListNode *pos)
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504155752938.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220504155752938.png)
 
 `删除`实现之后，`尾删` 和 `头删` 也可以直接复用：
 

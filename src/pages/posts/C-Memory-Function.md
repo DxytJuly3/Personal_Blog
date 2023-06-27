@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812215.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812215.png)
 
 ---
 

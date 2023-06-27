@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809044.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809044.png)
 
 ---
 
@@ -29,7 +29,7 @@ featured: false
 
 在 `C语言` 中， `同一个作用域中` 定义变量或初始化变量，变量名是不可以相同的，即 `不可以重定义变量 多次初始化变量`
 
-![C语言重定义、多次初始化](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220425235849976.png)
+![C语言重定义、多次初始化 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220425235849976.png)
 
 这是 C语言 中的规定，但是这个规定 `过于死板` 
 
@@ -53,7 +53,7 @@ C语言因为这个规定，就会造成：如果存在命名相同，那就只�
 
 相信许多人在刚开始学习 `C++` 的时候，一定很纳闷这是个什么东西：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220513141346741.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220513141346741.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 这句话究竟是什么意思：`using` 是什么意思？`namespace` 是什么意思？`std` 又是什么意思？
 
@@ -219,7 +219,7 @@ int main()
 }
 ```
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220514180837528.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220514180837528.png)
 
 `using namespace July;` 之后，使用 `July` 内的变量就不需要再变量前 加`July::`
 

@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805666.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805666.png)
 
 哈希是一种思想, 除了之前文章中介绍的一些使用哈希思想实现的哈希表之外, 哈希思想的应用还有其他的方面。也就是本篇文章所介绍的 位图 和 布隆过滤器
 
@@ -94,7 +94,7 @@ private:
 
 以 14 这个数为例, 在位图中映射的位置就应该是第2个单元的第2位上(右–>左 0–>7)
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230214185132886.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230214185132886.png)
 
 以此规则, 添加 可以将数据映射的比特位设置为 0 或 1 的接口：
 
@@ -174,7 +174,7 @@ bool test(size_t x) {
 
 > 最左按第0位算
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144947499.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410144947499.png)
 
 意思为：`当ip计算出的三个不同的哈希值再位图中映射同时存在时, 表示此ip存在`。
 

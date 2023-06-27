@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815879.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815879.png)
 
 在分析实现了 set 和 map 之后, STL 之中还有两个名字与之非常相似的容器, unordered_set 和 unordered_map
 
@@ -36,7 +36,7 @@ unordered_set 和 unordered_map在大体使用上与 set 和 map相似, 只是�
 
 ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221110175001906.png)
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221110175156194.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221110175156194.png)
 
 > unordered_set 的介绍可以参考 unordered_map
 
@@ -132,7 +132,7 @@ unordered_set 和 unordered_map在大体使用上与 set 和 map相似, 只是�
 
 那么以上面的例子为基础: 再次插入 13, 那么哈希表中应该就是这样的情况:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111093214911.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111093214911.png)
 
 >  13 直接存储在 3 的后面
 >
@@ -164,7 +164,7 @@ unordered_set 和 unordered_map在大体使用上与 set 和 map相似, 只是�
 
 比如像下面这样直接删除 22:
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111100921080.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221111100921080.png)
 
 > 没有删除的时候, 查找 32, 则会先找到 2, 再找到 12, 再找到 22, 最后找到 32
 >
@@ -613,7 +613,7 @@ size_t BKDRHash(const string& str) {
 
 官方文档中对于 unordered_map 的模板参数的描述, `第三个 Hash , 需要传入的函数就是 取key类型的哈希值的仿函数`
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221112074536539.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221112074536539.png)
 
 仿函数的具体内容就是针对 key类型计算哈希值:
 

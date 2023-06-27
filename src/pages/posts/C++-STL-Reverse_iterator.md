@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.png)
 
 在 string 类介绍的时候，就已经开始接触迭代器了
 
@@ -64,7 +64,7 @@ featured: false
 
 其实 STL 源码中也是这样设计的：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220716005519094.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220716005519094.png)
 
 STL源码中的反向迭代器 是通过已经实现了的正向迭代器来实现的
 
@@ -74,7 +74,7 @@ STL源码中的反向迭代器 是通过已经实现了的正向迭代器来实�
 
 下面就可以根据 STL源码大致的框架，进行模拟实现了：
 
-![reverse_iterator_fix](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/reverse_iterator_fix.png)
+![reverse_iterator_fix |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/reverse_iterator_fix.png)
 
 ```cpp
 template<class Iterator, class Ref, class Ptr>
@@ -149,6 +149,6 @@ struct reverseIterator
 };
 ```
 
-+ 
-
 这就是 反向迭代器的实现，基本可以适用于大部分的容器，但是没有实现 +、+=等运算符重载。
+
+---

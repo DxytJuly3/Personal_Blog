@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811483.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811483.png)
 
 ---
 
@@ -57,9 +57,9 @@ int main()
 ```
 代码执行效果：
 
-![预定义符号](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-Symbols.png)
+![预定义符号 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-Symbols.png)
 
-![预定义符号效果 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-Symbols-Show.png)
+![预定义符号效果 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-Symbols-Show.png)
 
 ## #define
 #define 
@@ -76,34 +76,40 @@ The time now is %s.\n", \
 ```
 这些被定义的 **宏** 在使用的时候，是不需要输入参数的，可以直接在代码编写中使用：
 
-![define-symbol-show |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-define-symbol-show.png)
+![define-symbol-show |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/PRE-define-symbol-show.png)
 
 截图，使用 `uchar` 定义了 无符号字符类型变量 `c`
 `c < 10`， 所以 `c` 被赋予 `Max`
 然后使用 `TIME_PRINT` 来输出时间
 > ```c
-> #define TIME_PRINT printf("Today is %s.\n\
-The time now is %s.\n", \
->						   __TIME__, __DATE__)
->```
-> 在这一句使用 #define 定义中，第一个 `\n` 后的  ```\``` , 和 `,`  后的 ```\``` ，作用都是续行
->    如果需要被定义的指令过长，可以分成几行写，除了最后一行外，每行的后面都加一个反斜杠，作用是续行。
-
-
-具体用途是：
-对于较长的固定的，或需要重复使用的某句指令 或 内容，用一个 自定义的标识符 来表示，方便以后统一使用或修改。
-
-#define 定义标识符的规则就是:
-
-`#define + 自定义标识符 + 需要被自定义的内容`
-或者通俗的说
-`#define + 新名字(自己起) + 旧名字(原来的)`
-
-不过需要注意的是，对于 #define 定义的使用，最好不要在指令的末尾加 `;`
-因为 #define 后第一个字符或字符串 之后的所有内容都是会在 [[编译和链接]] 的过程中 替换掉的
-在 #define 指令的最后 加上 `;` ，如果不注意使用 标识符 的话，就可能会造成不必要的错误。
-
+> #define TIME_PRINT printf("Today is %s.\n \
+> 						   The time now is %s.\n", \
+> 						   __TIME__, __DATE__)
+> ```
+>
+> > 在这一句使用 #define 定义中，第一个 `\n` 后的  ```\``` , 和 `,`  后的 ```\``` ，作用都是续行
+> >
+> > 如果需要被定义的指令过长，可以分成几行写，除了最后一行外，每行的后面都加一个反斜杠，作用是续行
+>
+> 宏的具体用途是：
+>
+> 对于较长的固定的，或需要重复使用的某句指令 或 内容，用一个 自定义的标识符 来表示，方便以后统一使用或修改。
+>
+> #define 定义标识符的规则就是:
+>
+> `#define + 自定义标识符 + 需要被自定义的内容`
+>
+> 或者通俗的说
+>
+> `#define + 新名字(自己起) + 旧名字(原来的)`
+>
+> 不过需要注意的是，对于 `#define` 定义的使用，最好不要在指令的末尾加 `;`
+>
+> 因为 `#define` 后第一个字符或字符串 之后的所有内容都是会在 编译和链接 的过程中 替换掉的
+>
+> 在 `#define` 指令的最后 加上 `;` ，如果不注意使用 标识符 的话，就可能会造成不必要的错误。
 ### 用#define定义 有参宏
+
 对于有参数的宏，模样 与 使用方法 和函数十分的相似：
 执行以下代码，对比以下：
 
@@ -127,7 +133,7 @@ int main()
 	return 0;
 }
 ```
-![define_function-pk |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/define_function-pk.png)
+![define_function-pk |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/define_function-pk.png)
 
 结果是，`#define` 定义的 有参宏 与 自定义的函数，都实现了两数相加的功能。
 

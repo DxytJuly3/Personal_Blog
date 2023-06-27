@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809273.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809273.png)
 
 
 
@@ -52,7 +52,7 @@ C++ 也可以通过多态来实现类似的场景，可能表现为：**不同�
 在上一篇文章中 接触了一个C++中的关键字 `virtual` ，用于 解决菱形继承的数据冗余和二义性的问题，将菱形继承改为 菱形虚拟继承
 不仅是虚拟继承，**虚函数** 也是使用 关键字`virtual` 定义的
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724003532711.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724003532711.png)
 
 在上图的继承体系中，可以看到 四个类都存在一个函数名相同的成员函数 `buyTicket`
 
@@ -78,7 +78,7 @@ C++ 也可以通过多态来实现类似的场景，可能表现为：**不同�
 
 既然构成了重写，就可以使用 父类指针或父类引用 来进行多态调用：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724010331702.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724010331702.png)
 
 上述示例中，函数`BuyTicket(Person& per)` 使用 **父类引用作为参数**，在函数体内调用成员函数 `buyTicket`
 
@@ -131,11 +131,11 @@ C++ 规定，父子类虚函数 必须 **同函数名、同函数参数、同函
 1. 当父类虚函数的**返回值类型是父类指针**时，子类虚函数**返回值类型可以是子类指针**，同样**构成重写**
 2. 当父类虚函数的**返回值类型是父类引用**时，子类虚函数**返回值类型可以是子类引用**，也**构成重写**
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724121752693.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724121752693.png)
 
 如果将之前示例中的 继承体系 改为上面两种，重写同样成立：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724122051967.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724122051967.png)
 
 而这种写法：父子类虚函数的返回值类型为父子类的指针或引用，重写依旧成立。被称为 **协变**
 
@@ -152,11 +152,11 @@ C++ 规定，父子类虚函数 必须 **同函数名、同函数参数、同函
 
 现在看来，编译器已经为析构函数做好了准备，我们只需要将 **父子类的析构函数设置为虚函数** 就可以构成重写，进而构成多态了：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724123822274.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724123822274.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
 使用上面的 继承体系：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724124119357.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724124119357.png)
 
 即使 析构函数显式定义 函数名不同，编译器也会将继承体系中的所有析构函数 统一为 `~destructor` 为多态做准备
 
@@ -190,21 +190,21 @@ C++对虚函数重写的判定是非常严格的，稍有不注意可能就会�
 
 C++ 规定，在一个**虚函数 函数名后 加上 `=0` 那么这个虚函数就变成了纯虚函数**
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724212416457.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220724212416457.png)
 
 如上图所示，Clothes类中**包含了一个 纯虚函数**，那么 Clothes类就是一个抽象类，抽象类是**无法实例化对象**的：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726090225310.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726090225310.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
 并且，抽象类的子类也是无法实例化对象的：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726090529370.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726090529370.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 > 继承了抽象类的类，也就**继承了抽象类的纯虚函数**，所以 抽象类的子类也**无法实例化对象**
 
 但是，当 **子类重写了父类的纯虚函数时，子类就可以实例化对象** 了，并且可以多态调用：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726091417278.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726091417278.png)
 
 > 一个纯虚函数的函数内容是无意义的
 >
@@ -220,7 +220,7 @@ C++ 规定，在一个**虚函数 函数名后 加上 `=0` 那么这个虚函数
 
 还是以，Clothes类体系为例：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726093251924.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726093251924.png)
 
 父类的纯虚函数根本没有函数实现，所以无法实例化对象也无法正常调用
 
@@ -234,7 +234,7 @@ C++ 规定，在一个**虚函数 函数名后 加上 `=0` 那么这个虚函数
 >
 > 这段代码的输出结果是什么？
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726094556986.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726094556986.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 答案是：**`B->1`** 
 >
@@ -246,7 +246,7 @@ C++ 规定，在一个**虚函数 函数名后 加上 `=0` 那么这个虚函数
 > >
 > > 所以，`p->test();` 调用的是 **B类对象的A类部分的成员函数，且A类中的虚函数已被重写**
 > >
-> > ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726095319606.png)
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726095319606.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 > >
 > > 进入 `test()` 函数时，**`this`指针是`A*`类型** 的，指向的是B类中A类的部分：
 > >
@@ -267,17 +267,17 @@ C++ 规定，在一个**虚函数 函数名后 加上 `=0` 那么这个虚函数
 > >
 > > 所以，在多态调用此函数时，其实是：
 > >
-> > ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726101327948.png)
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726101327948.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 > >
 > > 而不是：
 > >
-> > ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726101349534.png)
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726101349534.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 > >
 > > > C++ 这样设计真的离谱！！！
 >
 > 而 如果是正常的调用 B类的`func()` 而不通过多态调用，又会正常调用函数：
 >
-> ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726101713007.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220726101713007.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 是因为正常调用，编译器会只考虑B类本身的内容，即使A类虚函数被重写了，但是没有多态调用 编译器不会将其认定为 **接口继承**，而是 认定为 **实现继承**。
 >

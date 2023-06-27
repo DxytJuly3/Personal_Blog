@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805245.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805245.png)
 
 ---
 
@@ -25,7 +25,7 @@ featured: false
 
 首先先分析以下这段代码，并且思考问题：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629144649718.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629144649718.png)
 
 程序中所有的变量应该存储在什么区域？
 
@@ -35,7 +35,7 @@ featured: false
 
 C/C++ 程序运行之后，程序中的数据的存储区域大致可以划分这样：
 
-![内存分布 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409232144743.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230409232144743.png" alt="内存分布 |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 这张图可以展示出 C/C++ 程序数据在内存中的大致区域
 
@@ -47,7 +47,7 @@ C/C++ 程序运行之后，程序中的数据的存储区域大致可以划分�
 
 看完数据的存储区域，上面的问题就可以完美的解决了！：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629141223975.png)
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629141223975.png)
 
 > `globalVar`、`staticGlobalVar`、`staticVar` 很明显属于 全局或静态变量，所以应该存储在`静态区`
 >
@@ -81,11 +81,11 @@ void* malloc (size_t size);
 
 使用注意：返回值类型为 `空类型指针`，所以使用时需要指定 指针类型
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629153315360.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629153315360.png)
 
 `malloc` 开辟出的空间不初始化
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629153504293.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629153504293.png)
 
 ### calloc
 
@@ -97,7 +97,7 @@ void* calloc (size_t num, size_t size);
 
 使用方式与 `malloc` 类似
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629153959427.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629153959427.png)
 
 ### realloc
 
@@ -112,7 +112,7 @@ void* realloc (void* ptr, size_t size);
 注意：`size` 需要传入需要调整到的大小
 比如，原本开辟了 `5个int` 大小的空间，想要扩充到 `10个int` 大小，`size`就传入`10`
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629155056038.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629155056038.png)
 
 > `realloc` 扩充空间，默认从 旧空间向后扩充
 >
@@ -144,7 +144,7 @@ C++ 补充了 `new` 和 `delete` 作为自己的动态内存管理工具
 
 `new` 和 `delete` 的用法 比 C语言动态内存管理的方法 简单许多
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629161545639.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629161545639.png)
 
 `new` 和 `detele` 都属于 C++ 中的关键词，而不是函数，所以与C语言中 `malloc` 等用法不同
 
@@ -160,7 +160,7 @@ C++ 补充了 `new` 和 `delete` 作为自己的动态内存管理工具
 
 `new` 和 `detele` 操作自定义类型空间的使用，与操作内置类型的使用相同
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629163737630.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629163737630.png)
 
 在对自定义类型空间的操作上，`new` `delete` 与 `malloc` `free` 相比，有一个非常适合 C++语法的作用 就是
 `new` 和 `detele` 在操作自定义类型的空间时，会调用 `构造函数和析构函数`；而 `malloc` 和 `free` 不会
@@ -169,7 +169,7 @@ C++ 补充了 `new` 和 `delete` 作为自己的动态内存管理工具
 
 调试
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629164925433.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629164925433.png" alt="|wide" style="zoom:90%; display: block; margin: 0 auto;" />
 
 所以，`new` 开辟自定义类型的空间，实际对象的实例化，也是调用 其构造函数实现的
 
@@ -177,17 +177,17 @@ C++ 补充了 `new` 和 `delete` 作为自己的动态内存管理工具
 
 如果是对下面这个类动态开辟空间：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629171128548.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629171128548.png)
 
 使用 `new` 动态开辟：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629173132969.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629173132969.png)
 
 除了开辟空间之外，还会调用构造函数对对象初始化
 
 使用 `malloc` 动态开辟：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629173737579.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629173737579.png)
 
 只负责开辟空间，不调用构造函数，对象不初始化
 
@@ -208,11 +208,11 @@ C++ 补充了 `new` 和 `delete` 作为自己的动态内存管理工具
 
 `operator new`:
 
-![operator new](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629174925434.png)
+![operator new |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629174925434.png)
 
 `operator delete`:
 
-![operator delete](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629175405517.png)
+![operator delete |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629175405517.png)
 
 > `operator new` 实际也是通过`malloc`来申请空间，如果`malloc`申请空间成功就直接返回
 > 否则执行用户提供的空间不足应对措施，如果用户提供该措施就继续申请，否则就抛异常
@@ -246,11 +246,11 @@ int* pa = (int*)operator new(sizeof(int));
 
 抛异常演示：
 
-![抛异常未接收](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629180854302.png)
+![抛异常未接收 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629180854302.png)
 
 如果接收了抛出的异常：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629181443062.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629181443062.png)
 
 #### operator new 和 operator delete 的类专属重载
 
@@ -278,9 +278,9 @@ int* pa = (int*)operator new(sizeof(int));
 
 此操作可以解决 `已经开辟的自定义类型空间无法初始化的问题`
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629213043600.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629213043600.png)
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629213200638.png)
+![|inlinel](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220629213200638.png)
 
 
 

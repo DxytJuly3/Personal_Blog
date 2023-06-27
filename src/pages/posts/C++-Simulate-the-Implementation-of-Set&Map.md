@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814109.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814109.png)
 
 ---
 
@@ -148,7 +148,7 @@ private:
 
 ### pair类 数据大小的比较
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221025160609241.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221025160609241.png)
 
 图中 蓝紫色部分的代码 就是 pair类中重载的比较运算符, 其中 `==` 和 `<` 运算符的功能是：
 
@@ -454,7 +454,7 @@ struct _RB_Tree_Iterator {
 
 > 以一棵 二叉搜索树 为例：
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221026154152076.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221026154152076.png" alt="|inline" style="zoom:60%; display: block; margin: 0 auto;" />
 >
 > 此 红黑树的中序遍历是：17 22 31 34 41 53 54 56 58 67 70 77 78 82 94
 >
@@ -1191,8 +1191,8 @@ set 和 map 是以红黑树为底层封装起来的, 上面已经实现了 红�
 
 测试 set：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221026211512396.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20221026211512396.png)
 
 测试 map：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410143003182.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410143003182.png)

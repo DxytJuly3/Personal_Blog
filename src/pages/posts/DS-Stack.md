@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![Stack_Cover](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Stack_Cover.jpg)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Stack_Cover.jpg)
 
 ---
 
@@ -62,7 +62,7 @@ featured: false
 
 `栈` 存放数据的方式就像 砌砖，在 `不破坏结构` 的情况下只能这样 放 和 拿：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/6929a33778e6355875037e2cade6f591.gif)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/6929a33778e6355875037e2cade6f591.gif)
 
 由图 可以看出 `栈` 是一种 `后进先出(LIFO)` 的数据结构，即 最后放入的数据，最先出来
 
@@ -209,7 +209,7 @@ StackDataType StackTop(const Stack *pst)
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507181738115.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507181738115.png)
 
 ### 判空 `StackEmpty`
 
@@ -226,7 +226,7 @@ bool StackEmpty(const Stack *pst)
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507182200048.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507182200048.png)
 
 ### 栈元素个数 `StackSize`
 
@@ -242,7 +242,7 @@ int StackSize(const Stack *pst)
 }
 ```
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507182706721.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507182706721.png)
 
 ### 栈销毁 `StackDestroy`
 
@@ -257,7 +257,7 @@ void StackDestory(Stack *pst)
 }
 ```
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507183021201.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220507183021201.png)
 
 
 
@@ -277,5 +277,5 @@ void StackDestory(Stack *pst)
 
 OK~ 本篇文章到此结束~ 
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/005PeXV6gy1grtp9ji59cg306r07iaf0.gif" alt="给你点个赞" style="zoom:80%;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/005PeXV6gy1grtp9ji59cg306r07iaf0.gif" alt="给你点个赞" style="zoom:80%; display: block; margin: 0 auto;" />
 

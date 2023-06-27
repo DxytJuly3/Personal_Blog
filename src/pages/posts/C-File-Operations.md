@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812049.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251812049.png)
 
 ---
 
@@ -225,7 +225,7 @@ int main()
 
 我们使用`fputc` 函数成功在文件中写入了内容
 
-![fputc_FILE](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fputc_FILE.png)
+![fputc_FILE |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fputc_FILE.png)
 
 不过这时候肯定会有疑惑，比如：`fputc`不是字符输出函数吗？为什么能往文件中输入字符？ 
 
@@ -237,7 +237,7 @@ int main()
 >
 >   但在文件操作中，输入，指 从键盘获取的内容 存入 内存中；也可以指 文件中的内容 存入 内存中。输入的终点，是内存，而不是文件
 >
->   ![input |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-input.png)
+>   <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-input.png" alt="input |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > - 输出
 >
@@ -245,7 +245,7 @@ int main()
 >
 >   所以 用 `fputc` 字符输出函数，往文件中输入字符。
 >
->   ![output |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-output.png)
+>   <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-output.png" alt="output |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 我们用 `fputc` 函数，成功向文件中写入了字符，那么如何向屏幕上输出字符呢？需不需要先类似打开文件的操作呢？很显然不需要先打开屏幕什么的。为什么呢？
 
@@ -285,7 +285,7 @@ int main()
 }
 ```
 
-![fputc_STDOUT](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fputc_STDOUT.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fputc_STDOUT.png" alt="fputc_STDOUT" style="zoom:80%; display: block; margin: 0 auto;" />
 
 上面测试了`fputc` 输出字符函数，那么怎么样使用输入字符函数将文件内的数据，输入至内存中呢？
 
@@ -328,7 +328,7 @@ int main()
 
 以上代码的运行结果如下(`test2.txt` 文件 在程序中被打开前 内容就为：`abcdefg`)：
 
-![fgetc_FILE](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgetc_FILE.png)
+![fgetc_FILE |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgetc_FILE.png)
 
 我们将`fgetc`的返回值存入 `变量ch` 并输出，是因为`fgetc`读取成功的返回值就是读取的内容，屏幕上也输出了 `a` 、`b` 、`c` 、`d`。
 
@@ -338,7 +338,7 @@ int main()
 
 答案是不行。为什么？
 
-![fgetc_RETURN](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgetc_RETURN.png)
+![fgetc_RETURN |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgetc_RETURN.png)
 
 在这句话中我们可以看出，`fgetc` 将读取到的字符以 `int` 类型返回 或者 返回 `EOF`，表示读取错误 或 文件结尾。
 
@@ -435,13 +435,13 @@ int main()
 >
 > 并且，每次输入到内存中，如果传参不变，会将已经输入到内存中的数据覆盖
 >
-> ![fgets_MEMORY |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgets_MEMORY.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgets_MEMORY.png" alt="fgets_MEMORY |wide" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > 若，传参大于文件中数据的长度，则输入完整
 >
 > `fgets(ch, 3, pf);`  >>>>>>  `fgets(ch, 100, pf);`
 >
-> ![fgets_FLIE_LONGTH |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgets_FLIE_LONGTH.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fgets_FLIE_LONGTH.png" alt="fgets_FLIE_LONGTH |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ---
 
@@ -693,7 +693,7 @@ int fseek( FILE *stream, long offset, int origin );
 
 >首先，我们先创建一个文件（我这里路径是 `D:\TEST.txt` ），并输入内容
 >
->![fseek_TEST |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_TEST.png)
+><img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-fseek_TEST.png" alt="fseek_TEST |inline" style="zoom:86%; display: block; margin: 0 auto;" />
 >
 >当我们不使用 `fseek` 函数时，
 >

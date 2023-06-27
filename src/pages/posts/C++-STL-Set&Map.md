@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815314.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815314.png)
 
 `set` 和 `map` 是C++ - STL 中非常重要的两个容器，上一篇文章介绍了 二叉搜索树。 
 
@@ -29,7 +29,7 @@ featured: false
 
 ##  set
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209021620449.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209021620449.png)
 
 按照`set`模板的定义，其模板参数的意义是：
 
@@ -59,7 +59,7 @@ featured: false
 
 `insert` 最基本也最常用的用法就是 直接插入指定类型的一个元素：\
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209021720635.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209021720635.png)
 
 可以看到 插入的元素会`自动排好顺序`，并且重复插入相同的元素`只会插入一次`
 
@@ -76,7 +76,7 @@ featured: false
 >
 > pair 也是一个类模板，有两个模板参数：
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209021757230.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209021757230.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > `T1`：第一个元素类型；`T2`：第二个元素类型
 >
@@ -111,13 +111,13 @@ featured: false
 
 > 举个栗子：
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022034744.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022034744.png" alt="|wide" style="zoom:86%; display: block; margin: 0 auto;" />
 >
 > 关于 `set` 的迭代器需要注意的是：**`set` 迭代器表示的内容是无法修改的**
 >
 > 即，即使是 `iterator` 而不是 `const_iterator` ，其表示的内容也是无法修改的：
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022037506.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022037506.png" alt="|wide" style="zoom:84%; display: block; margin: 0 auto;" />
 >
 > 原因其实是，**STL** 设计`set`时，`iterator` 其实也是 `const` 修饰过的`iterator`：
 >
@@ -154,13 +154,13 @@ erase 删除元素接口，有三个不同的重载版本：
 
 > **删除指定值版本：**
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022116800.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022116800.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 只需要在调用时传入值就可以完成指定值的删除
 >
 > 即使是 `set` 中没有的值，也不会出错：
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022117827.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022117827.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 多次重复删除 3，也不会出现问题
 >
@@ -170,7 +170,7 @@ erase 删除元素接口，有三个不同的重载版本：
 >
 > `erase` 删除指定位置，一般需要先使用 `find` 在 `set` 中找到相应的位置，然后再 `erase` 进行删除：
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022131483.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022131483.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 当find找到了确定值的位置时，就可以正常的删除
 >
@@ -188,7 +188,7 @@ erase 删除元素接口，有三个不同的重载版本：
 >
 > 举个例子：
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022145947.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022145947.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 当 传入 `set` 的 `begin()` 和 `end()` 时，就会把 `set` 内的所有数据都删除
 >
@@ -214,13 +214,13 @@ erase 删除元素接口，有三个不同的重载版本：
 
 举个例子：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022344043.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022344043.png)
 
 > 使用 这两个接口函数 就可以实现 指定区间删除数据：
 >
 > 比如，对于 `1 2 3 4 5 6 7 8 9 10` 删除 `[2, 7)` 之间的数据：
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022351794.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209022351794.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > > 注意：由于erase的迭代器失效、以及erase没有有效的迭代器返回值问题，不能使用类似下面这样的代码，对`set`的一个迭代器区间进行删除数据：
 > >
@@ -243,7 +243,7 @@ erase 删除元素接口，有三个不同的重载版本：
 
 `multiset` 与 `set` 略有不同，`multiset` 可以存储重复的数据，除此之外 与 set 没有什么区别
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209030047679.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209030047679.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ### multiset 常用的接口
 
@@ -271,7 +271,7 @@ erase 删除元素接口，有三个不同的重载版本：
 
 `set` 中的 `erase`，只删除指定的一个数据，而 `multiset` 中的`erase` 是将结构中 相同的数据全部删除： 
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209030056483.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209030056483.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 #### 4. count
 
@@ -281,7 +281,7 @@ erase 删除元素接口，有三个不同的重载版本：
 
 而由于 `multiset` 可以存储重复的数据，所以 `count` 就可以按照其功能 返回指定数据的个数
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209030100060.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/202209030100060.png)
 
 # 关于 map
 
@@ -351,7 +351,7 @@ erase 删除元素接口，有三个不同的重载版本：
 
 `map` 迭代器指向的是 `map`的数据，而 `map`存储的数据是 `pair`，所以通过迭代器访问数据，**不能直接解引用迭代器，而是需要再通过迭代器去访问 `pair`的成员变量**
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135615592.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135615592.png)
 
 #### 3. find
 
@@ -359,7 +359,7 @@ erase 删除元素接口，有三个不同的重载版本：
 
 `map` 的 `find` 是通过 关键字 来查找相应的节点的，也就是通过 `pair` 中的 `first`变量：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135637789.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135637789.png)
 
 如果没有找到相应的节点，就会返回 `map.end()`
 
@@ -372,23 +372,23 @@ map 的erase 也没有什么特别的用法，几乎与set一模一样，不过�
 1. 迭代器失效的问题
 2. 通过 `key`(`pair`的`first`变量) 删除
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135649677.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135649677.png)
 
 #### 5. operator[] *
 
 在前一篇文章 介绍 K-V 二叉搜索树时，介绍了一种K-V二叉搜索树的使用场景：统计某种物品的个数：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135658304.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135658304.png)
 
 `map` 当然也可以做到：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135702970.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135702970.png)
 
 使用 `map` 显式通过 与 K-V二叉搜索树 相似的解决方式，达到了相同的目的，但是过于繁琐
 
 使用 `map` 还可以更简单：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135708781.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135708781.png)
 
 这是 `map` 中 `operator[]` 可以达到的效果
 
@@ -409,7 +409,7 @@ operator[] 返回值类型是 mapped_type&
 
 map的文档显示：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135729169.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135729169.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 mapped_type 是map的第二个模板参数，其实就是关键字映射的值得类型
 
@@ -417,7 +417,7 @@ mapped_type 是map的第二个模板参数，其实就是关键字映射的值�
 
 其实这一句代码分析一下，可以分析出 `operator[]` 可能是这样定义的：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135744722.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410135744722.png)
 
 > 在C++中，内置类型(`int、double、char`等)也可以看作是类，可以使用一般类实例化对象的方式实例化数值
 

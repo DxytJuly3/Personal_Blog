@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757454.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757454.png)
 
 ---
 
@@ -31,21 +31,21 @@ featured: false
 
 在使用Linux系统且没有图形化界面的情况下, 所有的操作都要用命令行的形式执行, 操作系统会提供许多的相关指令, 像这样：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304151343614.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304151343614.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 并且可以使用 cd 指令, 再进入这个目录, 并使用 pwd 显示当前路径：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304151502777.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304151502777.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
 而这些指令, 其实都是一个个程序 指令名即为程序名：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304152443049.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304152443049.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 这些指令 在用户使用的时候运行 成为进程, 完成任务之后再从内存中被释放。运行流程与我们个人编写的程序并没有什么区别。
 
 但是为什么 我们自己编写的程序不能直接用程序名运行, 而必须指定路径：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304152851154.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304152851154.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 这就与操作系统的环境变量有关系了！
 
@@ -79,7 +79,7 @@ featured: false
 
 当你进入这个路径, 并执行 ls指令的时候, 你会发现 这个路径下有非常多的可执行程序：
 
-![bin路径下的程序 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/bin%E8%B7%AF%E5%BE%84%E4%B8%8B%E7%9A%84%E7%A8%8B%E5%BA%8F.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/bin%E8%B7%AF%E5%BE%84%E4%B8%8B%E7%9A%84%E7%A8%8B%E5%BA%8F.png" alt="bin路径下的程序 |inline" style="zoom:40%; display: block; margin: 0 auto;" />
 
 多到数不过来, 这些全部都是可以不指定路径, 在命令行直接执行的程序
 
@@ -113,19 +113,19 @@ featured: false
 2. export PATH=当前路径
 3. 直接运行一下程序
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304162336044.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304162336044.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 三个操作执行下来, 可以发现 我们自己的程序已经可以直接运行了
 
 但是, 当我们需要执行部分其他命令的时候, 你会发现：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304162604312.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304162604312.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;"/>
 
 在Linux操作系统中经常使用的命令用不了了, 命令行会提示:`command not found`, 这是为什么?
 
 当再次执行`echo $PATH`查看PATH的内容时：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304162806014.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304162806014.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;"/>
 
 发现 PATH内容 只剩下了你设置的那一个路径. 其他命令的路径都没有了, 命令也就用不了了
 
@@ -137,7 +137,7 @@ featured: false
 
 想要在PATH环境变量中添加路径, 需要这样 `PATH=$PATH:新路径`, `$PATH`可以直接表示PATH原来的内容, `:`是分隔符, 再加上新路径, 就可以完成在PATH环境变量中添加新路径的操作：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304164214197.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304164214197.png)
 
 ---
 
@@ -149,7 +149,7 @@ featured: false
 
 在命令行中, 直接用 类似在C语言中定义变量的方式, 就可以在操作系统中定义一个本地变量：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304170205885.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304170205885.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 而 环境变量的创建, 就需要用到指令了
 
@@ -159,7 +159,7 @@ featured: false
 
 export其实也可以创建一个环境变量：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304170654452.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304170654452.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
 > unset可以将创建的环境变量删除
 
@@ -179,7 +179,7 @@ export其实也可以创建一个环境变量：
 	
 	在非root用户使用su命令, 并输入root密码之后, 在查看 `环境变量HOME`, 可以发现其值改变了：
 	
-	![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304172541696.png)
+	<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304172541696.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
 4. `MAIL` 邮箱全局变量
 
@@ -230,13 +230,13 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304173852231.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304173852231.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 直接执行`./mainTest`, 此时 argv数组中只有一个元素, 存储的是 `./mainTest` 这句指令.
 
 但是, 在 `./mainTest`之后添加任意选项时：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304174156330.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304174156330.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 可以非常直观的看到, 程序打印的内容变多了, 也就意味着 argv数组中存储的元素变多了. 再一分析, 可以发现, `argv数组中多出来的元素 其实就是在执行程序时后面任意添加的选项`
 
@@ -312,7 +312,7 @@ main()函数的第三个参数为：`char *env[]`, 也是一个指针数组
 
 事实也确实如此, 这 `env数组, 其实就是接收环境变量用的, 即env就是一张环境变量表`, 数组中每个元素存储的都是环境变量, 且存储顺序与使用env命令时列出的顺序相同, 类似这样：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304195356212.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304195356212.png)
 
 即env数组中的最后一个元素为NULL, 所以可以直接for循环 以遇到到NULL为结束条件 进行数组遍历：
 
@@ -373,7 +373,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304202209572.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304202209572.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
 ## 获取环境变量的作用
 
@@ -402,9 +402,9 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304203049185.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304203049185.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304203105014.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304203105014.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
 像这样, 在程序内部设置用户限制, 即使是root用户也无法突破限制
 
@@ -414,7 +414,7 @@ int main() {
 
 当我们运行自己的程序的时候, 我们可以发现此进程的父进程是zsh(bash)这类SHELL进程, 无论怎么运行、重新运行多少次, 进程的父进程永远都是SHELL进程：
 
-![|wide](https://img-blog.csdnimg.cn/img_convert/ba45600fc66de3e0dd212252be18baab.png)
+<img src="https://img-blog.csdnimg.cn/img_convert/ba45600fc66de3e0dd212252be18baab.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 无论进程重新运行多少次, 变得永远都是PID, 而不是PPID, 除非SHELL进程也重新运行
 
@@ -442,7 +442,7 @@ int main() {
 
 而SHELL进程的环境变量也来源于它的父进程, 这样一直往上推, 可以推到 1号进程：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304212926602.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230304212926602.png)
 
 但是暂且不论, 是否来源于1号进程
 

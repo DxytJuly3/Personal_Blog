@@ -144,7 +144,7 @@ fork()子进程创建失败的场景, 其实与操作系统中进程的数量和
 
 > 在Linux中针对进程的不同退出码有不同的解释：
 >
-> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307212714201.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307212714201.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 在程序中打印 字符串函数strerror(i) 的值, 就可以将Linux系统认为的退出码的意义打印出来
 
@@ -154,11 +154,11 @@ Linux系统中, 任何进程退出时都会存在退出码. 但是进程的退�
 
 `echo $?`, 这个指令可以在命令行中输出上一个推出的进程的退出码:
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307213549395.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307213549395.png" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
 编译运行此代码程序, 然后在命令行执行`echo $?` 就可以查看到退出码：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307213329167.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230307213329167.png" alt=" |inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
 可以看到, `echo $?` 显示了上一个退出进程的退出码`66`
 
@@ -182,7 +182,7 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 
 此函数`可以在代码的任意位置使用, 使进程退出, 且exit()的参数即为进程的退出码`：
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308075225187.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308075225187.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 调用exit()函数, 但是不在main()函数中调用, 看一看进程是否执行exit()退出：
 
@@ -192,7 +192,7 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 
 如果用上面相同的代码, 只将exit()改为_exit(), 结果会不会有变化呢？
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308080052306.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308080052306.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308080303936.png)
 
@@ -371,7 +371,7 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 	
 	    若此时子进程是15s后返回的return 0退出的, 那么会有什么结果呢？
 	
-	    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308170832817.png)
+	    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230308170832817.png" alt="|wide" style="zoom:80%; display: block; margin: 0 auto;"/>
 	
 	    而若子进程在创建之后的15s内, 被某种进程信号强制退出的话, 又会有什么结果呢？
 	
@@ -421,15 +421,6 @@ exit() 与 _exit()有一定的差别, 但是最终的作用都是相同的：
 	    所以, `在options传入WNOHANG时, waitpid()的使用一般伴随着循环`. 即让waitpid()循环判断是否存在需要回收的子进程, 这样也不影响父进程做其他工作
 	
 
-
-
-asd
-
-
-
-1. 168246821
-2. aasd
-
 # 进程替换
 
 ## 什么是进程替换？
@@ -444,13 +435,13 @@ asd
 
 fork()创建子进程之后, 子进程是与父进程共享代码和数据的：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310163340114.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310163340114.png)
 
 当需要子进程发生进程替换的时候, 操作系统会`调用系统调用接口`, 首先操作系统会将内存中父进程的代码和数据都拷贝一份, 然后将磁盘中的程序加载到此内存结构中.
 
 然后再将子进程的页表重新建立, 将子进程的虚拟内存空间与新的代码与数据建立联系, 以此完成进程替换：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310164644418.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310164644418.png)
 
 在此过程中, 从头到尾都是`没有新的进程被创建`的, 新进程被创建的标志是操作系统创建了进程的PCB和进程地址空间, 而这个过程中始终都是两个PCB和两个进程地址空间
 
@@ -529,7 +520,7 @@ int main() {
 
 执行此代码之后, 可以发现子进程确实执行了 `ls -l -a` 的命令：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310173029484.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310173029484.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 这也就意味着, execl的参数正如我们猜测的那样：
 
@@ -605,7 +596,7 @@ int main() {
 
 运行此代码的结果, 子进程的运行结果同样与`ls -l -a`相同
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310181050935.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310181050935.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ### execlp()
 
@@ -650,7 +641,7 @@ int main() {
 }
 ```
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310182228023.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310182228023.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ### execvp()
 
@@ -698,7 +689,7 @@ int main() {
 }
 ```
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310182811677.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230310182811677.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ### execle()
 
@@ -949,7 +940,7 @@ int execve(const char *filename, char *const argv[], char *const envp[]);
 
 在使用makefle时, 执行make命令 `默认只会执行第一行的所描述的目标文件的依赖方法`：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311083805649.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311083805649.png)
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311083914061.png)
 

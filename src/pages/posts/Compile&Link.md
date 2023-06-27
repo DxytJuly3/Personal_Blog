@@ -14,7 +14,7 @@ theme: 'light'
 featured: true
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151451674.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230414151451674.png)
 
 ---
 
@@ -103,7 +103,7 @@ featured: true
 > ```
 > 然后用 GCC 编译器对 test.c 文件进行 预处理，并将 预处理 后的文件信息输出至 test.i 文件中：
 >
-> ![GCC -E |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-E.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-E.png" alt="GCC -E |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > >✔️小知识：
 > >`gcc -E (源代码文件) 或 gcc (源代码文件) -E` 对源代码进行预编译 
@@ -153,7 +153,7 @@ featured: true
 >
 > 对以上代码进行预编译操作，并查看预编译后的文件内容：
 >
-> ![READ-TEST.i |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-VIM-TEST-i-Annotation.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-VIM-TEST-i-Annotation.png" alt="READ-TEST.i |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > ![GCC-PRE-E-Annotation |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-E-Annotation.png)
 >
@@ -178,11 +178,11 @@ featured: true
 > return 0;
 > }
 > ```
-> ![TEST-Macro |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-TEST-Macro.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-TEST-Macro.png" alt="TEST-Macro |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > 预编译处理：
 >
-> ![GCC-PRE-E-Macro |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-E-Macro.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-E-Macro.png" alt="GCC-PRE-E-Macro |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 
 > `test.i` 部分内容:
 >
@@ -207,7 +207,7 @@ featured: true
 
 > 📌
 >
-> ![GCC-PRE-S |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-S.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-S.png" alt="GCC-PRE-S |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > >✔️小知识：
 > >`gcc -S (经过预编译的文件) 或 gcc (经过预编译的文件) -S`  
@@ -237,7 +237,7 @@ featured: true
 对 `test.s` 文件进行汇编操作：
 > 📌
 >
-> ![GCC-PRE-C |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-C.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-GCC-PRE-C.png" alt="GCC-PRE-C |inline" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > >✔️小知识：  
 > `gcc -c (经过预编译的文件) 或 gcc (经过预编译的文件) -c` 
@@ -297,13 +297,17 @@ featured: true
 > >```
 >
 > `vim`：
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-LINK-ADD-C.png" alt="add.c" style="zoom:80%;" />
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-LINK-SUB-C.png" alt="sub.c" style="zoom:80%;" />
-> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-LINK-TEST-C.png" alt="test.c" style="zoom:80%;" />
+>
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-LINK-ADD-C.png" alt="add.c" style="zoom:80%; display: block; margin: 0 auto;" />
+>
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-LINK-SUB-C.png" alt="sub.c" style="zoom:80%; display: block; margin: 0 auto;" />
+>
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-LINK-TEST-C.png" alt="test.c" style="zoom:80%; display: block; margin: 0 auto;" />
 
 > 然后，分别对 `add.c` 、`sub.c`、 `test.c` 三个`.c` 文件，预编译、编译、汇编：
 >
 > ![PROJECT-E-S-c |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/PRE_PROCESSING/pre-Linux-PROJECT-E-S-c.png)
+>
 > 最终生成对应的：`add.o` 、`sub.o` 、`test.o`
 >
 > 最后对 `所有的目标文件` 进行链接 

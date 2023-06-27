@@ -15,7 +15,7 @@ featured: false
 
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.png)
 
 ---
 
@@ -124,7 +124,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230421230206878.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230421230206878.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 可以看到, `auto` 接收 `{}` 的类型是： `initializer_list`
 
@@ -148,13 +148,13 @@ int main() {
 
 因为, STL容器中其实定义有 使用 `{}` 对象的构造函数. 
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230421231101708.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230421231101708.png)
 
 其他STL 容器中 也同样如此：
 
 `set:`
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230421231220240.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230421231220240.png)
 
 ```cpp
 int main() {
@@ -167,7 +167,7 @@ int main() {
 
 `map:`
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230421231410254.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230421231410254.png)
 
 ```cpp
 int main() {
@@ -207,7 +207,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230421235831586.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230421235831586.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 不过, auto 一般用于非常长的容器的迭代器的自动推导
 
@@ -224,7 +224,7 @@ int main() {
 }
 ```
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230422000102443.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230422000102443.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ### `nullptr`
 
@@ -249,7 +249,7 @@ int main() {
 }
 ```
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230422000634152.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230422000634152.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ## 智能指针
 
@@ -261,7 +261,7 @@ C++11 提出一个很重要的概念, 就是智能指针.
 
 C++11 为STL 添加了四个新容器：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230422000948161.png)
+![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230422000948161.png)
 
 处理哈希表, 另外两个其实没有什么值得介绍的. 
 

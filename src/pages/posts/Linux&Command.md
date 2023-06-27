@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803778.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251803778.png)
 
 ---
 
@@ -61,17 +61,17 @@ featured: false
 
 `ls` 的作用是 列出该目录下的所有子目录与文件：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702212837012.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702212837012.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
 每一个选项都可以合并使用，也可以分离使用，比如：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702214047165.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702214047165.png)
 
 而`ls` 的众多选项中，使用最多的是 `-l` 和 `-a` 这两项
 
 > **`-l` 列出文件的详细信息**
 >
-> ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702214407529.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702214407529.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 其实不仅 **Linux** 下文件有详细信息，在 **Windows** 下的文件也有其属性：
 >
@@ -93,21 +93,21 @@ featured: false
 >
 > 当前目录如果是空目录的话：
 >
-> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702220240337.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702220240337.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 其实也还存在两个隐藏目录：
 >
-> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702220408371.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702220408371.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 其中 **`..`** 是上级目录，而 **`.`** 则是当前目录
 >
 > > 调用 `cd ..` 即可去往上级目录：
 > >
-> > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702220930303.png)
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702220930303.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 > >
 > > 但是即使无限制的使用`cd ..` 最多也只会回到一个 叫 `/`的目录
 > >
-> > ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702222611914.png)
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702222611914.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 > >
 > > 那么这个 `/ 目录` 又是一个什么东西呢？
 > >
@@ -124,7 +124,7 @@ featured: false
 > >
 > > > 演示时：
 > > >
-> > > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702231135219.png)
+> > > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702231135219.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 > > >
 > > > 这里的 `/home/July/myBlog/Demo/Test1` 叫作 `文件的绝对路径`
 > > > 绝对路径是绝对生效的，无论你当前在任何目录下，使用绝对路径都能找到最终的文件(只要文件没被删除)
@@ -146,17 +146,17 @@ featured: false
 > > >
 > > > 相对路径是相对当前目录下来说的，比如：
 > > >
-> > > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702231803250.png)
+> > > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702231803250.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > > **`.`** 叫当前`目录(当前路径)`，它有什么用呢？
 > >
 > > 随便编写一个c代码并编译，会生成一个可执行文件 `a.out`：
 > >
-> > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702222107373.png)
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702222107373.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 > >
 > > 但是直接输入 `a.out` 并不能运行，而是需要输入 `./a.out`，表示在当前目录下
 > >
-> > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702222339827.png)
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702222339827.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 > >
 > > `.` 表示在当前目录下
 >
@@ -169,7 +169,7 @@ featured: false
 语法: **`pwd`**
 功能：显示用户当前所在的目录的绝对路径
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702232018294.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702232018294.png" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
 
 ## 3. cd
 
@@ -184,7 +184,7 @@ featured: false
 | `cd ~`                  | 进入用户家目     |
 | `cd -`                  | 返回最近访问目录 |
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702232935617.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220702232935617.png)
 
 ## 4. touch
 
@@ -204,7 +204,7 @@ featured: false
 
 `touch` 可以用来更改文档或目录的日期时间，但是`touch` 最常用的功能还是 `新建一个不存在的文件`
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706132908417.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706132908417.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ## 5. mkdir
 
@@ -218,11 +218,11 @@ featured: false
 
 `mkdir` 其实就是 `make directory` 的简称，意为 创建目录
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706133851511.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706133851511.png" alt=" |wide" style="zoom:90%; display: block; margin: 0 auto;" />
 
 但是如果想要一次性创建多层目录的话，就需要添加 `-p` 的选项了，单独的 `mkdir` 是无法创建多层目录的
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706134336986.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706134336986.png)
 
 ## 6. rmdir && rm 
 
@@ -242,7 +242,7 @@ featured: false
 
 `rmdir -p` 则是递归删除空目录
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706135822410.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706135822410.png)
 
 `rm` 可以同时删除文件或目录
 
@@ -259,7 +259,7 @@ featured: false
 
 `rm` 可以删除文件和目录，但是单独使用不能删除目录，也不能删除只读文件
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706140819278.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706140819278.png)
 
 而 `-f` 选项可以强制删除任何单个文件，当 `-r` 和 `-f` 一起使用，就是将 目录内所有文件强制删除了
 
@@ -286,13 +286,13 @@ featured: false
 
 一般用于，由关键字查找指令、与关键字相关的指令：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706180903004.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706180903004.png)
 
  **`num`** 只在第 `num` 章节找
 
 `man` 查看手册有 9 个章节: 
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706181029647.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706181029647.png" alt="|inline" style="zoom:90%; display: block; margin: 0 auto;" />
 
 可以选择不同的章节来查找不同类型的相同名字的操作：
 
@@ -329,19 +329,19 @@ featured: false
 
 **Linux** 中的 `cp` 其实就相当于 **Windows中的复制粘贴** 
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706200500734.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706200500734.png)
 
 但是 `cp` 单独使用是不能拷贝目录的：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706200643558.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706200643558.png" alt=" |wide" style="zoom:90%; display: block; margin: 0 auto;" />
 
 选项`-r` 可以拷贝目录及其子目录或文件：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706200832080.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706200832080.png" alt=" |wide" style="zoom:90%; display: block; margin: 0 auto;" />
 
 若目录下已有同名文件，则`-i` 会询问是否覆盖文件：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706201058020.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706201058020.png" alt=" |wide" style="zoom:90%; display: block; margin: 0 auto;" />
 
 ## 9. mv
 
@@ -357,11 +357,11 @@ featured: false
 
 使用`-i` 会对覆盖操作进行询问：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706203931853.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706203931853.png)
 
 移动文件：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706204230393.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706204230393.png)
 
 ## 10. cat
 
@@ -381,21 +381,21 @@ featured: false
 
 使用`cat -s -n\-b` 查看文件内容如此的文件：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706205334237.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706205334237.png" alt="|inline" style="zoom:90%; display: block; margin: 0 auto;" />
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706205622891.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706205622891.png" alt="|wide" style="zoom:90%; display: block; margin: 0 auto;" />
 
 > 其实除 `cat` 之外还有一个 类似用途的查看文件内容的指令 `tac`
 >
 > 看见这个指令的名字就能想得到这个指令得作用是什么：
 >
-> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706210105377.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706210105377.png" alt=" |wide" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 > **PS：`tac` 指令无法添加选项使用**
 
 `cat` 也可以单独使用，不操作文件：
 
-![cat nodir  |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cat_nodir.gif)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cat_nodir.gif" alt="cat nodir  |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 `cat` 不操作文件的功能就是：**输入什么，就直接输出什么**
 
@@ -409,23 +409,23 @@ featured: false
 > >
 > > 这又涉及了两个指令：`jobs` `fg %num` **(CentOS 7应该是 `fg num`)**
 > >
-> > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706210951863.png)
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706210951863.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 > >
 > > 使用 `jobs` 可以看到当前**正在后台的进程及其编号**
 > >
-> > ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706211417278.png)
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706211417278.png" alt="|inline" style="zoom:90%; display: block; margin: 0 auto;" />
 > >
 > > 使用`fg %num` 继续进程，并`Ctrl + c` 终止进程：
 > >
-> > ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706211846892.png)
+> > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706211846892.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 `cat` 适合查看短小的文本，不适合查看大文本，因为会将大文本的所有内容输出到屏幕上
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706212619209.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706212619209.png)
 
 如果使用了 `cat` 查看：
 
-![10w Hello July |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/10w_Hello_July.gif)
+![10w Hello July |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/10w_Hello_July.gif)
 
 看到这 10w 行文本的快速遍历输出，如果是有效内容，根本无法阅读
 
@@ -443,7 +443,7 @@ featured: false
 
 `more` 的功能也是查看文件内容，但是它是一行一行显示的 `Enter` 继续下一行，并且可以`/`查找内容，但无法像上移动查看，也无法向上搜索，按 `Q` 键退出 `more`
 
-![more |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/more.gif)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/more.gif" alt="more |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ## 12. less
 
@@ -462,7 +462,7 @@ featured: false
 | **`n`**       | 重复前一个搜索（与 / 或 ? 有关）     |
 | **`N`**       | 反向重复前一个搜索（与 / 或 ? 有关） |
 
-![less |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/less.gif)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/less.gif" alt="less |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 按 `Q` 退出 `less`
 
@@ -476,23 +476,23 @@ featured: false
 >
 > 其中 `>` 之前的部分，是 `shell 指令` 输出10w行 `Hello July`：
 >
-> ![10w Hello July shell |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/10w_Hello_July_shell.gif)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/10w_Hello_July_shell.gif" alt="10w Hello July shell |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > `> file.txt` 就是将这 10w 行文本写入到 文件`file.txt` 中
 >
 > `> 输出重定向符号`，将本来输出到屏幕的内容，输出到文件中
 > 会清空文件的原始内容：
 >
-> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706220356119.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706220356119.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > `>> 追加重定向符号`，将本来输出到屏幕的内容，追加到文件中
 > 不会清空文件原始内容：
 >
-> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706220548405.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706220548405.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > `< 输入重定向符号` 将原本的从键盘中读取数据的方式，变为从文件中读取：
 >
-> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706220855778.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706220855778.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > > Linux 操作系统中，外设也同样可以当作"文件"理解
 
@@ -512,7 +512,8 @@ featured: false
 | **`-n <行数>`** | 显示的行数 |
 
 还是对 10w 行内容的文件操作：
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706222303590.png" alt="image-20220706222303590" style="zoom:67%;" />
+
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706222303590.png" alt="image-20220706222303590" style="zoom:80%; display: block; margin: 0 auto;" />
 
 **`tail`**
 
@@ -530,7 +531,7 @@ featured: false
 | **`-f`**        | 循环读取 |
 | **`-n <行数>`** | 显示行数 |
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706223005765.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706223005765.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 `tail -f` 可以用来查看不断更新的日志文件，日志文件不断更新，`-f`可以**不断刷新显示末尾n行**
 
@@ -542,7 +543,7 @@ featured: false
 >
 > 2. 管道
 >
->     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706223610575.png)
+>     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706223610575.png" alt=" |wide" style="zoom:90%; display: block; margin: 0 auto;" />
 >
 >     `head -n 58888 file.txt | tail -n 1` 就可以查看 第 58888 行的内容
 >     
@@ -558,7 +559,7 @@ featured: false
 >
 > **管道的存在，可以级联多条指令，来完成流水线式的数据处理工作**：
 >
-> ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706224722957.png)
+> <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706224722957.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 >
 > 管道，是 Linux 学习中非常重要的概念
 
@@ -568,7 +569,7 @@ featured: false
 
 `date` 用来显示当前时间：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706225539635.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706225539635.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 `date` 还可以手动指定显示时间的格式
 
@@ -598,7 +599,7 @@ date 用法：**`date [OPTION]... [+FORMAT]`**
 
 在 Linux 中使用 `date +%s` 可以显示当前时间戳：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231426994.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231426994.png" alt="|inline" style="zoom:100%; display: block; margin: 0 auto;" />
 
 在搜索引擎搜索 时间戳在线转换可以转换为时间：
 
@@ -606,13 +607,13 @@ date 用法：**`date [OPTION]... [+FORMAT]`**
 
 时间戳为0时：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231629899.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231629899.png)
 
 时间戳是**从 1970年1月1日00:00 开始的，国内转换是 08:00 因为时区不同，存在时差**
 
 也可以使用 `date -d@时间戳` 将时间戳转换为时间：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231937699.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706231937699.png)
 
 ## 15. cal
 
@@ -630,9 +631,9 @@ date 用法：**`date [OPTION]... [+FORMAT]`**
 | **`-j`** | 显示在当年中的第几天（一年日期按天算，从1月1号算起，默认显示当前月在一年中的天数） |
 | **`-y`** | 显示当前年份的日历                                           |
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706232645027.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706232645027.png)
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706232747478.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706232747478.png)
 
 ## 16. find
 
@@ -651,11 +652,11 @@ date 用法：**`date [OPTION]... [+FORMAT]`**
 
 `find` **单独使用时，必须指定目录查找或查找当前目录的文件**：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706233433942.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706233433942.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 `find -name 文件名` 可以遍历指定位置查找（范围较大时，较费时间）： 
 
-![find -name  |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/find_-name.gif)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/find_-name.gif" alt="find -name  |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ## 17. grep
 
@@ -673,11 +674,11 @@ date 用法：**`date [OPTION]... [+FORMAT]`**
 
 `grep` 是**行文本过滤工具，会将查找到关键字的一行都输出**
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706234904930.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706234904930.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 还有 `-n` 和 `-v` 的演示：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706235048642.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220706235048642.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ## 18. zip、unzip
 
@@ -694,19 +695,19 @@ date 用法：**`date [OPTION]... [+FORMAT]`**
 
 `zip` 用来打包压缩文件：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707120928659.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707120928659.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 但是 无选项时对目录打包压缩，不会打包目录内的内容：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707121444684.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707121444684.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 而`zip`如果想要打包目录内的所有内容，要加上选项`-r`：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707121904184.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707121904184.png)
 
 再对使用 `-r`压缩的文件，解压缩：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707122329494.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707122329494.png)
 
 所以 `zip` 压缩目录内所有内容需要选项`-r`递归打包压缩。
 
@@ -733,18 +734,18 @@ date 用法：**`date [OPTION]... [+FORMAT]`**
 >
 > 一次性执行后缀为 `.tgz` 是 `.tar.gz` 的合称
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707123544407.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707123544407.png)
 
 `tar` 命令使用选项时，可能需要前加`-` 也可能不需要，与`tar`版本有关
 `-z` 选项可以指定压缩文件的属性为 `gzip`，相应的还有`-j` 可指定压缩文件属性为`bzip2`
 
 `-t` 选项可以直接查看压缩文件的内容：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707123924349.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707123924349.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 `tar xzvf 档名 -C 目录` 常用来指定目录、显示过程解压缩`gzip`属性的`tar`压缩文件：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707124405847.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707124405847.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 这基本就是 `tar` 简单的操作的内容
 
@@ -767,7 +768,7 @@ date 用法：**`date [OPTION]... [+FORMAT]`**
 
 Linux 种 `bc` 其实就是计算器：
 
-![bc show](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/bc_show.gif)
+![bc show |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/bc_show.gif)
 
 ## 21. uname
 
@@ -781,7 +782,7 @@ Linux 种 `bc` 其实就是计算器：
 | **`-a或–all`** | 详细输出所有信息，依次为内核名称，主机名，内核版本号，内核版本，硬件名，处理器类型，硬件平台类型，操作系统名称 |
 | **`-r`**       | 输出操作系统内核版本号                                       |
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707134800918.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220707134800918.png)
 
 ## 22. 扩展命令
 
@@ -800,4 +801,4 @@ Linux 不仅仅只有上面那些指令，还有许多指令需要学习：
 
 感谢阅读~
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410181909816.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410181909816.png" alt="|inline" style="zoom:40%; display: block; margin: 0 auto;" />

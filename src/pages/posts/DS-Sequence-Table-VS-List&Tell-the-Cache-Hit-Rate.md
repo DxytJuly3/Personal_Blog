@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_cover.jpg)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_cover.jpg)
 
 ---
 
@@ -99,7 +99,7 @@ featured: false
 
 所以目前通用计算机的存储器结构 `大致` 的示意图如下：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220505084529584.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220505084529584.png)
 
 `高速缓存` 的数据传输速度 一般比 `内存` 快 `5~10` 倍，是为了中和 `CPU` 读取速度 与 `内存` 传输速度差距过大而被添加的
 
@@ -128,11 +128,11 @@ featured: false
 
 `顺序表`：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220505124210498.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220505124210498.png)
 
 `链表`：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220505124848281.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220505124848281.png)
 
 假设，这两个结构的数据都 `没有被存入高速缓存` 中，当 `CPU`  需要读取数据的时候
 
@@ -144,7 +144,7 @@ featured: false
 
 如此，`顺序表` 的 `高速缓存命中率` 就 高。
 
-![cache_Seq](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_Seq.gif)
+![cache_Seq |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_Seq.gif)
 
 对于 `链表`：
 
@@ -152,7 +152,7 @@ featured: false
 
 所以 `链表` 的 `高速缓存命中率` 就 低。
 
-![cache_list1](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_list1.gif)
+![cache_list1 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/cache_list1.gif)
 
 # 结语
 
@@ -162,4 +162,5 @@ featured: false
 
 OK，本篇文章就到这里~
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E7%BF%BB%E6%BB%9A%E9%B8%AD%E5%98%B4%E5%85%BD.gif" alt="翻滚鸭嘴兽" style="zoom:80%;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E7%BF%BB%E6%BB%9A%E9%B8%AD%E5%98%B4%E5%85%BD.gif" alt="翻滚鸭嘴兽" style="zoom:80%; display: block; margin: 0 auto;" />
+

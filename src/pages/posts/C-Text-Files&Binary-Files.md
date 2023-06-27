@@ -14,7 +14,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813684.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813684.png)
 
 ---
 
@@ -100,8 +100,8 @@ featured: false
 >
 > 其实是因为，数据在内存中的存储具体是这样的：
 >
-> > 1. 字符型的数据，都会 以其对应的 `ASCII码` 的二进制存储至内存中
-> > 2. 数值型的数据，可以 以其对应的 `ASCII码` 的二进制存储至内存中（文本文件），也可以 直接以数值本身的二进制形式存储至内存中 
+> 1. 字符型的数据，都会 以其对应的 `ASCII码` 的二进制存储至内存中
+> 2. 数值型的数据，可以 以其对应的 `ASCII码` 的二进制存储至内存中（文本文件），也可以 直接以数值本身的二进制形式存储至内存中 
 >
 > 那么，数值型的数据 的两种不同形式的存储 有没有什么区别呢？
 >
@@ -111,29 +111,29 @@ featured: false
 >
 > > 当 我们需要将 99999 存储起来，可以用两种形式：
 > >
-> > > 1. 以 `ASCII码` 的形式存储：
-> > >
-> > >    需要将`9` `9` `9` `9` `9` 分别转换为字符，然后存储其对应的 `ASCII码`的二进制
-> > >
-> > >    即：
-> > >
-> > >    ![DATA_STORAGE-ASCII |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-ASCII.png)
-> > >
-> > >    `VS2013`:
-> > >
-> > >    ![ASCII-READ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-ASCII-READ.png)
-> > >
-> > > 2. 直接以数值的二进制存储：
-> > >
-> > >    即：
-> > >
-> > >    ![DATA_STORAGE-BINARY |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY.png)
-> > >
-> > >    `VS2013`：对文件中以二进制输出 `99999`
-> > >
-> > >    ![BINARY-READ1 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY-READ.png)
-> > >
-> > >    ![BINARY-READ2 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY-READ2.png)
+> > 1. 以 `ASCII码` 的形式存储：
+> > 
+> >     需要将`9` `9` `9` `9` `9` 分别转换为字符，然后存储其对应的 `ASCII码`的二进制
+> > 
+> >     即：
+> > 
+> >     ![DATA_STORAGE-ASCII |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-ASCII.png)
+> > 
+> >     `VS2013`:
+> > 
+> >     ![ASCII-READ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-ASCII-READ.png)
+> > 
+> > 2. 直接以数值的二进制存储：
+> > 
+> >     即：
+> > 
+> >     ![DATA_STORAGE-BINARY |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY.png)
+> > 
+> >     `VS2013`：对文件中以二进制输出 `99999`
+> > 
+> >     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY-READ.png" alt="BINARY-READ1 |inline" style="zoom:80%;" />
+> > 
+> >     ![BINARY-READ2 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/FILE_CONTROL/file-DATA_STORAGE-BINARY-READ2.png)
 > >
 > > 我们可以非常明确的看到，对于同一个数值型数据，以 `99999` 为例
 > >

@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806115.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806115.png)
 
 ---
 
@@ -52,11 +52,11 @@ struct User
 并且在定义变量时，可以直接使用 `User` 不用再添加 `struct` 
 结构体内的函数也可以用使用结构体变量的方式调用。
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617134353881.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617134353881.png)
 
 不过，在 C++ 中定义结构体通常用 `class` 而不是 `struct`；定义出的类型也通常被称为 `类`，而不是 结构体；使用类型定义的变量也不再称为变量了，而是 `对象`.
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617140336912.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617140336912.png" alt=" " style="zoom:80%; display: block; margin: 0 auto;" />
 
 上图简单的将 由 `struct定义的结构体` 改为了 `由class定义的类`，并进行了一定的修改
 
@@ -117,19 +117,19 @@ private:
 
 在此类中，public 修饰两个成员函数，private 修饰四个成员变量。就表示，在类外不能直接访问成员变量
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617171801682.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617171801682.png)
 
 无法用 `u1._age` 来直接访问 `对象u1 中的 _age 变量`
 
 但是因为 private修饰的成员 只是`无法在类外进行访问，在类内依旧是可以进行访问的`，所以可以通过 public修饰的成员对private成员进行间接的访问： 
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617172300730.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617172300730.png)
 
 ---
 
 
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617173610971.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617173610971.png)
 
 > 有一个细节需要注意的是，访问限定符只在编译时起作用，当编译完成，数据映射至内存时就已经不存在什么公有成员、私有成员的概念了
 
@@ -143,7 +143,7 @@ private:
 
 **`C语言 结构体实现栈：`**
 
-![Stack](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Stack_202206171749.png)
+![Stack |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/Stack_202206171749.png)
 
 使用 C语言 实现的栈，其结构与操作接口是分离的。而使用 C++ 的类进行对栈的实现，就完全可以将操作接口也写入类中
 
@@ -237,7 +237,7 @@ private:
 
 既然，一个类内部可以包含 成员函数。那么函数的声明及定义就有可能分离：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617184512841.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617184512841.png)
 
 当类中，成员函数的声明与定义分离，定义时需要在函数名前加 `类名::` 连接`（:: 是作用域运算符）`
 
@@ -259,17 +259,17 @@ private:
 
 但是，由于在类内可以存在成员函数，那么就存在一个特殊的类——只有成员函数，没有成员变量的类：
 
-![class_onlyfunction ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_onlyfunction_202206172206.png)
+![class_onlyfunction |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_onlyfunction_202206172206.png)
 
 像这样没有成员变量的类，它的大小会是多少呢？
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221108502.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221108502.png" style="zoom:80%; display: block; margin: 0 auto;" />
 
 可以看到，只有成员函数的类的大小为 `1`
 
 如果是空类呢？
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221308917.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220617221308917.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 可以看到，没有成员变量的类，其大小都为 `1`
 
@@ -290,7 +290,7 @@ private:
 
 以这个类为例：
 
-![class_User ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_User_202206172348.png)
+![class_User  |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_User_202206172348.png)
 
 根据这个疑问，就可以假设两种情况：
 
@@ -298,7 +298,7 @@ private:
 
     > 对于相同的类，每个对象大致是这样的
     >
-    > ![对象 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618000801437.png)
+    > <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618000801437.png" alt="对象 " style="zoom:80%; display: block; margin: 0 auto;" />
     >
     > 此方式有一个缺点，就是每个对象中都存储有功能相同的函数，会造成浪费
 
@@ -312,7 +312,7 @@ private:
 
 调用函数调试，并查看反汇编代码：
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618002216207.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618002216207.png)
 
 可以发现，相同类的不同的对象，调用同一个成员函数，调用地址相同。
 
@@ -332,7 +332,7 @@ private:
 
 同样以此类为例：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_User_202206172348.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/class_User_202206172348.png)
 
 定义不同的对象，并且调用函数时，编译器会进行这样的处理：
 
@@ -344,7 +344,7 @@ private:
 
 但是这些操作都是由 `编译器` 完成的，不能手动添加，手动添加是错误的：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618151807316.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618151807316.png)
 
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618152044913.png)
@@ -355,7 +355,7 @@ private:
 
 可以使用成员函数将 this指针 的地址打印出来：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618155110595.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618155110595.png)
 
 ### 2.5.1 面试：this指针可否为空指针？this指针存储在哪个区？*
 
@@ -397,7 +397,7 @@ int main()
 
 注意：在执行 `Show()` 时并不会崩溃，因为 `Show() 函数中并没有对 this指针进行解引用`
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618154435802.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618154435802.png" alt=" |wide" style="zoom:80%; display: block; margin: 0 auto;" />
 
 由此，可以判断出 其实` this指针 是可以为空指针的，this指针为空指针时不会有任何的编译错误`。但是，如果 this指针为空指针，那么成员函数很有可能会对空指针解引用，发成运行错误导致程序崩溃。所以，`this指针 最好不要为空指针`
 

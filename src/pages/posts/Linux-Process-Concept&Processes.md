@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759330.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759330.png)
 
 ---
 
@@ -51,7 +51,7 @@ PCB是一个统称, 不同的操作系统中一般存在不同的具体的PCB, �
 
 此结构体描述了进程的所有属性, 在Linux2.6内核中, 关于此结构体的代码超过300行：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301195324329.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301195324329.png)
 
 此结构体所包含的进程的属性包括：
 
@@ -189,7 +189,7 @@ Linux系统中, 每一个进程都存在一个唯一的标识符, 此标识符�
 
 所以 我们编写程序的进程 的PID, 也可以以此查看(`ps ajx | head -1 && ps ajx | grep "AMProcess" | grep -v grep`)：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301212429393.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301212429393.png)
 
 可以看到 ./AMProcess进程的 PID是23668, 这个数字也可以在 /proc路径下找到：
 
@@ -197,11 +197,11 @@ Linux系统中, 每一个进程都存在一个唯一的标识符, 此标识符�
 
 进入 23668 这个路径, 可以看到 此路径即为 维护./AMProcess进程的路径：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213003808.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213003808.png)
 
 如果, 还是不能确定的话 可以使用 kill指令, 将23668进程kill掉：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213412381.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230301213412381.png)
 
 > AMProcess进程被kill掉, 当再次运行AMProcess程序时：
 >
@@ -227,11 +227,11 @@ Linux系统中, 每一个进程都存在一个唯一的标识符, 此标识符�
 
 此系统调用可以直接在程序中使用：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302081525766.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302081525766.png)
 
 此时, 编译运行程序：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302081826732.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302081826732.png" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
 
 可以输出此程序的PID, 使用kill指令进行验证：
 
@@ -247,7 +247,7 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 在使用 ps ajx | head 指令查看系统进程时, 第一列数据就是PPID, 第二列数据才是PID：
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302082719959.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302082719959.png)
 
 ##### getppid() 获取PPID
 
@@ -261,7 +261,7 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 并打印出来：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302083206268.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302083206268.png" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
 
 ## 父进程 与 子进程
 
@@ -269,19 +269,19 @@ PID 是 Process ID, 表示进程的标识符。PPID 又是什么意思呢？
 
 我们自己编写的c++程序也存在父进程
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302083557676.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302083557676.png" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
 
 在这个例子中, ./AMProcess进程的父进程是28528号进程
 
 如果不小心将此进程结束了, 再次运行此程序：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302084109375.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302084109375.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 可以发现, 无论重新运行程序多少次, 生成进程之后PID会发生变化, 但是`PPID始终不变 恒为28528`
 
 这是为什么呢？这个28528进程究竟是什么呢？
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302084424090.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302084424090.png)
 
 在我这里, 28528进程是-zsh
 
@@ -344,7 +344,7 @@ int main() {
 
 将代码编译为CreatCProcess可执行程序, 并运行：
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302092830090.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230302092830090.png" alt="|wide" style="zoom:100%; display: block; margin: 0 auto;" />
 
 可以惊奇的发现, 居然输出了两次, 并且输出内容不同, 而源文件中只存在一个输出语句。
 
@@ -427,3 +427,5 @@ int main() {
 ```
 
 在父进程运行结束之后, 子进程会接着运行至结束, 此时就可以做到 先输出 `Hello, id = 子进程标识符`, 在输出 `Hello, id = 0`
+
+---

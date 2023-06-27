@@ -24,7 +24,7 @@ featured: false
 
 在 `Gitee` 上建立的图床里的图片全都变成了 `Gitee` 的图标：
 
-![](https://img-blog.csdnimg.cn/3ffc2687b14840ef87c27e14844d9cfb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LiD5pyISnVseS4=,size_20,color_FFFFFF,t_70,g_se,x_16)
+![|inline](https://img-blog.csdnimg.cn/3ffc2687b14840ef87c27e14844d9cfb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5LiD5pyISnVseS4=,size_20,color_FFFFFF,t_70,g_se,x_16)
 
 
 这波事故过后一定有许多小伙伴也不敢再在 `Gitee` 创建图床，免得把再自己给整破防了。
@@ -75,7 +75,7 @@ featured: false
 
 添加域名的方式，阿里云有给手册 ：
 
-![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/For_star.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/For_star.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 
 添加完成后，就可以`防止白名单外的网站访问图床内的图片`，就可以 `防止爬虫访问导致流量疯狂外流`。
@@ -85,14 +85,17 @@ featured: false
 
 考虑到有些小伙伴可能不知道自己的 网络 `ip`，这里提供一下查询方法`(Windows平台)`：
 > 1. 使用 `CMD` 指令查看：
->  先打开 `CMD` 或 `Terminal(Win11)`：
+>
+>     先打开 `CMD` 或 `Terminal(Win11)`：
+>
 >     `CMD`：可以 `Win + R` 组合键唤出  `运行`，然后输入 `CMD` 运行就可以
->   
->   ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/run_CMD.png)
+>
+>     <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/run_CMD.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
+>
 
 >  `Terminal(Win11)` ：右键 `开始按钮` 选择 `终端(Terminal)` 就可以 
 >
->  <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/run_Terminal.png" style="zoom:67%;" />
+>  <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/run_Terminal.png" style="zoom:67%; display: block; margin: 0 auto;" />
 
 >  然后在弹出的界面输入 `ipconfig /all` 回车
 >  就可以找到 `当前网络 ip`：

@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806489.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251806489.png)
 
 ---
 
@@ -38,11 +38,11 @@ featured: false
 
 什么是构造函数？
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90.jpeg" alt="举个栗子" style="zoom:25%; display: block; margin: 0 auto;" />
 
 以一个简单的日期类为例：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618190104510.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220618190104510.png)
 
 `void SetDate`：是给 对象 设置日期内容的成员函数。
 
@@ -62,7 +62,7 @@ featured: false
 
     以 日期类 为例，`class Date` 的构造函数名，就为 `Date()`
     
-    ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619111724057.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619111724057.png)
     
 3. #### 对象实例化时，`由编译器自动调用`
 
@@ -74,7 +74,7 @@ featured: false
 
     创建对象，并查看对象：
 
-    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619114415149.png)
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619114415149.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
     `对象d1`已经按照构造函数初始化
 
@@ -82,7 +82,7 @@ featured: false
 
     如果构造函数无内容(无显式构造函数)，那么：
 
-    ![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619133748010.png)
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619133748010.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
     `对象d1` 将是随机值
 
@@ -108,7 +108,7 @@ featured: false
     d2.Display();
     ```
 
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619140341215.png)
+    <img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619140341215.png" alt="|inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
     既然可以传参使用，那么就涉及另一个运用：`缺省参数`
 
@@ -136,7 +136,7 @@ featured: false
 
     ![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619142238895.png)
 
-    ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619142846977.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619142846977.png)
 
 7. #### 构造函数的数据处理特性
 
@@ -148,11 +148,11 @@ featured: false
     
     使用以上日期类定义对象，并且输出日期类 对象内容：
     
-    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619155322301.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619155322301.png)
     
     `内置类型成员数据没有处理，自定义类型成员数据 调用其类的默认构造函数处理`。但是，如果 自定义类型成员没有默认构造函数，则会发生报错：
     
-    ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619160054107.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220619160054107.png)
     
     
     
@@ -182,7 +182,7 @@ featured: false
 
 以下面 顺序表类为例：
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(13).png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(13).png)
 
 `~SeqList` 即为此类的析构函数。析构函数到底有什么作用呢？什么是资源清理？
 
@@ -197,7 +197,7 @@ int main()
 }
 ```
 
-![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620164857856.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620164857856.png)
 
 从上图可以清晰的看到，析构函数 `在程序还未结束，但是对象的生命周期快要结束时，对 对象的数据进行了清理，并且没有销毁对象`
 
@@ -261,7 +261,7 @@ int main()
 
 一张动图就可以分析出来`（注意右方监视对象的变化）`：
 
-![构造与析构过程](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E6%9E%84%E9%80%A0%E4%B8%8E%E6%9E%90%E6%9E%84%E8%BF%87%E7%A8%8B.gif)
+![构造与析构过程 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E6%9E%84%E9%80%A0%E4%B8%8E%E6%9E%90%E6%9E%84%E8%BF%87%E7%A8%8B.gif)
 
 可以看到，`main` 函数内部的局部对象`(slt2 和 d1)`：
 
@@ -306,11 +306,11 @@ int main()
 
 以日期类为例，展示一下功能
 
-![ |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(14).png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/carbon%20(14).png)
 
 调用拷贝构造，使 `对象d1` 拷贝至 `对象d2`
 
-![ |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620191812996.png)
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620191812996.png" alt=" |inline" style="zoom:80%; display: block; margin: 0 auto;" />
 
 ## 4.1 拷贝构造的特性
 
@@ -342,7 +342,7 @@ int main()
     默认拷贝构造函数，按内存存储、按字节序实现拷贝。即，依照内存存储中，一字节一字节的直接拷贝。
     这种拷贝方式被称为：`浅拷贝`、`值拷贝`
 
-    ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620212744198.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620212744198.png)
 
     `浅拷贝`是可以在在一定程度上完成一些拷贝构造的
 
@@ -358,17 +358,17 @@ int main()
 
     用这样的 对象实例化时，需要对成员进行`malloc`申请内存的，使用`浅拷贝`会引发很严重的问题
     
-    ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620214255055.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620214255055.png)
     
     两个对象实例化完成，程序并没有出现问题，但是如果光标继续移动，`即将调用 析构函数`
     
-    ![指针浅拷贝](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E6%8C%87%E9%92%88%E6%B5%85%E6%8B%B7%E8%B4%9D.gif)
+    ![指针浅拷贝 |wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/%E6%8C%87%E9%92%88%E6%B5%85%E6%8B%B7%E8%B4%9D.gif)
     
     当 `对象slt1` 调用析构函数时，程序崩溃了. 为什么会崩溃呢？
     
     原因很简单：当浅拷贝完成时，仔细看会发现 两个对象中的 `_data指针成员` 指向了同一个地址，同一块空间
     
-    ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620215359917.png)
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20220620215359917.png)
     
     而 对象调用 `析构函数` 时，是需要 `free` 掉 `malloc`出来的空间的，而两个指针指向同一块空间，就意味着要对同一块空间`free` 两次.
     这显然是无法实现的，所以程序崩溃了
