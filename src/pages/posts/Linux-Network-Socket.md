@@ -191,7 +191,7 @@ UDP协议的基本特点:
 
 > C语言提供了相应的数据转换字节序的接口:
 >
-> ![ ](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306261749665.png)
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306261749665.png)
 >
 > 这些接口名很好记, `h` 表示 host, `n` 表示 network, `l` 表示 32位长整型, `s` 表示 16位短整型, `to` 表示 转换为
 >
