@@ -149,6 +149,7 @@ h3 strong,
 h4 strong, 
 h5 strong, 
 h6 strong {
+  font-size: 1em;
   font-weight: bolder;
 }
 
@@ -6544,9 +6545,6 @@ blockquote .image.image-wide .component-content {
   content: ""
 }
 
-
-
-
 .theme-dark {
   background-color: #000;
   color: #f5f5f7;
@@ -7674,4 +7672,48 @@ strong {
   padding: 2px 6px;
   position: relative;
   border-left: none;
+}
+
+/* 隐藏弹窗边框 */
+dialog::-webkit-backdrop {
+  display: none;
+}
+/* 隐藏弹窗边框 */
+dialog {
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+/* 弹窗背景 */
+#myDialog {
+  background: transparent;
+}
+
+/* 弹窗内容 */
+#myDialog > .dialog-content {
+  line-height: 2;
+  font-family: 'Fira Code Regular', 'PingFang Regular';
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #5f5959;
+  background-color: #fdf8f2d2;
+  backdrop-filter: blur(5px); /* 模糊效果 */
+  padding: 20px;
+  border-radius: 15px;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* 弹窗按钮 */
+#myDialog > .dialog-content > .dialog-button {
+  background-color: #ffffffd2;
+  backdrop-filter: blur(7px); /* 模糊效果 */
+  color: #5f5959;
+  border: none;
+  padding: 8px 17px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }

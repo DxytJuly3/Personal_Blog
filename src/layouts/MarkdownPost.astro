@@ -11,30 +11,95 @@ const { pubDate, title, description, featured } = frontmatter;
 const dateFormated = formatDate(pubDate);
 ---
 
-<html lang="zh-CN" dir="ltr" class="js no-touch progressive-image no-reduced-motion progressive">
-  <head>
-    <!-- Clarity tracking code for https://www.julysblog.cn/ -->
-    <script>
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "gns1aujt05");
-    </script>
-    <meta name="google-site-verification" content="QswJRDugVDqzJz5sqvPNlQaFIJV5Lcs6sk-FGIke_98" />
-    <meta name="baidu-site-verification" content="codeva-lFtr5Bdlbe" />
-    <BaseHead title={`${title} - ${SITE_TITLE}`} description={description} image={frontmatter.cover.square} />
-  </head>
-  <body class:list={["page-article", { "theme-dark": frontmatter.theme === "dark" }]}>
+<html
+  lang="zh-CN"
+  dir="ltr"
+  class="js no-touch progressive-image no-reduced-motion progressive"
+>
+  <head> 
+  <!-- Clarity tracking code for https://www.julysblog.cn/ -->
+
+  <dialog id="myDialog">
+    <div class="dialog-content">
+      <p style="font-size: 24px; 
+                font-weight: Bolder;
+                color: #000000;
+                border-radius: 15px;
+                padding: 20px;
+                background-color: #ffffffd2; ">July.cc Blogs</p>
+      <p></p>
+      <p style="font-size: 18px;">本篇文章</p>
+      <p style="font-size: 18px;">手机用户建议PC模式阅读</p>
+      <p></p>
+      <button class="dialog-button">确认</button>
+    </div>
+  </dialog>
+
+  <script>
+    window.onload = function() {
+        // 获取要检查的元素
+        var elem = document.getElementById("pcMode");
+        
+        // 检查元素是否存在且是否被隐藏
+        if (elem) {
+          // 在 dialog 中显示提示信息
+          var pcModeDialog = document.getElementById("myDialog");
+          myDialog.showModal();
+          // 监听确认按钮点击事件
+          myDialog.querySelector('.dialog-button').addEventListener('click', function() {
+            // 关闭弹窗
+            myDialog.close();
+          });
+        }
+    };
+  </script>
+  <script>
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i + "?ref=bwt";
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "gns1aujt05");
+  </script>
+  <meta
+    name="google-site-verification"
+    content="QswJRDugVDqzJz5sqvPNlQaFIJV5Lcs6sk-FGIke_98"
+  />
+  <meta name="baidu-site-verification" content="codeva-lFtr5Bdlbe" />
+  <BaseHead
+    title={`${title} - ${SITE_TITLE}`}
+    description={description}
+    image={frontmatter.cover.square}
+  />
+</head>
+
+  <body
+    class:list={[
+      "page-article",
+      { "theme-dark": frontmatter.theme === "dark" },
+    ]}
+  >
     <Header />
     <main id="main" class="main">
       <section>
         <article class="article">
-          <div class:list={[{ "featured-header": featured, "article-header": !featured }]}>
+          <div
+            class:list={[
+              { "featured-header": featured, "article-header": !featured },
+            ]}
+          >
             <div class="category component">
               <div class="component-content">
                 <div class="category-eyebrow">
-                  <span class="category-eyebrow__category category_original">{type}</span>
+                  <span class="category-eyebrow__category category_original"
+                    >{type}</span
+                  >
                   <span class="category-eyebrow__date">{dateFormated}</span>
                 </div>
               </div>
@@ -44,7 +109,12 @@ const dateFormated = formatDate(pubDate);
                 <h1 class="hero-headline">{title}</h1>
               </div>
             </div>
-            <div class:list={[{ "featured-subhead": featured, "article-subhead": !featured }, "component"]}>
+            <div
+              class:list={[
+                { "featured-subhead": featured, "article-subhead": !featured },
+                "component",
+              ]}
+            >
               <div class="component-content">{description}</div>
             </div>
 
@@ -66,10 +136,15 @@ const dateFormated = formatDate(pubDate);
           <div class="component">
             <div class="component-content">
               <div class="article-copyright">
-                <a class="content" href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh" target="_blank"
+                <a
+                  class="content"
+                  href="https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh"
+                  target="_blank"
                   >版权声明：自由转载-非商用-非衍生-保持署名（创意共享3.0许可证）</a
                 >
-                <p class="content">作者： {frontmatter.author} 发表日期：{dateFormated}</p>
+                <p class="content">
+                  作者： {frontmatter.author} 发表日期：{dateFormated}
+                </p>
               </div>
             </div>
           </div>

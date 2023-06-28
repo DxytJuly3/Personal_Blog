@@ -46,7 +46,7 @@ featured: false
 
 网络协议栈与主机之间的关系是什么?
 
-![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306252053653.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306252053653.png)
 
 网络层和传输层是属于操作系统的. 更上层的应用层, 是给用户使用的.
 
@@ -153,7 +153,7 @@ UDP协议的基本特点:
 
     小端字节序存储, 并 **`不是将数据倒序存储`**, 而是 **`以字节为单位`** 从低位数据到高位数据 存储到内存的 低地址到高地址
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306261642103.png)
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306261642103.png)
 
 既然存储方式不同, 想要正确的读取到数据, 读取的顺序也需要不同.
 
@@ -209,3 +209,99 @@ UDP协议的基本特点:
 > 转换之后, 会通过返回值返回. 
 >
 > 如果, 本机就为 大端字节序存储, 则这些接口不会发生转换
+
+## socket编程接口
+
+socket编程有一些常见的API接口:
+
+```c
+// 创建 socket 文件描述符 (TCP/UDP, 客户端 + 服务器)
+int socket(int domain, int type, int protocol);
+
+// 绑定端口号 (TCP/UDP, 服务器)
+int bind(int socket, const struct sockaddr* address, socklen_t address_len);
+
+// 开始监听socket (TCP, 服务器)
+int listen(int socket, int backlog);
+
+// 接收请求 (TCP, 服务器)
+int accept(int socket, struct sockaddr* address, socklen_t* address_len);
+
+// 建立连接 (TCP, 客户端)
+int connect(int sockfd, const struct sockaddr* addr, socklen_t addrlen);
+
+// 发送报文 (UDP)
+ssize_t sendto(int sockfd, const void *buf, size_t len, int flags, const struct sockaddr* dest_addr, socklen_t addrlen);
+
+// 接收报文 (UDP)
+ssize_t recvfrom(int socket, void* restrict buffer, size_t length, int flags, struct sockaddr* restrict address, socklen_t* restrict address_len);
+```
+
+仔细观察这些接口. 可以发现, 除了监听socket和创建socket接口, 其他接口的参数中 都存在一个的参数类型: **`struct sockaddr`**.
+
+### **`struct sockaddr`**
+
+sockaddr 是一个结构体, 这个结构体的作用是什么呢?
+
+套接字通信在设计的时候, 不仅实现了网络间通信, 也实现了本机内进程的通信
+
+所以, 套接字我们通常分为两类: 网络套接字 和 域间套接字, 分别用于网络通信和本地(域间)通信
+
+> 使用域间套接字可以实现本地进程的通信, 与之前介绍的 管道通信、共享内存通信 的功能大致相同. 域间通信也可以称为 `双向管道`.
+>
+> 域间套接字的使用 要比 网络套接字的使用简单, 因为域间套接字没有IP的概念, 没有端口号的概念. 在使用时, 只需要提供一个文件的路径, 与命名管道听起来一样, 但是实际操作是不同的.
+
+套接字的设计分成了两类, 那么使用套接字实现进程通信的接口也分别实现了网络通信和本体通信两种吗?
+
+其实并没有, 如果设计成两套接口就太复杂了, 既然都是套接字, 设计者就将网络套接字和域间套接字的通信接口统一起来了
+
+但是问题又出现了, 实现网络通信和域间通信 需要的资源是不同的:
+
+1. 使用网络套接字实现网络通信, 需要 IP地址、端口号等资源, 所以设计了 `struct sockaddr_in` 等结构体, 来描述网络通信所需资源
+2. 使用域间套接字实现域间通信, 需要 路径名 等资源, 所以设计了 `struct sockaddr_un` 结构体, 来描述域间通信所需资源
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306281619679.png)
+
+> `struct sockaddr_in` 的前16位 是一个宏, **`AF_INET`**
+>
+> `struct sockaddr_un` 的前16位 同样是一个宏, **`AF_UNIX`**
+
+所需要的资源不同, 也就是说需要传递给接口的资源不同
+
+但是 网络套接字和域间套接字的接口是统一的, 那么 一个接口该如何接收不同类型的数据呢?
+
+既然, 接口 **需要接收不同类型的数据**, 那么就 **不能将接口的参数设置为 上面的具体的描述资源的结构体**
+
+而且, 上面列举出的接口的参数 并没有 `struct sockaddr_in` 或 `struct sockaddr_un` 类型的, 而有一个 `struct sockaddr`
+
+那么, `struct sockaddr` 这个结构体究竟是什么呢?
+
+此结构体的内容是这样的:
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306281633081.png)
+
+单独看好像没有什么特殊的. 当 此结构体和 另外的结构体对比的时候:
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306281644752.png)
+
+可以发现, 这三个结构体的首16位 都指 **`地址类型`**
+
+> 地址类型, 不同的宏可以 区分协议 以及 区分网络通信还是域间通信
+>
+> **`AF_INET`** 用于 IPv4，**`AF_INET6`** 用于 IPv6
+>
+> 如果是 `域间通信`, 则 此地址类型为 **`AF_UNIX`**
+
+其实, `struct sockaddr` 是设计出来的一个抽象的中间结构体. 使用在接口中就是为了能够让接口接收不同类型的数据资源
+
+在使用 `socket` 接口的时候, 需要先将 `struct sockaddr_in` 或 `struct sockaddr_un` 等类型的结构体, 强转为 `struct sockaddr` 然后再传给接口使用. 
+
+因为 `sockaddr` 类似的结构体的前16位都表示地址类型. 
+
+所以, **接口接收到传来的数据之后, 会根据 前16 的地址类型 来区分协议以及通信方式, 更会根据地址类型判断出数据的原结构体类型, 然后将 `sockaddr` 结构体 强转回 原结构体类型, 以获取完整的通信信息**
+
+> 关于 `struct sockaddr_un` 与 `struct sockaddr` 之间的强转
+>
+> 这两个结构体内部的成员的类型 的存储格式是相同的, 所以一般在相互转换时不会发生数据丢失. 
+>
+> 即使 

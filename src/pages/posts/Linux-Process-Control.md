@@ -17,8 +17,6 @@ featured: false
 
 ---
 
-
-
 # 再识fork()
 
 博主的文章中第一次使用fork(), 是在介绍进程状态和Linux系统中进程具体状态的时候.
@@ -950,3 +948,4 @@ int execve(const char *filename, char *const argv[], char *const envp[]);
 
 ![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230311084658580.png)
 
+<div id="pcMode" class="hidden"></div>
