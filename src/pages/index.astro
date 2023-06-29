@@ -10,6 +10,29 @@ allPosts.sort(
 ---
 
 <BaseLayout>
+  <dialog id="Welcome">
+    <div class="dialog-content">
+      <p
+        style="font-size: 30px; 
+                font-weight: Bolder;
+                color: #000000;
+                border-radius: 15px;
+                padding: 20px;
+                background-color: #ffffff51;
+                box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);"
+      >
+        July.cc Blogs
+      </p>
+      <p style="font-size: 26px; ">😊感谢来访😊</p>
+      <p style="font-size: 24px; "></p>
+      <p>为保证阅读体验:</p>
+      <p>PC用户建议最大化浏览器</p>
+      <p>手机用户部分文章建议 PC模式 或 横屏 阅读</p>
+      <!-- <p>谢谢</p> -->
+      <p></p>
+      <button class="dialog-button">确认</button>
+    </div>
+  </dialog>
   <section class="everydayfeed">
     <div class="section-content">
       <h2 class="section-head">最新文章</h2>
@@ -111,43 +134,16 @@ allPosts.sort(
         // when layout is loaded, load the images
         initImage();
       };
+      var myDialog = document.getElementById("Welcome");
+      // 打开弹窗
+      myDialog.showModal();
+      // 监听确认按钮点击事件
+      myDialog
+        .querySelector(".dialog-button")
+        .addEventListener("click", function () {
+          // 关闭弹窗
+          myDialog.close();
+        });
     });
   </script>
-  <script>
-    var myDialog = document.getElementById("Welcome");
-    // 打开弹窗
-    myDialog.showModal();
-
-    // 监听确认按钮点击事件
-    myDialog
-      .querySelector(".dialog-button")
-      .addEventListener("click", function () {
-        // 关闭弹窗
-        myDialog.close();
-      });
-  </script>
-
-  <dialog id="Welcome">
-    <div class="dialog-content">
-      <p
-        style="font-size: 30px; 
-                font-weight: Bolder;
-                color: #000000;
-                border-radius: 15px;
-                padding: 20px;
-                background-color: #ffffff51;
-                box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);"
-      >
-        July.cc Blogs
-      </p>
-      <p style="font-size: 26px; ">😊感谢来访😊</p>
-      <p style="font-size: 24px; "></p>
-      <p>为保证阅读体验:</p>
-      <p>PC用户建议最大化浏览器</p>
-      <p>手机用户部分文章建议 PC模式 或 横屏 阅读</p>
-      <!-- <p>谢谢</p> -->
-      <p></p>
-      <button class="dialog-button">确认</button>
-    </div>
-  </dialog>
 </BaseLayout>
