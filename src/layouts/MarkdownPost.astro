@@ -19,47 +19,6 @@ const dateFormated = formatDate(pubDate);
   <head>
     <!-- Clarity tracking code for https://www.julysblog.cn/ -->
   </head>
-  <dialog id="phoneSuggestion">
-    <div class="dialog-content">
-      <p
-        style="font-size: 30px; 
-            font-weight: Bolder;
-            color: #000000;
-            border-radius: 15px;
-            padding: 20px;
-            background-color: #ffffff51;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);"
-      >
-        July.cc Blogs
-      </p>
-      <p></p>
-      <p style="font-size: 20px;">本篇文章</p>
-      <p style="font-size: 18px; text-align: center;">手机用户建议<br>PC模式 或 横屏<br>阅读</p>
-      <p></p>
-      <button class="dialog-button">确认</button>
-    </div>
-  </dialog>
-  <script>
-    window.onload = function () {
-      // 获取要检查的元素
-      var elem = document.getElementById("pcMode");
-
-      // 检查元素是否存在且是否被隐藏
-      if (elem) {
-        // 在 dialog 中显示提示信息
-        var pcModeDialog = document.getElementById("phoneSuggestion");
-        pcModeDialog.showModal();
-
-        // 监听确认按钮点击事件
-        pcModeDialog
-          .querySelector(".dialog-button")
-          .addEventListener("click", function () {
-            // 关闭弹窗
-            pcModeDialog.close();
-          });
-      }
-    };
-  </script>
   <script>
     (function (c, l, a, r, i, t, y) {
       c[a] =
@@ -165,4 +124,45 @@ const dateFormated = formatDate(pubDate);
       document.head.appendChild(script);
     </script>
   </body>
+  <dialog id="phoneSuggestion">
+    <div class="dialog-content">
+      <p
+        style="font-size: 30px; 
+            font-weight: Bolder;
+            color: #000000;
+            border-radius: 15px;
+            padding: 20px;
+            background-color: #ffffff51;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);"
+      >
+        July.cc Blogs
+      </p>
+      <p></p>
+      <p style="font-size: 20px;">本篇文章</p>
+      <p style="font-size: 18px; text-align: center;">手机用户建议<br>PC模式 或 横屏<br>阅读</p>
+      <p></p>
+      <button class="dialog-button">确认</button>
+    </div>
+  </dialog>
+  <script>
+    window.onload = function () {
+      // 获取要检查的元素
+      var elem = document.getElementById("pcMode");
+
+      // 检查元素是否存在且是否被隐藏
+      if (elem) {
+        // 在 dialog 中显示提示信息
+        var pcModeDialog = document.getElementById("phoneSuggestion");
+        pcModeDialog.showModal();
+
+        // 监听确认按钮点击事件
+        pcModeDialog
+          .querySelector(".dialog-button")
+          .addEventListener("click", function () {
+            // 关闭弹窗
+            pcModeDialog.close();
+          });
+      }
+    };
+  </script>
 </html>
