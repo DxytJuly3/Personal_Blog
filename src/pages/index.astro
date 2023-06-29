@@ -113,6 +113,19 @@ allPosts.sort(
       };
     });
   </script>
+  <script>
+    var myDialog = document.getElementById("Welcome");
+    // 打开弹窗
+    myDialog.showModal();
+
+    // 监听确认按钮点击事件
+    myDialog
+      .querySelector(".dialog-button")
+      .addEventListener("click", function () {
+        // 关闭弹窗
+        myDialog.close();
+      });
+  </script>
 
   <dialog id="Welcome">
     <div class="dialog-content">
@@ -137,18 +150,4 @@ allPosts.sort(
       <button class="dialog-button">确认</button>
     </div>
   </dialog>
-
-  <script>
-    var myDialog = document.getElementById("Welcome");
-    // 打开弹窗
-    myDialog.showModal();
-
-    // 监听确认按钮点击事件
-    myDialog
-      .querySelector(".dialog-button")
-      .addEventListener("click", function () {
-        // 关闭弹窗
-        myDialog.close();
-      });
-  </script>
 </BaseLayout>
