@@ -110,11 +110,11 @@ function syntaxHighlight() {
 
   var styleLight = document.createElement("link");
   styleLight.rel = "stylesheet";
-  styleLight.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/grayscale.min.css";
+  styleLight.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/arduino-light.min.css";
 
   var styleDark = document.createElement("link");
   styleDark.rel = "stylesheet";
-  styleDark.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/grayscale.min.css";
+  styleDark.href = "//cdn.staticfile.org/highlight.js/11.7.0/styles/arduino-light.min.css";
 
   if (document.querySelector("body").classList.contains("theme-dark")) {
     document.head.appendChild(styleDark);
