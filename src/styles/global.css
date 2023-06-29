@@ -7674,23 +7674,33 @@ strong {
   border-left: none;
 }
 
+/* 定义动画 */
+@keyframes dialog-show {
+  0% {
+    transform: scale(0.5);
+  }
+  67% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 /* 隐藏弹窗边框 */
 dialog::-webkit-backdrop {
   display: none;
 }
 /* 隐藏弹窗边框 */
 dialog {
+  animation: dialog-show 0.4s ease-out both;
   border: none;
   box-shadow: none;
   outline: none;
-}
-/* 弹窗背景 */
-#myDialog {
-  background: transparent;
+  background-color: transparent;
 }
 
-/* 弹窗内容 */
-#myDialog > .dialog-content {
+dialog .dialog-content {
   line-height: 2;
   font-family: 'Fira Code Regular', 'PingFang Regular';
   font-weight: bold;
@@ -7698,22 +7708,20 @@ dialog {
   flex-direction: column;
   align-items: center;
   color: #5f5959;
-  background-color: #fdf8f2d2;
-  backdrop-filter: blur(5px); /* 模糊效果 */
+  background-color: #fdf8f2c1;
+  backdrop-filter: blur(9px); 
   padding: 20px;
   border-radius: 15px;
   justify-content: center;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-/* 弹窗按钮 */
-#myDialog > .dialog-content > .dialog-button {
-  background-color: #ffffffd2;
-  backdrop-filter: blur(7px); /* 模糊效果 */
+dialog .dialog-content .dialog-button {
+  background-color: #ffffff6a;
   color: #5f5959;
   border: none;
   padding: 8px 17px;
   border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }

@@ -3,7 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Tile from "../layouts/Tile.astro";
 import MoreTile from "../layouts/MoreTile.astro";
 const allPosts = await Astro.glob("../pages/posts/*.md");
-allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate));
+allPosts.sort(
+  (a, b) =>
+    Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontmatter.pubDate)
+);
 ---
 
 <BaseLayout>
@@ -15,12 +18,14 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
           // tile-hero
           allPosts.slice(0, 1).map((post) => {
             return (
-              <Tile title={post.frontmatter.title} 
-                    href={post.url} 
-                    date={post.frontmatter.pubDate} 
-                    tags={post.frontmatter.tags} 
-                    cover={post.frontmatter.cover.url} 
-                    level="1" />
+              <Tile
+                title={post.frontmatter.title}
+                href={post.url}
+                date={post.frontmatter.pubDate}
+                tags={post.frontmatter.tags}
+                cover={post.frontmatter.cover.url}
+                level="1"
+              />
             );
           })
         }
@@ -29,12 +34,14 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
           // tile-2up
           allPosts.slice(1, 5).map((post) => {
             return (
-              <Tile title={post.frontmatter.title} 
-                    href={post.url}
-                    date={post.frontmatter.pubDate}
-                    tags={post.frontmatter.tags}
-                    cover={post.frontmatter.cover.url}
-                    level="2" />
+              <Tile
+                title={post.frontmatter.title}
+                href={post.url}
+                date={post.frontmatter.pubDate}
+                tags={post.frontmatter.tags}
+                cover={post.frontmatter.cover.url}
+                level="2"
+              />
             );
           })
         }
@@ -43,12 +50,14 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
           // tile-3up
           allPosts.slice(5, 11).map((post) => {
             return (
-              <Tile title={post.frontmatter.title} 
-                    href={post.url} 
-                    date={post.frontmatter.pubDate} 
-                    tags={post.frontmatter.tags} 
-                    cover={post.frontmatter.cover.url} 
-                    level="3" />
+              <Tile
+                title={post.frontmatter.title}
+                href={post.url}
+                date={post.frontmatter.pubDate}
+                tags={post.frontmatter.tags}
+                cover={post.frontmatter.cover.url}
+                level="3"
+              />
             );
           })
         }
@@ -59,21 +68,34 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
   <section class="more-from-newsroom">
     <div class="section-content">
       <h2 class="section-head">更多文章</h2>
-   
 
       <ul role="list" class="section-tiles">
-
         {
           // tile-2up
           allPosts.slice(0, 4).map((post) => {
             return (
-              <MoreTile title={post.frontmatter.title} href={post.url} date={post.frontmatter.pubDate} tags={post.frontmatter.tags} cover={post.frontmatter.cover.square !== "" ? post.frontmatter.cover.square : post.frontmatter.cover.url} />
+              <MoreTile
+                title={post.frontmatter.title}
+                href={post.url}
+                date={post.frontmatter.pubDate}
+                tags={post.frontmatter.tags}
+                cover={
+                  post.frontmatter.cover.square !== ""
+                    ? post.frontmatter.cover.square
+                    : post.frontmatter.cover.url
+                }
+              />
             );
           })
         }
       </ul>
       <div class="view-archive-wrapper">
-        <a href="/archive" class="cta-primary-light" data-analytics-region="router" data-analytics-title="view archive">阅读历史文章</a>
+        <a
+          href="/archive"
+          class="cta-primary-light"
+          data-analytics-region="router"
+          data-analytics-title="view archive">阅读历史文章</a
+        >
       </div>
     </div>
   </section>
@@ -92,33 +114,41 @@ allPosts.sort((a, b) => Date.parse(b.frontmatter.pubDate) - Date.parse(a.frontma
     });
   </script>
 
-  <dialog id="myDialog">
+  <dialog id="Welcome">
     <div class="dialog-content">
-      <p style="font-size: 30px; 
+      <p
+        style="font-size: 30px; 
                 font-weight: Bolder;
                 color: #000000;
                 border-radius: 15px;
                 padding: 20px;
-                background-color: #ffffffd2; ">July.cc Blogs</p>
+                background-color: #ffffff51;
+                box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);"
+      >
+        July.cc Blogs
+      </p>
       <p style="font-size: 26px; ">😊感谢来访😊</p>
       <p style="font-size: 24px; "></p>
       <p>为保证阅读体验:</p>
       <p>PC用户建议最大化浏览器</p>
-      <p>手机用户部分文章建议PC模式阅读</p>
-      <p>谢谢</p>
+      <p>手机用户部分文章建议 PC模式 或 横屏 阅读</p>
+      <!-- <p>谢谢</p> -->
       <p></p>
       <button class="dialog-button">确认</button>
     </div>
   </dialog>
-  
+
   <script>
-    var myDialog = document.getElementById('myDialog');
+    var myDialog = document.getElementById("Welcome");
     // 打开弹窗
     myDialog.showModal();
+
     // 监听确认按钮点击事件
-    myDialog.querySelector('.dialog-button').addEventListener('click', function() {
-      // 关闭弹窗
-      myDialog.close();
-    });
+    myDialog
+      .querySelector(".dialog-button")
+      .addEventListener("click", function () {
+        // 关闭弹窗
+        myDialog.close();
+      });
   </script>
 </BaseLayout>
