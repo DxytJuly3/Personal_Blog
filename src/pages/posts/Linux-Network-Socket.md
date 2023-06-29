@@ -93,6 +93,12 @@ featured: false
 
 所以就有了 源端口号和目的端口号, 用来确定 `源主机的发送进程和目的主机的接收进程`
 
+> 结合源IP地址与目的IP地址
+>
+>  **`源IP:源端口号`** 和 **`目的IP:目的端口号`** 就组成了一个 `socket对`
+>
+> socket对, 即指 发送端Socket和接收端Socket的组合
+
 ### 4. 认识TCP协议基本特点
 
 此处先对TCP(Transmission Control Protocol 传输控制协议)有一个直观的认识. 后面会对TCP协议有一个更细节的介绍.
@@ -294,14 +300,11 @@ sockaddr 是一个结构体, 这个结构体的作用是什么呢?
 
 其实, `struct sockaddr` 是设计出来的一个抽象的中间结构体. 使用在接口中就是为了能够让接口接收不同类型的数据资源
 
-在使用 `socket` 接口的时候, 需要先将 `struct sockaddr_in` 或 `struct sockaddr_un` 等类型的结构体, 强转为 `struct sockaddr` 然后再传给接口使用. 
+在使用 `socket` 接口的时候, 需要先将 `struct sockaddr_in*` 或 `struct sockaddr_un*` 等类型的结构体, 强转为 `struct sockaddr*` 然后再传给接口使用. 
 
 因为 `sockaddr` 类似的结构体的前16位都表示地址类型. 
 
 所以, **接口接收到传来的数据之后, 会根据 前16 的地址类型 来区分协议以及通信方式, 更会根据地址类型判断出数据的原结构体类型, 然后将 `sockaddr` 结构体 强转回 原结构体类型, 以获取完整的通信信息**
 
-> 关于 `struct sockaddr_un` 与 `struct sockaddr` 之间的强转
->
-> 这两个结构体内部的成员的类型 的存储格式是相同的, 所以一般在相互转换时不会发生数据丢失. 
->
-> 即使 
+### 简单的UDP网络通信
+
