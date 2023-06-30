@@ -330,6 +330,48 @@ int socket(int domain, int type, int protocol);
 
     我们介绍 `sockaddr` 相关结构体时, 演示 结构体的前16位 是地址类型. 通常是一个宏, 用来区分协议以及通信方式的.
 
-    而这里的第一个参数 `int domain`, 就是传入地址类型 区分协议以及通信方式的. 被称作 `socket的域`
+    而这里的第一个参数 `int domain`, 就是传入地址类型 区分通信方式的. 被称作 `socket的域`
 
     ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301613672.png)
+
+    其中, **`AF_UNIX`** 和 **`AF_LOCAL`** 相同. 传入之后 都表示本地通信
+
+    而 **`AF_INET`** 表示 ipv4网络通信, **`AF_INET6`** 则表示 ipv6网络通信
+
+    最常用的, 其实就只有 **`AF_UNIX`** 和 **`AF_INET`**
+
+2. `int type`
+
+    此参数是用来选择 **套接字类型** 的, 决定了通信时候对应的 **`报文类型`**. 
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301656128.png)
+
+    其中, 前四个 **`SOCK_STREAM`** **`SOCK_DGRAM`** **`SOCK_SEQPACKET`** **`SOCK_RAW`** 是最常用的
+
+    1. **`SOCK_STREAM`**, 表示 流式套接字. 一般用于TCP
+
+    2. **`SOCK_DGRAM`**, 表示 数据报式套接字. 一般用于UDP
+
+    3. **`SOCK_SEQPACKET`**, 表示 连续数据报套接字.
+
+    4. **`SOCK_RAW`**, 表示 原始套接字. 使用此套接字, 通信可以直接绕过传输层的协议, 直接访问IP协议.
+
+        不过, 绕过传输层协议, 就表示需要自己实现一些传输协议的内容. 一般用于网络诊断等方面
+
+3. `int protocol`
+
+    这个参数用来选择 **协议类型**. 
+
+    此参数的选择 与 第二个参数 `type` 密切相关. 
+
+    比如, `type` 传入 **`SOCK_STREAM`** 此参数就需要传入 **`IPPROTO_TCP`**, 就选择了 TCP协议
+
+    但实际上, 我们不需要手动使用宏去选择. 网络通信时, 选定 `type` 并且只需要使用一种协议时, `protocol` 可以直接传入`0`, 表示使用默认协议, 其实就是操作系统根据前面的参数选择的最适用的协议.
+
+    文章中在使用时, 一定都设置为`0`了
+
+了解了 `socket()` 的参数之后, 还需要了解一下它的返回值.
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301754510.png)
+
+如果成功了, 就返回 **`新套接字的文件描述符`**. 如果错误, 就返回 -1, 并设置 `errno`
