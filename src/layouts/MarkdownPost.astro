@@ -47,51 +47,12 @@ const dateFormated = formatDate(pubDate);
             });
             popupActions.appendChild(closeButton);
             
-            var zoomInButton = document.createElement("button");
-            zoomInButton.textContent = "放大";
-            zoomInButton.addEventListener("click", function() {
-              img.style.width = img.offsetWidth * 1.1 + "px";
-            });
-            popupActions.appendChild(zoomInButton);
-            
-            var zoomOutButton = document.createElement("button");
-            zoomOutButton.textContent = "缩小";
-            zoomOutButton.addEventListener("click", function() {
-              img.style.width = img.offsetWidth / 1.1 + "px";
-            });
-            popupActions.appendChild(zoomOutButton);
-            
             popup.appendChild(popupContent);
             popup.appendChild(popupActions);
             body.appendChild(popup);
             
-            var isDragging = false;
-            var offsetX = 0;
-            var offsetY = 0;
             var lastTouchDistance = 0;
-            
-            popup.addEventListener("mousedown", function(event) {
-              if (event.target === popup) {
-                isDragging = true;
-                offsetX = event.clientX - popup.offsetLeft;
-                offsetY = event.clientY - popup.offsetTop;
-              }
-            });
-            
-            popup.addEventListener("mousemove", function(event) {
-              if (isDragging) {
-                popup.style.left = event.clientX - offsetX + "px";
-                popup.style.top = event.clientY - offsetY + "px";
-              }
-            });
-            
-            popup.addEventListener("mouseup", function(event) {
-              isDragging = false;
-            });
-            
-            popup.addEventListener("mouseleave", function(event) {
-              isDragging = false;
-            });
+            var currentScale = 1;
             
             img.addEventListener("touchstart", function(event) {
               if (event.touches.length === 2) {
@@ -114,10 +75,10 @@ const dateFormated = formatDate(pubDate);
                   Math.pow(touch1.clientY - touch2.clientY, 2)
                 );
                 var delta = distance - lastTouchDistance;
-                var scale = img.offsetWidth / img.naturalWidth;
-                var newScale = scale + delta / 100;
+                var newScale = currentScale + delta / 100;
                 if (newScale >= 0.1 && newScale <= 10) {
-                  img.style.width = newScale * 100 + "%";
+                  img.style.transform = "scale(" + newScale + ")";
+                  currentScale = newScale;
                 }
                 lastTouchDistance = distance;
               }
