@@ -312,9 +312,9 @@ sockaddr 是一个结构体, 这个结构体的作用是什么呢?
 
 下面, 我们就通过实现一个简单的UDP网络通信 演示一部分接口.
 
-演示接口之前, 还要先简单的介绍几个接口:
+演示接口之前, 还要先简单的介绍一个接口:
 
-#### 1. `int socket()`
+#### `int socket()`
 
 ```c
 int socket(int domain, int type, int protocol);
@@ -375,3 +375,98 @@ int socket(int domain, int type, int protocol);
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306301754510.png)
 
 如果成功了, 就返回 **`新套接字的文件描述符`**. 如果错误, 就返回 -1, 并设置 `errno`
+
+没错, `socket()` 执行成功返回的是一个文件描述符.
+
+实际上, Linux操作系统中 套接字操作都是通过文件描述符来实现的. 
+
+不过我们现在只演示, 并不去了解它的细节
+
+介绍了 `socket()` 之后, 我们就可以开始简单的UDP网络通信程序的编写了.
+
+---
+
+在编写网络服务之前, 我们先来写一个打印日志内容的文件:
+
+**`logMessage.hpp`**:
+
+```cpp
+#pragma once
+
+#include <cstdio>
+#include <ctime>
+#include <cstdarg>
+#include <cassert>
+#include <cstring>
+#include <cerrno>
+#include <cstdlib>
+
+// 宏定义 四个日志等级
+#define DEBUG 0
+#define NOTICE 1
+#define WARINING 2
+#define FATAL 3
+
+const char* log_level[] = {"DEBUG", "NOTICE", "WARINING", "FATAL"};
+
+// 实现一个 可以输出: 日志等级、日志时间、用户、以及相关日志内容的 日志消息打印接口
+
+void logMessage(int level, const char* format, ...) {
+    // 通过可变参数实现, 传入日志等级, 日志内容格式, 日志内容相关参数
+
+    // 确保日志等级正确
+    assert(level >= DEBUG);
+    assert(level <= FATAL);
+
+    // 获取当前用户名
+    char* name = getenv("USER");
+
+    // 简单的定义log缓冲区
+    char logInfo[1024];
+
+    // 定义一个指向可变参数列表的指针
+    va_list ap;
+    // 将 ap 指向可变参数列表中的第一个参数, 即 format 之后的第一个参数
+    va_start(ap, format);
+
+    // 此函数 会通过 ap 遍历可变参数列表, 然后根据 format 字符串指定的格式, 将ap当前指向的参数以字符串的形式 写入到logInfo缓冲区中
+    vsnprintf(logInfo, sizeof(logInfo) - 1, format, ap);
+
+    // ap 使用完之后, 再将 ap置空
+    va_end(ap); // ap = NULL
+
+    // 通过判断日志等级, 来选择是标准输出流还是标准错误流
+    FILE* out = (level == FATAL) ? stderr : stdout;
+
+	// 获取本地时间
+	time_t tm = time(nullptr);
+	struct tm* localTm = localtime(&tm);
+
+    fprintf( out, "%s | %s | %s | %s\n", 
+            log_level[level],
+			asctime(localTm),
+            name == nullptr ? "unknow" : name, 
+            logInfo );
+}
+```
+
+上面这段代码实现了 `logMessage()` 接口, 实现以特定的格式打印日志的功能.
+
+特定的格式是: ` 日志等级 | 本地时间 | 当前用户名 | 日志信息`
+
+> 代码中使用了一些稍微有些陌生的类型、接口、宏
+>
+> 其中 `va_list` 通常定义 指向可变参数列表的指针; 
+>
+> **`va_start()`** 是一个宏, 通常用来将 `va_list` 类型的变量 指向可变参数列表的第一个参数;
+>
+> **`va_end()`** 同样是一个宏, 通常用来将 `va_list` 类型的变量 置空
+>
+> 而 `vsnprintf()` 这个名字很长的接口, 则是 通过`va_list` 类型的变量, 格式化向字符数组中写入内容的
+>
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306302058207.png)
+>
+> 在上面代码中的作用就是
+>
+> **通过 ap 遍历可变参数列表, 然后根据 format 字符串指定的格式, 将ap当前指向的参数以字符串的形式 写入到logInfo缓冲区中**
+
