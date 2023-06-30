@@ -7735,3 +7735,7 @@ dialog .dialog-content .dialog-button {
   cursor: pointer;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
+
+img {
+  cursor: pointer; /* 设置鼠标样式为手型 */
+}
