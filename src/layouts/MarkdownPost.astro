@@ -26,79 +26,6 @@ const dateFormated = formatDate(pubDate);
         for (var i = 0; i < images.length; i++) {
           var image = images[i];
           image.addEventListener("click", function() {
-            var popup = document.createElement("div");
-            popup.classList.add("popup");
-            popup.style.cursor = "move";
-            
-            var popupContent = document.createElement("div");
-            popupContent.classList.add("popup-content");
-            
-            var img = document.createElement("img");
-            img.src = this.src;
-            popupContent.appendChild(img);
-            
-            var popupActions = document.createElement("div");
-            popupActions.classList.add("popup-actions");
-            
-            var closeButton = document.createElement("button");
-            closeButton.textContent = "关闭";
-            closeButton.addEventListener("click", function() {
-              body.removeChild(popup);
-            });
-            popupActions.appendChild(closeButton);
-            
-            popup.appendChild(popupContent);
-            popup.appendChild(popupActions);
-            body.appendChild(popup);
-            
-            var lastTouchDistance = 0;
-            var currentScale = 1;
-            
-            img.addEventListener("touchstart", function(event) {
-              if (event.touches.length === 2) {
-                var touch1 = event.touches[0];
-                var touch2 = event.touches[1];
-                var distance = Math.sqrt(
-                  Math.pow(touch1.clientX - touch2.clientX, 2) +
-                  Math.pow(touch1.clientY - touch2.clientY, 2)
-                );
-                lastTouchDistance = distance;
-              }
-            });
-            
-            img.addEventListener("touchmove", function(event) {
-              if (event.touches.length === 2) {
-                var touch1 = event.touches[0];
-                var touch2 = event.touches[1];
-                var distance = Math.sqrt(
-                  Math.pow(touch1.clientX - touch2.clientX, 2) +
-                  Math.pow(touch1.clientY - touch2.clientY, 2)
-                );
-                var delta = distance - lastTouchDistance;
-                var newScale = currentScale + delta / 100;
-                if (newScale >= 0.1 && newScale <= 10) {
-                  img.style.transform = "scale(" + newScale + ")";
-                  currentScale = newScale;
-                }
-                lastTouchDistance = distance;
-              }
-            });
-            
-            img.addEventListener("touchend", function(event) {
-              lastTouchDistance = 0;
-            });
-          });
-        }
-      };
-    </script>
-    <!-- <script>
-      window.onload = function() {
-        var images = document.getElementsByTagName("img");
-        var body = document.body;
-        
-        for (var i = 0; i < images.length; i++) {
-          var image = images[i];
-          image.addEventListener("click", function() {
             var div = document.createElement("div");
             div.style.position = "fixed";
             div.style.top = "0";
@@ -117,17 +44,7 @@ const dateFormated = formatDate(pubDate);
             img.style.maxHeight = "90%";
             img.src = this.src;
             
-            var closeButton = document.createElement("button");
-            closeButton.textContent = "关闭";
-            closeButton.style.position = "absolute";
-            closeButton.style.top = "10px";
-            closeButton.style.right = "10px";
-            closeButton.addEventListener("click", function() {
-              body.removeChild(div);
-            });
-            
             div.appendChild(img);
-            div.appendChild(closeButton);
             body.appendChild(div);
             
             div.addEventListener("click", function(event) {
@@ -138,7 +55,7 @@ const dateFormated = formatDate(pubDate);
           });
         }
       };
-    </script> -->
+    </script>
     <script>
       (function (c, l, a, r, i, t, y) {
         c[a] =
