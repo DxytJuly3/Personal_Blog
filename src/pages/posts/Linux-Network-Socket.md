@@ -673,3 +673,141 @@ int main(int argc, char* argv[]) {
 }
 ```
 
+上面这段代码执行之后, 是这样的效果:
+
+![udpServer_8080 |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307011708781.gif)
+
+运行时, 当选项使用错误 会输出 `Usage`. 选项输入正确, 则执行代码, 并输出 `logMessage`
+
+当程序运行起来之后, 使用 `netstat -lnup` 可以查看操作系统中的UDP相关网络连接等信息:
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307011608973.png)
+
+代码中需要注意的地方, 基本都在注释中介绍了.
+
+当熟悉接口的使用之后, 其实非常的简单.
+
+> 需要了解的是, `inet_addr()` 接口 可以将点分十进制字符串类型的IP地址, 转换为 in_addr_t 类型的IP
+>
+> 同时, 也会 **`将转换后的IP自动转换为网络字节序存储形式`**
+
+到这里 一个简单的udp服务器其实就已经完成了. 这个服务器非常的简单, 只会接收信息 连回复功能都没有
+
+##### **`最简单的 udpClient`**
+
+上面最简单的 `udpServer` 已经可以运行了.
+
+但是只有服务器 没有客户端与之通信 怎么能叫网络通信呢?
+
+下面我们就来实现一下 `udpClient`
+
+客户端要实现什么功能呢?
+
+1. 运行时, 传入服务器的IP和端口号, 以此找到目的网络进程
+2. 运行后, 接收输入信息, 并发送给目的网络进程
+
+在实现过 `udpServer` 之后, `udpClient` 的实现会显得很简单.
+
+因为使用的接口、流程基本差不多
+
+**`udpClient.cc`**:
+
+```cpp
+#include <cstdint>
+#include <iostream>
+#include <ostream>
+#include <string>
+#include <cstdlib>
+#include <cassert>
+#include <strings.h>
+#include <unistd.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include "logMessage.hpp"
+
+using std::cin;
+using std::cout;
+using std::endl;
+using std::getline;
+using std::string;
+
+static void Usage(const string porc) {
+    cout << "Usage::\n\t" << porc << " server_IP server_Port" << endl;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc != 3) {
+        Usage(argv[0]);
+        exit(1);
+    }
+
+    // 先获取server_IP 和 server_Port
+    string server_IP = argv[1];
+    uint16_t server_Port = atoi(argv[2]);
+
+    // 创建客户端套接字
+    int sockFd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (sockFd < 0) {
+        logMessage(FATAL, "socket() faild:: %s : %d", strerror(errno), sockFd);
+        exit(2);
+    }
+    logMessage(DEBUG, "socket create success: %d", sockFd);
+
+    // udpServer 到这里就 填充网络信息 并绑定到操作系统内核中了
+    // 客户端需不需要这些操作?
+    // 答案是肯定的.
+    // 但是这些操作, 最好不要我们自己去做, 让操作系统自动帮我们完成.
+    // 为什么?
+    // 因为我们不需要手动指定IP以及端口号, 尤其是端口号. 如果手动指定了端口号 还有可能会造成其他问题
+    // 并且, 客户端也不需要手动指定端口号, 还不如让操作系统随机生成端口号.
+    // 服务器需要手动指定端口号, 是因为服务器是需要让其他主机去连接的, 所以知道且固定. 如果是随机的, 那服务器绝对没人用.
+    // 而客户端一般没人会主动来连接、访问, 一般都是每次打开客户端绑定网络时, 就让操作系统代操作, 不然手动指定端口号 可能会影响其他的网络进程
+    // 所以 我们不需要手动去填充 udpClient 的网络信息, 也不需要手动绑定
+
+    // 填充服务器的网络信息
+    // 从命令行接收到的服务器IP和端口号, 是需要填充在 sockaddr_in 结构体中的, 因为 向服务器网络进程发送信息需要使用
+    struct sockaddr_in server;
+    bzero(&server, sizeof(server));
+    server.sin_family = AF_INET;
+    server.sin_port = htons(server_Port);
+    server.sin_addr.s_addr = inet_addr(server_IP.c_str());
+
+    // 通信
+    string inBuffer;
+    while (true) {
+        cout << "Please Enter >> ";
+        getline(cin, inBuffer);
+
+        // 向 server 发送消息
+        sendto(sockFd, inBuffer.c_str(), inBuffer.size(), 0,
+               (const struct sockaddr*)&server, sizeof(server));
+        // 在首次向 server 发送消息的时候, 操作系统会自动将Client网络进程信息 绑定到操作系统内核
+    }
+
+    close(sockFd);
+
+    return 0;
+}
+```
+
+上面这段代码的执行效果是这样的:
+
+![udpClient |inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307011707149.gif)
+
+在 最简单的 `udpClient` 的实现中, 最重要的一个点是:
+
+**`不要手动填充、绑定 客户端进程的网络信息, 而是交给 操作系统自动操作`**
+
+服务器需要手动指定端口号, 是因为服务器是需要保证可以让其他主机去连接, 所以需要知道且固定.
+
+而客户端一般没人会主动来连接、访问, 一般都是每次打开客户端绑定网络时, 就让操作系统代操作, 不然手动指定端口号 可能会影响其他的网络进程
+
+所以 我们不需要手动去填充 `udpClient` 的网络信息, 也不需要手动绑定
+
+##### **演示**
+
+分别实现了最简单的 `udpServer` 和 `udpClient` 之后, 运行程序演示一下效果
+
+![udpClient_2_udpServer](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307011720170.gif)
