@@ -1,8 +1,9 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] 网络编程-套接字'
+title: '[Linux] 网络编程 - 初见UDP套接字编程'
 pubDate: 2023-06-25
-description: ''
+description: '本篇文章正式开始Linux中的网络编程. 本文介绍了, 网络编程的一些概念, 以及简单的UDP套接字编程. 
+实现了最简单的UDP公共聊天室'
 author: '七月.cc'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251756988.png
@@ -512,7 +513,7 @@ void logMessage(int level, const char* format, ...) {
 
 那么, 一个简单的 `udpServer` 的实现代码:
 
-**`udpServer.cc`**:
+**`udpServer.cc`:**
 
 ```cpp
 #include <iostream>
@@ -710,7 +711,7 @@ int main(int argc, char* argv[]) {
 
 因为使用的接口、流程基本差不多
 
-**`udpClient.cc`**:
+**`udpClient.cc`:**
 
 ```cpp
 #include <cstdint>
@@ -811,3 +812,525 @@ int main(int argc, char* argv[]) {
 分别实现了最简单的 `udpServer` 和 `udpClient` 之后, 运行程序演示一下效果
 
 ![udpClient_2_udpServer](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307011720170.gif)
+
+#### **`UDP 实现最简单的公共聊天`**
+
+上面我们已经 实现了 UDP客户端向服务器发送信息
+
+但是, 服务器并没有实现回复的功能. 不过, 这么简单的发信息功能 好像也不需要回复
+
+那么, 下面我们可以根据已经实现的这些功能, 再做一些修改和添加:
+
+1. 服务器内, 使用哈希表实现一个存储不同主机进程信息的 用户表
+2. 让服务器收到消息之后可以转发给 用户表内的所有用户进程
+3. 让客户端也可以 接收来自服务器的信息, 并输出
+
+这样是不是就可以实现一个最简单~(简陋)~的公共聊天室呢?
+
+**`logMessage.hpp`:**
+
+```cpp
+#pragma once
+
+#include <cstdio>
+#include <ctime>
+#include <cstdarg>
+#include <cassert>
+#include <cstring>
+#include <cerrno>
+#include <cstdlib>
+
+// 宏定义 四个日志等级
+#define DEBUG 0
+#define NOTICE 1
+#define WARINING 2
+#define FATAL 3
+
+const char* log_level[] = {"DEBUG", "NOTICE", "WARINING", "FATAL"};
+
+// 实现一个 可以输出: 日志等级、日志时间、用户、以及相关日志内容的 日志消息打印接口
+void logMessage(int level, const char* format, ...) {
+    // 通过可变参数实现, 传入日志等级, 日志内容格式, 日志内容相关参数
+
+    // 确保日志等级正确
+    assert(level >= DEBUG);
+    assert(level <= FATAL);
+
+    // 获取当前用户名
+    char* name = getenv("USER");
+
+    // 简单的定义log缓冲区
+    char logInfo[1024];
+
+    // 定义一个指向可变参数列表的指针
+    va_list ap;
+    // 将 ap 指向可变参数列表中的第一个参数, 即 format 之后的第一个参数
+    va_start(ap, format);
+
+    // 此函数 会通过 ap 遍历可变参数列表, 然后根据 format 字符串指定的格式, 将ap当前指向的参数以字符串的形式 写入到logInfo缓冲区中
+    vsnprintf(logInfo, sizeof(logInfo) - 1, format, ap);
+
+    // ap 使用完之后, 再将 ap置空
+    va_end(ap); // ap = NULL
+
+    // 通过判断日志等级, 来选择是标准输出流还是标准错误流
+    FILE* out = (level == FATAL) ? stderr : stdout;
+
+	// 获取本地时间
+	time_t tm = time(nullptr);
+	struct tm* localTm = localtime(&tm);
+	char* localTmStr = asctime(localTm);
+	char* nC = strstr(localTmStr, "\n");
+	if(nC) {
+		*nC = '\0';
+	}
+    fprintf( out, "%s | %s | %s | %s\n", 
+            log_level[level],
+			localTmStr,
+            name == nullptr ? "unknow" : name, 
+            logInfo );
+}
+```
+
+**`udpServer.cc`:**
+
+```cpp
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <cassert>
+#include <cstring>
+#include <cstdlib>
+#include <cerrno>
+#include <unistd.h>
+#include <netinet/in.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+
+#include "logMessage.hpp"
+
+using std::cout;
+using std::endl;
+using std::string;
+using std::unordered_map;
+
+// 封装UDP服务
+class udpServer {
+public:
+    // 构造函数, 需要传入 port 和 ip
+    // ip 可以缺省, 因为 ip可以默认为空, 后面解释理由
+    udpServer(uint16_t port, string ip = "") : _port(port), _ip(ip), _sockFd(-1) {}
+    // 析构函数
+    ~udpServer() {}
+
+    // 服务器初始化函数
+    // 具体功能就是 创建套接字 绑定主机网络信息
+    void init() {
+        // 1. 首先就是创建套接字, 并获取套接字文件描述符
+        _sockFd = socket(AF_INET, SOCK_DGRAM, 0);
+
+        if (_sockFd < 0) {
+            // 套接字文件描述符创建失败
+            logMessage(FATAL, "socket() faild:: %s : %d",
+					   strerror(errno), _sockFd);
+            exit(1);
+        }
+
+        logMessage(DEBUG, "socket create success: %d", _sockFd);
+
+        // 套接字创建成功之后, 就是将网络信息绑定到 主机上了
+        // 2. 绑定网络信息
+        //		bind(int __fd, const struct sockaddr *__addr, socklen_t __len);
+        //
+        // 2.1 将网络信息 填充到 struct sockaddr_in 结构体中
+        //		此结构体中 填充的内容是 需要在网络中存在的内容
+        //		比如, 协议 IP 端口号等, 只有这些东西 在网络上存在, 其他主机才能与服务器通信
+        struct sockaddr_in local;
+        bzero(&local, sizeof(local)); // 将结构体内容全部置空
+
+        // 填充网络信息
+        // 1. 地址类型, 选择协议 通信方式
+        local.sin_family = AF_INET;
+        // 2. 端口号
+        //	  端口号是需要向网络中发送的, 所以 需要从本地字节序 转换成网络字节序
+        local.sin_port = htons(_port);
+        // 3. IP
+        //    IP 不能直接填充到结构体中, 因为类中的 _ip 是字符串,  而网络中的IP 通常用4字节的二进制表示, 结构体中同样是此类型 in_addr_t = uint32_t
+        //    所以 还需要将 点分十进制字符串型的_ip 转换为 uint32_t 才能填充到 结构体中
+        local.sin_addr.s_addr = _ip.empty() ? htonl(INADDR_ANY) : inet_addr(_ip.c_str());
+        // 这里使用了三目运算符 ? : 用来判断 传入的 ip 是否为空
+        //	如果传入的IP为空, 则将 INADDR_ANY 这个 IP 填充到结构体中, 否则就将 _ip字符串 转换为 in_addr_t 类型, 然后填充到结构体中
+        //	INADDR_ANY 其实是 强转为 in_addr_t 类型的 0.
+        //	1. 网络服务器 使用 INADDR_ANY 作为IP, 绑定到主机中. 表示监听本机上所有的IP 网络接口.
+        //	   一台服务器主机可能有许多的IP, 使用 INADDR_ANY 意思就是说, 其他主机可以通过服务器主机上的 任意IP:指定port 找到服务器进程实现通信
+        //	2. 当绑定指定的IP时, 就表示 其他主机只能通过服务器主机上的 指定IP:指定port 找到服务器进程实现通信.
+        //	   如果使用其他本机上的IP:指定port, 服务器是不会响应的. 因为服务器进程 只接收通过指定 IP 发送给服务器进程的信息
+        // IP也是要向网络中发送的, 所以要将 IP转换成网络字节序. inet_addr() 则会自动将ip转换为网络字节序
+
+        // 填充完网络信息, 就要将网络信息 绑定到操作系统内核中, 进而将网络信息 发送到网络上
+        if (bind(_sockFd, (const struct sockaddr*)&local, sizeof(local)) == -1) {
+            // 绑定失败
+            logMessage(FATAL, "bind() faild:: %s : %d",
+					   strerror(errno), _sockFd);
+            exit(2);
+        }
+        // 绑定成功
+        logMessage(DEBUG, "socket bind success : %d", _sockFd);
+    }
+
+    // 服务器运行函数
+    // 具体功能 实际上是 循环地监听、接收发送到服务器上的信息
+    void start() {
+        // 很多服务器本质上是一个死循环
+        char inBuffer[1024]; // 用来存储发送过来的信息
+        while (1) {
+            struct sockaddr_in peer; // 输出型参数, 用来接收对方主机网络信息
+            socklen_t peerLen = sizeof(peer); // 输入输出型参数
+
+            // 接收发送到服务器上的信息, 以及发送端的网络信息
+            // recvfrom(int __fd, void *__restrict __buf, size_t __n, int __flags, struct sockaddr *__restrict __addr, socklen_t *__restrict __addr_len);
+            // 后两个参数 即为接收发送端网络信息的输出型参数
+            // 返回值 是 接收到发送过来的信息的字节数, 即放在 inBuffer里的字节数
+            // 接收失败则返回 -1
+            ssize_t s = recvfrom(_sockFd, inBuffer, sizeof(inBuffer) - 1, 0,
+                                 (struct sockaddr*)&peer, &peerLen);
+
+            if (s > 0) {
+                // 当字符串结尾
+                inBuffer[s] = 0;
+            }
+            else if (s == -1) {
+                logMessage(WARINING, "recvfrom() error:: %s : %d",
+                           strerror(errno), _sockFd);
+                continue;
+            }
+
+            // 读取成功, 除了读取到对方的数据，你还要读取到对方的网络地址[ip:port]
+            string peerIp = inet_ntoa(peer.sin_addr); //拿到了对方的IP
+            uint32_t peerPort = ntohs(peer.sin_port); // 拿到了对方的port
+
+			// 检查用户是否在服务器中, 不在则添加用户
+			checkOnlineUser(peerIp, peerPort, peer);
+
+            // 打印出来对方给服务器发送过来的消息
+            logMessage(NOTICE, "[%s:%d]%s", peerIp.c_str(), 
+					   peerPort, inBuffer);
+
+			// 然后将消息转发到所有用户的客户端上, 实现多人聊天
+			string infoUser(inBuffer);
+			messageRoute(peerIp, peerPort, infoUser);
+        }
+    }
+
+	void checkOnlineUser(string &ip, uint32_t port, struct sockaddr_in &peer) {
+		string key = ip;
+		key += ":";
+		key += std::to_string(port);
+		auto itUser = _users.find(key);
+
+		// 判断用户是否已经存在, 不存在则添加
+		if(itUser == _users.end()) {
+			_users.insert({key, peer});
+		}
+	}
+
+	void messageRoute(string &ip, uint32_t port, string info) {
+		string message = "[";
+        message += ip;
+        message += ":";
+        message += std::to_string(port);
+        message += "]";
+        message += info;
+
+		// 遍历 服务器用户列表, 将message 发送给每一个在服务器内的用户网络进程
+        for(auto &user : _users) {
+            sendto(_sockFd, message.c_str(), message.size(), 0, (struct sockaddr*)&(user.second), sizeof(user.second));
+        }
+	}
+
+private:
+    // 服务器 端口号
+    uint16_t _port;
+    // 服务器 IP, 程序运行时, 一般传入的是 点分十进制表示的ip的字符串
+    string _ip;
+    // 服务器 套接字文件描述符
+    int _sockFd;
+	// 服务器用户   key: ip:port, T:主机网络进程信息
+	unordered_map<string, struct sockaddr_in> _users;
+};
+
+static void Usage(const string porc) {
+    cout << "Usage:\n\t" << porc << " port [ip]" << endl;
+}
+
+// main 函数需要获取命令函参数, 以实现获取端口号和ip
+int main(int argc, char* argv[]) {
+    // 如果 使用方法错误
+    if (argc != 2 && argc != 3) {
+        Usage(argv[0]);
+        exit(3);
+    }
+
+    // 获取 端口号 和 IP
+    uint16_t port = atoi(argv[1]);
+    string ip;
+    if (argc == 3) {
+        ip = argv[2];
+    }
+
+    // 使用端口号和IP 实例化udpServer对象
+    udpServer uSvr(port, ip);
+
+    // 初始化, 并启动服务器
+    uSvr.init();
+    uSvr.start();
+
+    return 0;
+}
+```
+
+**`udpClient.cc`:**
+
+```cpp
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <cassert>
+#include <unistd.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <pthread.h>
+
+#include "logMessage.hpp"
+
+using std::cin;
+using std::cout;
+using std::endl;
+using std::getline;
+using std::string;
+
+
+// 多线程 接收来自服务器的消息
+void* recverAndPrint(void* args) {
+    while (true) {
+        int sockFd = *(int*)args;
+
+        char buffer[1024];
+		
+		// recvfrom 需要两个输出型参数, 来接收来自服务器的网络进程信息
+		// 所以需要两个临时变量
+        struct sockaddr_in temp;
+        socklen_t len = sizeof(temp);
+
+        ssize_t s = recvfrom(sockFd, buffer, sizeof(buffer), 0, (struct sockaddr*)&temp, &len);
+        if (s > 0) {
+            buffer[s] = 0;
+            cout << buffer << endl;
+        }
+    }
+}
+
+static void Usage(const string porc) {
+	std::cerr << "Usage::\n\t" << porc << " server_IP server_Port nick_Name" << endl;
+}
+
+int main(int argc, char* argv[]) {
+    if (argc != 4) {
+        Usage(argv[0]);
+        exit(1);
+    }
+
+    // 先获取server_IP 和 server_Port 以及用户的昵称
+    string server_IP = argv[1];
+    uint16_t server_Port = atoi(argv[2]);
+	string nick_Name = argv[3];
+
+    // 创建客户端套接字
+    int sockFd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (sockFd < 0) {
+        logMessage(FATAL, "socket() faild:: %s : %d", strerror(errno), sockFd);
+        exit(2);
+    }
+    logMessage(DEBUG, "socket create success: %d", sockFd);
+
+    // udpServer 到这里就 填充网络信息 并绑定到操作系统内核中了
+    // 客户端需不需要这些操作?
+    // 答案是肯定的.
+    // 但是这些操作, 最好不要我们自己去做, 让操作系统自动帮我们完成.
+    // 为什么?
+    // 因为我们不需要手动指定IP以及端口号, 尤其是端口号. 如果手动指定了端口号 还有可能会造成其他问题
+    // 并且, 客户端也不需要手动指定端口号, 还不如让操作系统随机生成端口号.
+    // 服务器需要手动指定端口号, 是因为服务器是需要让其他主机去连接的, 所以知道且固定. 如果是随机的, 那服务器绝对没人用.
+    // 而客户端一般没人会主动来连接、访问, 一般都是每次打开客户端绑定网络时, 就让操作系统代操作, 不然手动指定端口号 可能会影响其他的网络进程
+    // 所以 我们不需要手动去填充 udpClient 的网络信息, 也不需要手动绑定
+
+    // 填充服务器的网络信息
+    // 从命令行接收到的服务器IP和端口号, 是需要填充在 sockaddr_in 结构体中的, 因为 向服务器网络进程发送信息需要使用
+    struct sockaddr_in server;
+    bzero(&server, sizeof(server));
+    server.sin_family = AF_INET;
+    server.sin_port = htons(server_Port);
+    server.sin_addr.s_addr = inet_addr(server_IP.c_str());
+
+	pthread_t t;
+	pthread_create(&t, nullptr, recverAndPrint, &sockFd);
+
+    // 通信
+    while (true) {
+		// 这里改为 使用 cerr, 是为了不将此语句, 重定向到命名管道
+        std::cerr << "Please Enter >> ";
+		string inBuffer;
+		inBuffer += "[";
+		inBuffer += nick_Name;
+		inBuffer += "]# ";
+		string tempS;
+        getline(cin, tempS);
+		inBuffer += tempS;
+
+        // 向 server 发送消息
+        sendto(sockFd, inBuffer.c_str(), inBuffer.size(), 0,
+               (const struct sockaddr*)&server, sizeof(server));
+        // 在首次向 server 发送消息的时候, 操作系统会自动将Client网络进程信息 绑定到操作系统内核
+    }
+
+    close(sockFd);
+
+    return 0;
+}
+```
+
+**`makefile`:**
+
+```makefile
+.PHONY:all
+all:udpServer udpClient
+
+udpServer: udpServer.cc
+	g++ -o $@ $^
+udpClient: udpClient.cc
+	g++ -o $@ $^ -lpthread
+
+.PHONY:clean
+clean:
+	rm -rf udpServer udpClient
+```
+
+上面的代码实现了:
+
+1. 服务器内, 通过哈希表 存储向服务器发消息的客户端用户.
+2. 客户端, 可以接收用户从命令函输入的消息, 并发送给服务器
+3. 服务器收到消息, 通过检测 客户端进程的网络信息 不存在, 向服务器内的用户表中 添加用户网络进程信息
+4. 并将来自客户端的消息, 在服务器输出, 并将消息转发给用户表中的所有用户
+5. 客户端会接受来自服务器的消息, 以此实现公共聊天
+
+演示:
+
+![udp_chat](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021131261.gif)
+
+从演示中可以看到, 当服务器打开 客户端打开之后, 客户端就可以向服务器发送消息了. 
+> 演示中 Windows的客户端 我取消了接收服务器消息的功能. 
+
+相比最简单的 udp网络通信的实现. **`udpServer`** 和 **`udpClient`** 变化的地方在这些部分:
+1. `udpServer`
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021434724.png)
+
+    在 udpServer 代码中, 首先是在类中添加了一个 成员变量 `_users`, 是一个哈希表 用来存储用户网络进程信息
+
+    然后就是 增添了这两个 成员函数: `checkOnlineUser()` `messageRoute()`
+
+    `checkOnlineUser()`, 用来检测 向服务器发送消息的客户端是否已经在服务器的用户表中. 如果不在, 则添加. 
+
+    `messageRoute()`, 则是实现消息路由转发的功能. 服务器 接收到 某个客户端发来的消息之后, 会将客户端的信息(IP:Port) 以及发过来的消息, 传入此函数内. 然后 此函数整合信息和消息, 再将整合后的信息 转发给所有在服务器用户表中的客户端用户.
+
+2. `udpClient`
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021443300.png)
+
+    客户端代码的最大的不同, 就是多了一个多线程执行的函数 `recverAndPrint()`
+
+    此函数的功能是, 接收来自服务器的消息. 其实就是 接收所有人发送的消息.
+
+    此函数需要多线程执行, 为什么呢?
+
+    我们在 `udpClient` 代码中, 获取用户在命令行输入的内容的实现是用 `getline();` 实现的. 
+
+    是一个阻塞式的等待输入操作. 
+
+    如果 `recverAndPrint()` 也在主线程内执行. 那么就会出现 只有用户输入完毕之后, 来自服务器的消息才能输出在客户端中 的现象. 就像这样:
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021506520.gif)
+
+    这样显然是不正确的. 所以使用多线程执行 `recverAndPrint()`. 主线程不干扰此线程.
+
+    `udpClient` 代码还有其他的修改.
+
+    为了方便展示、查看 客户端接收到的服务器发来的信息. 演示时, 将 `udpClient` 的标准输出内容 重定向到了一个 命名管道文件中.
+
+    并且, 为了将来自服务器的信息重定向到其中 并且不出现扰乱信息, 我们将 `udpClient` 中其他 部分输出 由 `std::cout 标准输出` 换成了 `std::cerr 标准错误`. 比如, 输入提示的部分:
+
+    ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021518644.png)
+
+    这样 可以避免将 输入提示符 也重定向到管道文件中. 因为 命令行中 `>` 是标准输出重定向
+
+    > `udpClient` 的改动, 涉及到 线程与重定向
+    >
+    > 博主 线程与重定向的相关文章:
+    >
+    > [[Linux] 线程同步分析：什么是条件变量？生产者消费者模型是什么？POSIX信号量怎么用？阻塞队列和环形队列模拟生产者消费者模型](https://www.julysblog.cn/posts/Linux-Thread-Synchronization)
+    >
+    > [[Linux] 线程互斥分析: 多线程会有什么问题？什么是互斥锁？C++怎么封装使用互斥锁？](https://www.julysblog.cn/posts/Linux-Thread-Mutex)
+    >
+    > [[Linux] 如何理解线程ID？什么是线程局部存储？](https://www.julysblog.cn/posts/Linux-ThreadID-Analysis)
+    >
+    > [[Linux] 多线程控制分析：如何获取线程ID？如何自动回收线程？](https://www.julysblog.cn/posts/Linux-Thread-Control)
+    >
+    > [[Linux] 多线程概念相关分析](https://www.julysblog.cn/posts/Linux-Thread-Conceptual-Analysis)
+    >
+    > [[Linux] 详析 Linux下的 文件重定向 以及 文件缓冲区](https://www.julysblog.cn/posts/Linux-Redirection&File-Buffers)
+
+这样就实现了 最简单的 `udp公共聊天`
+
+### **`inet_ntoa()`** 的相关问题
+
+上面我们在向 `struct sockaddr_in` 结构体内填充 IP地址时, 我们使用了一个接口: `inet_aton()`
+
+将 点分十进制的IP 转换成了 `uint32_t(in_addr_t)` 类型的 4字节表示的IP. 并且, `inet_aton()` 会自动把4字节的IP存储顺序, 设置为 **网络字节序**
+
+`inet_aton()` 接口的使用 非常的方便. 
+
+但是, 与之同系列的另一个接口 是存在着一些问题的, 接口: **`inet_ntoa()`**
+
+![](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021535705.png)
+
+这个接口的功能 也很简单, 就是将 `struct in_addr` 里存储的 4字节IP, 转换成我们可以看懂的 点分十进制IP字符串, 然后以 `char*`的类型返回.
+
+这就需要存在一块空间, 来存储转换后的IP字符串. 
+
+而事实上, 这块空间是处于静态区的空间, IP字符串会存放在这块空间内. 并且 整个程序中 `inet_ntoa()` 也就只会返回 这块处于静态区的空间. 
+
+这就意味着, 当 `inet_ntoa()` 在一个程序中多次执行时, 后面被转换出来的IP字符串 会覆盖掉 之前的IP字符串. 因为, `inet_ntoa()` 转换出来的IP字符串, 都只存储在这一块空间中. 
+
+所以, 在使用 `inet_ntoa()` 时需要避免多次使用 或者 避免直接使用函数返回的指针. 
+
+并且, `inet_ntoa()` 也是一个线程不安全的接口. 
+
+> 我们可以使用另外一个接口来替代 `inet_ntoa()`
+>
+> **`inet_ntop()`**
+>
+> ![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021549074.png)
+>
+> 这个接口, 可以将网络字节序的 IPv4 或 IPv6 地址转换为点分十进制字符串表示
+>
+> 其参数的使用:
+>
+> 1. **`int af`:** 指明地址族, IPv4或IPv6(**`AF_INET` 或 `AF_INET6`**)
+> 2. **`const void* src`:** 需要传入 表示网络字节序IP的结构体的地址(**`in_addr` 或 `in6_addr`**)
+> 3. **`char* dst`:** 存放转换之后的字符串的缓冲区指针
+> 4. **`socklen_t`:** 缓冲区大小
+>
+> 并且, 此接口是线程安全的
