@@ -9,7 +9,7 @@ cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.png'
     square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.png'
     alt: 'cover'
-tags: ["Linux", "网络"]GIT
+tags: ["Linux", "网络"]
 theme: 'light'
 featured: false
 ---
