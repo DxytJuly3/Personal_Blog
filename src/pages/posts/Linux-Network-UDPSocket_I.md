@@ -6,16 +6,15 @@ description: '本篇文章正式开始Linux中的网络编程. 本文介绍了, 
 实现了最简单的UDP公共聊天室'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251756988.png
-'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251756988.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.png'
     alt: 'cover'
-tags: ["Linux", "网络"]
+tags: ["Linux", "网络"]GIT
 theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251756988.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307021623107.png)
 
 ---
 
