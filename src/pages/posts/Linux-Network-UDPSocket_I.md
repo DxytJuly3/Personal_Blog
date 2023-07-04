@@ -1295,11 +1295,11 @@ clean:
 
 ### **`inet_ntoa()`** 的相关问题
 
-上面我们在向 `struct sockaddr_in` 结构体内填充 IP地址时, 我们使用了一个接口: `inet_aton()`
+上面我们在向 `struct sockaddr_in` 结构体内填充 IP地址时, 我们使用了一个接口: `inet_addr()`
 
-将 点分十进制的IP 转换成了 `uint32_t(in_addr_t)` 类型的 4字节表示的IP. 并且, `inet_aton()` 会自动把4字节的IP存储顺序, 设置为 **网络字节序**
+将 点分十进制的IP 转换成了 `uint32_t(in_addr_t)` 类型的 4字节表示的IP. 并且, `inet_addr()` 会自动把4字节的IP存储顺序, 设置为 **网络字节序**
 
-`inet_aton()` 接口的使用 非常的方便. 
+`inet_addr()` 接口的使用 非常的方便. 
 
 但是, 与之同系列的另一个接口 是存在着一些问题的, 接口: **`inet_ntoa()`**
 
