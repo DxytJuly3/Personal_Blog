@@ -157,20 +157,24 @@ li {
   font-size: 15px;
   line-height: 1.1;
   font-family: 'Fira Code Regular', 'PingFang Regular';
+  color: hsla(178, 60%, 17%, 0.737);
 }
 
 ol {
   font-family: 'Fira Code Regular', 'PingFang Regular';
   margin-left: 1.17647em;
-  color: hsla(178, 45%, 14%, 0.737);
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 500;
   display: table;
   background-color: #c1aeae11;
   border-radius: 4px;
   padding: 0rem 2rem;
   box-shadow: inset 0 0 5px hsla(178, 44%, 14%, 0.6);
   margin-bottom: 20px;
+}
+
+ol ol {
+  list-style:lower-roman;
 }
 
 /* ol li {

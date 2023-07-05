@@ -1080,7 +1080,11 @@ private:
 	char* _str;				// 字符串
 	size_t _size;			// 字符串实际长度
 	size_t _capacity;		 // 字符串指针表示的字符串的容量
+    
+    const static size_t npos;
 };
+
+const size_t string::npos = -1;
 
 // 实现 > 和 == 都用strcmp来对字符串作比较
 bool operator>(const string& s1, const string& s2) {
@@ -1156,4 +1160,4 @@ istream& operator>>(istream& in, string& s) {
 
 感谢阅读~
 
-<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410175841829.png" alt=" |inline" style="zoom:33%; display: block; margin: 0 auto;" />
+<img src="https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/CSDN/image-20230410175841829.png" alt=" " style="zoom:33%; display: block; margin: 0 auto;" />
