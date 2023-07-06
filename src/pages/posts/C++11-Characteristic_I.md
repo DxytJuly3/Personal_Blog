@@ -1,8 +1,8 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] C++11新特性分析介绍：列表初始化、右值引用'
+title: '[C++] C++11新特性分析介绍(1)'
 pubDate: 2023-04-21
-description: ''
+description: '本篇文章是关于C++11标准 一些常用的新特性的介绍, 比如: 列表初始化、右值引用、万能引用、完美转发、类的新默认成员函数 和 可变参数列表等'
 author: '七月.cc'
 cover:
     url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.png'
@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061533251.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061929155.png)
 
 ---
 
@@ -1134,6 +1134,4 @@ int main() {
     首先通过 `列表初始化` 创建了一个临时的 `pair` 对象. 然后通过 `push_back` 将创建这个对象的副本, 并将这个对象的副本插入到 `arr` 的末尾. 它也调用了两次 `pair` 构造函数：一次在 `列表初始化`, 一次在 `push_back`
 
 总的来说, 就是当容器的元素类型是自定义类型时. 可以直接使用 `emplace_back()` 传入数据. `emplace_back()` 会通过传入的数据 **`直接构造元素并插入容器的末尾`**, 不会再拷贝或者移动元素.
-
-
 
