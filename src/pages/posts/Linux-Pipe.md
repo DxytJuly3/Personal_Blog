@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758839.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061523288.png)
 
 ---
 
@@ -22,8 +22,6 @@ featured: false
 但是, 各种进程在操作系统中运行时, 总逃不了可能某些进程之间需要进行交流. 而此时, 进程地址空间的存在又好像成为了进程之间通信的一层阻隔.
 
 ---
-
-
 
 # 进程通信
 

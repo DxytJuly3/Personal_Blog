@@ -14,7 +14,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802921.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061526167.png)
+
+---
 
 上一篇文章我们分析了什么是线程互斥, 以及线程互斥的特点和使用.
 
@@ -23,6 +25,8 @@ featured: false
 这样不会因为多线程同时访问临界资源而造成错误. 
 
 虽然没有错误, 但是, 思考另外一个问题：**`这样合理吗？`**
+
+---
 
 # 只互斥的问题: 饥饿
 

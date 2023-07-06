@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251818539.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061520878.png)
 
 ---
 
@@ -22,6 +22,8 @@ Linux的相关介绍, 从本篇文章开始 就要进入网络部分了.
 之前关于Linux介绍的内容都是系统编程方面的. 不过介绍系统, 其实基本都是为介绍网络做铺垫.
 
 本篇文章先介绍一下有关网络要涉及的部分内容, 先了解一下网络. 
+
+---
 
 # Linux 网络概述
 

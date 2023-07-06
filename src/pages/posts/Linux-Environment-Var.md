@@ -13,11 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757454.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061521772.png)
 
 ---
-
-
 
 # 环境变量
 

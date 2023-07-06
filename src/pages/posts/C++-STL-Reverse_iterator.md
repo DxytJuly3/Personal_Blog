@@ -13,7 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814470.png)
+![wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061536904.png)
+
+---
 
 在 string 类介绍的时候，就已经开始接触迭代器了
 
@@ -24,8 +26,6 @@ featured: false
 那么反向迭代器该如何实现呢？它究竟是什么东西呢？
 
 ---
-
-
 
 # 什么是反向迭代器
 

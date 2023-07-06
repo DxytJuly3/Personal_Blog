@@ -13,9 +13,7 @@ theme: 'light'
 featured: false
 ---
 
----
-
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061533251.png)
 
 ---
 
@@ -953,4 +951,189 @@ public:
 此关键字的用法 与 `default` 相同. 功能相反
 
 ## 可变参数模板
+
+在C语言中, 经常使用的两个函数 具有可变参数: `printf()` 和 `scanf()`
+
+这两个函数的参数数量是可变的. 即可以根据需要传入不同数量的参数.
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307060942712.png)
+
+C++11之后, 不仅函数可以支持可变参数, 模板也可以支持可变参数了:
+
+```cpp
+template <class ...Args>
+void ShowList(Args... args) {}
+
+/*
+其中 Args是一个模板参数包，args是一个函数形参参数包
+声明可变一个参数包用 Args...args
+此参数包, 可以看作是一个按参数传入顺序将传入的参数存储起来的一个数据结构
+*/
+```
+
+C++11之前, 模板只能设置固定数量参数; C++11之后, 模板支持可变参数.
+
+但是, 函数拿到可变参数包之后, 并 **`不能直接通过实参 来获取 参数类型、内容`**.
+
+语法没有支持, 类似这样的获取参数包中 参数详情的使用方法:
+
+```cpp
+template <class ...Args>
+void ShowList(Args... args) {
+	args[0];
+    // 类似这样的方法, 以及范围for, 都无法使用. 
+}
+```
+
+但是可以通过其他方法 来获取参数类型或内容:
+
+1. 递归 展开参数包
+
+    ```cpp
+    // 递归终止函数
+    template <class T>
+    void ShowList(const T& t) {
+        cout << typeid(t).name() << ":";
+        cout << t << endl;
+    }
+    
+    // 展开函数
+    template <class T, class ...Args>
+    void ShowList(T value, Args... args) {
+        cout << typeid(value).name() << ":";
+        cout << value <<"    ";
+        ShowList(args...);
+    }
+    
+    int main() {
+        ShowList(1);
+        ShowList(1, 'A');
+        ShowList(1, 'A', std::string("sort"));
+    
+        return 0;
+    }
+    ```
+
+    我们可以通过在模板可变参数之前, 添加一个普通模板参数. 那么 传入模板的 **第一个参数** 就是 **可直接使用** 的.
+
+    我们只需要在此函数内, 递归调用此函数. 那么 就可以不断 **获得参数包内的第一个参数**. 
+
+    直到递归到最后, 参数包内只剩一个参数时, 开始返回.
+
+    > 这里递归结束的函数是 针对`ShowList()`实现了一个只有一个参数时的特化
+
+    这段代码执行结果是:
+
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061006102.png)
+
+2. 列表初始化 展开参数包
+
+    ```cpp
+    template <class T>
+    void PrintArg(T t) {
+        cout << typeid(t).name() << ":";
+        cout << t << "    ";
+    }
+    
+    //展开函数
+    template <class ...Args>
+    void ShowList(Args... args) {
+        int arr[] = { (PrintArg(args), 0)... };
+        cout << endl;
+    }
+    
+    int main() {
+        ShowList(1);
+        ShowList(1, 'A');
+        ShowList(1, 'A', std::string("sort"));
+        
+        return 0;
+    }
+    ```
+
+    在这种方法中, 我们使用逗号表达式保证 `(PrintArg(args), 0)` 的值为 0.
+
+    然后还使用了列表初始化 来初始化一个变长数组.
+
+    `int arr[] = { (PrintArg(args), 0)... }` 
+
+    会被展开为 
+
+    `int arr[] = { (PrintArg(arg1), 0), (PrintArg(arg2), 0), (PrintArg(arg3), 0)... }`
+
+    当然, 这里的逗号表达式不是必须的, 只需要将 `PrintArgs()` 设置一个整型返回值, 就可以不用逗号表达式.
+
+    ```cpp
+    template <class T>
+    int PrintArg(T t) {
+        cout << typeid(t).name() << ":";
+        cout << t << "    ";
+        
+        return 0;
+    }
+    
+    //展开函数
+    template <class ...Args>
+    void ShowList(Args... args) {
+        int arr[] = { PrintArg(args)... };
+        cout << endl;
+    }
+    ```
+
+    这种方法的执行结果为:
+
+    ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061057057.png)
+
+## `emplace_back()`
+
+`emplace_back()` 是C++11之后, 添加到STL容器中的一个 使用可变参数的元素插入接口.
+
+我们都知道, STL容器都是模板类, 所以 `emplace_back()` 其实使用的就是模板可变参数.
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061101052.png)
+
+这个接口的使用也很简单:
+
+```cpp
+int main() {
+    std::vector<pair<int, std::string>> arr;
+    arr.emplace_back(11, "十一");
+    arr.emplace_back(20, "二十");
+    arr.emplace_back(make_pair(30, "三十"));
+    arr.push_back(make_pair(40, "四十"));
+    arr.push_back({ 50, "五十" });
+    
+    for (auto e : arr) {
+		cout << e.first << ":" << e.second << endl;
+    }
+    
+    return 0;
+}
+```
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061109378.png)
+
+从结果来看好像没有区别. 从用法来看, 好像也没有什么太大的改变, 无非就是支持了 直接使用 构建 `pair` 的参数来插入.
+
+但是, 实际的执行上是有一些细小的差别的.
+
+1. `arr.emplace_back(11, "十一");` 和 `arr.emplace_back(20, "二十");`
+
+    `emplace_back()` 会根据传入的两个参数, 直接调用 `pair` 的构造函数 构造一个 `pair`, 然后存储在 `arr` 末尾
+
+2. `arr.emplace_back(make_pair(30, "三十"));`
+
+    先执行 `make_pair()` 创建了一个临时的 `pair` 对象. 然后通过 `emplace_back` 在 `arr` 末尾创建了这个对象的副本. 它调用了两次 `pair` 构造函数: 一次在 `make_pair`, 一次在 `emplace_back`.
+
+3. `arr.push_back(make_pair(40, "四十"));`
+
+    先执行 `make_pair()` 创建了一个临时的 `pair` 对象. 然后通过 `push_back` 将创建这个对象的副本, 并将这个对象的副本插入到 `arr` 的末尾. 它也调用了两次 `pair` 构造函数：一次在 `make_pair`, 一次在 `push_back`
+
+4. `arr.push_back({ 50, "五十" });`
+
+    首先通过 `列表初始化` 创建了一个临时的 `pair` 对象. 然后通过 `push_back` 将创建这个对象的副本, 并将这个对象的副本插入到 `arr` 的末尾. 它也调用了两次 `pair` 构造函数：一次在 `列表初始化`, 一次在 `push_back`
+
+总的来说, 就是当容器的元素类型是自定义类型时. 可以直接使用 `emplace_back()` 传入数据. `emplace_back()` 会通过传入的数据 **`直接构造元素并插入容器的末尾`**, 不会再拷贝或者移动元素.
+
+
 

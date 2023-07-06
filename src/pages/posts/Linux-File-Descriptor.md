@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757935.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061521281.png)
 
 ---
 
@@ -24,8 +24,6 @@ featured: false
 但是在介绍文件描述符之前, Linux关于文件还存在许多 概念和文件操作 的知识需要介绍一下, 就当作是为解释文件描述符所做的准备吧
 
 ---
-
-
 
 # 文件的相关概念
 

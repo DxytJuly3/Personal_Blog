@@ -13,7 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801269.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061525347.png)
+
+---
 
 System V 是一种操作系统进程间通信的标准. 
 
@@ -26,8 +28,6 @@ System V 给进程间通信指定的标准有三种：
 本篇文章主要分析介绍 共享内存
 
 ---
-
-
 
 # 共享内存
 

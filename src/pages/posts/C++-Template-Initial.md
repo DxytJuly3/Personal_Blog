@@ -13,11 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810662.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061532070.png)
 
 ---
-
-
 
 # 泛型编程
 

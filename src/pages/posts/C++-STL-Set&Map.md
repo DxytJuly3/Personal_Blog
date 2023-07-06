@@ -13,7 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251815314.png)
+![wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061538219.png)
+
+---
 
 `set` 和 `map` 是C++ - STL 中非常重要的两个容器，上一篇文章介绍了 二叉搜索树。 
 
@@ -22,8 +24,6 @@ featured: false
 本篇文章先来介绍一下 `set` 和 `map` 简单的介绍，以及相关接口的使用 
 
 ---
-
-
 
 # 关于set
 

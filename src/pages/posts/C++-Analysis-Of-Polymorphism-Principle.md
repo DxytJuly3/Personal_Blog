@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251807185.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061529171.png)
 
 上一篇文章 详细介绍了什么是多态 和 多态的使用等方面的问题。但是却留下了一个最大的疑问
 
@@ -22,8 +22,6 @@ featured: false
 本篇文章的内容 就是分析多态实现原理的
 
 ---
-
-
 
 # 多态实现原理
 

@@ -13,11 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251759330.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061524996.png)
 
 ---
-
-
 
 # 进程相关概念
 

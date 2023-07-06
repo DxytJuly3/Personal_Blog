@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251756107.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061519591.png)
 
 ---
 
@@ -24,8 +24,6 @@ featured: false
 动态链接：不会在编译链接时将动态库文件的代码加入到可执行文件中, 而是在可执行文件运行时, 去查找所需动态库, 并将其加载到相应的进程中.  并且不同进程可以共享这些动态库. 动态库文件一般以 `.so` 结尾
 
 ---
-
-
 
 # 动静态库
 

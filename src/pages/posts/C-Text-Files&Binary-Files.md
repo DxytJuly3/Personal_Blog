@@ -14,11 +14,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251813684.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061535846.png)
 
 ---
-
-
 
 # 文本文件、二进制文件及其存储
 

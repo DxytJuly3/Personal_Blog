@@ -13,15 +13,15 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758696.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061522855.png)
+
+---
 
 上一篇文章介绍了线程的基本概念
 
 而本篇文章我们来深入理解一下, CPU再调度我们以往理解的进程和如今的线程都会涉及到的一个内容: **`页表`**
 
 ---
-
-
 
 # 深入理解页表 *
 

@@ -13,11 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251809044.png)
+![wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061531981.png)
 
 ---
-
-
 
 # 引言
 

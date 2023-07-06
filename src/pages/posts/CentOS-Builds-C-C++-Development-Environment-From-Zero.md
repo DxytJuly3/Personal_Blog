@@ -14,8 +14,9 @@ featured: false
 ---
 
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251817103.png)
+![wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061540313.png)
 
+---
 
 前几天, 在云服务器里删了一些东西, 导致丢失了一些文件和软件的相关配置.
 
@@ -28,8 +29,6 @@ featured: false
 > 博主提供的有安装软件相关版本的资源包, 所以可以使用`Xftp`向系统中传输文件
 
 ---
-
-
 
 # 准备工作
 

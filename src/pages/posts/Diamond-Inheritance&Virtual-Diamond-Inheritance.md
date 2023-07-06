@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251808894.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061530156.png)
 
 上一篇文章差不多就是C++继承基础用法的所有内容了
 
@@ -22,8 +22,6 @@ featured: false
 本篇文章的内容就是 分析一下 C++继承中的特别需要注意的地方：**菱形继承**
 
 ---
-
-
 
 # 单继承 与 多继承
 

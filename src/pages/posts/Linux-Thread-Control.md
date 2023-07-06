@@ -14,13 +14,17 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801575.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061526335.png)
+
+---
 
 Linux系统中, 线程是轻量级的进程. 我们已经介绍过了线程的相关概念, 见过了线程再Linux操作系统中的存在形式.
 
 我们知道, 进程有自己相关控制接口, 等待、创建等
 
 而线程作为轻量级的进程, 其实也是有控制接口的.
+
+---
 
 # 线程控制
 

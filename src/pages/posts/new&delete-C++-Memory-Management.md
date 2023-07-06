@@ -13,11 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251805245.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061528644.png)
 
 ---
-
-
 
 # 一、C/C++ 内存分布
 

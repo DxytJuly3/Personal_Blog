@@ -14,13 +14,17 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802036.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061526170.png)
+
+---
 
 多线程可以提高程序的并发性和运行效率，充分利用计算机的多核资源. 前面的几篇文章已经介绍了, Linux线程的基本概念、基本控制等内容.
 
 我们已经看到了多线程可以提升运行效率等. 但是, 也发现了问题, 多线程可能会导致输出混乱、访问共享资源混乱、竞争等问题.
 
 输出混乱只是小问题, 而像访问资源混乱、错误的问题 就比较大了.
+
+---
 
 # 线程互斥
 

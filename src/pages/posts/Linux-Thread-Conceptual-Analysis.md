@@ -14,7 +14,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251801032.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061525124.png)
+
+---
 
 我们已经了解了Linux操作系统进程部分相关知识：
 
@@ -35,8 +37,6 @@ featured: false
 本篇文章的主要内容是：Linux操作系统中, 有关多线程的相关介绍.
 
 ---
-
-
 
 # Linux线程概念
 

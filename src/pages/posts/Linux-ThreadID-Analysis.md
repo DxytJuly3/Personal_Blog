@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251802112.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061527352.png)
 
 ---
 
@@ -22,6 +22,8 @@ featured: false
 虽然已经介绍了很多了, 但是 一直都没有详细的介绍一个重要的东西：`线程ID`
 
 那么, 本篇文章 就来着重介绍一下, **`如何理解线程ID`**
+
+---
 
 # Linux线程ID
 

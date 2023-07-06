@@ -13,11 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811474.png)
+![wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061534586.png)
 
 ---
-
-
 
 # 字符串函数
 

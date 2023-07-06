@@ -13,11 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810988.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061532237.png)
 
 ---
-
-
 
 # 什么是 string
 

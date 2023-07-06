@@ -13,7 +13,7 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251755489.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061411864.png)
 
 ---
 
@@ -24,8 +24,6 @@ Linux的文件操作, 都是从内存文件进行操作, 即都是对打开的�
 本篇文章的主要内容就是介绍Linux的文件系统是怎么管理磁盘文件的.
 
 ---
-
-
 
 # 磁盘相关信息
 

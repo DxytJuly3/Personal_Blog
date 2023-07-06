@@ -13,7 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251810793.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061532890.png)
+
+---
 
 本篇文章是 C++ 模板的第二篇文章，第一篇文章简单介绍了模板的函数模板、类模板的相关定义及调用等
 
@@ -22,8 +24,6 @@ featured: false
 但是模板还有一些问题没有解决，本篇文章就是对模板 提出问题和解决问题的
 
 ---
-
-
 
 # 非类型模板参数
 

@@ -13,11 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251814025.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061537983.png)
 
 ---
-
-
 
 # string类 模拟实现
 
@@ -382,7 +380,7 @@ string类中有两个非常重要的接口函数, 就是：reserve 和 resize
 > ```cpp
 > void push_back(char ch) {
 >    	if (_size == _capacity) {
->    		reverse(_capacity == 0 ? 4 : _capacity*2);				// 两倍扩容
+>    		reserve(_capacity == 0 ? 4 : _capacity*2);				// 两倍扩容
 >    	}
 >     
 >     	_str[_size] = ch;							// 在 size位置插入新字符
@@ -901,7 +899,7 @@ public:
      // 尾插字符
 	void push_back(char ch) {
 		if (_size == _capacity) {
-			reverse(_capacity == 0 ? 4 : _capacity*2);				// 两倍扩容
+			reserve(_capacity == 0 ? 4 : _capacity*2);				// 两倍扩容
 		}
 	
 		_str[_size] = ch;							// 在 size位置插入新字符

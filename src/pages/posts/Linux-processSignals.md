@@ -13,11 +13,9 @@ theme: 'light'
 featured: true
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251800986.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061524729.png)
 
 ---
-
-
 
 # 进程信号
 

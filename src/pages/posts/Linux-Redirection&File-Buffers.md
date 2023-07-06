@@ -13,15 +13,13 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251800381.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061525104.png)
 
 Linux中, 使用系统接口打开文件时, 系统会为打开的文件在此进程中分配fd, 而且是按照数组下标的顺序进行分配的
 
 那么如果在打开新的文件之前, 有文件关闭了呢？再打开新的文件, 此文件的fd会分配什么呢？
 
 ---
-
-
 
 # 文件描述符的分配规则
 

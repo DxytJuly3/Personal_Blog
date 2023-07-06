@@ -14,11 +14,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251816728.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061539246.png)
 
 ---
-
-
 
 # 红黑树
 

@@ -13,11 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251757712.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061522100.png)
 
 ---
-
-
 
 # 简易Shell实现
 

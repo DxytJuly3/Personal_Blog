@@ -13,11 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251758851.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061523032.png)
 
 ---
-
-
 
 # Linux 权限的概念
 

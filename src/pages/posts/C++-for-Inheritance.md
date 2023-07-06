@@ -13,7 +13,9 @@ theme: 'light'
 featured: false
 ---
 
-![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251808460.png)
+![|wide](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061530788.png)
+
+---
 
 在首次接触，类与对象的时候就已经介绍过
 
