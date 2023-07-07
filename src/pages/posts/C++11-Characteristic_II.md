@@ -1,12 +1,12 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] C++11新特性分析介绍(2)'
+title: '[C++] C++11新特性介绍 分析(2): lambda表达式、function包装器、bind()接口'
 pubDate: 2023-07-06
-description: ''
+description: '本篇文章继续介绍 分析C++11常用的新特性, 本篇介绍的内容有: lambda表达式、function包装器等'
 author: '七月.cc'
 cover:
-    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.png'
-    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202306251811775.png'
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061930908.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061930908.png'
     alt: 'cover'
 tags: ["C++", "C++11", "语法"]
 theme: 'light'
@@ -123,6 +123,8 @@ int main() {
 但是, 如果每次想要对不同自定义类型实现按需求排序, 那就 每次都需要定义一个满足需求的仿函数. 这样好像太麻烦了. 
 
 所以, C++11 引入了 `lambda` 表达式
+
+### `lambda` 表达式
 
 什么是 `lambda` 表达式呢?
 
@@ -388,6 +390,8 @@ auto lamSwap1 = [a, b]()mutable{
 
 ---
 
+### `lambda` 表达式底层
+
 关于 `lambda` 表达式 还有一个非常重要的内容是 关于它的类型. 
 
 我们可以通过 `auto` 接收一个 `lambda` 表达式. 但是他究竟是什么呢?
@@ -443,12 +447,379 @@ int main() {
 
 ![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307062341565.png)
 
-## 包装器
+## 包装器 `function`
 
 C++11 增添了 `lambda` 表达式之后. 
 
 C++中 可调用类型的对象就变成了三种: `函数指针`, `仿函数`, `lambda`
 
-可以通过这三种对象 调用函数.
+可以通过这三种对象 调用函数. 
 
-似乎有点太多了. 
+三种不同类型的可调用对象, 用法又非常的相似. 如果, 恰好模板有需求, 需要在不同场景 使用这三种不同类型的可调用对象, 怎么才能实现呢?
+
+大概就像这样实现:
+
+```cpp
+template<class F, class T>
+T useF(F f, T x) {
+	static int count = 0; 		// static 用来记录实例化出的同一个函数被执行多少次
+	cout << "count:" << ++count << endl;
+	cout << "count:" << &count << endl;
+
+	return f(x);
+}
+
+double f(double i) {
+	return i / 2;
+}
+
+struct Functor {
+	double operator()(double d) {
+		return d / 3;
+	}
+};
+
+int main() {
+	// 函数名
+	cout << useF(f, 11.11) << endl;
+
+	// 函数对象
+	cout << useF(Functor(), 11.11) << endl;
+
+	// lamber表达式
+	cout << useF([](double d)->double{ return d / 4; }, 11.11) << endl;
+
+	return 0;
+}
+```
+
+`useF()` 模板中, 第一个模板参数是用来接收 可调用对象类型的.
+
+当分别传入 `函数名`、`函数对象`、`lambda` 之后, 此模板会被实例化三个不同的函数:
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307070917180.png)
+
+可以发现, 在 `useF()` 内定义的 `static` 每次执行都是1, 且不同的地址.
+
+这就说明 三次执行实例化了三个不同的 `useF()` 函数.
+
+三种不同类型 传给模板, 实例化三个不同的函数, 非常的正常.
+
+但是 这三种可调用对象的使用方式几乎一样, 通过一个模板 却需要 实例化三个不同的函数, 好像又有一点浪费. 
+
+所以, C++11 引入了 **`包装器`**
+
+### `function` 包装普通可调用对象
+
+**`function包装器`** 也叫作 `适配器`.
+
+C++11 之后, 设计了一个 `std::function类模板`, 也是一个包装器.
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307070954947.png)
+
+`function` 类模板:
+
+1. 第一个模板参数 `Ret` 需要传入可调用对象的返回值类型
+
+2. 后面则是 `模板可变参数包`, 需要传入 可调用对象的参数类型列表
+
+3. 不过, `function` 类模板传参 不需要向其他类模板一样, 将参数用逗号隔开
+
+    可以直接 这样传参 `function< retType(paraType1, paraType2, paraType3, ...)>`
+
+可以使用 `std::function` 类模板 将 不同类型的可调用对象, 包装成一个类型 即 `function` 类型
+
+> 使用时, 需要使用 `#include <functional>` 包含 `functional` 头文件
+
+```cpp
+#include <functional>
+
+double f(double i) {
+	return i / 2;
+}
+
+struct Functor {
+	double operator()(double d) {
+		return d / 3;
+	}
+};
+
+int main() {
+    // 函数名
+	std::function<double(double)> func1 = f;
+    cout << "未使用包装器 f 类型" << typeid(f).name() << endl;
+    cout << "包装器后 类型" << typeid(func1).name() << endl << endl;
+
+    // 函数对象
+    std::function<double(double)> func2 = Functor();
+    cout << "未使用包装器 Functor() 类型" << typeid(Functor()).name() << endl;
+    cout << "包装器后 类型" << typeid(func2).name() << endl << endl;
+
+    // lamber表达式
+    std::function<double(double)> func3 = [](double d)->double{ return d / 4; };
+    auto lam1 = [](double d)->double{ return d / 4; };
+    cout << "未使用包装器 lambda 类型" << typeid(lam1).name() << endl;
+    cout << "包装器后 类型" << typeid(func3).name() << endl;
+
+	return 0;
+}
+```
+
+这段代码的执行结果:
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307070949158.png)
+
+不用在意未使用包装器时, 究竟是什么类型. 只需要看到 使用包装器之后, 三种可调用对象的类型被统一了.
+
+其实就是使用 不同的可调用对象 实例化了 `function` 对象. 都是同一个类模板, 肯定是相同的类型.
+
+并且, 我们还可以通过 `function` 对象来执行 可调用对象的功能:
+
+```cpp
+#include <functional>
+
+double f(double i) {
+	return i / 2;
+}
+
+struct Functor {
+	double operator()(double d) {
+		return d / 3;
+	}
+};
+
+int main() {
+    // 函数名(函数指针)
+    std::function<double(double)> func1 = f;
+    cout << func1(1) << endl;
+
+    // 函数对象
+    std::function<double(double)> func2 = Functor();
+    cout << func2(4) << endl;
+
+    // lamber表达式
+    std::function<int(int, int)> func3 = [](const int a, const int b){ return a + b; };
+    cout << func3(1, 2) << endl;
+
+    return 0;
+}
+```
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071005136.png)
+
+在对不同类型的 可调用对象包装之后, 可以将 `function` 对象, 传入给其他模板共其使用:
+
+```cpp
+#include <iostream>
+#include <functional>
+
+using std::cout;
+using std::endl;
+
+template<class F, class T>
+T useF(F f, T x) {
+	static int count = 0; 		// static 用来记录实例化出的同一个函数被执行多少次
+	cout << "count:" << ++count << endl;
+	cout << "count:" << &count << endl;
+
+	return f(x);
+}
+
+double f(double i) {
+	return i / 2;
+}
+
+struct Functor {
+	double operator()(double d) {
+		return d / 3;
+	}
+};
+
+int main() {
+    // 函数名
+    std::function<double(double)> func1 = f;
+    cout << useF(func1, 11.11) << endl << endl;
+    
+    // 函数对象
+    std::function<double(double)> func2 = Functor();
+    cout << useF(func2, 11.11) << endl << endl;
+    
+    // lamber表达式
+    std::function<double(double)> func3 = [](double d)->double{ return d / 4; };
+    cout << useF(func3, 11.11) << endl;
+}
+```
+
+这段代码的执行结果:
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071009882.png)
+
+可以看出, 此时 `useF` 函数模板 只实例化出了一个函数. 因为, 同一个 `count` 被 `++`、输出了 3 次
+
+### `function` 包装类内成员函数
+
+`function` 包装器, 除了可以包装这三种基础的可调用对象之外. 还可以包装 **类内的成员函数**:
+
+```cpp
+class Plus{
+public:
+    static int plusi(int a, int b) {
+		return a + b;
+	}
+
+    double plusd(double a, double b) {
+        return a + b;
+    }
+};
+
+int main() {
+    // 包装静态成员变量
+    std::function<int(int, int)> func1 = Plus::plusi;
+    cout << func1(1, 2) << endl;
+    
+    // 包赚非静态成员变量
+    std::function<double(Plus, double, double)> func2 = &Plus::plusd;
+    cout << func2(Plus(), 3.3, 4.4) << endl;
+    
+    return 0;
+}
+```
+
+这段代码的执行结果是:
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071044939.png)
+
+是可以正常执行相应的函数的.
+
+不过, 通过观察代码 就可以发现, **`包装静态成员函数 和 包装非静态成员函数 的方式是 存在不同的`**
+
+`静态成员函数`, 因为 **不存在隐含的`this`指针**, 本身就可以直接通过类名调用, 比如 `Plus::plusi(1, 2)`. 所以在 实例化 `function` 对象 进行包装时, 不用在参数中 传入一个 `Plus` 对象. 并且, **不需要取地址包装**.
+
+而 `非静态成员函数`, 由于是类内函数且非静态 **第一个参数是隐含的`this`指针**, 所以需要 **通过对象调用**. 所以 在进行包装时, **第一个参数是需要指定类的**, 并且在使用时, 需要传入一个对象, 例子中使用了 `Plus()` 来传递匿名对象. 并且, **需要取地址包装**.
+
+## `bind()`
+
+什么是 `bind()` ?
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071059024.png)
+
+C++中, `bind()` 是一个函数模板，它可以 **接受一个可调用对象, 生成一个新的可调用对象来“适应”原对象的参数列表**
+
+什么意思呢?
+
+直接看一个使用例子:
+
+```cpp
+#include <functional>
+
+int Sub1(int a, int b) {
+    return a - b;
+}
+
+int main() {
+    std::function<int(int, int)> func1 = std::bind(Sub1, std::placeholders::_1, std::placeholders::_2);
+    cout << func1(4, 8) << endl;
+    
+    std::function<int(int, int)> func2 = std::bind(Sub1, std::placeholders::_2, std::placeholders::_1);
+    cout << func2(4, 8) << endl;
+    
+    return 0;
+}
+```
+
+这段代码的执行结果:
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071110387.png)
+
+我们通过 `std::bind()` 绑定了 `Sub1()` 函数, 并将其包装.
+
+不过, `std::bind()` 的参数传递, 有一些差别. 导致 包装之后的 函数的执行结果不同. 
+
+### `bind()` 使用 及 功能
+
+那么, `bind()` 的功能究竟是什么呢?
+
+#### 1. 调整参数位置
+
+相信大多数人看不懂上面的例子的原因是因为 `std::placeholders::_1` 和 `std::placeholders::_2`. 第一个参数容易理解, 就是需要 `bind()` 的可调用对象.
+
+那么 `std::placeholders::_n` 是什么意思呢?
+
+解释之前, 先来看一张图, 看完图或许可以直接理解:
+
+![|big](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071130847.png)
+
+看了还是不理解. 那就要 再介绍一下 `bind()` 的作用了.
+
+**接受一个可调用对象, 生成一个新的可调用对象来“适应”原对象的参数列表**
+
+`bind()` 的第一个参数, 就是接受的可调用对象. 而 后面的 `std::placeholders::_n` 其实表示的是 **可调用对象对应的参数**
+
+`std::placeholders::_1`, 表示 可调用对象的第一个参数
+
+`std::placeholders::_2`, 表示 可调用对象的第二个参数
+
+`std::placeholders::_3`, 表示 可调用对象的第三个参数, 以此类推.
+
+那么在上述例子中:
+
+1. `std::bind(Sub1, std::placeholders::_1, std::placeholders::_2)`
+
+    `_1` 表示`Sub1()`的第一个参数, `_2` 表示`Sub1()`的第一个参数
+
+    那么, `bind()` 执行之后, 获得的函数就是 `Sub1(int a, int b)`, **函数体不变**.
+
+2. `std::bind(Sub1, std::placeholders::_2, std::placeholders::_1)`
+
+    同样的, `_1` 表示`Sub1()`的第一个参数, `_2` 表示`Sub1()`的第一个参数
+
+    那么, 此次 `bind()` 执行之后, 获得的函数就是 `Sub1(int b, int a)`, **函数体不变**.
+
+`Sub1()` 的函数体是 `reutn b - a;`
+
+当我们执行 `func1(4, 8)`, `func1() <==> Sub1(int a, int b)`, 所以 结果是 `8 - 4 = 4`
+
+当我们执行 `func2(4, 8)`, `func2() <==> Sub2(int b, int a)`, 所以 结果是 `4 - 8 = -4`
+
+**所以, `std::placeholders::_n` 强绑定了 所接受的可调用对象的参数的位置. `bind()` 后面的参数, 表示了 `bind()` 执行之后的可调用对象的参数位置**
+
+#### 2. 绑定参数
+
+类的非静态成员函数, 因为第一个参数默认为`this`指针 且无法更改. 所以 在包装时, 需要将包装的函数的第一个参数类型 指明为类. 且在使用时需要传入一个对象. 
+
+而 `bind()` 的作用是 **接受一个可调用对象, 生成一个新的可调用对象来“适应”原对象的参数列表**
+
+所以, 我们还可以使用 `bind()`, 将 类的对象 绑定在类的成员函数上, 以便之后使用时 不在手动传入对象:
+
+```cpp
+#include <functional>
+
+class Sub {
+public:
+    int sub(int a, int b) {
+        return a - b;
+    }
+};
+
+int main() {
+    Sub s;
+    // 绑定成员函数
+    std::function<int(int, int)> func = std::bind(&Sub::sub, s, placeholders::_1, placeholders::_2);
+	cout << func(3, 4) << endl;
+    
+    return 0;
+}
+```
+
+这段代码的执行结果:
+
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071156432.png)
+
+`std::bind(&Sub::sub, s, placeholders::_1, placeholders::_2)` 通过 在 `this` 指针的位置 直接传入一个对应类对象. 
+
+**包装时 就不用在相应位置指定类, 包装之后, 使用包装完成的对象执行可调用对象, 也不用再显式传入一个类对象.**
+
+这 才是 `bind()` 真正常用的功能. 调整参数位置 相应的没有那么常用.
+
+而且, 通过此功能还可以了解到, **`std::placeholders::_n` 占位符 是不包括 `this` 指针的.**
+
