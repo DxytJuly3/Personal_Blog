@@ -1,12 +1,12 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] C++异常处理'
+title: '[C++] C++异常处理分析介绍: 异常概念、异常抛出与捕获匹配原则、重新抛出、异常安全、异常体系...'
 pubDate: 2023-07-07
-description: ''
+description: 'C语言程序发生错误, 很可能会直接导致程序退出. 而C++引进了 异常的概念, 可以更灵活更快速的 排查处理错误...'
 author: '七月.cc'
 cover:
-    url: ''
-    square: ''
+    url: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071821830.png'
+    square: 'https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307071821830.png'
     alt: 'cover'
 tags: ["C++", "异常", "语法"]
 theme: 'light'
@@ -895,10 +895,10 @@ int main() {
 
 ```cpp
 void SeedMsg(const string& str) {
-    if (rand() % 3 == 0) {
+    if (rand() % 2 == 0) {
         throw HttpServerException("SeedMsg::网络错误", 105, "put");
     }
-    else if (rand() % 5 == 0) {
+    else if (rand() % 4 == 0) {
         throw HttpServerException("SeedMsg::你已经不是对方好友", 106, "post");
     }
     else {
@@ -957,5 +957,20 @@ int main() {
 }
 ```
 
-这里的
+执行结果:
 
+![inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307090007639.gif)
+
+这里的关键点就是, **异常的重新抛出**, 还有 **`SeedMsg()`之后的`break`**.
+
+由于需要特定的处理 `_id`为`105`的异常, 所以需要先就近`catch`一下, 然后判断异常代码, 进行处理.
+
+而, 由于只处理105异常, 其他异常就需要再次抛出, 让其他地方处理.
+
+然后, `SeedMsg()`之后的`break`. `SeedMsg()`正常返回, 就一定会顺着向下走, 也表示这发送成功, 就不需要继续`for`循环, 所以直接`break`. 如果抛异常, 则会跳过`break`, 然后异常被下面的`catch`子句捕获.
+
+---
+
+介绍到这里, C++关于异常的内容 就暂时介绍完了. 
+
+感谢阅读~
