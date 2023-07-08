@@ -118,7 +118,7 @@ int main() {
 
 上面代码的执行结果是:
 
-![|inlinecat](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061953432.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307061953432.png)
 
 但是, 如果每次想要对不同自定义类型实现按需求排序, 那就 每次都需要定义一个满足需求的仿函数. 这样好像太麻烦了. 
 
@@ -322,7 +322,7 @@ int main() {
 
 `lamSwap2` 肯定可以, 不过 `lamSwap1` 可以吗?
 
-![inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307062256233.png)
+![|inline](https://dxyt-july-image.oss-cn-beijing.aliyuncs.com/202307062256233.png)
 
 很可惜, 这段代码编译无法通过, 并且 问题出在了 某个 `lambda` 表达式上.
 
