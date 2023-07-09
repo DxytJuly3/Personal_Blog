@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] 详解 System V: 共享内存原理、创建及使用'
+title: '[Linux] 详解 System V: 共享内存原理、创建及使用、结合管道添加访问限制...'
 pubDate: 2023-04-03
 description: 'System V 给进程间通信指定的标准有三种 1. System V 消息队列 2. System V 共享内存 3. System V 信号量 本篇文章主要分析介绍 共享内存'
 author: '七月.cc'

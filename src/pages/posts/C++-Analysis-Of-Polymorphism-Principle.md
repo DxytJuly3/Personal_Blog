@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] 多态原理的分析'
+title: '[C++] 多态原理的分析: 虚函数表、多态原理、多继承、菱形继承、菱形虚拟继承介绍...'
 pubDate: 2022-07-30
 description: '编译器是怎么实现多态调用的？'
 author: '七月.cc'

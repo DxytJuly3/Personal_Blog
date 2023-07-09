@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] 类和对象(二)'
+title: '[C++] 类和对象(2): 默认成员函数介绍分析、构造函数、析构函数、拷贝构造...'
 pubDate: 2022-06-20
 description: '任何一个类，即使一个成员都不写，其实也会自动生成6个默认成员函数'
 author: '七月.cc'

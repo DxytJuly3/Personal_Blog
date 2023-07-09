@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] 网络及其原理简单概述'
+title: '[Linux] 网络及其原理简单概述: 协议、协议分层、网络协议栈、局域网内部通信原理、不同局域网通信原理 简单介绍...'
 pubDate: 2023-04-23
 description: '本篇文章首次接触网络, 将简单介绍一下网络的概念以及网络通信原理的简单理解'
 author: '七月.cc'

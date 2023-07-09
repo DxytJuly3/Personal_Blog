@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] 页表深入分析'
+title: '[Linux] 页表深入分析: 理解页表、了解页表组成...'
 pubDate: 2023-04-14
 description: '简单的说, 页表是进程地址空间和物理内存之间的相互映射'
 author: '七月.cc'

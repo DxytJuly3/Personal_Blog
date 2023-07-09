@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] 多态的使用分析'
+title: '[C++] 多态的使用分析: 多态使用相关问题、协变、析构函数的多态、final与override关键词、抽象类分析...'
 pubDate: 2022-07-26
 description: 'C++继承里面有一些坑是为C++的多态服务的。比如，继承类的析构函数构成隐藏，为什么？有什么意义？等'
 author: '七月.cc'

@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] 多线程控制分析：如何获取线程ID？如何自动回收线程？'
+title: '[Linux] 多线程控制分析：获取线程ID、线程退出分析、自动回收线程、线程分离...'
 pubDate: 2023-04-14
 description: '我们知道, 进程有自己相关控制接口, 等待、创建等
 而线程作为轻量级的进程, 其实也是有控制接口的.'

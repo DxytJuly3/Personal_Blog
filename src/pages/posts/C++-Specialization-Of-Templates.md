@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] 模板的特化相关介绍'
+title: '[C++] 模板的特化相关介绍: 非类型模板参数、模板的全特化、偏特化分析、迭代器萃取分析...'
 pubDate: 2022-07-18
 description: '之前关于模板 还有一些问题没有解决，本篇文章就是对模板 提出问题和解决问题的'
 author: '七月.cc'

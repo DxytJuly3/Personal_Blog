@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] 一篇文章, 掌握Linux进程信号'
+title: '[Linux] 一篇文章, 掌握Linux进程信号: 信号的产生、深入理解信号的处理与捕捉、信号在内核中的表示、进程的内核态与用户态转换分析、volatile关键字...'
 pubDate: 2023-04-08
 description: '进程信号, 在Linux系统的学习中, 是一个非常重要的概念. 我们可以通过向进程发送信号来让进程执行某些指定的动作.'
 author: '七月.cc'

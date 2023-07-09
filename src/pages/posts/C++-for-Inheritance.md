@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] 继承分析'
+title: '[C++] C++继承详细分析'
 pubDate: 2022-07-21
 description: 'C++ 是一种面向对象的编程语言，而面向对象有三大特性：封装、继承、多态(三大特性 而不是 只有三个特性). 本篇文章的主要内容是 C++继承'
 author: '七月.cc'

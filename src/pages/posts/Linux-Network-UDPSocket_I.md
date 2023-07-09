@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[Linux] 网络编程 - 初见UDP套接字编程'
+title: '[Linux] 网络编程 - 初见UDP套接字编程: 网络编程部分相关概念、TCP、UDP协议基本特点、网络字节序、socket接口使用、简单的UDP网络及聊天室实现...'
 pubDate: 2023-06-25
 description: '本篇文章正式开始Linux中的网络编程. 本文介绍了, 网络编程的一些概念, 以及简单的UDP套接字编程. 
 实现了最简单的UDP公共聊天室'

@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] 超详细分析 C++内存分布、管理(new - delete) ~ C 和 C++ 内存管理关系 ~ 内存泄漏 ~'
+title: '[C++] 超详细分析 C++内存分布、管理(new - delete)、C 和 C++ 内存管理关系、内存泄漏'
 pubDate: 2022-06-29
 description: '在介绍详细 C++ 内存管理的方法之前，先简单做个铺垫，先介绍一下：C/C++程序 内存区域的划分'
 author: '七月.cc'

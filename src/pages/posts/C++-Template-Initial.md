@@ -1,6 +1,6 @@
 ---
 layout: '../../layouts/MarkdownPost.astro'
-title: '[C++] 初接触-泛型编程, C++模板分析'
+title: '[C++] 初接触-泛型编程 - C++模板分析: 函数模板结构、原理分析、类模板分析...'
 pubDate: 2022-06-30
 description: 'C++中的的模板，分为两部分：1. 函数模板 2. 类模板 本篇文章就从函数模板开始讲起'
 author: '七月.cc'
